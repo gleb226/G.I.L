@@ -133,7 +133,10 @@ async def start_web_server():
 async def main():
     loop = asyncio.get_running_loop()
     logger = configure_logging(loop)
-    await cleanup_runtime_diagnostics()
+    try:
+        await cleanup_runtime_diagnostics()
+    except Exception:
+        pass
     bot = None
     try:
         logger.info("Application startup initiated")
@@ -171,6 +174,5 @@ if __name__ == "__main__":
     except KeyboardInterrupt:
         pass
     except Exception as e:
-        import traceback
-        asyncio.run(log_error(str(e), traceback.format_exc()))
+        print(f"Startup error: {e}")
         sys.exit(1)

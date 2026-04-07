@@ -6,3 +6,4 @@ aiohttp
 googlemaps
 Pillow
 deep-translator
+certifi

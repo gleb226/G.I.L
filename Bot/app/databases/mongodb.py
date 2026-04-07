@@ -1,11 +1,16 @@
 import json
 import os
+import certifi
 from motor.motor_asyncio import AsyncIOMotorClient
 from app.common.token import MONGODB_URI, BOSS_IDS
 from bson import ObjectId
 import datetime
 
-client = AsyncIOMotorClient(MONGODB_URI, serverSelectionTimeoutMS=5000)
+client = AsyncIOMotorClient(
+    MONGODB_URI,
+    serverSelectionTimeoutMS=5000,
+    tlsCAFile=certifi.where(),
+)
 db = client.get_database("gil_apartments")
 users_col = db.users
 apartments_col = db.apartments
