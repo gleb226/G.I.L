@@ -70,6 +70,39 @@ def format_area_value(area, lang="uk"):
         return f"{value} м²" if lang == "uk" else f"{value} m²"
     return value
 
+def build_guest_summary(guest: dict | None, phone: str | None, lang: str) -> str:
+    guest_name = html.escape((guest or {}).get("name") or ("Гість" if lang == "uk" else "Guest"))
+    guest_username = ((guest or {}).get("username") or "").strip().replace("@", "")
+    guest_phone = html.escape(phone or (guest or {}).get("phone") or "-")
+    username_line = f"\nUsername: @{html.escape(guest_username)}" if guest_username else ""
+    if lang == "uk":
+        return f"Гість: {guest_name}{username_line}\nТелефон: {guest_phone}"
+    return f"Guest: {guest_name}{username_line}\nPhone: {guest_phone}"
+
+async def build_booking_summary_text(booking: dict, lang: str) -> str:
+    apartment = await get_apartment(booking["ap_id"])
+    guest = await get_user(booking.get("user_id"))
+    apartment_name = apartment["title"].get(lang, apartment["title"].get("uk", "Ap")) if apartment else "Unknown"
+    paid_amount = booking.get("paid_prepayment", 0) + booking.get("paid_remaining", 0)
+    guest_summary = build_guest_summary(guest, booking.get("phone"), lang)
+    if lang == "uk":
+        return (
+            f"Бронювання\n"
+            f"Об'єкт: {apartment_name}\n"
+            f"Дати: {booking['start_date']} — {booking['end_date']}\n"
+            f"Всього: {booking['total_price']} грн\n"
+            f"Оплачено: {paid_amount} грн\n"
+            f"{guest_summary}"
+        )
+    return (
+        f"Booking\n"
+        f"Object: {apartment_name}\n"
+        f"Dates: {booking['start_date']} ? {booking['end_date']}\n"
+        f"Total: {booking['total_price']} UAH\n"
+        f"Paid: {paid_amount} UAH\n"
+        f"{guest_summary}"
+    )
+
 async def resolve_coords(address):
     value = (address or "").strip()
     match = re.search(r'([-+]?\d*\.\d+|\d+),\s*([-+]?\d*\.\d+|\d+)', value)
@@ -157,15 +190,15 @@ async def admin_h(message: Message, state: FSMContext):
 @router.message(F.text.in_(get_all_translations('btn_active_bookings')), StateFilter("*"))
 async def active_bookings_h(message: Message, state: FSMContext):
     u = await get_user(message.from_user.id)
-    if not u or u.get('role') not in ['admin', 'boss']: return
+    if not u or u.get('role') not in ['admin', 'boss']:
+        return
     await state.clear()
     bs = await get_active_bookings()
-    if not bs: return await message.answer(get_text('msg_list_empty', u['language']))
+    if not bs:
+        return await message.answer(get_text('msg_list_empty', u['language']))
     for b in bs:
-        ap = await get_apartment(b['ap_id'])
-        ap_name = ap['title'].get(u['language'], ap['title'].get('uk', 'Ap')) if ap else "Unknown"
-        txt = (f"📑 <b>Бронювання {b['_id']}</b>\n🏢 {ap_name}\n🗓 {b['start_date']} — {b['end_date']}\n💰 Всього: {b['total_price']} грн\n💳 Оплачено: {b.get('paid_prepayment',0) + b.get('paid_remaining',0)} грн\n👤 Гість: {b.get('phone', '-')}")
-        await message.answer(txt, reply_markup=booking_action_inline_kb(str(b['_id']), u['language'], b['status']), parse_mode="HTML")
+        txt = await build_booking_summary_text(b, u['language'])
+        await message.answer(txt, reply_markup=booking_action_inline_kb(str(b['_id']), u['language'], b['status']))
 
 @router.message(F.text.in_(get_all_translations('btn_objects')), StateFilter("*"))
 async def admin_aps(message: Message, state: FSMContext):
@@ -564,9 +597,7 @@ async def resend_active_bookings(callback: CallbackQuery):
         await callback.message.answer(get_text('msg_list_empty', u['language']))
         return
     for b in bs:
-        ap = await get_apartment(b['ap_id'])
-        ap_name = ap['title'].get(u['language'], ap['title'].get('uk', 'Ap')) if ap else "Unknown"
-        txt = (f"\u0410\u043a\u0442\u0438\u0432\u043d\u0435 \u0431\u0440\u043e\u043d\u044e\u0432\u0430\u043d\u043d\u044f\n\u041e\u0431'\u0454\u043a\u0442: {ap_name}\n\u0414\u0430\u0442\u0438: {b['start_date']} - {b['end_date']}\n\u0421\u0443\u043c\u0430: {b['total_price']} \u0433\u0440\u043d\n\u041e\u043f\u043b\u0430\u0447\u0435\u043d\u043e: {b.get('paid_prepayment',0) + b.get('paid_remaining',0)} \u0433\u0440\u043d\n\u0413\u0456\u0441\u0442\u044c: {b.get('phone', '-')}") if u['language'] == "uk" else (f"Active booking\nObject: {ap_name}\nDates: {b['start_date']} - {b['end_date']}\nTotal: {b['total_price']} UAH\nPaid: {b.get('paid_prepayment',0) + b.get('paid_remaining',0)} UAH\nGuest: {b.get('phone', '-')}")
+        txt = await build_booking_summary_text(b, u['language'])
         await callback.message.answer(txt, reply_markup=booking_action_inline_kb(str(b['_id']), u['language'], b['status']))
 
 @router.callback_query(F.data.startswith("dl_"), StateFilter("*"))
@@ -644,9 +675,9 @@ async def reply_h(message: Message, state: FSMContext, bot: Bot):
     admin_name = html.escape(u.get("name") or message.from_user.full_name or ("Administrator" if target_lang != "uk" else "Адміністратор"))
     reply_text = html.escape(message.text or "")
     if target_lang == "uk":
-        outgoing_text = "<b>Відповідь від адміністратора</b>" + "\\n\\n" + f"<b>{admin_name}</b>" + "\\n\\n" + reply_text
+        outgoing_text = f"<b>Відповідь від адміністратора</b>\n\n<b>{admin_name}</b>\n\n{reply_text}"
     else:
-        outgoing_text = "<b>Reply from administrator</b>" + "\\n\\n" + f"<b>{admin_name}</b>" + "\\n\\n" + reply_text
+        outgoing_text = f"<b>Reply from administrator</b>\n\n<b>{admin_name}</b>\n\n{reply_text}"
     try:
         await bot.send_message(
             tid,

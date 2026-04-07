@@ -138,10 +138,23 @@ def has_valid_phone(user: dict | None) -> bool:
 async def send_apartment_message(target, image, text: str, reply_markup):
     if image:
         if len(text) <= 1024:
-            await target.answer_photo(image, caption=text, reply_markup=reply_markup, parse_mode="HTML")
+            await safe_send(
+                target.answer_photo,
+                image,
+                caption=text,
+                reply_markup=reply_markup,
+                parse_mode="HTML",
+            )
             return
-        await target.answer_photo(image)
-    await target.answer(text, reply_markup=reply_markup, parse_mode="HTML")
+        await safe_send(target.answer_photo, image)
+    await safe_send(target.answer, text, reply_markup=reply_markup, parse_mode="HTML")
+
+async def safe_send(sender, *args, **kwargs):
+    try:
+        return await sender(*args, **kwargs)
+    except Exception:
+        await asyncio.sleep(1)
+        return await sender(*args, **kwargs)
 
 def build_booking_apartment_text(apartment: dict, lang: str, price_text: str) -> str:
     apartment_name = html.escape(apartment['title'].get(lang, apartment['title'].get('uk', 'Apartment')))
@@ -464,14 +477,14 @@ async def book_apartment_h(callback: CallbackQuery, state: FSMContext):
 
     if not has_valid_phone(u):
         await send_apartment_message(callback.message, image, info_text, None)
-        await callback.message.answer(get_text('msg_enter_phone', l), reply_markup=phone_kb(l))
+        await safe_send(callback.message.answer, get_text('msg_enter_phone', l), reply_markup=phone_kb(l))
         await state.set_state(BookingStates.entering_phone)
         await callback.answer()
         return
 
     checkin_example = (datetime.datetime.now() + datetime.timedelta(days=1)).strftime("%d.%m.%Y")
     await send_apartment_message(callback.message, image, info_text, None)
-    await callback.message.answer(get_text('msg_enter_checkin', l, date=checkin_example), parse_mode="HTML")
+    await safe_send(callback.message.answer, get_text('msg_enter_checkin', l, date=checkin_example), parse_mode="HTML")
     await state.set_state(BookingStates.waiting_checkin)
     await callback.answer()
 
