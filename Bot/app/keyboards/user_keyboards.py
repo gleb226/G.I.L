@@ -52,10 +52,10 @@ def apartments_inline_kb(apartments, for_booking=True, lang="uk", page=0):
     return builder.as_markup()
 
 
-def info_only_apartment_kb(apartment_id, lat, lng, lang="uk"):
+def info_only_apartment_kb(apartment_id, lat, lng, lang="uk", route_url=None):
     builder = InlineKeyboardBuilder()
     builder.row(InlineKeyboardButton(text=get_text("btn_book_action", lang), callback_data=f"b:{apartment_id}"))
-    builder.row(InlineKeyboardButton(text=get_text("btn_route", lang), url=f"https://www.google.com/maps/dir/?api=1&destination={lat},{lng}"))
+    builder.row(InlineKeyboardButton(text=get_text("btn_route", lang), url=route_url or f"https://www.google.com/maps/dir/?api=1&destination={lat},{lng}"))
     builder.row(InlineKeyboardButton(text=get_text("btn_back", lang), callback_data="to_list"))
     return builder.as_markup()
 
@@ -70,9 +70,9 @@ def suggest_dates_kb(dates, lang="uk"):
     return builder.as_markup()
 
 
-def ap_info_inline_kb(lat, lng, booking_id=None, lang="uk", amount=0, is_final=False):
+def ap_info_inline_kb(lat, lng, booking_id=None, lang="uk", amount=0, is_final=False, route_url=None):
     builder = InlineKeyboardBuilder()
-    builder.row(InlineKeyboardButton(text=get_text("btn_route", lang), url=f"https://www.google.com/maps/dir/?api=1&destination={lat},{lng}"))
+    builder.row(InlineKeyboardButton(text=get_text("btn_route", lang), url=route_url or f"https://www.google.com/maps/dir/?api=1&destination={lat},{lng}"))
 
     if booking_id and int(amount or 0) > 0:
         suffix = "_final" if is_final else ""

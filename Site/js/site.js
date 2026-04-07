@@ -235,7 +235,7 @@ const buildApartmentMapPopup = (apartment, lang = getCurrentLang(), options = {}
         defaultValue: lang === "uk" ? "Побудувати маршрут" : "Build route"
     });
     const detailsText = translateKey("common.actions.details", { lng: lang });
-    const routeUrl = `https://www.google.com/maps/dir/?api=1&destination=${apartment.lat},${apartment.lng}`;
+    const routeUrl = apartment.route_url || `https://www.google.com/maps/dir/?api=1&destination=${apartment.lat},${apartment.lng}`;
     const detailsMarkup = includeDetails
         ? `<a href="${getApartmentUrl(apartment.id || apartment._id, lang)}" class="popup-btn">${detailsText}</a>`
         : "";

@@ -306,7 +306,8 @@ async def add_ap_ad(message: Message, state: FSMContext):
     lat, lng = await resolve_coords(message.text)
     if lat is None or lng is None:
         return await message.answer("\u041d\u0435 \u0432\u0434\u0430\u043b\u043e\u0441\u044f \u0432\u0438\u0437\u043d\u0430\u0447\u0438\u0442\u0438 \u043a\u043e\u043e\u0440\u0434\u0438\u043d\u0430\u0442\u0438. \u041d\u0430\u0434\u0456\u0448\u043b\u0456\u0442\u044c Google Maps \u043f\u043e\u0441\u0438\u043b\u0430\u043d\u043d\u044f \u0430\u0431\u043e \u043a\u043e\u043e\u0440\u0434\u0438\u043d\u0430\u0442\u0438 \u0443 \u0444\u043e\u0440\u043c\u0430\u0442\u0456 48.6208, 22.2879")
-    await state.update_data(address=message.text, lat=lat, lng=lng)
+    route_url = message.text.strip() if urlparse(message.text.strip()).scheme and urlparse(message.text.strip()).netloc else None
+    await state.update_data(address=message.text, lat=lat, lng=lng, route_url=route_url)
     await message.answer("Ціна (грн):")
     await state.set_state(AdminStates.adding_apartment_price)
 
@@ -533,7 +534,7 @@ async def add_ap_fsh(callback: CallbackQuery, state: FSMContext):
     if not d.get('title_uk'): return await callback.answer("❌ Error")
     gallery = d.get('gallery', [])
     img = gallery[0] if gallery else ""
-    ap = {"title": {"uk": d['title_uk'], "en": d['title_en']}, "description": {"uk": d['desc_uk'], "en": d['desc_en']}, "rooms": d['rooms'], "beds": d['beds'], "guests": d['guests'], "area": d['area'], "address": d['address'], "lat": d['lat'], "lng": d['lng'], "price": d['price'], "img": img, "gallery": gallery, "features": d.get('features', []), "is_available": True}
+    ap = {"title": {"uk": d['title_uk'], "en": d['title_en']}, "description": {"uk": d['desc_uk'], "en": d['desc_en']}, "rooms": d['rooms'], "beds": d['beds'], "guests": d['guests'], "area": d['area'], "address": d['address'], "lat": d['lat'], "lng": d['lng'], "route_url": d.get('route_url'), "price": d['price'], "img": img, "gallery": gallery, "features": d.get('features', []), "is_available": True}
     await add_apartment(ap)
     await callback.message.answer("✅ Додано")
     await state.clear()

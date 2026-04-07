@@ -390,16 +390,16 @@ async def view_apartment_h(callback: CallbackQuery, state: FSMContext):
     await state.update_data(last_list_mode="list")
     image = resolve_apartment_image(ap)
     if image:
-        await callback.message.answer_photo(
-            image,
-            caption=txt,
-            reply_markup=info_only_apartment_kb(str(ap.get('external_id', ap['_id'])), ap_lat, ap_lng, l),
-            parse_mode="HTML"
-        )
+            await callback.message.answer_photo(
+                image,
+                caption=txt,
+                reply_markup=info_only_apartment_kb(str(ap.get('external_id', ap['_id'])), ap_lat, ap_lng, l, ap.get("route_url")),
+                parse_mode="HTML"
+            )
     else:
-        await callback.message.answer(
+            await callback.message.answer(
             txt,
-            reply_markup=info_only_apartment_kb(str(ap.get('external_id', ap['_id'])), ap_lat, ap_lng, l),
+            reply_markup=info_only_apartment_kb(str(ap.get('external_id', ap['_id'])), ap_lat, ap_lng, l, ap.get("route_url")),
             parse_mode="HTML"
         )
     await callback.answer()
@@ -623,7 +623,7 @@ async def wishes_in(message: Message, state: FSMContext, bot: Bot):
             checkout=data["checkout_str"],
             price=price_text,
         ) + flow_note + split_note,
-        reply_markup=ap_info_inline_kb(apartment.get("lat", 0), apartment.get("lng", 0), str(booking_id), lang, amount=prepayment_amount),
+        reply_markup=ap_info_inline_kb(apartment.get("lat", 0), apartment.get("lng", 0), str(booking_id), lang, amount=prepayment_amount, route_url=apartment.get("route_url")),
         parse_mode="HTML",
     )
 @router.callback_query(F.data.startswith("suggest_"), StateFilter("*"))
@@ -739,6 +739,7 @@ async def successful_payment_h(message: Message, bot: Bot):
             lang,
             amount=max(0, int(booking.get("remaining", 0) - booking.get("paid_remaining", 0))),
             is_final=True,
+            route_url=apartment.get("route_url") if apartment else None,
         ),
         parse_mode="HTML",
     )
