@@ -1,5 +1,7 @@
 from aiogram.types import KeyboardButton, InlineKeyboardButton
 from aiogram.utils.keyboard import InlineKeyboardBuilder, ReplyKeyboardBuilder
+import datetime
+from datetime import timedelta
 
 from app.common.texts import get_text
 
@@ -141,11 +143,34 @@ def staff_delete_inline_kb(staff, lang="uk"):
     return builder.as_markup()
 
 
-def booking_action_inline_kb(booking_id, lang="uk", status="pending"):
+def booking_action_inline_kb(booking: dict, lang="uk"):
     builder = InlineKeyboardBuilder()
-    if status in {"pending_50", "paid_50"}:
+    status = booking.get("status")
+    checkin = booking.get("start_date")
+    now = datetime.datetime.utcnow()
+    time_to_checkin = None
+    if checkin:
+        try:
+            start_dt = datetime.datetime.strptime(checkin, "%d.%m.%Y")
+            time_to_checkin = start_dt - now
+        except ValueError:
+            time_to_checkin = None
+
+    show_confirm = status in {"pending_50", "paid_50"}
+    show_reject = False
+    if show_confirm:
+        show_reject = True
+    elif status == "confirmed" and time_to_checkin and time_to_checkin.total_seconds() > 0:
+        if time_to_checkin > timedelta(hours=48):
+            show_reject = True
+        elif timedelta(hours=24) < time_to_checkin <= timedelta(hours=48):
+            show_reject = True
+
+    booking_id = str(booking.get("_id") or booking.get("booking_id") or "")
+    if show_confirm:
         builder.button(text=get_text("btn_approve", lang), callback_data=f"ok_{booking_id}")
-    builder.button(text=get_text("btn_reject", lang), callback_data=f"rj_{booking_id}")
+    if show_reject:
+        builder.button(text=get_text("btn_reject", lang), callback_data=f"rj_{booking_id}")
     builder.button(text=get_text("btn_message_guest", lang), callback_data=f"ms_{booking_id}")
     builder.adjust(2)
     return builder.as_markup()

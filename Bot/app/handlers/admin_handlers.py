@@ -198,7 +198,7 @@ async def active_bookings_h(message: Message, state: FSMContext):
         return await message.answer(get_text('msg_list_empty', u['language']))
     for b in bs:
         txt = await build_booking_summary_text(b, u['language'])
-        await message.answer(txt, reply_markup=booking_action_inline_kb(str(b['_id']), u['language'], b['status']))
+        await message.answer(txt, reply_markup=booking_action_inline_kb(b, u['language']))
 
 @router.message(F.text.in_(get_all_translations('btn_objects')), StateFilter("*"))
 async def admin_aps(message: Message, state: FSMContext):
@@ -603,7 +603,7 @@ async def resend_active_bookings(callback: CallbackQuery):
         return
     for b in bs:
         txt = await build_booking_summary_text(b, u['language'])
-        await callback.message.answer(txt, reply_markup=booking_action_inline_kb(str(b['_id']), u['language'], b['status']))
+        await callback.message.answer(txt, reply_markup=booking_action_inline_kb(b, u['language']))
 
 @router.callback_query(F.data.startswith("dl_"), StateFilter("*"))
 async def delete_ap_h(callback: CallbackQuery, state: FSMContext):

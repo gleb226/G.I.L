@@ -225,7 +225,7 @@ async def update_booking_status(b_id, status):
     await add_log("booking", "update_booking_status", details=f"Booking {b_id} status updated", extra={"status": status})
 
 async def get_active_bookings():
-    return await bookings_col.find({"status": "paid_50"}).sort("created_at", 1).to_list(None)
+    return await bookings_col.find({"status": {"$in": ["paid_50", "confirmed"]}}).sort("created_at", 1).to_list(None)
 
 async def get_apartment_bookings(ap_id):
     try: oid = ObjectId(ap_id)

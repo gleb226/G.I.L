@@ -174,7 +174,7 @@ def build_booking_apartment_text(apartment: dict, lang: str, price_text: str) ->
         f"💰 <b>Price:</b> {price_text}"
     )
 
-async def notify_admins(bot: Bot, text: str, booking_id: str | None = None, booking_status: str = "pending"):
+async def notify_admins(bot: Bot, text: str, booking: dict | None = None):
     admins = await get_admins()
     for admin in admins:
         admin_id = admin.get("user_id")
@@ -182,8 +182,8 @@ async def notify_admins(bot: Bot, text: str, booking_id: str | None = None, book
             continue
         try:
             reply_markup = None
-            if booking_id:
-                reply_markup = booking_action_inline_kb(booking_id, admin.get("language", "uk"), booking_status)
+            if booking:
+                reply_markup = booking_action_inline_kb(booking, admin.get("language", "uk"))
             await bot.send_message(admin_id, text, parse_mode="HTML", reply_markup=reply_markup)
         except Exception:
             pass
@@ -777,8 +777,7 @@ async def successful_payment_h(message: Message, bot: Bot):
             f"👤 <b>Гість:</b> {html.escape(user.get('name') or message.from_user.full_name or 'Guest')}\n"
             f"📞 <b>Телефон:</b> <code>{html.escape(user.get('phone') or '-')}</code>"
         ),
-        booking_id=str(booking_id),
-        booking_status="confirmed" if is_final else "paid_50",
+        booking=booking,
     )
 
 @router.callback_query(F.data == "profile_complete", StateFilter("*"))
