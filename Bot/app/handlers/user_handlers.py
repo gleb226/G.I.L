@@ -135,6 +135,14 @@ def has_valid_phone(user: dict | None) -> bool:
         return False
     return len(normalize_phone_input(user.get("phone"))) >= 11
 
+async def send_apartment_message(target, image, text: str, reply_markup):
+    if image:
+        if len(text) <= 1024:
+            await target.answer_photo(image, caption=text, reply_markup=reply_markup, parse_mode="HTML")
+            return
+        await target.answer_photo(image)
+    await target.answer(text, reply_markup=reply_markup, parse_mode="HTML")
+
 async def notify_admins(bot: Bot, text: str, booking_id: str | None = None, booking_status: str = "pending"):
     admins = await get_admins()
     for admin in admins:
@@ -389,19 +397,12 @@ async def view_apartment_h(callback: CallbackQuery, state: FSMContext):
 
     await state.update_data(last_list_mode="list")
     image = resolve_apartment_image(ap)
-    if image:
-            await callback.message.answer_photo(
-                image,
-                caption=txt,
-                reply_markup=info_only_apartment_kb(str(ap.get('external_id', ap['_id'])), ap_lat, ap_lng, l, ap.get("route_url")),
-                parse_mode="HTML"
-            )
-    else:
-            await callback.message.answer(
-            txt,
-            reply_markup=info_only_apartment_kb(str(ap.get('external_id', ap['_id'])), ap_lat, ap_lng, l, ap.get("route_url")),
-            parse_mode="HTML"
-        )
+    await send_apartment_message(
+        callback.message,
+        image,
+        txt,
+        info_only_apartment_kb(str(ap.get('external_id', ap['_id'])), ap_lat, ap_lng, l, ap.get("route_url")),
+    )
     await callback.answer()
 
 @router.callback_query(F.data == "to_list", StateFilter("*"))
@@ -459,20 +460,14 @@ async def book_apartment_h(callback: CallbackQuery, state: FSMContext):
     image = resolve_apartment_image(ap)
 
     if not has_valid_phone(u):
-        if image:
-            await callback.message.answer_photo(image, caption=info_text, parse_mode="HTML")
-        else:
-            await callback.message.answer(info_text, parse_mode="HTML")
+        await send_apartment_message(callback.message, image, info_text, None)
         await callback.message.answer(get_text('msg_enter_phone', l), reply_markup=phone_kb(l))
         await state.set_state(BookingStates.entering_phone)
         await callback.answer()
         return
 
     checkin_example = (datetime.datetime.now() + datetime.timedelta(days=1)).strftime("%d.%m.%Y")
-    if image:
-        await callback.message.answer_photo(image, caption=info_text, parse_mode="HTML")
-    else:
-        await callback.message.answer(info_text, parse_mode="HTML")
+    await send_apartment_message(callback.message, image, info_text, None)
     await callback.message.answer(get_text('msg_enter_checkin', l, date=checkin_example), parse_mode="HTML")
     await state.set_state(BookingStates.waiting_checkin)
     await callback.answer()

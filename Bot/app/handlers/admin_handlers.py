@@ -287,15 +287,18 @@ async def add_ap_g(message: Message, state: FSMContext):
     if message.text in ALL_MENU_BTNS: return await menu_redirect(message, state, bot)
     if not message.text.isdigit(): return await message.answer("Введіть число:")
     await state.update_data(guests=int(message.text))
-    await state.update_data(area="Не вказано")
-    await message.answer("\u0412\u0432\u0435\u0434\u0456\u0442\u044c \u0430\u0434\u0440\u0435\u0441\u0443 \u0430\u0431\u043e Google Maps \u043f\u043e\u0441\u0438\u043b\u0430\u043d\u043d\u044f:")
-    await state.set_state(AdminStates.adding_apartment_address)
+    await message.answer("??????? ????? ? ?? ??? '-' ???? ?? ???????:")
+    await state.set_state(AdminStates.adding_apartment_area)
+
 
 @router.message(AdminStates.adding_apartment_area)
 async def add_ap_a(message: Message, state: FSMContext):
     from app.handlers.user_handlers import menu_redirect
     if message.text in ALL_MENU_BTNS: return await menu_redirect(message, state, bot)
-    await state.update_data(area=message.text)
+    area_value = (message.text or "").strip()
+    if area_value in {"", "-", "?"}:
+        area_value = "?? ???????"
+    await state.update_data(area=area_value)
     await message.answer("\u0412\u0432\u0435\u0434\u0456\u0442\u044c \u0430\u0434\u0440\u0435\u0441\u0443 \u0430\u0431\u043e Google Maps \u043f\u043e\u0441\u0438\u043b\u0430\u043d\u043d\u044f:")
     await state.set_state(AdminStates.adding_apartment_address)
 
