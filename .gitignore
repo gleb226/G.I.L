@@ -1,0 +1,8 @@
+Bot/.env
+Bot/.venv/
+Bot/__pycache__/
+Bot/**/*.pyc
+Bot/**/__pycache__/
+.git
+.idea/
+.vscode/

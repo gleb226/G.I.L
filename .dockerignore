@@ -1,0 +1,10 @@
+Bot/.venv
+Bot/__pycache__
+Bot/**/*.pyc
+Bot/**/__pycache__
+Site/.git
+Site/.idea
+Site/.vscode
+.git
+.idea
+.vscode
