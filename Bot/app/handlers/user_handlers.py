@@ -3,7 +3,7 @@ from aiogram.types import Message, CallbackQuery, PreCheckoutQuery, LabeledPrice
 from aiogram.filters import CommandStart, StateFilter
 from aiogram.fsm.context import FSMContext
 from aiogram.utils.keyboard import InlineKeyboardBuilder
-from app.databases.mongodb import upsert_user, get_user, get_apartments, get_apartment, create_booking, update_booking_status, get_booking, get_admins, update_user_pref, is_apartment_free, find_next_free_dates, update_booking_payment, add_log
+from app.databases.mongodb import upsert_user, get_user, get_apartments, get_apartment, create_booking, update_booking_status, get_booking, get_admins, get_all_admins_and_bosses, update_user_pref, is_apartment_free, find_next_free_dates, update_booking_payment, add_log
 from app.keyboards.user_keyboards import main_menu_kb, apartments_inline_kb, phone_kb, ap_info_inline_kb, info_only_apartment_kb, language_kb, currency_kb, contacts_inline_kb, suggest_dates_kb, profile_phone_kb
 from app.keyboards.admin_keyboards import booking_action_inline_kb
 from app.utils.states import BookingStates, UserChatStates, SetupStates
@@ -794,6 +794,53 @@ async def complete_phone_in(message: Message, state: FSMContext, bot: Bot):
     await add_log("user", "complete_profile_phone", "User completed phone in profile", user_id=message.from_user.id, extra={"phone": p})
     await state.clear()
     await profile_h(message, state)
+
+@router.callback_query(F.data == "u_ans", StateFilter("*"))
+async def user_reply_start_h(callback: CallbackQuery, state: FSMContext):
+    user = await get_user(callback.from_user.id)
+    lang = user.get("language", "uk") if user else "uk"
+    await state.set_state(UserChatStates.writing_to_admin)
+    await callback.message.answer(get_text("msg_write_to_admin", lang))
+    await callback.answer()
+
+@router.message(UserChatStates.writing_to_admin)
+async def user_reply_to_staff_h(message: Message, state: FSMContext, bot: Bot):
+    if detect_menu_intent(message.text):
+        return await menu_redirect(message, state, bot)
+
+    user = await get_user(message.from_user.id)
+    lang = user.get("language", "uk") if user else "uk"
+    staff = await get_all_admins_and_bosses()
+    if not staff:
+        await state.clear()
+        await message.answer(get_text("msg_list_empty", lang))
+        return
+
+    sender_name = html.escape(user.get("name") or message.from_user.full_name or "Guest") if user else html.escape(message.from_user.full_name or "Guest")
+    sender_username = html.escape((user.get("username") if user else message.from_user.username) or "-")
+    sender_text = html.escape(message.text or "")
+    notice = get_text(
+        "msg_new_msg_from_guest",
+        lang,
+        name=sender_name,
+        username=sender_username,
+        user_id=message.from_user.id,
+        text=sender_text,
+    )
+
+    sent = False
+    for staff_member in staff:
+        staff_id = staff_member.get("user_id")
+        if not staff_id:
+            continue
+        try:
+            await bot.send_message(staff_id, notice, parse_mode="HTML", reply_markup=admin_reply_inline_kb(message.from_user.id, staff_member.get("language", "uk")))
+            sent = True
+        except Exception:
+            pass
+
+    await state.clear()
+    await message.answer(get_text("msg_sent_to_admin", lang if sent else "uk"))
 
 @router.callback_query(F.data == "to_main", StateFilter("*"))
 async def to_main_h(callback: CallbackQuery, state: FSMContext):

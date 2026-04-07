@@ -2155,34 +2155,5 @@
       "uk": "вул. Минайська 18Г",
       "en": "St. Minayska 18G"
     }
-  },
-  {
-    "_id": "69d4bd46accf3240d80882a0",
-    "title": {
-      "uk": "Кошицька 35",
-      "en": "Koshytska 35"
-    },
-    "description": {
-      "uk": "Сучасна заміська садиба площею дванадцять соток являє собою гармонійне поєднання енергоефективної архітектури та продуманого ландшафтного дизайну, де основний двоповерховий будинок із панорамним склінням та комбінованим фасадом із дерева та каменю стає центром функціонального простору. Територія навколо споруди чітко зонована: від в’їзної групи з широким навісом для авто до затишної тераси з лаунж-зоною та автоматизованим садом, що забезпечує приватність завдяки живій огорожі. Внутрішній простір будинку базується на концепції відкритого планування першого поверху з камінною залою та \"другим світлом\", тоді як другий поверх відведений під приватні спальні з власними гардеробними. Завдяки впровадженню системи «розумний дім», теплового насоса, сонячних панелей та власної свердловини з багаторівневою фільтрацією, це домоволодіння досягає повної автономності та найвищого рівня комфорту, пропонуючи мешканцям ідеальне середовище для життя, яке поєднує технологічність майбутнього з автентичним спокоєм природи.",
-      "en": "The modern country estate of twelve acres is a harmonious combination of energy-efficient architecture and thoughtful landscape design, where the main two-story house with panoramic glazing and a combined facade of wood and stone becomes the center of the functional space. The area around the building is clearly zoned: from the entrance group with a wide carport to a cozy terrace with a lounge area and an automated garden that provides privacy thanks to a hedge. The interior of the house is based on the concept of an open plan of the first floor with a fireplace hall and \"second light\", while the second floor is dedicated to private bedrooms with their own dressing rooms. Thanks to the implementation of a smart home system, a heat pump, solar panels and its own well with multi-level filtration, this home ownership achieves complete autonomy and the highest level of comfort, offering residents an ideal living environment that combines the technology of the future with the authentic tranquility of nature."
-    },
-    "rooms": 6,
-    "beds": 3,
-    "guests": 2,
-    "area": "Не вказано",
-    "address": "https://www.google.com/maps/place/%D0%B2%D1%83%D0%BB%D0%B8%D1%86%D1%8F+%D0%9A%D0%BE%D1%88%D0%B8%D1%86%D1%8C%D0%BA%D0%B0,+35,+%D0%A3%D0%B6%D0%B3%D0%BE%D1%80%D0%BE%D0%B4,+%D0%97%D0%B0%D0%BA%D0%B0%D1%80%D0%BF%D0%B0%D1%82%D1%81%D1%8C%D0%BA%D0%B0+%D0%BE%D0%B1%D0%BB%D0%B0%D1%81%D1%82%D1%8C,+88000/@48.6331124,22.2911666,17z/data=!3m1!4b1!4m6!3m5!1s0x473919b3ac20f057:0x34a7341281f7b91c!8m2!3d48.6331089!4d22.2937415!16s%2Fg%2F11wmh48td9?entry=ttu&g_ep=EgoyMDI2MDQwMS4wIKXMDSoASAFQAw%3D%3D'",
-    "lat": 48.6331124,
-    "lng": 22.2911666,
-    "price": 444,
-    "img": "images/uploads/74ad4f3b-2456-4ed5-b7b0-f3e5387f618c.webp",
-    "gallery": [
-      "images/uploads/74ad4f3b-2456-4ed5-b7b0-f3e5387f618c.webp",
-      "images/uploads/52ef0d7b-fe2f-4141-a6f4-359b3c5e221b.webp"
-    ],
-    "features": [
-      "hob",
-      "satellite_tv"
-    ],
-    "is_available": true
   }
 ]
