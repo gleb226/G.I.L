@@ -275,7 +275,7 @@ async def add_ap_g(message: Message, state: FSMContext):
     if not message.text.isdigit(): return await message.answer("Введіть число:")
     await state.update_data(guests=int(message.text))
     await state.update_data(area="Не вказано")
-    await message.answer("Address or Google Maps link:")
+    await message.answer("??????? ?????? ??? Google Maps ?????????:")
     await state.set_state(AdminStates.adding_apartment_address)
 
 @router.message(AdminStates.adding_apartment_area)
@@ -283,7 +283,7 @@ async def add_ap_a(message: Message, state: FSMContext):
     from app.handlers.user_handlers import menu_redirect
     if message.text in ALL_MENU_BTNS: return await menu_redirect(message, state, bot)
     await state.update_data(area=message.text)
-    await message.answer("Address or Google Maps link:")
+    await message.answer("??????? ?????? ??? Google Maps ?????????:")
     await state.set_state(AdminStates.adding_apartment_address)
 
 @router.message(AdminStates.adding_apartment_address)
@@ -292,7 +292,7 @@ async def add_ap_ad(message: Message, state: FSMContext):
     if message.text in ALL_MENU_BTNS: return await menu_redirect(message, state, bot)
     lat, lng = await resolve_coords(message.text)
     if lat is None or lng is None:
-        return await message.answer("Could not determine coordinates. Send a Google Maps link or coordinates like 48.6208, 22.2879")
+        return await message.answer("?? ??????? ????????? ??????????. ????????? Google Maps ????????? ??? ?????????? ? ??????? 48.6208, 22.2879")
     await state.update_data(address=message.text, lat=lat, lng=lng)
     await message.answer("Ціна (грн):")
     await state.set_state(AdminStates.adding_apartment_price)
