@@ -20,6 +20,7 @@ from app.utils.currency import get_usd_rate, format_price
 from app.common.token import BOSS_IDS, GOOGLE_MAPS_API_KEY
 import re, random, os, uuid, io
 import googlemaps
+from aiohttp import ClientSession
 from urllib.parse import urlparse, parse_qs, unquote
 from PIL import Image
 from app.common.texts import get_text, get_all_translations
@@ -90,6 +91,18 @@ async def resolve_coords(address):
             match = re.search(r'([-+]?\d*\.\d+|\d+)\s*,\s*([-+]?\d*\.\d+|\d+)', unquote(query_value))
             if match:
                 return float(match.group(1)), float(match.group(2))
+
+        if "maps.app.goo.gl" in parsed.netloc or "goo.gl" in parsed.netloc:
+            try:
+                async with ClientSession() as session:
+                    async with session.get(value, allow_redirects=True) as response:
+                        final_url = str(response.url)
+                decoded_final_url = unquote(final_url)
+                match = re.search(r'@([-+]?\d*\.\d+|\d+),([-+]?\d*\.\d+|\d+)', decoded_final_url)
+                if match:
+                    return float(match.group(1)), float(match.group(2))
+            except Exception:
+                pass
 
     if GOOGLE_MAPS_API_KEY:
         try:
@@ -275,7 +288,7 @@ async def add_ap_g(message: Message, state: FSMContext):
     if not message.text.isdigit(): return await message.answer("Введіть число:")
     await state.update_data(guests=int(message.text))
     await state.update_data(area="Не вказано")
-    await message.answer("??????? ?????? ??? Google Maps ?????????:")
+    await message.answer("\u0412\u0432\u0435\u0434\u0456\u0442\u044c \u0430\u0434\u0440\u0435\u0441\u0443 \u0430\u0431\u043e Google Maps \u043f\u043e\u0441\u0438\u043b\u0430\u043d\u043d\u044f:")
     await state.set_state(AdminStates.adding_apartment_address)
 
 @router.message(AdminStates.adding_apartment_area)
@@ -283,7 +296,7 @@ async def add_ap_a(message: Message, state: FSMContext):
     from app.handlers.user_handlers import menu_redirect
     if message.text in ALL_MENU_BTNS: return await menu_redirect(message, state, bot)
     await state.update_data(area=message.text)
-    await message.answer("??????? ?????? ??? Google Maps ?????????:")
+    await message.answer("\u0412\u0432\u0435\u0434\u0456\u0442\u044c \u0430\u0434\u0440\u0435\u0441\u0443 \u0430\u0431\u043e Google Maps \u043f\u043e\u0441\u0438\u043b\u0430\u043d\u043d\u044f:")
     await state.set_state(AdminStates.adding_apartment_address)
 
 @router.message(AdminStates.adding_apartment_address)
@@ -292,7 +305,7 @@ async def add_ap_ad(message: Message, state: FSMContext):
     if message.text in ALL_MENU_BTNS: return await menu_redirect(message, state, bot)
     lat, lng = await resolve_coords(message.text)
     if lat is None or lng is None:
-        return await message.answer("?? ??????? ????????? ??????????. ????????? Google Maps ????????? ??? ?????????? ? ??????? 48.6208, 22.2879")
+        return await message.answer("\u041d\u0435 \u0432\u0434\u0430\u043b\u043e\u0441\u044f \u0432\u0438\u0437\u043d\u0430\u0447\u0438\u0442\u0438 \u043a\u043e\u043e\u0440\u0434\u0438\u043d\u0430\u0442\u0438. \u041d\u0430\u0434\u0456\u0448\u043b\u0456\u0442\u044c Google Maps \u043f\u043e\u0441\u0438\u043b\u0430\u043d\u043d\u044f \u0430\u0431\u043e \u043a\u043e\u043e\u0440\u0434\u0438\u043d\u0430\u0442\u0438 \u0443 \u0444\u043e\u0440\u043c\u0430\u0442\u0456 48.6208, 22.2879")
     await state.update_data(address=message.text, lat=lat, lng=lng)
     await message.answer("Ціна (грн):")
     await state.set_state(AdminStates.adding_apartment_price)
