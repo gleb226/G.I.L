@@ -12,6 +12,9 @@ const loadApartments = async () => {
                 }
 
                 const data = await resp.json();
+                if (url === apiUrl && (!Array.isArray(data) || data.length === 0)) {
+                    throw new Error("Primary apartments API returned no apartments");
+                }
                 const mapped = data
                     .filter((ap) => ap?.is_available !== false)
                     .map(ap => ({

@@ -8,13 +8,11 @@ from aiogram.types import InlineKeyboardButton
 from aiogram.utils.keyboard import InlineKeyboardBuilder
 from app.common.token import BOT_TOKEN, BOSS_IDS, PORTMONE_LIMIT
 from app.handlers import user_handlers, admin_handlers, error_handler
-from app.databases.mongodb import upsert_user, db, cleanup_old_bookings, cleanup_logs, refresh_apartments_cache, export_site_json, add_log, log_error, cleanup_runtime_diagnostics
+from app.databases.mongodb import upsert_user, db, cleanup_old_bookings, cleanup_logs, refresh_apartments_cache, export_site_json, add_log, log_error, cleanup_runtime_diagnostics, get_apartments
 from app.keyboards.user_keyboards import ap_info_inline_kb
 from app.common.texts import get_text
 from app.common.middleware import LanguageMiddleware
 from aiohttp import web
-from app.databases.mongodb import _apartments_cache
-
 last_reminder_date = None
 
 
@@ -96,8 +94,9 @@ async def apartments_sync_loop():
         await asyncio.sleep(30)
 
 async def get_apartments_api(request):
-    await add_log("api", "get_apartments", details=f"Returned {_apartments_cache and len(_apartments_cache) or 0} apartments")
-    return web.json_response(_apartments_cache, headers={"Access-Control-Allow-Origin": "*", "Access-Control-Allow-Methods": "GET, OPTIONS", "Access-Control-Allow-Headers": "*"})
+    apartments = await get_apartments()
+    await add_log("api", "get_apartments", details=f"Returned {len(apartments)} apartments")
+    return web.json_response(apartments, headers={"Access-Control-Allow-Origin": "*", "Access-Control-Allow-Methods": "GET, OPTIONS", "Access-Control-Allow-Headers": "*"})
 
 async def get_profile_api(request):
     user_id_raw = request.query.get("user_id", "").strip()

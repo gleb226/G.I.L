@@ -143,7 +143,7 @@ def staff_delete_inline_kb(staff, lang="uk"):
 
 def booking_action_inline_kb(booking_id, lang="uk", status="pending"):
     builder = InlineKeyboardBuilder()
-    if status == "pending_50":
+    if status in {"pending_50", "paid_50"}:
         builder.button(text=get_text("btn_approve", lang), callback_data=f"ok_{booking_id}")
     builder.button(text=get_text("btn_reject", lang), callback_data=f"rj_{booking_id}")
     builder.button(text=get_text("btn_message_guest", lang), callback_data=f"ms_{booking_id}")
