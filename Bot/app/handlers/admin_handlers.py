@@ -287,7 +287,7 @@ async def add_ap_g(message: Message, state: FSMContext):
     if message.text in ALL_MENU_BTNS: return await menu_redirect(message, state, bot)
     if not message.text.isdigit(): return await message.answer("Введіть число:")
     await state.update_data(guests=int(message.text))
-    await message.answer("??????? ????? ? ?? ??? '-' ???? ?? ???????:")
+    await message.answer("Введіть площу або '-' якщо не вказано:")
     await state.set_state(AdminStates.adding_apartment_area)
 
 
@@ -297,7 +297,7 @@ async def add_ap_a(message: Message, state: FSMContext):
     if message.text in ALL_MENU_BTNS: return await menu_redirect(message, state, bot)
     area_value = (message.text or "").strip()
     if area_value in {"", "-", "?"}:
-        area_value = "?? ???????"
+        area_value = "Не вказано"
     await state.update_data(area=area_value)
     await message.answer("\u0412\u0432\u0435\u0434\u0456\u0442\u044c \u0430\u0434\u0440\u0435\u0441\u0443 \u0430\u0431\u043e Google Maps \u043f\u043e\u0441\u0438\u043b\u0430\u043d\u043d\u044f:")
     await state.set_state(AdminStates.adding_apartment_address)
@@ -636,15 +636,15 @@ async def reply_h(message: Message, state: FSMContext, bot: Bot):
     u = await get_user(message.from_user.id)
     admin_lang = u.get("language", "uk") if u else "uk"
     if not tid:
-        await message.answer("Recipient not found" if admin_lang != "uk" else "?? ???????? ??????????")
+        await message.answer("Recipient not found" if admin_lang != "uk" else "Не знайдено одержувача")
         await state.clear()
         return
     target_user = await get_user(tid)
     target_lang = target_user.get("language", "uk") if target_user else "uk"
-    admin_name = html.escape(u.get("name") or message.from_user.full_name or ("Administrator" if target_lang != "uk" else "?????????????"))
+    admin_name = html.escape(u.get("name") or message.from_user.full_name or ("Administrator" if target_lang != "uk" else "Адміністратор"))
     reply_text = html.escape(message.text or "")
     if target_lang == "uk":
-        outgoing_text = "<b>????????? ??? ??????????????</b>" + "\\n\\n" + f"<b>{admin_name}</b>" + "\\n\\n" + reply_text
+        outgoing_text = "<b>Відповідь від адміністратора</b>" + "\\n\\n" + f"<b>{admin_name}</b>" + "\\n\\n" + reply_text
     else:
         outgoing_text = "<b>Reply from administrator</b>" + "\\n\\n" + f"<b>{admin_name}</b>" + "\\n\\n" + reply_text
     try:
@@ -664,10 +664,10 @@ async def reply_h(message: Message, state: FSMContext, bot: Bot):
                 reply_markup=user_reply_inline_kb(target_lang),
             )
         except Exception:
-            await message.answer("Failed to send the message" if admin_lang != "uk" else "?? ??????? ????????? ????????????")
+            await message.answer("Failed to send the message" if admin_lang != "uk" else "Не вдалося надіслати повідомлення")
             await state.clear()
             return
-    await message.answer("Sent" if admin_lang != "uk" else "?????????")
+    await message.answer("Sent" if admin_lang != "uk" else "Надіслано")
     await state.clear()
 
 @router.callback_query(F.data == "v_st")
