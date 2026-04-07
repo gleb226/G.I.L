@@ -196,8 +196,11 @@ async def get_all_staff():
     return await users_col.find({"role": "admin"}).to_list(None)
 
 async def remove_staff(user_id):
+    if int(user_id) in BOSS_IDS:
+        return False
     await users_col.update_one({"user_id": int(user_id)}, {"$set": {"role": "user"}})
     await add_log("staff", "remove_staff", details=f"Removed staff role from {user_id}", user_id=int(user_id))
+    return True
 
 async def log_error(msg, tb):
     await errors_col.insert_one({"error": msg, "traceback": tb, "timestamp": datetime.datetime.utcnow()})

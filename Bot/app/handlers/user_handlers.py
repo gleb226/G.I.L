@@ -126,10 +126,18 @@ def format_feature_list(features: list[str] | None, lang: str) -> str:
     labels = FEATURE_LABELS.get(lang, FEATURE_LABELS["uk"])
     return ", ".join(labels.get(feature, feature.replace("_", " ")) for feature in features)
 
+def normalize_phone_input(raw_phone: str | None) -> str:
+    digits = "".join(filter(str.isdigit, raw_phone or ""))
+    return f"+{digits}" if digits else ""
+
+def has_valid_phone(user: dict | None) -> bool:
+    if not user:
+        return False
+    return len(normalize_phone_input(user.get("phone"))) >= 11
+
 async def notify_admins(bot: Bot, text: str):
     admins = await get_admins()
     admin_ids = {admin["user_id"] for admin in admins if admin.get("user_id")}
-    admin_ids.update(BOSS_IDS)
     for admin_id in admin_ids:
         try:
             await bot.send_message(admin_id, text, parse_mode="HTML")
@@ -445,12 +453,12 @@ async def book_apartment_h(callback: CallbackQuery, state: FSMContext):
     )
     image = resolve_apartment_image(ap)
 
-    if not u.get('phone'):
+    if not has_valid_phone(u):
         if image:
             await callback.message.answer_photo(image, caption=info_text, parse_mode="HTML")
         else:
             await callback.message.answer(info_text, parse_mode="HTML")
-        await callback.message.answer(get_text('msg_need_phone', l), reply_markup=phone_kb(l))
+        await callback.message.answer(get_text('msg_enter_phone', l), reply_markup=phone_kb(l))
         await state.set_state(BookingStates.entering_phone)
         await callback.answer()
         return
@@ -469,13 +477,11 @@ async def booking_phone_in(message: Message, state: FSMContext, bot: Bot):
     if detect_menu_intent(message.text):
         return await menu_redirect(message, state, bot)
 
-    p = message.contact.phone_number if message.contact else message.text
-    if not p:
-        return
-
-    p = "".join(filter(str.isdigit, p))
-    if not p.startswith('+'):
-        p = '+' + p
+    u = await get_user(message.from_user.id)
+    l = u.get('language', 'uk') if u else 'uk'
+    p = normalize_phone_input(message.contact.phone_number if message.contact else message.text)
+    if len(p) < 11:
+        return await message.answer(get_text('msg_enter_phone', l), reply_markup=phone_kb(l))
 
     await update_user_pref(message.from_user.id, phone=p)
     u = await get_user(message.from_user.id)
@@ -618,12 +624,12 @@ async def wishes_in(message: Message, state: FSMContext, bot: Bot):
     await notify_admins(
         bot,
         (
-            f"🆕 <b>Нова бронь</b>\n"
-            f"🏢 {html.escape(ap_name)}\n"
-            f"📅 {data['checkin_str']} - {data['checkout_str']}\n"
-            f"💰 {total_price} грн\n"
-            f"👤 {html.escape(user.get('name') or message.from_user.full_name or 'Guest')}\n"
-            f"📞 {html.escape(user.get('phone') or '-')}"
+            f"🆕 <b>Нова бронь</b>\n\n"
+            f"🏢 <b>Об'єкт:</b> {html.escape(ap_name)}\n"
+            f"🗓 <b>Дати:</b> {data['checkin_str']} - {data['checkout_str']}\n"
+            f"💰 <b>Сума:</b> {total_price} грн\n"
+            f"👤 <b>Гість:</b> {html.escape(user.get('name') or message.from_user.full_name or 'Guest')}\n"
+            f"📞 <b>Телефон:</b> <code>{html.escape(user.get('phone') or '-')}</code>"
         ),
     )
 
@@ -710,12 +716,12 @@ async def successful_payment_h(message: Message, bot: Bot):
     await notify_admins(
         bot,
         (
-            f"💳 <b>{'Оплачено повністю' if is_final else 'Отримано 50% передплати'}</b>\n"
-            f"🏢 {html.escape(apartment_name)}\n"
-            f"📅 {booking['start_date']} - {booking['end_date']}\n"
-            f"💰 {amount} грн\n"
-            f"👤 {html.escape(user.get('name') or message.from_user.full_name or 'Guest')}\n"
-            f"📞 {html.escape(user.get('phone') or '-')}"
+            f"💳 <b>{'Оплачено повністю' if is_final else 'Отримано 50% передплати'}</b>\n\n"
+            f"🏢 <b>Об'єкт:</b> {html.escape(apartment_name)}\n"
+            f"🗓 <b>Дати:</b> {booking['start_date']} - {booking['end_date']}\n"
+            f"💰 <b>Сума:</b> {amount} грн\n"
+            f"👤 <b>Гість:</b> {html.escape(user.get('name') or message.from_user.full_name or 'Guest')}\n"
+            f"📞 <b>Телефон:</b> <code>{html.escape(user.get('phone') or '-')}</code>"
         ),
     )
 

@@ -502,11 +502,27 @@ async def toggle_ap_h(callback: CallbackQuery):
     await show_ap_card(callback, aid, u['language'], u['role'])
     await callback.answer("✅" if nv else "❌")
 
+async def resend_active_bookings(callback: CallbackQuery):
+    u = await get_user(callback.from_user.id)
+    if not u or u.get('role') not in ['admin', 'boss']:
+        return
+    bs = await get_active_bookings()
+    if not bs:
+        await callback.message.answer(get_text('msg_list_empty', u['language']))
+        return
+    for b in bs:
+        ap = await get_apartment(b['ap_id'])
+        ap_name = ap['title'].get(u['language'], ap['title'].get('uk', 'Ap')) if ap else "Unknown"
+        txt = f"Booking\nObject: {ap_name}\nDates: {b['start_date']} - {b['end_date']}\nTotal: {b['total_price']} UAH\nPaid: {b.get('paid_prepayment',0) + b.get('paid_remaining',0)} UAH\nGuest: {b.get('phone', '-')}"
+        await callback.message.answer(txt, reply_markup=booking_action_inline_kb(str(b['_id']), u['language'], b['status']))
+
 @router.callback_query(F.data.startswith("dl_"), StateFilter("*"))
 async def delete_ap_h(callback: CallbackQuery, state: FSMContext):
     await delete_apartment(callback.data[3:])
     try: await callback.message.delete()
     except: pass
+    await callback.message.answer("Object deleted")
+    await admin_aps(callback.message, state)
     await callback.answer("🗑 Видалено")
 
 @router.callback_query(F.data.startswith("ok_"))
@@ -514,6 +530,8 @@ async def approve_booking_h(callback: CallbackQuery):
     await update_booking_status(callback.data[3:], "confirmed")
     try: await callback.message.delete()
     except: pass
+    await callback.message.answer("Booking confirmed")
+    await resend_active_bookings(callback)
     await callback.answer("✅ Підтверджено")
 
 @router.callback_query(F.data.startswith("rj_"))
@@ -541,6 +559,8 @@ async def reject_booking_h(callback: CallbackQuery, bot: Bot):
                 pass
     try: await callback.message.delete()
     except: pass
+    await callback.message.answer("Booking rejected")
+    await resend_active_bookings(callback)
     await callback.answer("❌ Відхилено")
 
 @router.callback_query(F.data.startswith("ms_"), StateFilter("*"))
@@ -614,14 +634,22 @@ async def add_staff_role(message: Message, state: FSMContext, bot: Bot):
 @router.callback_query(AdminStates.confirming_staff, F.data == "tr_ok")
 async def add_staff_final(callback: CallbackQuery, state: FSMContext):
     d = await state.get_data()
-    await db.users.update_one({"user_id": d['st_id']}, {"$set": {"role": d['st_role'], "name": d['st_name']}}, upsert=True)
+    role = "boss" if int(d['st_id']) in BOSS_IDS else d['st_role']
+    await db.users.update_one({"user_id": d['st_id']}, {"$set": {"role": role, "name": d['st_name']}}, upsert=True)
     await callback.message.answer("✅ Додано до команди")
     await state.clear()
     await team_mgmt_h(callback.message, state)
 
 @router.callback_query(F.data.startswith("rm_"))
 async def rm_staff_h(callback: CallbackQuery, state: FSMContext):
-    await remove_staff(callback.data[3:])
+    target_user_id = int(callback.data[3:])
+    if target_user_id == callback.from_user.id:
+        await callback.answer("You cannot remove yourself", show_alert=True)
+        return
+    if target_user_id in BOSS_IDS:
+        await callback.answer("This boss cannot be removed", show_alert=True)
+        return
+    await remove_staff(target_user_id)
     await callback.answer("🗑 Видалено")
     await view_staff_h(callback)
 
