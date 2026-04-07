@@ -122,6 +122,9 @@ async def start_web_server():
     app = web.Application()
     app.router.add_get('/api/apartments', get_apartments_api)
     app.router.add_get('/api/profile', get_profile_api)
+    async def root_redirect(request):
+        raise web.HTTPFound('/html/main.html')
+    app.router.add_get('/', root_redirect)
     site_path = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', 'Site'))
     app.router.add_static('/', path=site_path, name='site', show_index=True)
     async def cors_middleware(app, handler):
