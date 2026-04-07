@@ -10,7 +10,7 @@ from app.utils.states import BookingStates, UserChatStates, SetupStates
 from app.common.token import PAYMENT_TOKEN, BOSS_IDS, PORTMONE_LIMIT
 from app.utils.currency import get_usd_rate, format_price
 from app.common.texts import get_text, get_all_translations
-import datetime, html, os, re
+import datetime, html, os, re, asyncio
 
 router = Router()
 
@@ -142,6 +142,24 @@ async def send_apartment_message(target, image, text: str, reply_markup):
             return
         await target.answer_photo(image)
     await target.answer(text, reply_markup=reply_markup, parse_mode="HTML")
+
+def build_booking_apartment_text(apartment: dict, lang: str, price_text: str) -> str:
+    apartment_name = html.escape(apartment['title'].get(lang, apartment['title'].get('uk', 'Apartment')))
+    if lang == "uk":
+        return (
+            f"🏢 <b>{apartment_name}</b>\n\n"
+            f"🕒 <b>Заїзд:</b> з 12:00\n"
+            f"🕙 <b>Виїзд:</b> до 10:00\n"
+            f"📄 <b>Документи:</b> паспорт або ID-картка\n"
+            f"💰 <b>Ціна:</b> {price_text}"
+        )
+    return (
+        f"🏢 <b>{apartment_name}</b>\n\n"
+        f"🕒 <b>Check-in:</b> from 12:00\n"
+        f"🕙 <b>Check-out:</b> until 10:00\n"
+        f"📄 <b>Documents:</b> passport or ID card\n"
+        f"💰 <b>Price:</b> {price_text}"
+    )
 
 async def notify_admins(bot: Bot, text: str, booking_id: str | None = None, booking_status: str = "pending"):
     admins = await get_admins()
@@ -440,23 +458,8 @@ async def book_apartment_h(callback: CallbackQuery, state: FSMContext):
         last_list_mode="book"
     )
 
-    ap_name = html.escape(ap['title'].get(l, ap['title'].get('uk', 'Apartment')))
-    ap_desc = html.escape(ap.get('description', {}).get(l, ap.get('description', {}).get('uk', '')))
-    ap_area = html.escape(format_area_value(ap.get('area'), l))
-    ap_features = html.escape(format_feature_list(ap.get('features', []), l))
     ap_price = format_price(ap.get('price', 0), await get_usd_rate(), u.get('currency', 'uah'))
-    info_text = get_text(
-        'msg_ap_info',
-        l,
-        name=ap_name,
-        desc=ap_desc,
-        guests=ap.get('guests', '-'),
-        rooms=ap.get('rooms', '-'),
-        beds=ap.get('beds', '-'),
-        area=ap_area,
-        features=ap_features,
-        price=ap_price
-    )
+    info_text = build_booking_apartment_text(ap, l, ap_price)
     image = resolve_apartment_image(ap)
 
     if not has_valid_phone(u):
@@ -819,14 +822,6 @@ async def user_reply_to_staff_h(message: Message, state: FSMContext, bot: Bot):
     sender_name = html.escape(user.get("name") or message.from_user.full_name or "Guest") if user else html.escape(message.from_user.full_name or "Guest")
     sender_username = html.escape((user.get("username") if user else message.from_user.username) or "-")
     sender_text = html.escape(message.text or "")
-    notice = get_text(
-        "msg_new_msg_from_guest",
-        lang,
-        name=sender_name,
-        username=sender_username,
-        user_id=message.from_user.id,
-        text=sender_text,
-    )
 
     sent = False
     for staff_member in staff:
@@ -834,8 +829,25 @@ async def user_reply_to_staff_h(message: Message, state: FSMContext, bot: Bot):
         if not staff_id:
             continue
         try:
-            await bot.send_message(staff_id, notice, parse_mode="HTML", reply_markup=admin_reply_inline_kb(message.from_user.id, staff_member.get("language", "uk")))
-            sent = True
+            staff_lang = staff_member.get("language", "uk")
+            notice = (
+                f"✉️ <b>Нове повідомлення від гостя</b>\n\n"
+                f"👤 <b>Гість:</b> {sender_name} (@{sender_username})\n"
+                f"🆔 <code>{message.from_user.id}</code>\n\n"
+                f"💬 <b>Повідомлення:</b>\n{sender_text}"
+                if staff_lang == "uk" else
+                f"✉️ <b>New message from guest</b>\n\n"
+                f"👤 <b>Guest:</b> {sender_name} (@{sender_username})\n"
+                f"🆔 <code>{message.from_user.id}</code>\n\n"
+                f"💬 <b>Message:</b>\n{sender_text}"
+            )
+            try:
+                await bot.send_message(staff_id, notice, parse_mode="HTML", reply_markup=admin_reply_inline_kb(message.from_user.id, staff_lang))
+                sent = True
+            except Exception:
+                await asyncio.sleep(1)
+                await bot.send_message(staff_id, notice, parse_mode="HTML", reply_markup=admin_reply_inline_kb(message.from_user.id, staff_lang))
+                sent = True
         except Exception:
             pass
 

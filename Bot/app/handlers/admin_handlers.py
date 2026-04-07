@@ -18,7 +18,7 @@ from app.keyboards.admin_keyboards import (
 from app.utils.states import AdminStates
 from app.utils.currency import get_usd_rate, format_price
 from app.common.token import BOSS_IDS, GOOGLE_MAPS_API_KEY
-import re, random, os, uuid, io
+import re, random, os, uuid, io, html, asyncio
 import googlemaps
 from aiohttp import ClientSession
 from urllib.parse import urlparse, parse_qs, unquote
@@ -629,14 +629,45 @@ async def chat_h(callback: CallbackQuery, state: FSMContext):
 @router.message(AdminStates.replying_to_user)
 async def reply_h(message: Message, state: FSMContext, bot: Bot):
     from app.handlers.user_handlers import menu_redirect
-    if message.text in ALL_MENU_BTNS: return await menu_redirect(message, state, bot)
+    if message.text in ALL_MENU_BTNS:
+        return await menu_redirect(message, state, bot)
     d = await state.get_data()
     tid = d.get('chat_target_user_id')
     u = await get_user(message.from_user.id)
+    admin_lang = u.get("language", "uk") if u else "uk"
+    if not tid:
+        await message.answer("Recipient not found" if admin_lang != "uk" else "?? ???????? ??????????")
+        await state.clear()
+        return
+    target_user = await get_user(tid)
+    target_lang = target_user.get("language", "uk") if target_user else "uk"
+    admin_name = html.escape(u.get("name") or message.from_user.full_name or ("Administrator" if target_lang != "uk" else "?????????????"))
+    reply_text = html.escape(message.text or "")
+    if target_lang == "uk":
+        outgoing_text = "<b>????????? ??? ??????????????</b>" + "\\n\\n" + f"<b>{admin_name}</b>" + "\\n\\n" + reply_text
+    else:
+        outgoing_text = "<b>Reply from administrator</b>" + "\\n\\n" + f"<b>{admin_name}</b>" + "\\n\\n" + reply_text
     try:
-        await bot.send_message(tid, f"💬 Відповідь від адміністратора:\n\n{message.text}", reply_markup=user_reply_inline_kb(u['language']))
-        await message.answer("✅ Надіслано")
-    except: await message.answer("❌ Помилка")
+        await bot.send_message(
+            tid,
+            outgoing_text,
+            parse_mode="HTML",
+            reply_markup=user_reply_inline_kb(target_lang),
+        )
+    except Exception:
+        await asyncio.sleep(1)
+        try:
+            await bot.send_message(
+                tid,
+                outgoing_text,
+                parse_mode="HTML",
+                reply_markup=user_reply_inline_kb(target_lang),
+            )
+        except Exception:
+            await message.answer("Failed to send the message" if admin_lang != "uk" else "?? ??????? ????????? ????????????")
+            await state.clear()
+            return
+    await message.answer("Sent" if admin_lang != "uk" else "?????????")
     await state.clear()
 
 @router.callback_query(F.data == "v_st")
