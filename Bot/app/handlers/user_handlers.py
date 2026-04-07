@@ -215,10 +215,8 @@ async def ensure_profile_user(event: Message | CallbackQuery):
         user = await get_user(uid)
     return user
 
-def build_profile_keyboard(lang: str, is_incomplete: bool):
+def build_profile_keyboard(lang: str):
     builder = InlineKeyboardBuilder()
-    if is_incomplete:
-        builder.row(InlineKeyboardButton(text=get_text("btn_complete_profile", lang), callback_data="profile_complete"))
     builder.row(
         InlineKeyboardButton(text=get_text("btn_change_lang", lang), callback_data="profile_lang"),
         InlineKeyboardButton(text=get_text("btn_change_curr", lang), callback_data="profile_curr"),
@@ -277,7 +275,7 @@ async def profile_h(event: Message | CallbackQuery, state: FSMContext):
         language_label=get_text(f"lang_{l}", l),
         curr=currency,
     )
-    kb = build_profile_keyboard(l, not u.get("phone"))
+    kb = build_profile_keyboard(l)
 
     if isinstance(event, CallbackQuery):
         try:

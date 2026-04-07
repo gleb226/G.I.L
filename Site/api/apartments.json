@@ -1,1 +1,1733 @@
-[]
+[
+  {
+    "_id": "69d49d5bd8810233ba1da2c1",
+    "external_id": 180,
+    "address": "вул. Мукачівська 77/42",
+    "area": "-",
+    "beds": 2,
+    "description": {
+      "uk": "Апартаменти за адресою вул. Мукачівська 77/42. Кількість кімнат: 1. Кількість гостей: 2. Розташовані на 4 поверсі. Зручності: телевізор, холодильник, мікрохвильова піч, гаряча вода, кондиціонер, поруч супермаркет, зручна транспортна розв'язка, Smart TV.",
+      "en": "Apartment at the address st. Mukachivska 77/42. Number of rooms: 1. Number of guests: 2. Located on the 4th floor. Amenities: TV, refrigerator, microwave oven, hot water, air conditioner, nearby supermarket, convenient transport interchange, Smart TV."
+    },
+    "features": [
+      "tv",
+      "fridge",
+      "microwave",
+      "hot_water",
+      "air_conditioner",
+      "near_supermarket",
+      "good_transport",
+      "smart_tv"
+    ],
+    "floor": 4,
+    "gallery": [
+      "https://images.unsplash.com/photo-1556784344-ad913c73cfc4?q=80&w=1169&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+    ],
+    "guests": 2,
+    "img": "https://images.unsplash.com/photo-1556784344-ad913c73cfc4?q=80&w=1169&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "is_available": true,
+    "lat": 48.613578,
+    "lng": 22.302807,
+    "price": 1300,
+    "rooms": 1,
+    "source_url": "https://rooms.net.ua/apartments/180/",
+    "title": {
+      "uk": "вул. Мукачівська 77/42",
+      "en": "St. Mukachivska 77/42"
+    }
+  },
+  {
+    "_id": "69d49d5bd8810233ba1da2c2",
+    "external_id": 182,
+    "address": "вул. Мукачівська 77/43",
+    "area": "-",
+    "beds": 2,
+    "description": {
+      "uk": "Апартаменти за адресою вул. Мукачівська 77/43. Кількість кімнат: 1. Кількість гостей: 2. Розташовані на 4 поверсі. Зручності: телевізор, холодильник, мікрохвильова піч, гаряча вода, кондиціонер, поруч супермаркет, зручна транспортна розв'язка, Smart TV, варильна поверхня.",
+      "en": "Apartment at the address st. Mukachivska 77/43. Number of rooms: 1. Number of guests: 2. Located on the 4th floor. Amenities: TV, refrigerator, microwave oven, hot water, air conditioner, supermarket nearby, convenient transport interchange, Smart TV, cooking surface."
+    },
+    "features": [
+      "tv",
+      "fridge",
+      "microwave",
+      "hot_water",
+      "air_conditioner",
+      "near_supermarket",
+      "good_transport",
+      "smart_tv",
+      "hob"
+    ],
+    "floor": 4,
+    "gallery": [
+      "https://images.unsplash.com/photo-1556784344-ad913c73cfc4?q=80&w=1169&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+    ],
+    "guests": 2,
+    "img": "https://images.unsplash.com/photo-1556784344-ad913c73cfc4?q=80&w=1169&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "is_available": true,
+    "lat": 48.613578,
+    "lng": 22.302807,
+    "price": 1300,
+    "rooms": 1,
+    "source_url": "https://rooms.net.ua/apartments/182/",
+    "title": {
+      "uk": "вул. Мукачівська 77/43",
+      "en": "St. Mukachivska 77/43"
+    }
+  },
+  {
+    "_id": "69d49d5bd8810233ba1da2c3",
+    "external_id": 167,
+    "address": "пл.Ш. Петефі 8а5а",
+    "area": "-",
+    "beds": 2,
+    "description": {
+      "uk": "Апартаменти за адресою пл.Ш. Петефі 8а5а. Кількість кімнат: 1. Кількість гостей: 2. Розташовані на 2 поверсі. Зручності: телевізор, холодильник, мікрохвильова піч, гаряча вода, кондиціонер, поруч супермаркет, зручна транспортна розв'язка, Smart TV.",
+      "en": "Apartment at the address Sh. Petefi 8a5a. Number of rooms: 1. Number of guests: 2. Located on the 2nd floor. Amenities: TV, refrigerator, microwave oven, hot water, air conditioner, nearby supermarket, convenient transport interchange, Smart TV."
+    },
+    "features": [
+      "tv",
+      "fridge",
+      "microwave",
+      "hot_water",
+      "air_conditioner",
+      "near_supermarket",
+      "good_transport",
+      "smart_tv"
+    ],
+    "floor": 2,
+    "gallery": [
+      "https://images.unsplash.com/photo-1556784344-ad913c73cfc4?q=80&w=1169&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+    ],
+    "guests": 2,
+    "img": "https://images.unsplash.com/photo-1556784344-ad913c73cfc4?q=80&w=1169&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "is_available": true,
+    "lat": 48.6205583,
+    "lng": 22.29650171,
+    "price": 1400,
+    "rooms": 1,
+    "source_url": "https://rooms.net.ua/apartments/167/",
+    "title": {
+      "uk": "пл.Ш. Петефі 8а5а",
+      "en": "Square Sh. Petefi 8a5a"
+    }
+  },
+  {
+    "_id": "69d49d5bd8810233ba1da2c4",
+    "external_id": 111,
+    "address": "Проспект Свободи 20",
+    "area": "-",
+    "beds": 2,
+    "description": {
+      "uk": "Апартаменти за адресою Проспект Свободи 20. Кількість кімнат: 1. Кількість гостей: 2. Розташовані на 2 поверсі. Зручності: телевізор, холодильник, мікрохвильова піч, гаряча вода, поруч супермаркет, зручна транспортна розв'язка, інтернет, під'їзд на коді, пральна машина, супутникове телебачення.",
+      "en": "Apartment at 20 Svobody Avenue. Number of rooms: 1. Number of guests: 2. Located on the 2nd floor. Amenities: TV, refrigerator, microwave oven, hot water, supermarket nearby, convenient transport interchange, internet, coded entrance, washing machine, satellite TV."
+    },
+    "features": [
+      "tv",
+      "fridge",
+      "microwave",
+      "hot_water",
+      "near_supermarket",
+      "good_transport",
+      "internet",
+      "coded_entry",
+      "washing_machine",
+      "satellite_tv"
+    ],
+    "floor": 2,
+    "gallery": [
+      "https://images.unsplash.com/photo-1556784344-ad913c73cfc4?q=80&w=1169&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+    ],
+    "guests": 2,
+    "img": "https://images.unsplash.com/photo-1556784344-ad913c73cfc4?q=80&w=1169&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "is_available": true,
+    "lat": 48.617661,
+    "lng": 22.28934,
+    "price": 1500,
+    "rooms": 1,
+    "source_url": "https://rooms.net.ua/apartments/111/",
+    "title": {
+      "uk": "Проспект Свободи 20",
+      "en": "20 Svoboda Avenue"
+    }
+  },
+  {
+    "_id": "69d49d5bd8810233ba1da2c5",
+    "external_id": 135,
+    "address": "вул. Лермонтова 1",
+    "area": "-",
+    "beds": 2,
+    "description": {
+      "uk": "Апартаменти за адресою вул. Лермонтова 1. Кількість кімнат: 1. Кількість гостей: 2. Розташовані на 3 поверсі. Зручності: телевізор, холодильник, мікрохвильова піч, гаряча вода, поруч супермаркет, зручна транспортна розв'язка, балкон, інтернет, кабельне телебачення, під'їзд на коді, пральна машина.",
+      "en": "Apartment at the address st. Lermontova 1. Number of rooms: 1. Number of guests: 2. Located on the 3rd floor. Amenities: TV, refrigerator, microwave oven, hot water, supermarket nearby, convenient transport interchange, balcony, internet, cable TV, coded entrance, washing machine."
+    },
+    "features": [
+      "tv",
+      "fridge",
+      "microwave",
+      "hot_water",
+      "near_supermarket",
+      "good_transport",
+      "balcony",
+      "internet",
+      "cable_tv",
+      "coded_entry",
+      "washing_machine"
+    ],
+    "floor": 3,
+    "gallery": [
+      "https://images.unsplash.com/photo-1556784344-ad913c73cfc4?q=80&w=1169&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+    ],
+    "guests": 2,
+    "img": "https://images.unsplash.com/photo-1556784344-ad913c73cfc4?q=80&w=1169&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "is_available": true,
+    "lat": 48.616857,
+    "lng": 22.296228,
+    "price": 1500,
+    "rooms": 1,
+    "source_url": "https://rooms.net.ua/apartments/135/",
+    "title": {
+      "uk": "вул. Лермонтова 1",
+      "en": "St. Lermontova 1"
+    }
+  },
+  {
+    "_id": "69d49d5bd8810233ba1da2c6",
+    "external_id": 148,
+    "address": "вул. Корзо 7",
+    "area": "-",
+    "beds": 3,
+    "description": {
+      "uk": "Апартаменти за адресою вул. Корзо 7. Кількість кімнат: 1. Кількість гостей: 3. Розташовані на 2 поверсі. Зручності: телевізор, холодильник, мікрохвильова піч, гаряча вода, кондиціонер, поруч супермаркет, зручна транспортна розв'язка, балкон, інтернет, під'їзд на коді, пральна машина, супутникове телебачення.",
+      "en": "Apartment at the address st. Corso 7. Number of rooms: 1. Number of guests: 3. Located on the 2nd floor. Amenities: TV, refrigerator, microwave oven, hot water, air conditioner, supermarket nearby, convenient transport interchange, balcony, internet, coded entrance, washing machine, satellite TV."
+    },
+    "features": [
+      "tv",
+      "fridge",
+      "microwave",
+      "hot_water",
+      "air_conditioner",
+      "near_supermarket",
+      "good_transport",
+      "balcony",
+      "internet",
+      "coded_entry",
+      "washing_machine",
+      "satellite_tv"
+    ],
+    "floor": 2,
+    "gallery": [
+      "https://images.unsplash.com/photo-1556784344-ad913c73cfc4?q=80&w=1169&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+    ],
+    "guests": 3,
+    "img": "https://images.unsplash.com/photo-1556784344-ad913c73cfc4?q=80&w=1169&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "is_available": true,
+    "lat": 48.622996,
+    "lng": 22.297339,
+    "price": 1500,
+    "rooms": 1,
+    "source_url": "https://rooms.net.ua/apartments/148/",
+    "title": {
+      "uk": "вул. Корзо 7",
+      "en": "St. Corso 7"
+    }
+  },
+  {
+    "_id": "69d49d5bd8810233ba1da2c7",
+    "external_id": 149,
+    "address": "вул. Корзо 7",
+    "area": "-",
+    "beds": 4,
+    "description": {
+      "uk": "Апартаменти за адресою вул. Корзо 7. Кількість кімнат: 1. Кількість гостей: 4. Розташовані на 2 поверсі. Зручності: телевізор, холодильник, мікрохвильова піч, гаряча вода, кондиціонер, поруч супермаркет, зручна транспортна розв'язка, балкон, інтернет, під'їзд на коді, пральна машина, супутникове телебачення.",
+      "en": "Apartment at the address st. Corso 7. Number of rooms: 1. Number of guests: 4. Located on the 2nd floor. Amenities: TV, refrigerator, microwave oven, hot water, air conditioner, supermarket nearby, convenient transport interchange, balcony, internet, coded entrance, washing machine, satellite TV."
+    },
+    "features": [
+      "tv",
+      "fridge",
+      "microwave",
+      "hot_water",
+      "air_conditioner",
+      "near_supermarket",
+      "good_transport",
+      "balcony",
+      "internet",
+      "coded_entry",
+      "washing_machine",
+      "satellite_tv"
+    ],
+    "floor": 2,
+    "gallery": [
+      "https://images.unsplash.com/photo-1556784344-ad913c73cfc4?q=80&w=1169&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+    ],
+    "guests": 4,
+    "img": "https://images.unsplash.com/photo-1556784344-ad913c73cfc4?q=80&w=1169&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "is_available": true,
+    "lat": 48.622996,
+    "lng": 22.297339,
+    "price": 1500,
+    "rooms": 1,
+    "source_url": "https://rooms.net.ua/apartments/149/",
+    "title": {
+      "uk": "вул. Корзо 7",
+      "en": "St. Corso 7"
+    }
+  },
+  {
+    "_id": "69d49d5bd8810233ba1da2c8",
+    "external_id": 150,
+    "address": "вул. Корзо 7",
+    "area": "-",
+    "beds": 3,
+    "description": {
+      "uk": "Апартаменти за адресою вул. Корзо 7. Кількість кімнат: 1. Кількість гостей: 3. Розташовані на 2 поверсі. Зручності: телевізор, холодильник, мікрохвильова піч, гаряча вода, кондиціонер, поруч супермаркет, зручна транспортна розв'язка, балкон, інтернет, під'їзд на коді, пральна машина, супутникове телебачення.",
+      "en": "Apartment at the address st. Corso 7. Number of rooms: 1. Number of guests: 3. Located on the 2nd floor. Amenities: TV, refrigerator, microwave oven, hot water, air conditioner, supermarket nearby, convenient transport interchange, balcony, internet, coded entrance, washing machine, satellite TV."
+    },
+    "features": [
+      "tv",
+      "fridge",
+      "microwave",
+      "hot_water",
+      "air_conditioner",
+      "near_supermarket",
+      "good_transport",
+      "balcony",
+      "internet",
+      "coded_entry",
+      "washing_machine",
+      "satellite_tv"
+    ],
+    "floor": 2,
+    "gallery": [
+      "https://images.unsplash.com/photo-1556784344-ad913c73cfc4?q=80&w=1169&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+    ],
+    "guests": 3,
+    "img": "https://images.unsplash.com/photo-1556784344-ad913c73cfc4?q=80&w=1169&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "is_available": true,
+    "lat": 48.622996,
+    "lng": 22.297339,
+    "price": 1500,
+    "rooms": 1,
+    "source_url": "https://rooms.net.ua/apartments/150/",
+    "title": {
+      "uk": "вул. Корзо 7",
+      "en": "St. Corso 7"
+    }
+  },
+  {
+    "_id": "69d49d5bd8810233ba1da2c9",
+    "external_id": 172,
+    "address": "пл. Богдана Хмельницького",
+    "area": "-",
+    "beds": 2,
+    "description": {
+      "uk": "Апартаменти за адресою пл. Богдана Хмельницького. Кількість кімнат: 1. Кількість гостей: 2. Розташовані на 5 поверсі. Зручності: телевізор, холодильник, мікрохвильова піч, гаряча вода, кондиціонер, зручна транспортна розв'язка, балкон, варильна поверхня, пральна машина, телебачення T2.",
+      "en": "Apartment at the address of the square Bohdan Khmelnytskyi. Number of rooms: 1. Number of guests: 2. Located on the 5th floor. Amenities: TV, refrigerator, microwave oven, hot water, air conditioner, convenient transport interchange, balcony, cooking surface, washing machine, TV T2."
+    },
+    "features": [
+      "tv",
+      "fridge",
+      "microwave",
+      "hot_water",
+      "air_conditioner",
+      "good_transport",
+      "balcony",
+      "hob",
+      "washing_machine",
+      "t2_tv"
+    ],
+    "floor": 5,
+    "gallery": [
+      "https://images.unsplash.com/photo-1556784344-ad913c73cfc4?q=80&w=1169&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+    ],
+    "guests": 2,
+    "img": "https://images.unsplash.com/photo-1556784344-ad913c73cfc4?q=80&w=1169&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "is_available": true,
+    "lat": 48.621989,
+    "lng": 22.2886741,
+    "price": 1500,
+    "rooms": 1,
+    "source_url": "https://rooms.net.ua/apartments/172/",
+    "title": {
+      "uk": "пл. Богдана Хмельницького",
+      "en": "sq. Bohdan Khmelnytskyi"
+    }
+  },
+  {
+    "_id": "69d49d5bd8810233ba1da2ca",
+    "external_id": 184,
+    "address": "вул. Мукачівська 77/41",
+    "area": "-",
+    "beds": 2,
+    "description": {
+      "uk": "Апартаменти за адресою вул. Мукачівська 77/41. Кількість кімнат: 1. Кількість гостей: 2. Розташовані на 4 поверсі. Зручності: телевізор, холодильник, мікрохвильова піч, гаряча вода, кондиціонер, поруч супермаркет, зручна транспортна розв'язка, Smart TV, варильна поверхня.",
+      "en": "Apartment at the address st. Mukachivska 77/41. Number of rooms: 1. Number of guests: 2. Located on the 4th floor. Amenities: TV, refrigerator, microwave oven, hot water, air conditioner, supermarket nearby, convenient transport interchange, Smart TV, cooking surface."
+    },
+    "features": [
+      "tv",
+      "fridge",
+      "microwave",
+      "hot_water",
+      "air_conditioner",
+      "near_supermarket",
+      "good_transport",
+      "smart_tv",
+      "hob"
+    ],
+    "floor": 4,
+    "gallery": [
+      "https://images.unsplash.com/photo-1556784344-ad913c73cfc4?q=80&w=1169&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+    ],
+    "guests": 2,
+    "img": "https://images.unsplash.com/photo-1556784344-ad913c73cfc4?q=80&w=1169&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "is_available": true,
+    "lat": 48.613578,
+    "lng": 22.302807,
+    "price": 1500,
+    "rooms": 1,
+    "source_url": "https://rooms.net.ua/apartments/184/",
+    "title": {
+      "uk": "вул. Мукачівська 77/41",
+      "en": "St. Mukachivska 77/41"
+    }
+  },
+  {
+    "_id": "69d49d5bd8810233ba1da2cb",
+    "external_id": 123,
+    "address": "вул. Минайська 18г",
+    "area": "-",
+    "beds": 2,
+    "description": {
+      "uk": "Апартаменти за адресою вул. Минайська 18г. Кількість кімнат: 1. Кількість гостей: 2. Розташовані на 1 поверсі. Зручності: телевізор, холодильник, мікрохвильова піч, гаряча вода, кондиціонер, поруч супермаркет, зручна транспортна розв'язка, балкон, інтернет, кабельне телебачення, парковка під охороною, під'їзд на коді, пральна машина.",
+      "en": "Apartment at the address st. Minayska 18 Number of rooms: 1. Number of guests: 2. Located on the 1st floor. Amenities: TV, refrigerator, microwave oven, hot water, air conditioner, nearby supermarket, convenient transport interchange, balcony, internet, cable TV, guarded parking, coded entrance, washing machine."
+    },
+    "features": [
+      "tv",
+      "fridge",
+      "microwave",
+      "hot_water",
+      "air_conditioner",
+      "near_supermarket",
+      "good_transport",
+      "balcony",
+      "internet",
+      "cable_tv",
+      "secure_parking",
+      "coded_entry",
+      "washing_machine"
+    ],
+    "floor": 1,
+    "gallery": [
+      "https://images.unsplash.com/photo-1556784344-ad913c73cfc4?q=80&w=1169&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+    ],
+    "guests": 2,
+    "img": "https://images.unsplash.com/photo-1556784344-ad913c73cfc4?q=80&w=1169&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "is_available": true,
+    "lat": 48.606925,
+    "lng": 22.288788,
+    "price": 1600,
+    "rooms": 1,
+    "source_url": "https://rooms.net.ua/apartments/123/",
+    "title": {
+      "uk": "вул. Минайська 18г",
+      "en": "St. Minayska 18"
+    }
+  },
+  {
+    "_id": "69d49d5bd8810233ba1da2cc",
+    "external_id": 166,
+    "address": "вул. Мукачівська 77/22",
+    "area": "-",
+    "beds": 2,
+    "description": {
+      "uk": "Апартаменти за адресою вул. Мукачівська 77/22. Кількість кімнат: 1. Кількість гостей: 2. Розташовані на 2 поверсі. Зручності: телевізор, холодильник, мікрохвильова піч, гаряча вода, кондиціонер, зручна транспортна розв'язка, Smart TV, варильна поверхня, інтернет.",
+      "en": "Apartment at the address st. Mukachivska 77/22. Number of rooms: 1. Number of guests: 2. Located on the 2nd floor. Amenities: TV, refrigerator, microwave oven, hot water, air conditioner, convenient transport interchange, Smart TV, cooking surface, Internet."
+    },
+    "features": [
+      "tv",
+      "fridge",
+      "microwave",
+      "hot_water",
+      "air_conditioner",
+      "good_transport",
+      "smart_tv",
+      "hob",
+      "internet"
+    ],
+    "floor": 2,
+    "gallery": [
+      "https://images.unsplash.com/photo-1556784344-ad913c73cfc4?q=80&w=1169&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+    ],
+    "guests": 2,
+    "img": "https://images.unsplash.com/photo-1556784344-ad913c73cfc4?q=80&w=1169&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "is_available": true,
+    "lat": 48.613578,
+    "lng": 22.302807,
+    "price": 1650,
+    "rooms": 1,
+    "source_url": "https://rooms.net.ua/apartments/166/",
+    "title": {
+      "uk": "вул. Мукачівська 77/22",
+      "en": "St. Mukachivska 77/22"
+    }
+  },
+  {
+    "_id": "69d49d5bd8810233ba1da2cd",
+    "external_id": 175,
+    "address": "вул. Мукачівська 77/01",
+    "area": "-",
+    "beds": 2,
+    "description": {
+      "uk": "Апартаменти за адресою вул. Мукачівська 77/01. Кількість кімнат: 1. Кількість гостей: 2. Розташовані на 1 поверсі. Зручності: телевізор, холодильник, мікрохвильова піч, гаряча вода, зручна транспортна розв'язка, Smart TV, варильна поверхня.",
+      "en": "Apartment at the address st. Mukachivska 77/01. Number of rooms: 1. Number of guests: 2. Located on the 1st floor. Amenities: TV, refrigerator, microwave oven, hot water, convenient transport interchange, Smart TV, cooking surface."
+    },
+    "features": [
+      "tv",
+      "fridge",
+      "microwave",
+      "hot_water",
+      "good_transport",
+      "smart_tv",
+      "hob"
+    ],
+    "floor": 1,
+    "gallery": [
+      "https://images.unsplash.com/photo-1556784344-ad913c73cfc4?q=80&w=1169&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+    ],
+    "guests": 2,
+    "img": "https://images.unsplash.com/photo-1556784344-ad913c73cfc4?q=80&w=1169&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "is_available": true,
+    "lat": 48.613578,
+    "lng": 22.302807,
+    "price": 1650,
+    "rooms": 1,
+    "source_url": "https://rooms.net.ua/apartments/175/",
+    "title": {
+      "uk": "вул. Мукачівська 77/01",
+      "en": "St. Mukachivska 77/01"
+    }
+  },
+  {
+    "_id": "69d49d5bd8810233ba1da2ce",
+    "external_id": 179,
+    "address": "вул. Мукачівська 77/02",
+    "area": "-",
+    "beds": 2,
+    "description": {
+      "uk": "Апартаменти за адресою вул. Мукачівська 77/02. Кількість кімнат: 1. Кількість гостей: 2. Розташовані на 1 поверсі. Зручності: телевізор, холодильник, мікрохвильова піч, гаряча вода, зручна транспортна розв'язка, Smart TV, варильна поверхня, парковка під охороною.",
+      "en": "Apartment at the address st. Mukachivska 77/02. Number of rooms: 1. Number of guests: 2. Located on the 1st floor. Amenities: TV, refrigerator, microwave oven, hot water, convenient transport interchange, Smart TV, cooking surface, secure parking."
+    },
+    "features": [
+      "tv",
+      "fridge",
+      "microwave",
+      "hot_water",
+      "good_transport",
+      "smart_tv",
+      "hob",
+      "secure_parking"
+    ],
+    "floor": 1,
+    "gallery": [
+      "https://images.unsplash.com/photo-1556784344-ad913c73cfc4?q=80&w=1169&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+    ],
+    "guests": 2,
+    "img": "https://images.unsplash.com/photo-1556784344-ad913c73cfc4?q=80&w=1169&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "is_available": true,
+    "lat": 48.613578,
+    "lng": 22.302807,
+    "price": 1650,
+    "rooms": 1,
+    "source_url": "https://rooms.net.ua/apartments/179/",
+    "title": {
+      "uk": "вул. Мукачівська 77/02",
+      "en": "St. Mukachivska 77/02"
+    }
+  },
+  {
+    "_id": "69d49d5bd8810233ba1da2cf",
+    "external_id": 183,
+    "address": "вул. Мукачівська 77/44",
+    "area": "-",
+    "beds": 2,
+    "description": {
+      "uk": "Апартаменти за адресою вул. Мукачівська 77/44. Кількість кімнат: 1. Кількість гостей: 2. Розташовані на 4 поверсі. Зручності: телевізор, холодильник, мікрохвильова піч, гаряча вода, кондиціонер, поруч супермаркет, зручна транспортна розв'язка, Smart TV, варильна поверхня.",
+      "en": "Apartment at the address st. Mukachivska 77/44. Number of rooms: 1. Number of guests: 2. Located on the 4th floor. Amenities: TV, refrigerator, microwave oven, hot water, air conditioner, supermarket nearby, convenient transport interchange, Smart TV, cooking surface."
+    },
+    "features": [
+      "tv",
+      "fridge",
+      "microwave",
+      "hot_water",
+      "air_conditioner",
+      "near_supermarket",
+      "good_transport",
+      "smart_tv",
+      "hob"
+    ],
+    "floor": 4,
+    "gallery": [
+      "https://images.unsplash.com/photo-1556784344-ad913c73cfc4?q=80&w=1169&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+    ],
+    "guests": 2,
+    "img": "https://images.unsplash.com/photo-1556784344-ad913c73cfc4?q=80&w=1169&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "is_available": true,
+    "lat": 48.613578,
+    "lng": 22.302807,
+    "price": 1650,
+    "rooms": 1,
+    "source_url": "https://rooms.net.ua/apartments/183/",
+    "title": {
+      "uk": "вул. Мукачівська 77/44",
+      "en": "St. Mukachivska 77/44"
+    }
+  },
+  {
+    "_id": "69d49d5bd8810233ba1da2d0",
+    "external_id": 137,
+    "address": "вул. Тлехаса 14",
+    "area": "-",
+    "beds": 3,
+    "description": {
+      "uk": "Апартаменти за адресою вул. Тлехаса 14. Кількість кімнат: 1. Кількість гостей: 3. Розташовані на 1 поверсі. Зручності: телевізор, холодильник, мікрохвильова піч, гаряча вода, кондиціонер, поруч супермаркет, зручна транспортна розв'язка, Smart TV, балкон, інтернет, кабельне телебачення, під'їзд на коді, пральна машина.",
+      "en": "Apartment at the address st. Tlejasa 14. Number of rooms: 1. Number of guests: 3. Located on the 1st floor. Amenities: TV, refrigerator, microwave oven, hot water, air conditioner, supermarket nearby, convenient transport interchange, Smart TV, balcony, internet, cable TV, coded entrance, washing machine."
+    },
+    "features": [
+      "tv",
+      "fridge",
+      "microwave",
+      "hot_water",
+      "air_conditioner",
+      "near_supermarket",
+      "good_transport",
+      "smart_tv",
+      "balcony",
+      "internet",
+      "cable_tv",
+      "coded_entry",
+      "washing_machine"
+    ],
+    "floor": 1,
+    "gallery": [
+      "https://images.unsplash.com/photo-1556784344-ad913c73cfc4?q=80&w=1169&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+    ],
+    "guests": 3,
+    "img": "https://images.unsplash.com/photo-1556784344-ad913c73cfc4?q=80&w=1169&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "is_available": true,
+    "lat": 48.608106,
+    "lng": 22.264019,
+    "price": 1700,
+    "rooms": 1,
+    "source_url": "https://rooms.net.ua/apartments/137/",
+    "title": {
+      "uk": "вул. Тлехаса 14",
+      "en": "St. Tlejasa 14"
+    }
+  },
+  {
+    "_id": "69d49d5bd8810233ba1da2d1",
+    "external_id": 138,
+    "address": "вул. Тлехаса 14",
+    "area": "-",
+    "beds": 3,
+    "description": {
+      "uk": "Апартаменти за адресою вул. Тлехаса 14. Кількість кімнат: 1. Кількість гостей: 3. Розташовані на 1 поверсі. Зручності: телевізор, холодильник, мікрохвильова піч, гаряча вода, кондиціонер, поруч супермаркет, зручна транспортна розв'язка, балкон, інтернет, кабельне телебачення, під'їзд на коді.",
+      "en": "Apartment at the address st. Tlejasa 14. Number of rooms: 1. Number of guests: 3. Located on the 1st floor. Amenities: TV, refrigerator, microwave oven, hot water, air conditioning, supermarket nearby, convenient transport interchange, balcony, internet, cable TV, coded entrance."
+    },
+    "features": [
+      "tv",
+      "fridge",
+      "microwave",
+      "hot_water",
+      "air_conditioner",
+      "near_supermarket",
+      "good_transport",
+      "balcony",
+      "internet",
+      "cable_tv",
+      "coded_entry"
+    ],
+    "floor": 1,
+    "gallery": [
+      "https://images.unsplash.com/photo-1556784344-ad913c73cfc4?q=80&w=1169&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+    ],
+    "guests": 3,
+    "img": "https://images.unsplash.com/photo-1556784344-ad913c73cfc4?q=80&w=1169&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "is_available": true,
+    "lat": 48.608106,
+    "lng": 22.264019,
+    "price": 1700,
+    "rooms": 1,
+    "source_url": "https://rooms.net.ua/apartments/138/",
+    "title": {
+      "uk": "вул. Тлехаса 14",
+      "en": "St. Tlejasa 14"
+    }
+  },
+  {
+    "_id": "69d49d5bd8810233ba1da2d2",
+    "external_id": 139,
+    "address": "ул. Тлехаса 14",
+    "area": "-",
+    "beds": 3,
+    "description": {
+      "uk": "Апартаменти за адресою ул. Тлехаса 14. Кількість кімнат: 1. Кількість гостей: 3. Розташовані на 3 поверсі. Зручності: телевізор, холодильник, мікрохвильова піч, гаряча вода, кондиціонер, поруч супермаркет, зручна транспортна розв'язка, балкон, інтернет, кабельне телебачення, під'їзд на коді, пральна машина.",
+      "en": "Apartment at ul. Tlejasa 14. Number of rooms: 1. Number of guests: 3. Located on the 3rd floor. Amenities: TV, refrigerator, microwave oven, hot water, air conditioning, supermarket nearby, convenient transport interchange, balcony, internet, cable TV, coded entrance, washing machine."
+    },
+    "features": [
+      "tv",
+      "fridge",
+      "microwave",
+      "hot_water",
+      "air_conditioner",
+      "near_supermarket",
+      "good_transport",
+      "balcony",
+      "internet",
+      "cable_tv",
+      "coded_entry",
+      "washing_machine"
+    ],
+    "floor": 3,
+    "gallery": [
+      "https://images.unsplash.com/photo-1556784344-ad913c73cfc4?q=80&w=1169&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+    ],
+    "guests": 3,
+    "img": "https://images.unsplash.com/photo-1556784344-ad913c73cfc4?q=80&w=1169&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "is_available": true,
+    "lat": 48.608106,
+    "lng": 22.264019,
+    "price": 1700,
+    "rooms": 1,
+    "source_url": "https://rooms.net.ua/apartments/139/",
+    "title": {
+      "uk": "ул. Тлехаса 14",
+      "en": "St. Tlejasa 14"
+    }
+  },
+  {
+    "_id": "69d49d5bd8810233ba1da2d3",
+    "external_id": 141,
+    "address": "ул. Тлехаса 14",
+    "area": "-",
+    "beds": 2,
+    "description": {
+      "uk": "Апартаменти за адресою ул. Тлехаса 14. Кількість кімнат: 1. Кількість гостей: 2. Розташовані на 1 поверсі. Зручності: телевізор, холодильник, мікрохвильова піч, гаряча вода, кондиціонер, поруч супермаркет, зручна транспортна розв'язка, балкон, інтернет, кабельне телебачення, під'їзд на коді, пральна машина.",
+      "en": "Apartment at ul. Tlejasa 14. Number of rooms: 1. Number of guests: 2. Located on the 1st floor. Amenities: TV, refrigerator, microwave oven, hot water, air conditioning, supermarket nearby, convenient transport interchange, balcony, internet, cable TV, coded entrance, washing machine."
+    },
+    "features": [
+      "tv",
+      "fridge",
+      "microwave",
+      "hot_water",
+      "air_conditioner",
+      "near_supermarket",
+      "good_transport",
+      "balcony",
+      "internet",
+      "cable_tv",
+      "coded_entry",
+      "washing_machine"
+    ],
+    "floor": 1,
+    "gallery": [
+      "https://images.unsplash.com/photo-1556784344-ad913c73cfc4?q=80&w=1169&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+    ],
+    "guests": 2,
+    "img": "https://images.unsplash.com/photo-1556784344-ad913c73cfc4?q=80&w=1169&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "is_available": true,
+    "lat": 48.608106,
+    "lng": 22.264019,
+    "price": 1700,
+    "rooms": 1,
+    "source_url": "https://rooms.net.ua/apartments/141/",
+    "title": {
+      "uk": "ул. Тлехаса 14",
+      "en": "St. Tlejasa 14"
+    }
+  },
+  {
+    "_id": "69d49d5bd8810233ba1da2d4",
+    "external_id": 160,
+    "address": "вул Володимирська 90",
+    "area": "-",
+    "beds": 2,
+    "description": {
+      "uk": "Апартаменти за адресою вул Володимирська 90. Кількість кімнат: 1. Кількість гостей: 2. Розташовані на 2 поверсі. Зручності: телевізор, холодильник, мікрохвильова піч, гаряча вода, поруч супермаркет, зручна транспортна розв'язка, інтернет, під'їзд на коді, пральна машина.",
+      "en": "Apartment at 90 Volodymyrska St. Number of rooms: 1. Number of guests: 2. Located on the 2nd floor. Amenities: TV, refrigerator, microwave oven, hot water, supermarket nearby, convenient transport interchange, internet, coded entrance, washing machine."
+    },
+    "features": [
+      "tv",
+      "fridge",
+      "microwave",
+      "hot_water",
+      "near_supermarket",
+      "good_transport",
+      "internet",
+      "coded_entry",
+      "washing_machine"
+    ],
+    "floor": 2,
+    "gallery": [
+      "https://images.unsplash.com/photo-1556784344-ad913c73cfc4?q=80&w=1169&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+    ],
+    "guests": 2,
+    "img": "https://images.unsplash.com/photo-1556784344-ad913c73cfc4?q=80&w=1169&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "is_available": true,
+    "lat": 48.621,
+    "lng": 22.288,
+    "price": 1700,
+    "rooms": 1,
+    "source_url": "https://rooms.net.ua/apartments/160/",
+    "title": {
+      "uk": "вул Володимирська 90",
+      "en": "90 Volodymyrska St"
+    }
+  },
+  {
+    "_id": "69d49d5bd8810233ba1da2d5",
+    "external_id": 162,
+    "address": "вул. Мукачівська 77/21 з балконом",
+    "area": "-",
+    "beds": 2,
+    "description": {
+      "uk": "Апартаменти за адресою вул. Мукачівська 77/21 з балконом. Кількість кімнат: 1. Кількість гостей: 2. Розташовані на 2 поверсі. Зручності: телевізор, холодильник, мікрохвильова піч, гаряча вода, кондиціонер, поруч супермаркет, зручна транспортна розв'язка, Smart TV, балкон, варильна поверхня, інтернет, пральна машина.",
+      "en": "Apartment at the address st. Mukachivska 77/21 with a balcony. Number of rooms: 1. Number of guests: 2. Located on the 2nd floor. Amenities: TV, refrigerator, microwave oven, hot water, air conditioning, supermarket nearby, convenient transport interchange, Smart TV, balcony, cooking surface, internet, washing machine."
+    },
+    "features": [
+      "tv",
+      "fridge",
+      "microwave",
+      "hot_water",
+      "air_conditioner",
+      "near_supermarket",
+      "good_transport",
+      "smart_tv",
+      "balcony",
+      "hob",
+      "internet",
+      "washing_machine"
+    ],
+    "floor": 2,
+    "gallery": [
+      "https://images.unsplash.com/photo-1556784344-ad913c73cfc4?q=80&w=1169&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+    ],
+    "guests": 2,
+    "img": "https://images.unsplash.com/photo-1556784344-ad913c73cfc4?q=80&w=1169&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "is_available": true,
+    "lat": 48.613578,
+    "lng": 22.302807,
+    "price": 1700,
+    "rooms": 1,
+    "source_url": "https://rooms.net.ua/apartments/162/",
+    "title": {
+      "uk": "вул. Мукачівська 77/21 з балконом",
+      "en": "St. Mukachivska 77/21 with a balcony"
+    }
+  },
+  {
+    "_id": "69d49d5bd8810233ba1da2d6",
+    "external_id": 163,
+    "address": "вул. Тобілевича 13",
+    "area": "-",
+    "beds": 2,
+    "description": {
+      "uk": "Апартаменти за адресою вул. Тобілевича 13. Кількість кімнат: 1. Кількість гостей: 2. Розташовані на 1 поверсі. Зручності: телевізор, холодильник, мікрохвильова піч, гаряча вода, поруч супермаркет, зручна транспортна розв'язка, Smart TV, балкон, під'їзд на коді, пральна машина.",
+      "en": "Apartment at the address st. Tobilevicha 13. Number of rooms: 1. Number of guests: 2. Located on the 1st floor. Amenities: TV, refrigerator, microwave oven, hot water, supermarket nearby, convenient transport interchange, Smart TV, balcony, coded entrance, washing machine."
+    },
+    "features": [
+      "tv",
+      "fridge",
+      "microwave",
+      "hot_water",
+      "near_supermarket",
+      "good_transport",
+      "smart_tv",
+      "balcony",
+      "coded_entry",
+      "washing_machine"
+    ],
+    "floor": 1,
+    "gallery": [
+      "https://images.unsplash.com/photo-1556784344-ad913c73cfc4?q=80&w=1169&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+    ],
+    "guests": 2,
+    "img": "https://images.unsplash.com/photo-1556784344-ad913c73cfc4?q=80&w=1169&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "is_available": true,
+    "lat": 48.61078573,
+    "lng": 22.27234863,
+    "price": 1700,
+    "rooms": 1,
+    "source_url": "https://rooms.net.ua/apartments/163/",
+    "title": {
+      "uk": "вул. Тобілевича 13",
+      "en": "St. Tobilevicha 13"
+    }
+  },
+  {
+    "_id": "69d49d5bd8810233ba1da2d7",
+    "external_id": 165,
+    "address": "вул. Тлехаса, 14",
+    "area": "-",
+    "beds": 2,
+    "description": {
+      "uk": "Апартаменти за адресою вул. Тлехаса, 14. Кількість кімнат: 1. Кількість гостей: 2. Розташовані на 1 поверсі. Зручності: телевізор, холодильник, мікрохвильова піч, гаряча вода, кондиціонер, поруч супермаркет, зручна транспортна розв'язка, балкон, кабельне телебачення, під'їзд на коді, пральна машина.",
+      "en": "Apartment at the address st. Tlejasa, 14. Number of rooms: 1. Number of guests: 2. Located on the 1st floor. Amenities: TV, refrigerator, microwave oven, hot water, air conditioning, supermarket nearby, convenient transport interchange, balcony, cable TV, coded entrance, washing machine."
+    },
+    "features": [
+      "tv",
+      "fridge",
+      "microwave",
+      "hot_water",
+      "air_conditioner",
+      "near_supermarket",
+      "good_transport",
+      "balcony",
+      "cable_tv",
+      "coded_entry",
+      "washing_machine"
+    ],
+    "floor": 1,
+    "gallery": [
+      "https://images.unsplash.com/photo-1556784344-ad913c73cfc4?q=80&w=1169&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+    ],
+    "guests": 2,
+    "img": "https://images.unsplash.com/photo-1556784344-ad913c73cfc4?q=80&w=1169&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "is_available": true,
+    "lat": 48.608106,
+    "lng": 22.264019,
+    "price": 1700,
+    "rooms": 1,
+    "source_url": "https://rooms.net.ua/apartments/165/",
+    "title": {
+      "uk": "вул. Тлехаса, 14",
+      "en": "St. Tlejasa, 14"
+    }
+  },
+  {
+    "_id": "69d49d5bd8810233ba1da2d8",
+    "external_id": 171,
+    "address": "вул. Мукачівська 77/23  з балконом",
+    "area": "-",
+    "beds": 2,
+    "description": {
+      "uk": "Апартаменти за адресою вул. Мукачівська 77/23  з балконом. Кількість кімнат: 1. Кількість гостей: 2. Розташовані на 2 поверсі. Зручності: телевізор, холодильник, мікрохвильова піч, гаряча вода, кондиціонер, зручна транспортна розв'язка, Smart TV, балкон, варильна поверхня.",
+      "en": "Apartment at the address st. Mukachivska 77/23 with a balcony. Number of rooms: 1. Number of guests: 2. Located on the 2nd floor. Amenities: TV, refrigerator, microwave oven, hot water, air conditioner, convenient transport interchange, Smart TV, balcony, cooking surface."
+    },
+    "features": [
+      "tv",
+      "fridge",
+      "microwave",
+      "hot_water",
+      "air_conditioner",
+      "good_transport",
+      "smart_tv",
+      "balcony",
+      "hob"
+    ],
+    "floor": 2,
+    "gallery": [
+      "https://images.unsplash.com/photo-1556784344-ad913c73cfc4?q=80&w=1169&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+    ],
+    "guests": 2,
+    "img": "https://images.unsplash.com/photo-1556784344-ad913c73cfc4?q=80&w=1169&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "is_available": true,
+    "lat": 48.613578,
+    "lng": 22.302807,
+    "price": 1700,
+    "rooms": 1,
+    "source_url": "https://rooms.net.ua/apartments/171/",
+    "title": {
+      "uk": "вул. Мукачівська 77/23  з балконом",
+      "en": "St. Mukachivska 77/23 with a balcony"
+    }
+  },
+  {
+    "_id": "69d49d5cd8810233ba1da2d9",
+    "external_id": 181,
+    "address": "вул. Тлехаса 18",
+    "area": "-",
+    "beds": 4,
+    "description": {
+      "uk": "Апартаменти за адресою вул. Тлехаса 18. Кількість кімнат: 1. Кількість гостей: 4. Розташовані на 1 поверсі. Зручності: телевізор, холодильник, мікрохвильова піч, гаряча вода, кондиціонер, поруч супермаркет, зручна транспортна розв'язка, варильна поверхня, кабельне телебачення, під'їзд на коді.",
+      "en": "Apartment at the address st. Tlejasa 18. Number of rooms: 1. Number of guests: 4. Located on the 1st floor. Amenities: TV, refrigerator, microwave oven, hot water, air conditioning, supermarket nearby, convenient transportation interchange, cooking surface, cable TV, coded entrance."
+    },
+    "features": [
+      "tv",
+      "fridge",
+      "microwave",
+      "hot_water",
+      "air_conditioner",
+      "near_supermarket",
+      "good_transport",
+      "hob",
+      "cable_tv",
+      "coded_entry"
+    ],
+    "floor": 1,
+    "gallery": [
+      "https://images.unsplash.com/photo-1556784344-ad913c73cfc4?q=80&w=1169&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+    ],
+    "guests": 4,
+    "img": "https://images.unsplash.com/photo-1556784344-ad913c73cfc4?q=80&w=1169&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "is_available": true,
+    "lat": 48.608106,
+    "lng": 22.264019,
+    "price": 1700,
+    "rooms": 1,
+    "source_url": "https://rooms.net.ua/apartments/181/",
+    "title": {
+      "uk": "вул. Тлехаса 18",
+      "en": "St. 18 Tlejasa"
+    }
+  },
+  {
+    "_id": "69d49d5cd8810233ba1da2da",
+    "external_id": 161,
+    "address": "пл. Ш.Петефі 8а/5",
+    "area": "-",
+    "beds": 4,
+    "description": {
+      "uk": "Апартаменти за адресою пл. Ш.Петефі 8а/5. Кількість кімнат: 2. Кількість гостей: 4. Розташовані на 2 поверсі. Зручності: телевізор, холодильник, мікрохвильова піч, гаряча вода, кондиціонер, поруч супермаркет, зручна транспортна розв'язка, Smart TV, інтернет.",
+      "en": "Apartment at the address of the square Sh. Petefi 8a/5. Number of rooms: 2. Number of guests: 4. Located on the 2nd floor. Amenities: TV, refrigerator, microwave oven, hot water, air conditioner, supermarket nearby, convenient transport interchange, Smart TV, Internet."
+    },
+    "features": [
+      "tv",
+      "fridge",
+      "microwave",
+      "hot_water",
+      "air_conditioner",
+      "near_supermarket",
+      "good_transport",
+      "smart_tv",
+      "internet"
+    ],
+    "floor": 2,
+    "gallery": [
+      "https://images.unsplash.com/photo-1556784344-ad913c73cfc4?q=80&w=1169&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+    ],
+    "guests": 4,
+    "img": "https://images.unsplash.com/photo-1556784344-ad913c73cfc4?q=80&w=1169&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "is_available": true,
+    "lat": 48.6205583,
+    "lng": 22.29650171,
+    "price": 1800,
+    "rooms": 2,
+    "source_url": "https://rooms.net.ua/apartments/161/",
+    "title": {
+      "uk": "пл. Ш.Петефі 8а/5",
+      "en": "sq. Sh. Petefi 8a/5"
+    }
+  },
+  {
+    "_id": "69d49d5cd8810233ba1da2db",
+    "external_id": 164,
+    "address": "вул. Тобілевича 13",
+    "area": "-",
+    "beds": 2,
+    "description": {
+      "uk": "Апартаменти за адресою вул. Тобілевича 13. Кількість кімнат: 1. Кількість гостей: 2. Розташовані на 3 поверсі. Зручності: телевізор, холодильник, мікрохвильова піч, гаряча вода, поруч супермаркет, зручна транспортна розв'язка, Smart TV, балкон, під'їзд на коді, пральна машина.",
+      "en": "Apartment at the address st. Tobilevicha 13. Number of rooms: 1. Number of guests: 2. Located on the 3rd floor. Amenities: TV, refrigerator, microwave oven, hot water, supermarket nearby, convenient transport interchange, Smart TV, balcony, coded entrance, washing machine."
+    },
+    "features": [
+      "tv",
+      "fridge",
+      "microwave",
+      "hot_water",
+      "near_supermarket",
+      "good_transport",
+      "smart_tv",
+      "balcony",
+      "coded_entry",
+      "washing_machine"
+    ],
+    "floor": 3,
+    "gallery": [
+      "https://images.unsplash.com/photo-1556784344-ad913c73cfc4?q=80&w=1169&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+    ],
+    "guests": 2,
+    "img": "https://images.unsplash.com/photo-1556784344-ad913c73cfc4?q=80&w=1169&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "is_available": true,
+    "lat": 48.61078573,
+    "lng": 22.27234863,
+    "price": 1800,
+    "rooms": 1,
+    "source_url": "https://rooms.net.ua/apartments/164/",
+    "title": {
+      "uk": "вул. Тобілевича 13",
+      "en": "St. Tobilevicha 13"
+    }
+  },
+  {
+    "_id": "69d49d5cd8810233ba1da2dc",
+    "external_id": 169,
+    "address": "вул. Собранецька 160/120",
+    "area": "-",
+    "beds": 2,
+    "description": {
+      "uk": "Апартаменти за адресою вул. Собранецька 160/120. Кількість кімнат: 1. Кількість гостей: 2. Розташовані на 5 поверсі. Зручності: телевізор, холодильник, гаряча вода, поруч супермаркет, зручна транспортна розв'язка, варильна поверхня, пральна машина, телебачення T2.",
+      "en": "Apartment at the address st. Sobranetska 160/120. Number of rooms: 1. Number of guests: 2. Located on the 5th floor. Amenities: TV, refrigerator, hot water, nearby supermarket, convenient transport interchange, cooking surface, washing machine, TV T2."
+    },
+    "features": [
+      "tv",
+      "fridge",
+      "hot_water",
+      "near_supermarket",
+      "good_transport",
+      "hob",
+      "washing_machine",
+      "t2_tv"
+    ],
+    "floor": 5,
+    "gallery": [
+      "https://images.unsplash.com/photo-1556784344-ad913c73cfc4?q=80&w=1169&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+    ],
+    "guests": 2,
+    "img": "https://images.unsplash.com/photo-1556784344-ad913c73cfc4?q=80&w=1169&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "is_available": true,
+    "lat": 48.641136,
+    "lng": 22.2690494,
+    "price": 1800,
+    "rooms": 1,
+    "source_url": "https://rooms.net.ua/apartments/169/",
+    "title": {
+      "uk": "вул. Собранецька 160/120",
+      "en": "St. Sobranetska 160/120"
+    }
+  },
+  {
+    "_id": "69d49d5cd8810233ba1da2dd",
+    "external_id": 170,
+    "address": "вул. Мукачівська 77/33  з мансардним вікном і балконом",
+    "area": "-",
+    "beds": 2,
+    "description": {
+      "uk": "Апартаменти за адресою вул. Мукачівська 77/33  з мансардним вікном і балконом. Кількість кімнат: 1. Кількість гостей: 2. Розташовані на 3 поверсі. Зручності: телевізор, холодильник, мікрохвильова піч, гаряча вода, кондиціонер, зручна транспортна розв'язка, Smart TV, балкон, варильна поверхня.",
+      "en": "Apartment at the address st. Mukachivska 77/33 with a skylight and a balcony. Number of rooms: 1. Number of guests: 2. Located on the 3rd floor. Amenities: TV, refrigerator, microwave oven, hot water, air conditioner, convenient transport interchange, Smart TV, balcony, cooking surface."
+    },
+    "features": [
+      "tv",
+      "fridge",
+      "microwave",
+      "hot_water",
+      "air_conditioner",
+      "good_transport",
+      "smart_tv",
+      "balcony",
+      "hob"
+    ],
+    "floor": 3,
+    "gallery": [
+      "https://images.unsplash.com/photo-1556784344-ad913c73cfc4?q=80&w=1169&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+    ],
+    "guests": 2,
+    "img": "https://images.unsplash.com/photo-1556784344-ad913c73cfc4?q=80&w=1169&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "is_available": true,
+    "lat": 48.613578,
+    "lng": 22.302807,
+    "price": 1800,
+    "rooms": 1,
+    "source_url": "https://rooms.net.ua/apartments/170/",
+    "title": {
+      "uk": "вул. Мукачівська 77/33  з мансардним вікном і балконом",
+      "en": "St. Mukachivska 77/33 with a skylight and a balcony"
+    }
+  },
+  {
+    "_id": "69d49d5cd8810233ba1da2de",
+    "external_id": 185,
+    "address": "вул. Собранецька 160/155",
+    "area": "-",
+    "beds": 2,
+    "description": {
+      "uk": "Апартаменти за адресою вул. Собранецька 160/155. Кількість кімнат: 1. Кількість гостей: 2. Розташовані на 4 поверсі. Зручності: телевізор, холодильник, мікрохвильова піч, гаряча вода, поруч супермаркет, зручна транспортна розв'язка, Smart TV, варильна поверхня, під'їзд на коді, пральна машина.",
+      "en": "Apartment at the address st. Sobranetska 160/155. Number of rooms: 1. Number of guests: 2. Located on the 4th floor. Amenities: TV, refrigerator, microwave oven, hot water, nearby supermarket, convenient transport interchange, Smart TV, cooking surface, coded entrance, washing machine."
+    },
+    "features": [
+      "tv",
+      "fridge",
+      "microwave",
+      "hot_water",
+      "near_supermarket",
+      "good_transport",
+      "smart_tv",
+      "hob",
+      "coded_entry",
+      "washing_machine"
+    ],
+    "floor": 4,
+    "gallery": [
+      "https://images.unsplash.com/photo-1556784344-ad913c73cfc4?q=80&w=1169&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+    ],
+    "guests": 2,
+    "img": "https://images.unsplash.com/photo-1556784344-ad913c73cfc4?q=80&w=1169&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "is_available": true,
+    "lat": 48.641136,
+    "lng": 22.2690494,
+    "price": 1800,
+    "rooms": 1,
+    "source_url": "https://rooms.net.ua/apartments/185/",
+    "title": {
+      "uk": "вул. Собранецька 160/155",
+      "en": "St. Sobranetska 160/155"
+    }
+  },
+  {
+    "_id": "69d49d5cd8810233ba1da2df",
+    "external_id": 186,
+    "address": "вул Одеська 5/17",
+    "area": "-",
+    "beds": 4,
+    "description": {
+      "uk": "Апартаменти за адресою вул Одеська 5/17. Кількість кімнат: 1. Кількість гостей: 4. Розташовані на 4 поверсі. Зручності: телевізор, холодильник, мікрохвильова піч, гаряча вода, кондиціонер, поруч супермаркет, зручна транспортна розв'язка, Smart TV, балкон, варильна поверхня, під'їзд на коді, пральна машина.",
+      "en": "Apartment at 5/17 Odeska St. Number of rooms: 1. Number of guests: 4. Located on the 4th floor. Amenities: TV, refrigerator, microwave oven, hot water, air conditioning, supermarket nearby, convenient transport interchange, Smart TV, balcony, cooking surface, coded entrance, washing machine."
+    },
+    "features": [
+      "tv",
+      "fridge",
+      "microwave",
+      "hot_water",
+      "air_conditioner",
+      "near_supermarket",
+      "good_transport",
+      "smart_tv",
+      "balcony",
+      "hob",
+      "coded_entry",
+      "washing_machine"
+    ],
+    "floor": 4,
+    "gallery": [
+      "https://images.unsplash.com/photo-1556784344-ad913c73cfc4?q=80&w=1169&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+    ],
+    "guests": 4,
+    "img": "https://images.unsplash.com/photo-1556784344-ad913c73cfc4?q=80&w=1169&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "is_available": true,
+    "lat": 48.61264607,
+    "lng": 22.30170699,
+    "price": 1800,
+    "rooms": 1,
+    "source_url": "https://rooms.net.ua/apartments/186/",
+    "title": {
+      "uk": "вул Одеська 5/17",
+      "en": "5/17 Odesa St"
+    }
+  },
+  {
+    "_id": "69d49d5cd8810233ba1da2e0",
+    "external_id": 177,
+    "address": "Проспект Свободи 5",
+    "area": "-",
+    "beds": 2,
+    "description": {
+      "uk": "Апартаменти за адресою Проспект Свободи 5. Кількість кімнат: 1. Кількість гостей: 2. Розташовані на 6 поверсі. Зручності: холодильник, гаряча вода, поруч супермаркет, зручна транспортна розв'язка, варильна поверхня, під'їзд на коді, пральна машина.",
+      "en": "Apartment at 5 Freedom Avenue. Number of rooms: 1. Number of guests: 2. Located on the 6th floor. Amenities: refrigerator, hot water, nearby supermarket, convenient transport interchange, cooking surface, coded entrance, washing machine."
+    },
+    "features": [
+      "fridge",
+      "hot_water",
+      "near_supermarket",
+      "good_transport",
+      "hob",
+      "coded_entry",
+      "washing_machine"
+    ],
+    "floor": 6,
+    "gallery": [
+      "https://images.unsplash.com/photo-1556784344-ad913c73cfc4?q=80&w=1169&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+    ],
+    "guests": 2,
+    "img": "https://images.unsplash.com/photo-1556784344-ad913c73cfc4?q=80&w=1169&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "is_available": true,
+    "lat": 48.621,
+    "lng": 22.288,
+    "price": 2000,
+    "rooms": 1,
+    "source_url": "https://rooms.net.ua/apartments/177/",
+    "title": {
+      "uk": "Проспект Свободи 5",
+      "en": "Svoboda Avenue 5"
+    }
+  },
+  {
+    "_id": "69d49d5cd8810233ba1da2e1",
+    "external_id": 178,
+    "address": "вул. Собранецька 160/163",
+    "area": "-",
+    "beds": 4,
+    "description": {
+      "uk": "Апартаменти за адресою вул. Собранецька 160/163. Кількість кімнат: 1. Кількість гостей: 4. Розташовані на 5 поверсі. Зручності: телевізор, холодильник, мікрохвильова піч, гаряча вода, поруч супермаркет, зручна транспортна розв'язка, Smart TV, варильна поверхня, під'їзд на коді, пральна машина.",
+      "en": "Apartment at the address st. Sobranetska 160/163. Number of rooms: 1. Number of guests: 4. Located on the 5th floor. Amenities: TV, refrigerator, microwave oven, hot water, nearby supermarket, convenient transport interchange, Smart TV, cooking surface, coded entrance, washing machine."
+    },
+    "features": [
+      "tv",
+      "fridge",
+      "microwave",
+      "hot_water",
+      "near_supermarket",
+      "good_transport",
+      "smart_tv",
+      "hob",
+      "coded_entry",
+      "washing_machine"
+    ],
+    "floor": 5,
+    "gallery": [
+      "https://images.unsplash.com/photo-1556784344-ad913c73cfc4?q=80&w=1169&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+    ],
+    "guests": 4,
+    "img": "https://images.unsplash.com/photo-1556784344-ad913c73cfc4?q=80&w=1169&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "is_available": true,
+    "lat": 48.641136,
+    "lng": 22.2690494,
+    "price": 2000,
+    "rooms": 1,
+    "source_url": "https://rooms.net.ua/apartments/178/",
+    "title": {
+      "uk": "вул. Собранецька 160/163",
+      "en": "St. Sobranetska 160/163"
+    }
+  },
+  {
+    "_id": "69d49d5cd8810233ba1da2e2",
+    "external_id": 116,
+    "address": "вул Минайська 3",
+    "area": "-",
+    "beds": 5,
+    "description": {
+      "uk": "Апартаменти за адресою вул Минайська 3. Кількість кімнат: 2. Кількість гостей: 5. Розташовані на 3 поверсі. Зручності: телевізор, холодильник, мікрохвильова піч, гаряча вода, поруч супермаркет, зручна транспортна розв'язка, балкон, інтернет, пральна машина, супутникове телебачення.",
+      "en": "Apartment at 3 Minayska St. Number of rooms: 2. Number of guests: 5. Located on the 3rd floor. Amenities: TV, refrigerator, microwave oven, hot water, supermarket nearby, convenient transport interchange, balcony, internet, washing machine, satellite TV."
+    },
+    "features": [
+      "tv",
+      "fridge",
+      "microwave",
+      "hot_water",
+      "near_supermarket",
+      "good_transport",
+      "balcony",
+      "internet",
+      "washing_machine",
+      "satellite_tv"
+    ],
+    "floor": 3,
+    "gallery": [
+      "https://images.unsplash.com/photo-1556784344-ad913c73cfc4?q=80&w=1169&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+    ],
+    "guests": 5,
+    "img": "https://images.unsplash.com/photo-1556784344-ad913c73cfc4?q=80&w=1169&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "is_available": true,
+    "lat": 48.610655,
+    "lng": 22.291984,
+    "price": 2100,
+    "rooms": 2,
+    "source_url": "https://rooms.net.ua/apartments/116/",
+    "title": {
+      "uk": "вул Минайська 3",
+      "en": "Minayska St. 3"
+    }
+  },
+  {
+    "_id": "69d49d5cd8810233ba1da2e3",
+    "external_id": 168,
+    "address": "Володимирська 90",
+    "area": "-",
+    "beds": 5,
+    "description": {
+      "uk": "Апартаменти за адресою Володимирська 90. Кількість кімнат: 1. Кількість гостей: 5. Розташовані на 5 поверсі. Зручності: телевізор, холодильник, гаряча вода, кондиціонер, поруч супермаркет, зручна транспортна розв'язка, парковка під охороною, під'їзд на коді, пральна машина, телебачення T2.",
+      "en": "Apartment at Volodymyrska 90. Number of rooms: 1. Number of guests: 5. Located on the 5th floor. Amenities: TV, refrigerator, hot water, air conditioner, supermarket nearby, convenient transport interchange, guarded parking, coded entrance, washing machine, TV T2."
+    },
+    "features": [
+      "tv",
+      "fridge",
+      "hot_water",
+      "air_conditioner",
+      "near_supermarket",
+      "good_transport",
+      "secure_parking",
+      "coded_entry",
+      "washing_machine",
+      "t2_tv"
+    ],
+    "floor": 5,
+    "gallery": [
+      "https://images.unsplash.com/photo-1556784344-ad913c73cfc4?q=80&w=1169&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+    ],
+    "guests": 5,
+    "img": "https://images.unsplash.com/photo-1556784344-ad913c73cfc4?q=80&w=1169&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "is_available": true,
+    "lat": 22.264416,
+    "lng": 48.614097,
+    "price": 2100,
+    "rooms": 1,
+    "source_url": "https://rooms.net.ua/apartments/168/",
+    "title": {
+      "uk": "Володимирська 90",
+      "en": "Volodymyrska 90"
+    }
+  },
+  {
+    "_id": "69d49d5cd8810233ba1da2e4",
+    "external_id": 147,
+    "address": "вул. Корзо 7",
+    "area": "-",
+    "beds": 4,
+    "description": {
+      "uk": "Апартаменти за адресою вул. Корзо 7. Кількість кімнат: 1. Кількість гостей: 4. Розташовані на 2 поверсі. Зручності: телевізор, холодильник, мікрохвильова піч, гаряча вода, кондиціонер, поруч супермаркет, зручна транспортна розв'язка, балкон, інтернет, під'їзд на коді, пральна машина, супутникове телебачення.",
+      "en": "Apartment at the address st. Corso 7. Number of rooms: 1. Number of guests: 4. Located on the 2nd floor. Amenities: TV, refrigerator, microwave oven, hot water, air conditioner, supermarket nearby, convenient transport interchange, balcony, internet, coded entrance, washing machine, satellite TV."
+    },
+    "features": [
+      "tv",
+      "fridge",
+      "microwave",
+      "hot_water",
+      "air_conditioner",
+      "near_supermarket",
+      "good_transport",
+      "balcony",
+      "internet",
+      "coded_entry",
+      "washing_machine",
+      "satellite_tv"
+    ],
+    "floor": 2,
+    "gallery": [
+      "https://images.unsplash.com/photo-1556784344-ad913c73cfc4?q=80&w=1169&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+    ],
+    "guests": 4,
+    "img": "https://images.unsplash.com/photo-1556784344-ad913c73cfc4?q=80&w=1169&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "is_available": true,
+    "lat": 48.622996,
+    "lng": 22.297339,
+    "price": 2200,
+    "rooms": 1,
+    "source_url": "https://rooms.net.ua/apartments/147/",
+    "title": {
+      "uk": "вул. Корзо 7",
+      "en": "St. Corso 7"
+    }
+  },
+  {
+    "_id": "69d49d5cd8810233ba1da2e5",
+    "external_id": 76,
+    "address": "вул. Минайська 18г",
+    "area": "-",
+    "beds": 4,
+    "description": {
+      "uk": "Апартаменти за адресою вул. Минайська 18г. Кількість кімнат: 2. Кількість гостей: 4. Розташовані на 3 поверсі. Зручності: телевізор, холодильник, мікрохвильова піч, гаряча вода, кондиціонер, поруч супермаркет, зручна транспортна розв'язка, балкон, варильна поверхня, інтернет, кабельне телебачення, парковка під охороною, під'їзд на коді, пральна машина.",
+      "en": "Apartment at the address st. Minayska 18 Number of rooms: 2. Number of guests: 4. Located on the 3rd floor. Amenities: TV, refrigerator, microwave oven, hot water, air conditioner, nearby supermarket, convenient transport interchange, balcony, cooking surface, internet, cable TV, secure parking, coded entrance, washing machine."
+    },
+    "features": [
+      "tv",
+      "fridge",
+      "microwave",
+      "hot_water",
+      "air_conditioner",
+      "near_supermarket",
+      "good_transport",
+      "balcony",
+      "hob",
+      "internet",
+      "cable_tv",
+      "secure_parking",
+      "coded_entry",
+      "washing_machine"
+    ],
+    "floor": 3,
+    "gallery": [
+      "https://images.unsplash.com/photo-1556784344-ad913c73cfc4?q=80&w=1169&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+    ],
+    "guests": 4,
+    "img": "https://images.unsplash.com/photo-1556784344-ad913c73cfc4?q=80&w=1169&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "is_available": true,
+    "lat": 48.606988,
+    "lng": 22.288753,
+    "price": 2400,
+    "rooms": 2,
+    "source_url": "https://rooms.net.ua/apartments/76/",
+    "title": {
+      "uk": "вул. Минайська 18г",
+      "en": "St. Minayska 18"
+    }
+  },
+  {
+    "_id": "69d49d5cd8810233ba1da2e6",
+    "external_id": 96,
+    "address": "вул. Минайська 18г",
+    "area": "-",
+    "beds": 4,
+    "description": {
+      "uk": "Апартаменти за адресою вул. Минайська 18г. Кількість кімнат: 2. Кількість гостей: 4. Розташовані на 3 поверсі. Зручності: телевізор, холодильник, мікрохвильова піч, гаряча вода, кондиціонер, поруч супермаркет, зручна транспортна розв'язка, балкон, інтернет, кабельне телебачення, парковка під охороною, під'їзд на коді, пральна машина, телебачення T2.",
+      "en": "Apartment at the address st. Minayska 18 Number of rooms: 2. Number of guests: 4. Located on the 3rd floor. Amenities: TV, refrigerator, microwave oven, hot water, air conditioner, supermarket nearby, convenient transport interchange, balcony, internet, cable TV, guarded parking, coded entrance, washing machine, TV T2."
+    },
+    "features": [
+      "tv",
+      "fridge",
+      "microwave",
+      "hot_water",
+      "air_conditioner",
+      "near_supermarket",
+      "good_transport",
+      "balcony",
+      "internet",
+      "cable_tv",
+      "secure_parking",
+      "coded_entry",
+      "washing_machine",
+      "t2_tv"
+    ],
+    "floor": 3,
+    "gallery": [
+      "https://images.unsplash.com/photo-1556784344-ad913c73cfc4?q=80&w=1169&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+    ],
+    "guests": 4,
+    "img": "https://images.unsplash.com/photo-1556784344-ad913c73cfc4?q=80&w=1169&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "is_available": true,
+    "lat": 48.606925,
+    "lng": 22.288788,
+    "price": 2400,
+    "rooms": 2,
+    "source_url": "https://rooms.net.ua/apartments/96/",
+    "title": {
+      "uk": "вул. Минайська 18г",
+      "en": "St. Minayska 18"
+    }
+  },
+  {
+    "_id": "69d49d5cd8810233ba1da2e7",
+    "external_id": 125,
+    "address": "вул. Добрянського 4",
+    "area": "-",
+    "beds": 5,
+    "description": {
+      "uk": "Апартаменти за адресою вул. Добрянського 4. Кількість кімнат: 2. Кількість гостей: 5. Розташовані на 4 поверсі. Зручності: телевізор, холодильник, мікрохвильова піч, гаряча вода, поруч супермаркет, зручна транспортна розв'язка, балкон, кабельне телебачення, пральна машина.",
+      "en": "Apartment at the address st. Dobryanskoho 4. Number of rooms: 2. Number of guests: 5. Located on the 4th floor. Amenities: TV, refrigerator, microwave oven, hot water, supermarket nearby, convenient transport interchange, balcony, cable TV, washing machine."
+    },
+    "features": [
+      "tv",
+      "fridge",
+      "microwave",
+      "hot_water",
+      "near_supermarket",
+      "good_transport",
+      "balcony",
+      "cable_tv",
+      "washing_machine"
+    ],
+    "floor": 4,
+    "gallery": [
+      "https://images.unsplash.com/photo-1556784344-ad913c73cfc4?q=80&w=1169&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+    ],
+    "guests": 5,
+    "img": "https://images.unsplash.com/photo-1556784344-ad913c73cfc4?q=80&w=1169&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "is_available": true,
+    "lat": 48.624318,
+    "lng": 22.306238,
+    "price": 2400,
+    "rooms": 2,
+    "source_url": "https://rooms.net.ua/apartments/125/",
+    "title": {
+      "uk": "вул. Добрянського 4",
+      "en": "St. Dobryansky 4"
+    }
+  },
+  {
+    "_id": "69d49d5cd8810233ba1da2e8",
+    "external_id": 157,
+    "address": "вул Володимирська 90/246",
+    "area": "-",
+    "beds": 4,
+    "description": {
+      "uk": "Апартаменти за адресою вул Володимирська 90/246. Кількість кімнат: 2. Кількість гостей: 4. Розташовані на 2 поверсі. Зручності: телевізор, холодильник, мікрохвильова піч, гаряча вода, поруч супермаркет, зручна транспортна розв'язка, балкон, інтернет, під'їзд на коді, пральна машина, супутникове телебачення.",
+      "en": "Apartment at 90/246 Volodymyrska St. Number of rooms: 2. Number of guests: 4. Located on the 2nd floor. Amenities: TV, refrigerator, microwave oven, hot water, supermarket nearby, convenient transport interchange, balcony, internet, coded entrance, washing machine, satellite TV."
+    },
+    "features": [
+      "tv",
+      "fridge",
+      "microwave",
+      "hot_water",
+      "near_supermarket",
+      "good_transport",
+      "balcony",
+      "internet",
+      "coded_entry",
+      "washing_machine",
+      "satellite_tv"
+    ],
+    "floor": 2,
+    "gallery": [
+      "https://images.unsplash.com/photo-1556784344-ad913c73cfc4?q=80&w=1169&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+    ],
+    "guests": 4,
+    "img": "https://images.unsplash.com/photo-1556784344-ad913c73cfc4?q=80&w=1169&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "is_available": true,
+    "lat": 22.264416,
+    "lng": 48.614097,
+    "price": 2500,
+    "rooms": 2,
+    "source_url": "https://rooms.net.ua/apartments/157/",
+    "title": {
+      "uk": "вул Володимирська 90/246",
+      "en": "90/246 Volodymyrska St"
+    }
+  },
+  {
+    "_id": "69d49d5cd8810233ba1da2e9",
+    "external_id": 187,
+    "address": "вул. Мукачівська 77/112",
+    "area": "-",
+    "beds": 2,
+    "description": {
+      "uk": "Апартаменти за адресою вул. Мукачівська 77/112. Кількість кімнат: 1. Кількість гостей: 2. Розташовані на 1 поверсі. Зручності: телевізор, холодильник, мікрохвильова піч, гаряча вода, поруч супермаркет, зручна транспортна розв'язка, Smart TV, балкон, варильна поверхня, пральна машина.",
+      "en": "Apartment at the address st. Mukachivska 77/112. Number of rooms: 1. Number of guests: 2. Located on the 1st floor. Amenities: TV, refrigerator, microwave oven, hot water, supermarket nearby, convenient transport interchange, Smart TV, balcony, cooking surface, washing machine."
+    },
+    "features": [
+      "tv",
+      "fridge",
+      "microwave",
+      "hot_water",
+      "near_supermarket",
+      "good_transport",
+      "smart_tv",
+      "balcony",
+      "hob",
+      "washing_machine"
+    ],
+    "floor": 1,
+    "gallery": [
+      "https://images.unsplash.com/photo-1556784344-ad913c73cfc4?q=80&w=1169&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+    ],
+    "guests": 2,
+    "img": "https://images.unsplash.com/photo-1556784344-ad913c73cfc4?q=80&w=1169&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "is_available": true,
+    "lat": 48.613578,
+    "lng": 22.302807,
+    "price": 2500,
+    "rooms": 1,
+    "source_url": "https://rooms.net.ua/apartments/187/",
+    "title": {
+      "uk": "вул. Мукачівська 77/112",
+      "en": "St. Mukachivska 77/112"
+    }
+  },
+  {
+    "_id": "69d49d5cd8810233ba1da2ea",
+    "external_id": 188,
+    "address": "вул. Мукачівська 77/111",
+    "area": "-",
+    "beds": 4,
+    "description": {
+      "uk": "Апартаменти за адресою вул. Мукачівська 77/111. Кількість кімнат: 1. Кількість гостей: 4. Розташовані на 1 поверсі. Зручності: телевізор, холодильник, мікрохвильова піч, гаряча вода, поруч супермаркет, зручна транспортна розв'язка, Smart TV, балкон, варильна поверхня, пральна машина.",
+      "en": "Apartment at the address st. Mukachivska 77/111. Number of rooms: 1. Number of guests: 4. Located on the 1st floor. Amenities: TV, refrigerator, microwave oven, hot water, supermarket nearby, convenient transport interchange, Smart TV, balcony, cooking surface, washing machine."
+    },
+    "features": [
+      "tv",
+      "fridge",
+      "microwave",
+      "hot_water",
+      "near_supermarket",
+      "good_transport",
+      "smart_tv",
+      "balcony",
+      "hob",
+      "washing_machine"
+    ],
+    "floor": 1,
+    "gallery": [
+      "https://images.unsplash.com/photo-1556784344-ad913c73cfc4?q=80&w=1169&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+    ],
+    "guests": 4,
+    "img": "https://images.unsplash.com/photo-1556784344-ad913c73cfc4?q=80&w=1169&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "is_available": true,
+    "lat": 48.613578,
+    "lng": 22.302807,
+    "price": 2700,
+    "rooms": 1,
+    "source_url": "https://rooms.net.ua/apartments/188/",
+    "title": {
+      "uk": "вул. Мукачівська 77/111",
+      "en": "St. Mukachivska 77/111"
+    }
+  },
+  {
+    "_id": "69d49d5cd8810233ba1da2ec",
+    "external_id": 92,
+    "address": "вул. Минайська 12",
+    "area": "-",
+    "beds": 7,
+    "description": {
+      "uk": "Апартаменти за адресою вул. Минайська 12. Кількість кімнат: 3. Кількість гостей: 7. Розташовані на 4 поверсі. Зручності: телевізор, холодильник, мікрохвильова піч, гаряча вода, поруч супермаркет, зручна транспортна розв'язка, Smart TV, балкон, інтернет, парковка під охороною, під'їзд на коді.",
+      "en": "Apartment at the address st. Minayska 12. Number of rooms: 3. Number of guests: 7. Located on the 4th floor. Amenities: TV, refrigerator, microwave oven, hot water, nearby supermarket, convenient transport interchange, Smart TV, balcony, Internet, guarded parking, coded entrance."
+    },
+    "features": [
+      "tv",
+      "fridge",
+      "microwave",
+      "hot_water",
+      "near_supermarket",
+      "good_transport",
+      "smart_tv",
+      "balcony",
+      "internet",
+      "secure_parking",
+      "coded_entry"
+    ],
+    "floor": 4,
+    "gallery": [
+      "https://images.unsplash.com/photo-1556784344-ad913c73cfc4?q=80&w=1169&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+    ],
+    "guests": 7,
+    "img": "https://images.unsplash.com/photo-1556784344-ad913c73cfc4?q=80&w=1169&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "is_available": true,
+    "lat": 48.610196,
+    "lng": 22.290083,
+    "price": 3000,
+    "rooms": 3,
+    "source_url": "https://rooms.net.ua/apartments/92/",
+    "title": {
+      "uk": "вул. Минайська 12",
+      "en": "St. Minayska 12"
+    }
+  },
+  {
+    "_id": "69d49d5cd8810233ba1da2ed",
+    "external_id": 81,
+    "address": "вул. Минайська 18Г",
+    "area": "-",
+    "beds": 7,
+    "description": {
+      "uk": "Апартаменти за адресою вул. Минайська 18Г. Кількість кімнат: 3. Кількість гостей: 7. Розташовані на 3 поверсі. Зручності: телевізор, холодильник, мікрохвильова піч, гаряча вода, кондиціонер, поруч супермаркет, зручна транспортна розв'язка, балкон, інтернет, кабельне телебачення, парковка під охороною, під'їзд на коді, пральна машина.",
+      "en": "Apartment at the address st. Minayska 18G. Number of rooms: 3. Number of guests: 7. Located on the 3rd floor. Amenities: TV, refrigerator, microwave oven, hot water, air conditioner, nearby supermarket, convenient transport interchange, balcony, internet, cable TV, guarded parking, coded entrance, washing machine."
+    },
+    "features": [
+      "tv",
+      "fridge",
+      "microwave",
+      "hot_water",
+      "air_conditioner",
+      "near_supermarket",
+      "good_transport",
+      "balcony",
+      "internet",
+      "cable_tv",
+      "secure_parking",
+      "coded_entry",
+      "washing_machine"
+    ],
+    "floor": 3,
+    "gallery": [
+      "https://images.unsplash.com/photo-1556784344-ad913c73cfc4?q=80&w=1169&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+    ],
+    "guests": 7,
+    "img": "https://images.unsplash.com/photo-1556784344-ad913c73cfc4?q=80&w=1169&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "is_available": true,
+    "lat": 48.606925,
+    "lng": 22.288788,
+    "price": 3300,
+    "rooms": 3,
+    "source_url": "https://rooms.net.ua/apartments/81/",
+    "title": {
+      "uk": "вул. Минайська 18Г",
+      "en": "St. Minayska 18G"
+    }
+  }
+]
