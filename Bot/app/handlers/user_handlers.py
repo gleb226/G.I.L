@@ -319,7 +319,7 @@ async def start_cmd(message: Message, state: FSMContext):
 async def book_h(message: Message, state: FSMContext):
     await state.clear()
     u = await get_user(message.from_user.id)
-    l = u['language']
+    l = u.get('language', 'uk') if u else 'uk'
     aps = await get_apartments(only_available=True)
     await add_log("user", "open_booking", f"Opened booking list with {len(aps)} apartments", user_id=message.from_user.id)
     await message.answer(get_text('msg_choose_apartment', l), reply_markup=apartments_inline_kb(aps, True, l))
@@ -329,7 +329,7 @@ async def book_h(message: Message, state: FSMContext):
 async def list_h(message: Message, state: FSMContext):
     await state.clear()
     u = await get_user(message.from_user.id)
-    l = u['language']
+    l = u.get('language', 'uk') if u else 'uk'
     aps = await get_apartments(only_available=True)
     await add_log("user", "open_apartments", f"Opened apartments list with {len(aps)} apartments", user_id=message.from_user.id)
     await message.answer(get_text('msg_our_apartments', l), reply_markup=apartments_inline_kb(aps, False, l), parse_mode="HTML")
@@ -338,8 +338,9 @@ async def list_h(message: Message, state: FSMContext):
 async def contacts_h(message: Message, state: FSMContext):
     await state.clear()
     u = await get_user(message.from_user.id)
+    l = u.get('language', 'uk') if u else 'uk'
     await add_log("user", "open_contacts", "Opened contacts", user_id=message.from_user.id)
-    await message.answer(get_text('msg_contacts', u['language']), reply_markup=contacts_inline_kb(u['language']), parse_mode="HTML")
+    await message.answer(get_text('msg_contacts', l), reply_markup=contacts_inline_kb(l), parse_mode="HTML")
 
 @router.callback_query(F.data.startswith("v:"), StateFilter("*"))
 async def view_apartment_h(callback: CallbackQuery, state: FSMContext):
@@ -497,7 +498,7 @@ async def checkin_in(message: Message, state: FSMContext, bot: Bot):
     except: return await message.answer(get_text('msg_invalid_date', 'uk'))
     
     u = await get_user(message.from_user.id)
-    l = u['language']
+    l = u.get('language', 'uk') if u else 'uk'
     now = datetime.datetime.now()
     checkin_at = dt.replace(hour=12, minute=0, second=0, microsecond=0)
     if checkin_at <= now:
@@ -529,7 +530,7 @@ async def checkout_in(message: Message, state: FSMContext, bot: Bot):
     
     data = await state.get_data()
     u = await get_user(message.from_user.id)
-    l = u['language']
+    l = u.get('language', 'uk') if u else 'uk'
     if dt <= data['checkin']:
         return await message.answer(get_text('msg_checkout_after_checkin', l))
     if (dt - data['checkin']).days > 31:
@@ -747,7 +748,7 @@ async def changing_phone_in(message: Message, state: FSMContext, bot: Bot):
     await update_user_pref(message.from_user.id, phone=p)
     await add_log("user", "change_phone", "User changed phone", user_id=message.from_user.id, extra={"phone": p})
     u = await get_user(message.from_user.id)
-    await message.answer(get_text('msg_phone_changed', u['language']))
+    await message.answer(get_text('msg_phone_changed', u.get('language', 'uk') if u else 'uk'))
     await profile_h(message, state)
 
 @router.message(SetupStates.completing_profile_phone)

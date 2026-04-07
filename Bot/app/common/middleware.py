@@ -4,7 +4,7 @@ from aiogram import BaseMiddleware
 
 from aiogram.types import TelegramObject, Message, CallbackQuery
 
-from app.databases.mongodb import get_user
+from app.databases.mongodb import get_user, update_user_pref
 
 
 
@@ -39,8 +39,12 @@ class LanguageMiddleware(BaseMiddleware):
             user = await get_user(user_id)
 
             if user:
-
-                lang = user.get('language', 'uk')
+                if not user.get("language"):
+                    lang = "uk"
+                    await update_user_pref(user_id, language=lang)
+                    user["language"] = lang
+                else:
+                    lang = user.get('language', 'uk')
 
         
 
