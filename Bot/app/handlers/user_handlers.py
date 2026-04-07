@@ -135,12 +135,17 @@ def has_valid_phone(user: dict | None) -> bool:
         return False
     return len(normalize_phone_input(user.get("phone"))) >= 11
 
-async def notify_admins(bot: Bot, text: str):
+async def notify_admins(bot: Bot, text: str, booking_id: str | None = None, booking_status: str = "pending"):
     admins = await get_admins()
-    admin_ids = {admin["user_id"] for admin in admins if admin.get("user_id")}
-    for admin_id in admin_ids:
+    for admin in admins:
+        admin_id = admin.get("user_id")
+        if not admin_id:
+            continue
         try:
-            await bot.send_message(admin_id, text, parse_mode="HTML")
+            reply_markup = None
+            if booking_id:
+                reply_markup = booking_action_inline_kb(booking_id, admin.get("language", "uk"), booking_status)
+            await bot.send_message(admin_id, text, parse_mode="HTML", reply_markup=reply_markup)
         except Exception:
             pass
 
@@ -621,18 +626,6 @@ async def wishes_in(message: Message, state: FSMContext, bot: Bot):
         reply_markup=ap_info_inline_kb(apartment.get("lat", 0), apartment.get("lng", 0), str(booking_id), lang, amount=prepayment_amount),
         parse_mode="HTML",
     )
-    await notify_admins(
-        bot,
-        (
-            f"🆕 <b>Нова бронь</b>\n\n"
-            f"🏢 <b>Об'єкт:</b> {html.escape(ap_name)}\n"
-            f"🗓 <b>Дати:</b> {data['checkin_str']} - {data['checkout_str']}\n"
-            f"💰 <b>Сума:</b> {total_price} грн\n"
-            f"👤 <b>Гість:</b> {html.escape(user.get('name') or message.from_user.full_name or 'Guest')}\n"
-            f"📞 <b>Телефон:</b> <code>{html.escape(user.get('phone') or '-')}</code>"
-        ),
-    )
-
 @router.callback_query(F.data.startswith("suggest_"), StateFilter("*"))
 async def suggest_date_h(callback: CallbackQuery, state: FSMContext):
     await callback.message.answer(callback.data.split("_", 1)[1])
@@ -723,6 +716,8 @@ async def successful_payment_h(message: Message, bot: Bot):
             f"👤 <b>Гість:</b> {html.escape(user.get('name') or message.from_user.full_name or 'Guest')}\n"
             f"📞 <b>Телефон:</b> <code>{html.escape(user.get('phone') or '-')}</code>"
         ),
+        booking_id=str(booking_id),
+        booking_status="confirmed" if is_final else "paid_50",
     )
 
 @router.callback_query(F.data == "profile_complete", StateFilter("*"))
