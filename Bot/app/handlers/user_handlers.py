@@ -200,6 +200,7 @@ async def start_booking_for_apartment(event: Message | CallbackQuery, state: FSM
 
     checkin_example = (datetime.datetime.now() + datetime.timedelta(days=1)).strftime("%d.%m.%Y")
     apartment_name = apartment.get('title', {}).get(lang, apartment.get('title', {}).get('uk', 'Apartment'))
+    apartment_price = format_price(apartment.get('price', 0), await get_usd_rate(), "uah")
 
     await state.clear()
     await state.update_data(
@@ -212,9 +213,11 @@ async def start_booking_for_apartment(event: Message | CallbackQuery, state: FSM
 
     prompt = (
         f"Обрано апартамент: <b>{html.escape(apartment_name)}</b>\n"
+        f"Ціна за добу: <b>{apartment_price}</b>\n\n"
         f"{get_text('msg_enter_checkin', lang, date=checkin_example)}"
         if lang == "uk" else
         f"Selected apartment: <b>{html.escape(apartment_name)}</b>\n"
+        f"Price per day: <b>{apartment_price}</b>\n\n"
         f"{get_text('msg_enter_checkin', lang, date=checkin_example)}"
     )
 
@@ -484,7 +487,16 @@ async def book_apartment_h(callback: CallbackQuery, state: FSMContext):
 
     checkin_example = (datetime.datetime.now() + datetime.timedelta(days=1)).strftime("%d.%m.%Y")
     await send_apartment_message(callback.message, image, info_text, None)
-    await safe_send(callback.message.answer, get_text('msg_enter_checkin', l, date=checkin_example), parse_mode="HTML")
+    checkin_prompt = (
+        f"Обрано апартамент: <b>{html.escape(ap['title'].get(l, ap['title'].get('uk', 'Apartment')))}</b>\n"
+        f"Ціна за добу: <b>{ap_price}</b>\n\n"
+        f"{get_text('msg_enter_checkin', l, date=checkin_example)}"
+        if l == "uk" else
+        f"Selected apartment: <b>{html.escape(ap['title'].get(l, ap['title'].get('uk', 'Apartment')))}</b>\n"
+        f"Price per day: <b>{ap_price}</b>\n\n"
+        f"{get_text('msg_enter_checkin', l, date=checkin_example)}"
+    )
+    await safe_send(callback.message.answer, checkin_prompt, parse_mode="HTML")
     await state.set_state(BookingStates.waiting_checkin)
     await callback.answer()
 

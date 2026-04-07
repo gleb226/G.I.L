@@ -567,11 +567,16 @@ async def pagination_h(callback: CallbackQuery):
 @router.callback_query(F.data == "cf_ad", StateFilter("*"))
 async def add_ap_fsh(callback: CallbackQuery, state: FSMContext):
     d = await state.get_data()
-    if not d.get('title_uk'): return await callback.answer("❌ Error")
+    if not d.get('title_uk'):
+        return await callback.answer("❌ Error")
     gallery = d.get('gallery', [])
     img = gallery[0] if gallery else ""
     ap = {"title": {"uk": d['title_uk'], "en": d['title_en']}, "description": {"uk": d['desc_uk'], "en": d['desc_en']}, "rooms": d['rooms'], "beds": d['beds'], "guests": d['guests'], "area": d['area'], "address": d['address'], "lat": d['lat'], "lng": d['lng'], "route_url": d.get('route_url'), "price": d['price'], "img": img, "gallery": gallery, "features": d.get('features', []), "is_available": True}
     await add_apartment(ap)
+    try:
+        await callback.message.delete()
+    except Exception:
+        pass
     await callback.message.answer("✅ Додано")
     await state.clear()
     await admin_aps(callback.message, state)
