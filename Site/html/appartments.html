@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+    
+    <title>Деталі апартаментів - G.I.L Apartments Ужгород | Перегляд та опис</title>
+    <meta name="description" content="Детальний опис, фото та зручності наших апартаментів в Ужгороді. Бронюйте житло подобово швидко та зручно.">
+    <meta name="keywords" content="квартира ужгород, оренда житла ужгород, подобово, забронювати квартиру, апартаменти з ремонтом">
+    <meta name="robots" content="index, follow">
+    
+    
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Перегляд апартаментів - G.I.L Apartments">
+    <meta property="og:description" content="Сучасні квартири в Ужгороді для вашого комфорту. Подивіться деталі та бронюйте зараз.">
+    <meta property="og:image" content="https://gil-apartments.com.ua/images/logo.png">
+    
+    <link rel="icon" type="image/jpeg" href="../images/logo.jpg">
+    <link rel="shortcut icon" type="image/jpeg" href="../images/logo.jpg">
+    <link rel="apple-touch-icon" href="../images/logo.jpg">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reset-css@5.0.2/reset.min.css">
+    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="../css/appartments.css">
+    <link rel="stylesheet" href="../css/map.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" crossorigin="">
+</head>
+<body data-page="apartment" data-title-key="pages.apartment.loading">
+    <div data-site-header></div>
+    <main class="appartment_details" id="appartmentDetails">
+        <section class="apartment_page">
+            <div class="gallery">
+                <div class="thumbs"></div>
+                <div class="main_photo">
+                    <img id="image" src="" alt="">
+                </div>
+            </div>
+
+            <aside class="apartment_info">
+                <h1 id="title"></h1>
+                <div class="apartment_meta">
+                    <p id="capacity"></p>
+                    <p id="rooms"></p>
+                    <p id="beds"></p>
+                    <p id="area"></p>
+                </div>
+                <div class="price" id="price"></div>
+                <a href="#" class="rent_btn" target="_blank"></a>
+            </aside>
+
+            <article class="description_box">
+                <h2 data-i18n="pages.apartment.description"></h2>
+                <p id="description"></p>
+            </article>
+
+            <section class="apartment_features_panel" id="apartmentFeaturesBox">
+                <h2 data-i18n="pages.apartment.amenities"></h2>
+                <div class="apartment_features" id="apartmentFeatures"></div>
+            </section>
+
+            <section class="map_box">
+                <h2 data-i18n="pages.apartment.location"></h2>
+                <div id="map"></div>
+            </section>
+        </section>
+    </main>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://unpkg.com/i18next@24.2.3/i18next.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery-i18next@1.2.1/jquery-i18next.min.js"></script>
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" crossorigin=""></script>
+    <script src="../js/i18n.js"></script>
+    <script src="../js/site.js"></script>
+    <script src="../js/appartments.js"></script>
+    <script src="../js/appartmentsPage.js"></script>
+</body>
+</html>

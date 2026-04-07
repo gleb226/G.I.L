@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>G.I.L Apartments | Contacts</title>
+    <link rel="icon" type="image/jpeg" href="../images/logo.jpg">
+    <link rel="shortcut icon" type="image/jpeg" href="../images/logo.jpg">
+    <link rel="apple-touch-icon" href="../images/logo.jpg">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reset-css@5.0.2/reset.min.css">
+    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="../css/contacts.css">
+</head>
+<body data-page="contacts" data-title-key="pages.contacts.title">
+    <div data-site-header></div>
+
+    <main class="page_shell">
+        <h1 class="page_title" data-i18n="pages.contacts.heading">Контакти</h1>
+        <p class="page_lead" data-i18n="pages.contacts.lead">Напишіть нам у формі нижче або скористайтеся прямими контактами.</p>
+
+        <section class="contacts_layout">
+            <div class="info_grid">
+                <div class="info_item">
+                    <h2 data-i18n="pages.contacts.phone">Телефон</h2>
+                    <p>+38 (050) 000 00 00</p>
+                </div>
+                <div class="info_item">
+                    <h2 data-i18n="pages.contacts.email">Email</h2>
+                    <p>gil.apartments@example.com</p>
+                </div>
+                <div class="info_item">
+                    <h2 data-i18n="pages.contacts.location">Адреса</h2>
+                    <p data-i18n="pages.contacts.locationValue">Ужгород, Закарпатська область</p>
+                </div>
+            </div>
+
+            <div class="page_card">
+                <h2 data-i18n="pages.contacts.writeUs">Написати нам</h2>
+                <form class="site_form" id="contactForm">
+                    <input type="text" data-i18n="[placeholder]pages.contacts.placeholderName" placeholder="Ім’я">
+                    <input type="email" data-i18n="[placeholder]pages.contacts.placeholderEmail" placeholder="Email">
+                    <textarea data-i18n="[placeholder]pages.contacts.placeholderMessage" placeholder="Ваше повідомлення"></textarea>
+                    <button type="submit" class="site_button" data-i18n="common.actions.send">Надіслати</button>
+                </form>
+                <p class="status_text" id="contactStatus"></p>
+            </div>
+        </section>
+    </main>
+
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://unpkg.com/i18next@24.2.3/i18next.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery-i18next@1.2.1/jquery-i18next.min.js"></script>
+    <script src="../js/i18n.js"></script>
+    <script src="../js/site.js"></script>
+    <script src="../js/contacts.js"></script>
+</body>
+</html>
