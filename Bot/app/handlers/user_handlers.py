@@ -648,10 +648,24 @@ async def pay_booking_h(callback: CallbackQuery):
     if not booking:
         await callback.answer(get_text("msg_list_empty", lang), show_alert=True)
         return
+    if is_final:
+        remaining_to_pay = int(booking.get("remaining", 0) - booking.get("paid_remaining", 0))
+        if booking.get("status") == "confirmed" or remaining_to_pay <= 0:
+            await callback.answer(get_text("msg_already_paid", lang), show_alert=True)
+            return
+    else:
+        prepayment_to_pay = int(booking.get("prepayment", 0) - booking.get("paid_prepayment", 0))
+        if booking.get("status") in {"paid_50", "confirmed"} or prepayment_to_pay <= 0:
+            await callback.answer(get_text("msg_already_paid", lang), show_alert=True)
+            return
 
     amount = custom_amount
     if amount is None:
-        amount = int(booking["remaining"] if is_final else booking["prepayment"])
+        amount = int(
+            booking["remaining"] - booking.get("paid_remaining", 0)
+            if is_final else
+            booking["prepayment"] - booking.get("paid_prepayment", 0)
+        )
 
     description_key = "msg_invoice_desc_balance" if is_final else "msg_invoice_desc_prepayment"
     await callback.message.answer_invoice(
@@ -678,6 +692,24 @@ async def successful_payment_h(message: Message, bot: Bot):
     _, booking_id, amount_raw, is_final_raw = payload.split(":")
     amount = int(amount_raw)
     is_final = is_final_raw == "1"
+    user = await get_user(message.from_user.id)
+    lang = user.get("language", "uk") if user else "uk"
+    current_booking = await get_booking(booking_id)
+    if not current_booking:
+        return
+    if is_final:
+        remaining_to_pay = int(current_booking.get("remaining", 0) - current_booking.get("paid_remaining", 0))
+        if current_booking.get("status") == "confirmed" or remaining_to_pay <= 0:
+            await message.answer(get_text("msg_already_paid", lang))
+            return
+        amount = min(amount, remaining_to_pay)
+    else:
+        prepayment_to_pay = int(current_booking.get("prepayment", 0) - current_booking.get("paid_prepayment", 0))
+        if current_booking.get("status") in {"paid_50", "confirmed"} or prepayment_to_pay <= 0:
+            await message.answer(get_text("msg_already_paid", lang))
+            return
+        amount = min(amount, prepayment_to_pay)
+
     booking = await update_booking_payment(booking_id, amount, is_final)
     if not booking:
         return
@@ -687,8 +719,6 @@ async def successful_payment_h(message: Message, bot: Bot):
     else:
         await update_booking_status(booking_id, "paid_50")
 
-    user = await get_user(message.from_user.id)
-    lang = user.get("language", "uk") if user else "uk"
     apartment = await get_apartment(booking["ap_id"])
     lat = apartment.get("lat", 0) if apartment else 0
     lng = apartment.get("lng", 0) if apartment else 0
@@ -702,7 +732,14 @@ async def successful_payment_h(message: Message, bot: Bot):
     )
     await message.answer(
         get_text(text_key, lang) + extra_note,
-        reply_markup=ap_info_inline_kb(lat, lng, str(booking_id), lang, amount=int(booking.get("remaining", 0)), is_final=True),
+        reply_markup=ap_info_inline_kb(
+            lat,
+            lng,
+            None if is_final else str(booking_id),
+            lang,
+            amount=max(0, int(booking.get("remaining", 0) - booking.get("paid_remaining", 0))),
+            is_final=True,
+        ),
         parse_mode="HTML",
     )
     apartment_name = apartment["title"].get(lang, apartment["title"].get("uk", "Apartment")) if apartment else "Apartment"

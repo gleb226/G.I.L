@@ -513,7 +513,7 @@ async def resend_active_bookings(callback: CallbackQuery):
     for b in bs:
         ap = await get_apartment(b['ap_id'])
         ap_name = ap['title'].get(u['language'], ap['title'].get('uk', 'Ap')) if ap else "Unknown"
-        txt = (f"??????? ??????????\n??'???: {ap_name}\n????: {b['start_date']} - {b['end_date']}\n????: {b['total_price']} ???\n????????: {b.get('paid_prepayment',0) + b.get('paid_remaining',0)} ???\n?????: {b.get('phone', '-')}") if u['language'] == "uk" else (f"Active booking\nObject: {ap_name}\nDates: {b['start_date']} - {b['end_date']}\nTotal: {b['total_price']} UAH\nPaid: {b.get('paid_prepayment',0) + b.get('paid_remaining',0)} UAH\nGuest: {b.get('phone', '-')}")
+        txt = (f"\u0410\u043a\u0442\u0438\u0432\u043d\u0435 \u0431\u0440\u043e\u043d\u044e\u0432\u0430\u043d\u043d\u044f\n\u041e\u0431'\u0454\u043a\u0442: {ap_name}\n\u0414\u0430\u0442\u0438: {b['start_date']} - {b['end_date']}\n\u0421\u0443\u043c\u0430: {b['total_price']} \u0433\u0440\u043d\n\u041e\u043f\u043b\u0430\u0447\u0435\u043d\u043e: {b.get('paid_prepayment',0) + b.get('paid_remaining',0)} \u0433\u0440\u043d\n\u0413\u0456\u0441\u0442\u044c: {b.get('phone', '-')}") if u['language'] == "uk" else (f"Active booking\nObject: {ap_name}\nDates: {b['start_date']} - {b['end_date']}\nTotal: {b['total_price']} UAH\nPaid: {b.get('paid_prepayment',0) + b.get('paid_remaining',0)} UAH\nGuest: {b.get('phone', '-')}")
         await callback.message.answer(txt, reply_markup=booking_action_inline_kb(str(b['_id']), u['language'], b['status']))
 
 @router.callback_query(F.data.startswith("dl_"), StateFilter("*"))
@@ -521,7 +521,7 @@ async def delete_ap_h(callback: CallbackQuery, state: FSMContext):
     await delete_apartment(callback.data[3:])
     try: await callback.message.delete()
     except: pass
-    await callback.message.answer("Object deleted" if (await get_user(callback.from_user.id)).get("language", "uk") != "uk" else "OBJECT DELETED")
+    await callback.message.answer("\u041e\u0431'\u0454\u043a\u0442 \u0432\u0438\u0434\u0430\u043b\u0435\u043d\u043e" if (await get_user(callback.from_user.id)).get("language", "uk") == "uk" else "Object deleted")
     await admin_aps(callback.message, state)
     await callback.answer("🗑 Видалено")
 
@@ -530,7 +530,7 @@ async def approve_booking_h(callback: CallbackQuery):
     await update_booking_status(callback.data[3:], "confirmed")
     try: await callback.message.delete()
     except: pass
-    await callback.message.answer("BOOKING CONFIRMED" if (await get_user(callback.from_user.id)).get("language", "uk") == "uk" else "Booking confirmed")
+    await callback.message.answer("\u0411\u0440\u043e\u043d\u044e\u0432\u0430\u043d\u043d\u044f \u043f\u0456\u0434\u0442\u0432\u0435\u0440\u0434\u0436\u0435\u043d\u043e" if (await get_user(callback.from_user.id)).get("language", "uk") == "uk" else "Booking confirmed")
     await resend_active_bookings(callback)
     await callback.answer("✅ Підтверджено")
 
@@ -559,7 +559,7 @@ async def reject_booking_h(callback: CallbackQuery, bot: Bot):
                 pass
     try: await callback.message.delete()
     except: pass
-    await callback.message.answer("BOOKING REJECTED" if (await get_user(callback.from_user.id)).get("language", "uk") == "uk" else "Booking rejected")
+    await callback.message.answer("\u0411\u0440\u043e\u043d\u044e\u0432\u0430\u043d\u043d\u044f \u0432\u0456\u0434\u0445\u0438\u043b\u0435\u043d\u043e" if (await get_user(callback.from_user.id)).get("language", "uk") == "uk" else "Booking rejected")
     await resend_active_bookings(callback)
     await callback.answer("❌ Відхилено")
 

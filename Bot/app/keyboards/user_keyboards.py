@@ -74,7 +74,7 @@ def ap_info_inline_kb(lat, lng, booking_id=None, lang="uk", amount=0, is_final=F
     builder = InlineKeyboardBuilder()
     builder.row(InlineKeyboardButton(text=get_text("btn_route", lang), url=f"https://www.google.com/maps/dir/?api=1&destination={lat},{lng}"))
 
-    if booking_id:
+    if booking_id and int(amount or 0) > 0:
         suffix = "_final" if is_final else ""
         if amount > PORTMONE_LIMIT:
             parts = (int(amount) + PORTMONE_LIMIT - 1) // PORTMONE_LIMIT
