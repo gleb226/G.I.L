@@ -20,6 +20,37 @@ logs_col = db.logs
 
 _apartments_cache = []
 
+def _resolve_local_apartment_images(apartment: dict | None):
+    if not apartment:
+        return []
+    candidates = []
+    img = apartment.get("img")
+    if isinstance(img, str):
+        candidates.append(img)
+    gallery = apartment.get("gallery") or []
+    candidates.extend(item for item in gallery if isinstance(item, str))
+
+    result = []
+    seen = set()
+    uploads_root = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..', '..', 'Site'))
+    for rel_path in candidates:
+        normalized = rel_path.replace("/", os.sep)
+        if not normalized.startswith(f"images{os.sep}uploads{os.sep}"):
+            continue
+        abs_path = os.path.abspath(os.path.join(uploads_root, normalized))
+        if abs_path.startswith(uploads_root) and abs_path not in seen:
+            seen.add(abs_path)
+            result.append(abs_path)
+    return result
+
+def _delete_local_apartment_images(paths: list[str]):
+    for path in paths:
+        try:
+            if os.path.exists(path):
+                os.remove(path)
+        except Exception:
+            pass
+
 async def add_log(source, action, details=None, level="INFO", user_id=None, extra=None):
     payload = {
         "source": source,
@@ -113,9 +144,15 @@ async def add_apartment(data: dict):
 
 async def update_apartment(ap_id, data: dict):
     try:
+        existing = await get_apartment(ap_id)
+        old_local_images = set(_resolve_local_apartment_images(existing))
         res = await apartments_col.update_one({"_id": ObjectId(ap_id)}, {"$set": data})
         if res.matched_count == 0: res = await apartments_col.update_one({"external_id": int(ap_id)}, {"$set": data})
         if res.matched_count > 0:
+            merged = dict(existing or {})
+            merged.update(data)
+            new_local_images = set(_resolve_local_apartment_images(merged))
+            _delete_local_apartment_images(sorted(old_local_images - new_local_images))
             await add_log("database", "update_apartment", details=f"Apartment {ap_id} updated", extra={"changes": data})
             await refresh_apartments_cache()
             await export_site_json()
@@ -124,10 +161,13 @@ async def update_apartment(ap_id, data: dict):
     return False
 
 async def delete_apartment(ap_id):
+    apartment = await get_apartment(ap_id)
+    local_images = _resolve_local_apartment_images(apartment)
     try: await apartments_col.delete_one({"_id": ObjectId(ap_id)})
     except:
         try: await apartments_col.delete_one({"external_id": int(ap_id)})
         except: pass
+    _delete_local_apartment_images(local_images)
     await add_log("database", "delete_apartment", details=f"Apartment {ap_id} deleted")
     await refresh_apartments_cache()
     await export_site_json()

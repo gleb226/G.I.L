@@ -17,8 +17,10 @@ from app.keyboards.admin_keyboards import (
 )
 from app.utils.states import AdminStates
 from app.utils.currency import get_usd_rate, format_price
-from app.common.token import BOSS_IDS
+from app.common.token import BOSS_IDS, GOOGLE_MAPS_API_KEY
 import re, random, os, uuid, io
+import googlemaps
+from urllib.parse import urlparse, parse_qs, unquote
 from PIL import Image
 from app.common.texts import get_text, get_all_translations
 from app.utils.translator import translate_text
@@ -68,9 +70,41 @@ def format_area_value(area, lang="uk"):
     return value
 
 async def resolve_coords(address):
-    match = re.search(r'([-+]?\d*\.\d+|\d+),\s*([-+]?\d*\.\d+|\d+)', address)
-    if match: return float(match.group(1)), float(match.group(2))
-    return 48.621 + random.uniform(-0.01, 0.01), 22.288 + random.uniform(-0.01, 0.01)
+    value = (address or "").strip()
+    match = re.search(r'([-+]?\d*\.\d+|\d+),\s*([-+]?\d*\.\d+|\d+)', value)
+    if match:
+        return float(match.group(1)), float(match.group(2))
+
+    parsed = urlparse(value)
+    if parsed.scheme and parsed.netloc:
+        decoded_value = unquote(value)
+        match = re.search(r'@([-+]?\d*\.\d+|\d+),([-+]?\d*\.\d+|\d+)', decoded_value)
+        if match:
+            return float(match.group(1)), float(match.group(2))
+
+        query = parse_qs(parsed.query)
+        for key in ("q", "query", "destination"):
+            query_value = query.get(key, [None])[0]
+            if not query_value:
+                continue
+            match = re.search(r'([-+]?\d*\.\d+|\d+)\s*,\s*([-+]?\d*\.\d+|\d+)', unquote(query_value))
+            if match:
+                return float(match.group(1)), float(match.group(2))
+
+    if GOOGLE_MAPS_API_KEY:
+        try:
+            client = googlemaps.Client(key=GOOGLE_MAPS_API_KEY)
+            result = client.geocode(value, region="ua", language="uk")
+            if result:
+                location = result[0].get("geometry", {}).get("location", {})
+                lat = location.get("lat")
+                lng = location.get("lng")
+                if lat is not None and lng is not None:
+                    return float(lat), float(lng)
+        except Exception:
+            pass
+
+    return None, None
 
 async def show_ap_card(event, ap_id, lang, role):
     ap = await get_apartment(ap_id)
@@ -241,7 +275,7 @@ async def add_ap_g(message: Message, state: FSMContext):
     if not message.text.isdigit(): return await message.answer("Введіть число:")
     await state.update_data(guests=int(message.text))
     await state.update_data(area="Не вказано")
-    await message.answer("Адреса (вул. ...):")
+    await message.answer("Address or Google Maps link:")
     await state.set_state(AdminStates.adding_apartment_address)
 
 @router.message(AdminStates.adding_apartment_area)
@@ -249,7 +283,7 @@ async def add_ap_a(message: Message, state: FSMContext):
     from app.handlers.user_handlers import menu_redirect
     if message.text in ALL_MENU_BTNS: return await menu_redirect(message, state, bot)
     await state.update_data(area=message.text)
-    await message.answer("Адреса (вул. ...):")
+    await message.answer("Address or Google Maps link:")
     await state.set_state(AdminStates.adding_apartment_address)
 
 @router.message(AdminStates.adding_apartment_address)
@@ -257,6 +291,8 @@ async def add_ap_ad(message: Message, state: FSMContext):
     from app.handlers.user_handlers import menu_redirect
     if message.text in ALL_MENU_BTNS: return await menu_redirect(message, state, bot)
     lat, lng = await resolve_coords(message.text)
+    if lat is None or lng is None:
+        return await message.answer("Could not determine coordinates. Send a Google Maps link or coordinates like 48.6208, 22.2879")
     await state.update_data(address=message.text, lat=lat, lng=lng)
     await message.answer("Ціна (грн):")
     await state.set_state(AdminStates.adding_apartment_price)
