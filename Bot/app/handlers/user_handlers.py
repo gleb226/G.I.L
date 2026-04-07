@@ -852,26 +852,28 @@ async def user_reply_to_staff_h(message: Message, state: FSMContext, bot: Bot):
         staff_id = staff_member.get("user_id")
         if not staff_id:
             continue
+        staff_lang = staff_member.get("language", "uk")
+        notice = (
+            f"✉️ <b>Нове повідомлення від гостя</b>\n\n"
+            f"👤 <b>Гість:</b> {sender_name} (@{sender_username})\n"
+            f"🆔 <code>{message.from_user.id}</code>\n\n"
+            f"💬 <b>Повідомлення:</b>\n{sender_text}"
+            if staff_lang == "uk" else
+            f"✉️ <b>New message from guest</b>\n\n"
+            f"👤 <b>Guest:</b> {sender_name} (@{sender_username})\n"
+            f"🆔 <code>{message.from_user.id}</code>\n\n"
+            f"💬 <b>Message:</b>\n{sender_text}"
+        )
         try:
-            staff_lang = staff_member.get("language", "uk")
-            notice = (
-                f"✉️ <b>Нове повідомлення від гостя</b>\n\n"
-                f"👤 <b>Гість:</b> {sender_name} (@{sender_username})\n"
-                f"🆔 <code>{message.from_user.id}</code>\n\n"
-                f"💬 <b>Повідомлення:</b>\n{sender_text}"
-                if staff_lang == "uk" else
-                f"✉️ <b>New message from guest</b>\n\n"
-                f"👤 <b>Guest:</b> {sender_name} (@{sender_username})\n"
-                f"🆔 <code>{message.from_user.id}</code>\n\n"
-                f"💬 <b>Message:</b>\n{sender_text}"
-            )
+            await bot.send_message(staff_id, notice, parse_mode="HTML", reply_markup=admin_reply_inline_kb(message.from_user.id, staff_lang))
+            sent = True
+        except Exception:
+            await asyncio.sleep(1)
             try:
                 await bot.send_message(staff_id, notice, parse_mode="HTML", reply_markup=admin_reply_inline_kb(message.from_user.id, staff_lang))
                 sent = True
             except Exception:
-                await asyncio.sleep(1)
-                await bot.send_message(staff_id, notice, parse_mode="HTML", reply_markup=admin_reply_inline_kb(message.from_user.id, staff_lang))
-                sent = True
+                continue
         except Exception:
             pass
 
