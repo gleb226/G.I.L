@@ -85,6 +85,16 @@ async def daily_reminder(bot: Bot):
             await log_error(str(e), "")
             await asyncio.sleep(60)
 
+async def apartments_sync_loop():
+    while True:
+        try:
+            await refresh_apartments_cache()
+            await export_site_json()
+            await add_log("sync", "apartments_sync", "Apartments cache and site JSON synchronized from MongoDB")
+        except Exception as e:
+            await log_error(f"Apartments sync failed: {e}", "")
+        await asyncio.sleep(30)
+
 async def get_apartments_api(request):
     await add_log("api", "get_apartments", details=f"Returned {_apartments_cache and len(_apartments_cache) or 0} apartments")
     return web.json_response(_apartments_cache, headers={"Access-Control-Allow-Origin": "*", "Access-Control-Allow-Methods": "GET, OPTIONS", "Access-Control-Allow-Headers": "*"})
@@ -155,6 +165,7 @@ async def main():
             await upsert_user(b_id, role="boss")
         await add_log("auth", "boss_ids_synced", details="Boss users upserted", extra={"boss_ids": BOSS_IDS})
         asyncio.create_task(daily_reminder(bot))
+        asyncio.create_task(apartments_sync_loop())
         await start_web_server()
         await add_log("telegram", "delete_webhook", "Deleting webhook before polling")
         await bot.delete_webhook(drop_pending_updates=True)
