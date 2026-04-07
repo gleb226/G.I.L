@@ -201,6 +201,10 @@
     "role_user": "Client",
     "lang_uk": "Ukrainian",
     "lang_en": "English",
-    "msg_checkin_reminder": "🏨 Today is your check-in day!\n\nPlease pay the balance ({remaining} UAH) to complete your booking.\n🕒 Check-in: from 12:00."
+    "msg_checkin_reminder": "🏨 Today is your check-in day!\n\nPlease pay the balance ({remaining} UAH) to complete your booking.\n🕒 Check-in: from 12:00.",
+    "msg_admin_booking_confirmed": "✅ Бронювання підтверджено",
+    "msg_admin_booking_rejected": "❌ Бронювання відхилено",
+    "msg_admin_object_deleted": "🗑 Об'єкт видалено",
+    "msg_admin_active_booking_card": "📑 <b>Активне бронювання</b>\n🏢 <b>Об'єкт:</b> {ap_name}\n🗓 <b>Дати:</b> {start} - {end}\n💰 <b>Сума:</b> {total} грн\n💳 <b>Оплачено:</b> {paid} грн\n👤 <b>Гість:</b> {guest}"
   }
 }

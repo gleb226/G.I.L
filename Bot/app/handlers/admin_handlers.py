@@ -513,7 +513,7 @@ async def resend_active_bookings(callback: CallbackQuery):
     for b in bs:
         ap = await get_apartment(b['ap_id'])
         ap_name = ap['title'].get(u['language'], ap['title'].get('uk', 'Ap')) if ap else "Unknown"
-        txt = f"Booking\nObject: {ap_name}\nDates: {b['start_date']} - {b['end_date']}\nTotal: {b['total_price']} UAH\nPaid: {b.get('paid_prepayment',0) + b.get('paid_remaining',0)} UAH\nGuest: {b.get('phone', '-')}"
+        txt = (f"??????? ??????????\n??'???: {ap_name}\n????: {b['start_date']} - {b['end_date']}\n????: {b['total_price']} ???\n????????: {b.get('paid_prepayment',0) + b.get('paid_remaining',0)} ???\n?????: {b.get('phone', '-')}") if u['language'] == "uk" else (f"Active booking\nObject: {ap_name}\nDates: {b['start_date']} - {b['end_date']}\nTotal: {b['total_price']} UAH\nPaid: {b.get('paid_prepayment',0) + b.get('paid_remaining',0)} UAH\nGuest: {b.get('phone', '-')}")
         await callback.message.answer(txt, reply_markup=booking_action_inline_kb(str(b['_id']), u['language'], b['status']))
 
 @router.callback_query(F.data.startswith("dl_"), StateFilter("*"))
@@ -521,7 +521,7 @@ async def delete_ap_h(callback: CallbackQuery, state: FSMContext):
     await delete_apartment(callback.data[3:])
     try: await callback.message.delete()
     except: pass
-    await callback.message.answer("Object deleted")
+    await callback.message.answer("Object deleted" if (await get_user(callback.from_user.id)).get("language", "uk") != "uk" else "OBJECT DELETED")
     await admin_aps(callback.message, state)
     await callback.answer("🗑 Видалено")
 
@@ -530,7 +530,7 @@ async def approve_booking_h(callback: CallbackQuery):
     await update_booking_status(callback.data[3:], "confirmed")
     try: await callback.message.delete()
     except: pass
-    await callback.message.answer("Booking confirmed")
+    await callback.message.answer("BOOKING CONFIRMED" if (await get_user(callback.from_user.id)).get("language", "uk") == "uk" else "Booking confirmed")
     await resend_active_bookings(callback)
     await callback.answer("✅ Підтверджено")
 
@@ -559,7 +559,7 @@ async def reject_booking_h(callback: CallbackQuery, bot: Bot):
                 pass
     try: await callback.message.delete()
     except: pass
-    await callback.message.answer("Booking rejected")
+    await callback.message.answer("BOOKING REJECTED" if (await get_user(callback.from_user.id)).get("language", "uk") == "uk" else "Booking rejected")
     await resend_active_bookings(callback)
     await callback.answer("❌ Відхилено")
 
