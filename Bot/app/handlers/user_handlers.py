@@ -601,9 +601,17 @@ async def wishes_in(message: Message, state: FSMContext, bot: Bot):
             await message.answer(get_text("msg_already_booked", lang, next_date=next_date, duration=data["days"]))
         else:
             await message.answer(get_text("msg_no_apartments", lang))
-        suggestions = await find_next_free_dates(data["ap_id"], data["checkin_str"], data["days"])
-        if suggestions:
-            await message.answer(get_text("msg_enter_checkin", lang, date=suggestions[0].strftime("%d.%m.%Y")), reply_markup=suggest_dates_kb(suggestions, lang))
+        suggestions_before, suggestions_after = await find_next_free_dates(data["ap_id"], data["checkin_str"], data["days"])
+        rows = []
+        if suggestions_before:
+            rows.append(get_text("msg_nearest_before", lang))
+            rows.extend(s.strftime("%d.%m.%Y") for s in suggestions_before)
+        if suggestions_after:
+            rows.append(get_text("msg_nearest_after", lang))
+            rows.extend(s.strftime("%d.%m.%Y") for s in suggestions_after)
+        if rows:
+            text = "\n".join(rows)
+            await message.answer(text, reply_markup=suggest_dates_kb(suggestions_before + suggestions_after, lang))
         await state.set_state(BookingStates.waiting_checkin)
         return
 

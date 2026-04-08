@@ -196,13 +196,26 @@ async def find_next_free_dates(ap_id, start_date_str, duration_days):
         for b_s, b_e in br:
             if (s < b_e) and (e > b_s): return False
         return True
-    sug = []
-    for i in range(1, 120):
-        d = s_dt + datetime.timedelta(days=i)
-        if is_f(d, d + datetime.timedelta(days=duration_days)):
-            sug.append(d)
-            break
-    return sorted(sug)
+    before, after = [], []
+    max_days = 60
+    day_delta = datetime.timedelta(days=duration_days)
+    i = 1
+    while len(after) < 3 and i <= max_days:
+        candidate = s_dt + datetime.timedelta(days=i)
+        if is_f(candidate, candidate + day_delta):
+            after.append(candidate)
+        i += 1
+    i = 1
+    while len(before) < 3 and i <= max_days:
+        candidate = s_dt - datetime.timedelta(days=i)
+        if candidate <= datetime.datetime.now():
+            if is_f(candidate, candidate + day_delta):
+                before.append(candidate)
+        else:
+            if is_f(candidate, candidate + day_delta):
+                before.append(candidate)
+        i += 1
+    return list(reversed(before)), after
 
 async def create_booking(user_id, ap_id, s_d, e_d, ph, w, tp):
     ap = await get_apartment(ap_id)
