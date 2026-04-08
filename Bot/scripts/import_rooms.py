@@ -171,9 +171,10 @@ def format_features(features: list[str], locale: str, fallback: str) -> str:
     return ", ".join(labels.get(feature, feature) for feature in features)
 
 
-async def build_apartment(entry: dict):
-    detail_html = fetch(entry["url"])
-    detail = parse_detail(entry["external_id"], detail_html)
+async def build_apartment(entry: dict, semaphore: asyncio.Semaphore):
+    async with semaphore:
+        detail_html = await asyncio.to_thread(fetch, entry["url"])
+        detail = await asyncio.to_thread(parse_detail, entry["external_id"], detail_html)
 
     title_uk = detail["address"]
     title_en = await translate_text(title_uk)
@@ -232,13 +233,13 @@ async def upsert_apartment(apartment: dict):
 
 
 async def main():
-    listing_html = fetch(LIST_URL)
+    listing_html = await asyncio.to_thread(fetch, LIST_URL)
     entries = parse_listing_entries(listing_html)
-    apartments = []
-
-    for index, entry in enumerate(entries, start=1):
+    semaphore = asyncio.Semaphore(40)
+    async def process(entry, index):
         print(f"[{index}/{len(entries)}] {entry['url']}")
-        apartments.append(await build_apartment(entry))
+        return await build_apartment(entry, semaphore)
+    apartments = await asyncio.gather(*(process(entry, idx) for idx, entry in enumerate(entries, start=1)))
 
     for apartment in apartments:
         await upsert_apartment(apartment)
