@@ -261,7 +261,12 @@ async def add_ap_name_ua(message: Message, state: FSMContext, bot: Bot):
     ua_title = message.text
     en_title = await translate_text(ua_title)
     await state.update_data(title_uk=ua_title, title_en=en_title)
-    await message.answer(f"Переклад назви:\n<code>{en_title}</code>\n\nВсе ок чи змінити?", reply_markup=translation_confirm_kb(), parse_mode="HTML")
+    
+    hint = ""
+    if en_title == ua_title:
+        hint = "\n⚠️ <i>(Не вдалося автоматично перекласти або переклад ідентичний)</i>"
+        
+    await message.answer(f"Переклад назви:\n<code>{en_title}</code>{hint}\n\nВсе ок чи змінити?", reply_markup=translation_confirm_kb(), parse_mode="HTML")
     await state.set_state(AdminStates.confirming_name_translation)
 
 @router.callback_query(AdminStates.confirming_name_translation, F.data == "tr_ok")
@@ -325,11 +330,6 @@ async def add_ap_r(message: Message, state: FSMContext, bot: Bot):
     
     await state.update_data(rooms=int(message.text))
     await state.set_state(AdminStates.adding_apartment_beds)
-    # Double check state was set
-    s = await state.get_state()
-    if s != AdminStates.adding_apartment_beds:
-        await state.set_state(AdminStates.adding_apartment_beds)
-        
     await message.answer("Кількість спальних місць:")
 
 @router.message(AdminStates.adding_apartment_beds)
@@ -341,10 +341,6 @@ async def add_ap_b(message: Message, state: FSMContext, bot: Bot):
     
     await state.update_data(beds=int(message.text))
     await state.set_state(AdminStates.adding_apartment_guests)
-    s = await state.get_state()
-    if s != AdminStates.adding_apartment_guests:
-        await state.set_state(AdminStates.adding_apartment_guests)
-        
     await message.answer("Макс. гостей:")
 
 @router.message(AdminStates.adding_apartment_guests)
@@ -356,10 +352,6 @@ async def add_ap_g(message: Message, state: FSMContext, bot: Bot):
     
     await state.update_data(guests=int(message.text))
     await state.set_state(AdminStates.adding_apartment_area)
-    s = await state.get_state()
-    if s != AdminStates.adding_apartment_area:
-        await state.set_state(AdminStates.adding_apartment_area)
-        
     await message.answer("Введіть площу або '-' якщо не вказано:")
 
 
@@ -371,7 +363,7 @@ async def add_ap_a(message: Message, state: FSMContext, bot: Bot):
     if area_value in {"", "-", "?"}:
         area_value = "Не вказано"
     await state.update_data(area=area_value)
-    await message.answer("\u0412\u0432\u0435\u0434\u0456\u0442\u044c \u0430\u0434\u0440\u0435\u0441\u0443 \u0430\u0431\u043e Google Maps \u043f\u043e\u0441\u0438\u043b\u0430\u043d\u043d\u044f:")
+    await message.answer("Введіть адресу або Google Maps посилання:")
     await state.set_state(AdminStates.adding_apartment_address)
 
 @router.message(AdminStates.adding_apartment_address)
@@ -380,7 +372,7 @@ async def add_ap_ad(message: Message, state: FSMContext, bot: Bot):
     if message.text in ALL_MENU_BTNS: return await menu_redirect(message, state, bot)
     lat, lng = await resolve_coords(message.text)
     if lat is None or lng is None:
-        return await message.answer("\u041d\u0435 \u0432\u0434\u0430\u043b\u043e\u0441\u044f \u0432\u0438\u0437\u043d\u0430\u0447\u0438\u0442\u0438 \u043a\u043e\u043e\u0440\u0434\u0438\u043d\u0430\u0442\u0438. \u041d\u0430\u0434\u0456\u0448\u043b\u0456\u0442\u044c Google Maps \u043f\u043e\u0441\u0438\u043b\u0430\u043d\u043d\u044f \u0430\u0431\u043e \u043a\u043e\u043e\u0440\u0434\u0438\u043d\u0430\u0442\u0438 \u0443 \u0444\u043e\u0440\u043c\u0430\u0442\u0456 48.6208, 22.2879")
+        return await message.answer("Не вдалося визначити координати. Надішліть Google Maps посилання або координати у форматі 48.6208, 22.2879")
     route_url = message.text.strip() if urlparse(message.text.strip()).scheme and urlparse(message.text.strip()).netloc else None
     await state.update_data(address=message.text, lat=lat, lng=lng, route_url=route_url)
     await message.answer("Ціна (грн):")
@@ -674,7 +666,7 @@ async def delete_ap_h(callback: CallbackQuery, state: FSMContext):
         await callback.message.delete()
     except TelegramBadRequest:
         pass
-    await callback.message.answer("\u041e\u0431'\u0454\u043a\u0442 \u0432\u0438\u0434\u0430\u043b\u0435\u043d\u043e" if (await get_user(callback.from_user.id)).get("language", "uk") == "uk" else "Object deleted")
+    await callback.message.answer("Об'єкт видалено" if (await get_user(callback.from_user.id)).get("language", "uk") == "uk" else "Object deleted")
     await admin_aps(callback.message, state)
     await callback.answer("🗑 Видалено")
 
@@ -685,7 +677,7 @@ async def approve_booking_h(callback: CallbackQuery):
         await callback.message.delete()
     except TelegramBadRequest:
         pass
-    await callback.message.answer("\u0411\u0440\u043e\u043d\u044e\u0432\u0430\u043d\u043d\u044f \u043f\u0456\u0434\u0442\u0432\u0435\u0440\u0434\u0436\u0435\u043d\u043e" if (await get_user(callback.from_user.id)).get("language", "uk") == "uk" else "Booking confirmed")
+    await callback.message.answer("Бронювання підтверджено" if (await get_user(callback.from_user.id)).get("language", "uk") == "uk" else "Booking confirmed")
     await resend_active_bookings(callback)
     await callback.answer("✅ Підтверджено")
 
@@ -716,7 +708,7 @@ async def reject_booking_h(callback: CallbackQuery, bot: Bot):
         await callback.message.delete()
     except TelegramBadRequest:
         pass
-    await callback.message.answer("\u0411\u0440\u043e\u043d\u044e\u0432\u0430\u043d\u043d\u044f \u0432\u0456\u0434\u0445\u0438\u043b\u0435\u043d\u043e" if (await get_user(callback.from_user.id)).get("language", "uk") == "uk" else "Booking rejected")
+    await callback.message.answer("Бронювання відхилено" if (await get_user(callback.from_user.id)).get("language", "uk") == "uk" else "Booking rejected")
     await resend_active_bookings(callback)
     await callback.answer("❌ Відхилено")
 
