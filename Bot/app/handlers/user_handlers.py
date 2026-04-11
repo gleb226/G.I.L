@@ -994,6 +994,24 @@ async def sc_h(callback: CallbackQuery, state: FSMContext):
         return
     await profile_h(callback, state)
 
+@router.callback_query(F.data.startswith("pg:"), StateFilter("*"))
+async def pagination_h(callback: CallbackQuery, state: FSMContext):
+    try:
+        parts = callback.data.split(":")
+        ptype, page = parts[1], int(parts[2])
+        u = await get_user(callback.from_user.id)
+        lang = u.get('language', 'uk') if u else 'uk'
+        
+        if ptype == "book":
+            aps = await get_apartments(only_available=True)
+            await callback.message.edit_reply_markup(reply_markup=apartments_inline_kb(aps, True, lang, page))
+        elif ptype == "list":
+            aps = await get_apartments(only_available=True)
+            await callback.message.edit_reply_markup(reply_markup=apartments_inline_kb(aps, False, lang, page))
+        await callback.answer()
+    except Exception:
+        await callback.answer()
+
 @router.message(F.text, StateFilter("*"))
 async def main_menu_fallback_h(message: Message, state: FSMContext, bot: Bot):
     # Only process for non-admins or if not in admin state

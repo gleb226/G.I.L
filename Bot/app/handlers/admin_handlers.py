@@ -478,6 +478,18 @@ async def edit_ap_f_toggle(callback: CallbackQuery, state: FSMContext):
         await update_apartment(aid, {"features": sel}); await callback.message.edit_reply_markup(reply_markup=features_selection_kb(sel, u['language']))
     await callback.answer()
 
+@router.callback_query(F.data.startswith("pg:"), is_admin_filter)
+async def pagination_h(callback: CallbackQuery, state: FSMContext):
+    try:
+        parts = callback.data.split(":")
+        ptype, page = parts[1], int(parts[2])
+        u = await get_user(callback.from_user.id)
+        if ptype == "adm":
+            aps = await get_apartments()
+            await callback.message.edit_reply_markup(reply_markup=apartment_mgmt_inline_kb(aps, u['language'], page))
+        await callback.answer()
+    except Exception as e: await handle_error(callback, state, e, "pagination_h")
+
 @router.callback_query(F.data.startswith("tg_"), is_admin_filter)
 async def toggle_ap_h(callback: CallbackQuery):
     aid = callback.data[3:]; ap = await get_apartment(aid)
