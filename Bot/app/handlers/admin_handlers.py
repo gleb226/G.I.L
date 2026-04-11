@@ -129,7 +129,7 @@ async def resolve_coords(address):
         if "maps.app.goo.gl" in parsed.netloc or "goo.gl" in parsed.netloc:
             try:
                 async with ClientSession() as session:
-                    async with session.get(value, allow_redirects=True) as response:
+                    async with session.get(value, allow_redirects=True, timeout=10) as response:
                         final_url = str(response.url)
                 decoded_final_url = unquote(final_url)
                 match = re.search(r'@([-+]?\d*\.\d+|\d+),([-+]?\d*\.\d+|\d+)', decoded_final_url)
@@ -140,8 +140,15 @@ async def resolve_coords(address):
 
     if GOOGLE_MAPS_API_KEY:
         try:
+            loop = asyncio.get_event_loop()
             client = googlemaps.Client(key=GOOGLE_MAPS_API_KEY)
-            result = client.geocode(value, region="ua", language="uk")
+            
+            # Use run_in_executor to avoid blocking the event loop
+            result = await loop.run_in_executor(
+                None, 
+                lambda: client.geocode(value, region="ua", language="uk")
+            )
+            
             if result:
                 location = result[0].get("geometry", {}).get("location", {})
                 lat = location.get("lat")
