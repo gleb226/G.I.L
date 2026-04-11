@@ -996,5 +996,12 @@ async def sc_h(callback: CallbackQuery, state: FSMContext):
 
 @router.message(F.text, StateFilter("*"))
 async def main_menu_fallback_h(message: Message, state: FSMContext, bot: Bot):
+    # Only process for non-admins or if not in admin state
+    u = await get_user(message.from_user.id)
+    if u and u.get('role') in ['admin', 'boss']:
+        cur_state = await state.get_state()
+        if cur_state and cur_state.startswith("AdminStates"):
+            return # Let admin handlers handle it
+            
     if detect_menu_intent(message.text):
         return await menu_redirect(message, state, bot)
