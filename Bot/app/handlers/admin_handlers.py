@@ -164,48 +164,53 @@ def resolve_apartment_image_admin(ap):
 
 @router.message(Command("admin"), is_admin_filter)
 @router.message(F.text.in_(get_all_translations('btn_admin')), is_admin_filter)
-async def admin_h(message: Message, state: FSMContext):
+async def admin_h(event: Message | CallbackQuery, state: FSMContext):
     try:
         await state.clear()
-        u = await get_user(message.from_user.id)
-        await message.answer(get_text('msg_admin_panel', u['language']), reply_markup=admin_panel_kb(u['role'], u['language']))
-    except Exception as e: await handle_error(message, state, e, "admin_h")
-
-@router.message(F.text.in_(get_all_translations('btn_back_main')), is_admin_filter)
-async def admin_back_main_h(message: Message, state: FSMContext):
-    from app.handlers.user_handlers import start_cmd
-    await state.clear()
-    await start_cmd(message, state)
+        user_id = event.from_user.id
+        u = await get_user(user_id)
+        if not u: return
+        msg_obj = event if isinstance(event, Message) else event.message
+        await msg_obj.answer(get_text('msg_admin_panel', u['language']), reply_markup=admin_panel_kb(u['role'], u['language']))
+    except Exception as e: await handle_error(event, state, e, "admin_h")
 
 @router.message(F.text.in_(get_all_translations('btn_active_bookings')), is_admin_filter)
-async def active_bookings_h(message: Message, state: FSMContext):
+async def active_bookings_h(event: Message | CallbackQuery, state: FSMContext):
     try:
         await state.clear()
-        u = await get_user(message.from_user.id)
+        user_id = event.from_user.id
+        u = await get_user(user_id)
+        if not u: return
         bs = await get_active_bookings()
-        if not bs: return await message.answer(get_text('msg_list_empty', u['language']))
+        msg_obj = event if isinstance(event, Message) else event.message
+        if not bs: return await msg_obj.answer(get_text('msg_list_empty', u['language']))
         for b in bs:
             txt = await build_booking_summary_text(b, u['language'])
-            await message.answer(txt, reply_markup=booking_action_inline_kb(b, u['language']))
-    except Exception as e: await handle_error(message, state, e, "active_bookings_h")
+            await msg_obj.answer(txt, reply_markup=booking_action_inline_kb(b, u['language']))
+    except Exception as e: await handle_error(event, state, e, "active_bookings_h")
 
 @router.message(F.text.in_(get_all_translations('btn_objects')), is_admin_filter)
-async def admin_aps(message: Message, state: FSMContext):
+async def admin_aps(event: Message | CallbackQuery, state: FSMContext):
     try:
         await state.clear()
-        u = await get_user(message.from_user.id)
+        user_id = event.from_user.id
+        u = await get_user(user_id)
+        if not u: return
         aps = await get_apartments()
-        await message.answer("🏢 Об'єкти:", reply_markup=apartment_mgmt_inline_kb(aps, u['language']), parse_mode="HTML")
-    except Exception as e: await handle_error(message, state, e, "admin_aps")
+        msg_obj = event if isinstance(event, Message) else event.message
+        await msg_obj.answer("🏢 Об'єкти:", reply_markup=apartment_mgmt_inline_kb(aps, u['language']), parse_mode="HTML")
+    except Exception as e: await handle_error(event, state, e, "admin_aps")
 
 @router.message(F.text.in_(get_all_translations('btn_team')), is_admin_filter)
-async def team_mgmt_h(message: Message, state: FSMContext):
+async def team_mgmt_h(event: Message | CallbackQuery, state: FSMContext):
     try:
-        u = await get_user(message.from_user.id)
+        user_id = event.from_user.id
+        u = await get_user(user_id)
         if not u or u.get('role') != 'boss': return
         await state.clear()
-        await message.answer(get_text('btn_team', u['language']), reply_markup=staff_mgmt_inline_kb(u['language']))
-    except Exception as e: await handle_error(message, state, e, "team_mgmt_h")
+        msg_obj = event if isinstance(event, Message) else event.message
+        await msg_obj.answer(get_text('btn_team', u['language']), reply_markup=staff_mgmt_inline_kb(u['language']))
+    except Exception as e: await handle_error(event, state, e, "team_mgmt_h")
 
 # HANDLERS - ADD APARTMENT FLOW
 
