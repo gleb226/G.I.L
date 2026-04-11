@@ -1,4 +1,5 @@
 ﻿from aiogram import Router, F, Bot
+from aiogram.exceptions import TelegramBadRequest
 from aiogram.types import Message, CallbackQuery, PreCheckoutQuery, LabeledPrice, FSInputFile, InlineKeyboardButton
 from aiogram.filters import CommandStart, StateFilter
 from aiogram.fsm.context import FSMContext
@@ -83,7 +84,7 @@ def detect_menu_intent(text: str) -> str | None:
         return "apartments"
     if matches_any_button(text, BTNS_CONTACTS) or "контакт" in normalized or "РєРѕРЅС‚Р°РєС‚" in normalized or "contact" in normalized:
         return "contacts"
-    if matches_any_button(text, BTNS_ADMIN) or "адмін" in normalized or "админ" in normalized or "Р°РґРјС–РЅ" in normalized or "admin" in normalized:
+    if matches_any_button(text, BTNS_ADMIN) or "оператор" in normalized or "operator" in normalized:
         return "admin"
     if matches_any_button(text, BTNS_BACK_MAIN) or "головн" in normalized or "РіРѕР»РѕРІРЅ" in normalized or "main menu" in normalized:
         return "main"
@@ -101,12 +102,35 @@ def resolve_apartment_image(apartment: dict):
     if not img_src:
         gallery = apartment.get('gallery') or []
         img_src = gallery[0] if gallery else None
+    
     if not img_src:
         return None
-    if isinstance(img_src, str) and img_src.startswith("images/"):
-        local_path = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "..", "..", "Site", img_src))
+        
+    if not isinstance(img_src, str):
+        return img_src
+
+    if img_src.startswith(("http://", "https://")):
+        return img_src
+
+    # Resolve base directory for local images
+    base_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "..", "..", "Site"))
+    
+    # Try resolving as a local path
+    paths_to_try = []
+    if img_src.startswith("images/"):
+        paths_to_try.append(os.path.join(base_dir, img_src))
+    else:
+        paths_to_try.append(os.path.join(base_dir, "images", img_src))
+        
+    for local_path in paths_to_try:
         if os.path.exists(local_path):
             return FSInputFile(local_path)
+            
+    # If it's not a URL and not a valid local file, it might be a Telegram file_id.
+    # Telegram file_ids are typically long strings. Short strings are likely invalid filenames.
+    if len(img_src) < 20:
+        return None
+        
     return img_src
 
 def format_area_value(area, lang: str) -> str:
@@ -136,21 +160,35 @@ def has_valid_phone(user: dict | None) -> bool:
     return len(normalize_phone_input(user.get("phone"))) >= 11
 
 async def send_apartment_message(target, image, text: str, reply_markup):
+    photo_succeeded = False
     if image:
-        if len(text) <= 1024:
-            await safe_send(
-                target.answer_photo,
-                image,
-                caption=text,
-                reply_markup=reply_markup,
-                parse_mode="HTML",
-            )
-            return
-        await safe_send(target.answer_photo, image)
-    await safe_send(target.answer, text, reply_markup=reply_markup, parse_mode="HTML")
+        try:
+            if len(text) <= 1024:
+                await safe_send(
+                    target.answer_photo,
+                    image,
+                    caption=text,
+                    reply_markup=reply_markup,
+                    parse_mode="HTML",
+                )
+                photo_succeeded = True
+            else:
+                await safe_send(target.answer_photo, image)
+                photo_succeeded = True
+        except Exception:
+            photo_succeeded = False
+
+    if not photo_succeeded or len(text) > 1024:
+        await safe_send(target.answer, text, reply_markup=reply_markup, parse_mode="HTML")
 
 async def safe_send(sender, *args, **kwargs):
     try:
+        return await sender(*args, **kwargs)
+    except TelegramBadRequest as e:
+        err_msg = str(e).lower()
+        if "wrong remote file identifier specified" in err_msg or "message to delete not found" in err_msg or "message can't be deleted" in err_msg:
+            raise e
+        await asyncio.sleep(1)
         return await sender(*args, **kwargs)
     except Exception:
         await asyncio.sleep(1)
@@ -221,15 +259,10 @@ async def start_booking_for_apartment(event: Message | CallbackQuery, state: FSM
         f"{get_text('msg_enter_checkin', lang, date=checkin_example)}"
     )
 
+    target = event.message if isinstance(event, CallbackQuery) else event
+    await send_apartment_message(target, image, prompt, None)
     if isinstance(event, CallbackQuery):
-        if image:
-            await event.message.answer_photo(image, caption=f"🏢 <b>{html.escape(apartment_name)}</b>", parse_mode="HTML")
-        await event.message.answer(prompt, parse_mode="HTML")
         await event.answer()
-    else:
-        if image:
-            await event.answer_photo(image, caption=f"🏢 <b>{html.escape(apartment_name)}</b>", parse_mode="HTML")
-        await event.answer(prompt, parse_mode="HTML")
 
 async def menu_redirect(message: Message, state: FSMContext, bot: Bot):
     t = message.text
@@ -335,7 +368,7 @@ async def profile_h(event: Message | CallbackQuery, state: FSMContext):
     if isinstance(event, CallbackQuery):
         try:
             await event.message.delete()
-        except:
+        except TelegramBadRequest:
             pass
         await event.message.answer(txt, reply_markup=kb, parse_mode="HTML")
         await event.answer()

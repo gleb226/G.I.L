@@ -1,4 +1,5 @@
 from aiogram import Router, F, Bot
+from aiogram.exceptions import TelegramBadRequest
 from aiogram.types import Message, CallbackQuery, FSInputFile
 from aiogram.fsm.context import FSMContext
 from aiogram.filters import StateFilter, Command
@@ -165,13 +166,27 @@ async def show_ap_card(event, ap_id, lang, role):
     msg = event.message if isinstance(event, CallbackQuery) else event
     if ap.get('img'):
         img_src = ap['img']
-        if img_src.startswith("images/"):
-            lp = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "..", "..", "Site", img_src))
-            if os.path.exists(lp): img_src = FSInputFile(lp)
-        try:
-            await msg.answer_photo(img_src, caption=txt, reply_markup=kb, parse_mode="HTML")
-            if isinstance(event, CallbackQuery): await event.message.delete()
-        except: await msg.answer(txt, reply_markup=kb, parse_mode="HTML")
+        if isinstance(img_src, str) and not img_src.startswith(("http://", "https://")):
+            base_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "..", "..", "Site"))
+            if img_src.startswith("images/"):
+                lp = os.path.join(base_dir, img_src)
+            else:
+                lp = os.path.join(base_dir, "images", img_src)
+            if os.path.exists(lp):
+                img_src = FSInputFile(lp)
+            elif len(img_src) < 20: # Not a URL, not a file, and too short for file_id
+                img_src = None
+
+        if img_src:
+            try:
+                await msg.answer_photo(img_src, caption=txt, reply_markup=kb, parse_mode="HTML")
+                if isinstance(event, CallbackQuery):
+                    try:
+                        await event.message.delete()
+                    except TelegramBadRequest:
+                        pass
+            except: await msg.answer(txt, reply_markup=kb, parse_mode="HTML")
+        else: await msg.answer(txt, reply_markup=kb, parse_mode="HTML")
     else: await msg.answer(txt, reply_markup=kb, parse_mode="HTML")
 
 @router.message(F.text.in_(get_all_translations('btn_back_main')), StateFilter("*"))
@@ -225,7 +240,10 @@ async def manage_ap_h(callback: CallbackQuery, state: FSMContext):
 @router.callback_query(F.data == "adm_back", StateFilter("*"))
 async def admin_back_h(callback: CallbackQuery, state: FSMContext):
     await admin_aps(callback.message, state)
-    await callback.message.delete()
+    try:
+        await callback.message.delete()
+    except TelegramBadRequest:
+        pass
     await callback.answer()
 
 @router.callback_query(F.data == "add_ap", StateFilter("*"))
@@ -411,7 +429,10 @@ async def add_ap_f_toggle(callback: CallbackQuery, state: FSMContext):
             if os.path.exists(lp): img_src = FSInputFile(lp)
         try: await callback.message.answer_photo(img_src, caption=f"🏢 {data['title_uk']}\n💰 {data['price']} грн\n\nПідтвердити?", reply_markup=confirm_ap_add_kb(u['language']))
         except: await callback.message.answer(f"🏢 {data['title_uk']}\n💰 {data['price']} грн\n\nПідтвердити?", reply_markup=confirm_ap_add_kb(u['language']))
-        await callback.message.delete()
+        try:
+            await callback.message.delete()
+        except TelegramBadRequest:
+            pass
     else:
         feat = callback.data[5:]
         if feat in sel: sel.remove(feat)
@@ -524,7 +545,10 @@ async def edit_ap_f_toggle(callback: CallbackQuery, state: FSMContext):
     u = await get_user(callback.from_user.id)
     if callback.data == "fsel_done":
         await state.clear()
-        await callback.message.delete()
+        try:
+            await callback.message.delete()
+        except TelegramBadRequest:
+            pass
         await show_ap_card(callback, aid, u['language'], u['role'])
     else:
         feat = callback.data[5:]
@@ -575,7 +599,7 @@ async def add_ap_fsh(callback: CallbackQuery, state: FSMContext):
     await add_apartment(ap)
     try:
         await callback.message.delete()
-    except Exception:
+    except TelegramBadRequest:
         pass
     await callback.message.answer("✅ Додано")
     await state.clear()
@@ -608,8 +632,10 @@ async def resend_active_bookings(callback: CallbackQuery):
 @router.callback_query(F.data.startswith("dl_"), StateFilter("*"))
 async def delete_ap_h(callback: CallbackQuery, state: FSMContext):
     await delete_apartment(callback.data[3:])
-    try: await callback.message.delete()
-    except: pass
+    try:
+        await callback.message.delete()
+    except TelegramBadRequest:
+        pass
     await callback.message.answer("\u041e\u0431'\u0454\u043a\u0442 \u0432\u0438\u0434\u0430\u043b\u0435\u043d\u043e" if (await get_user(callback.from_user.id)).get("language", "uk") == "uk" else "Object deleted")
     await admin_aps(callback.message, state)
     await callback.answer("🗑 Видалено")
@@ -617,8 +643,10 @@ async def delete_ap_h(callback: CallbackQuery, state: FSMContext):
 @router.callback_query(F.data.startswith("ok_"))
 async def approve_booking_h(callback: CallbackQuery):
     await update_booking_status(callback.data[3:], "confirmed")
-    try: await callback.message.delete()
-    except: pass
+    try:
+        await callback.message.delete()
+    except TelegramBadRequest:
+        pass
     await callback.message.answer("\u0411\u0440\u043e\u043d\u044e\u0432\u0430\u043d\u043d\u044f \u043f\u0456\u0434\u0442\u0432\u0435\u0440\u0434\u0436\u0435\u043d\u043e" if (await get_user(callback.from_user.id)).get("language", "uk") == "uk" else "Booking confirmed")
     await resend_active_bookings(callback)
     await callback.answer("✅ Підтверджено")
@@ -636,18 +664,20 @@ async def reject_booking_h(callback: CallbackQuery, bot: Bot):
             text = (
                 "❌ Ваше бронювання відхилено.\n"
                 f"{'Кошти до повернення: ' + str(refund_amount) + ' грн.\n' if refund_amount else ''}"
-                "Повернення опрацьовується адміністратором."
+                "Повернення опрацьовується оператором."
                 if lang == "uk" else
                 "❌ Your booking was rejected.\n"
                 f"{'Amount to refund: ' + str(refund_amount) + ' UAH.\n' if refund_amount else ''}"
-                "The refund is being processed by the administrator."
+                "The refund is being processed by the operator."
             )
             try:
                 await bot.send_message(user["user_id"], text)
             except Exception:
                 pass
-    try: await callback.message.delete()
-    except: pass
+    try:
+        await callback.message.delete()
+    except TelegramBadRequest:
+        pass
     await callback.message.answer("\u0411\u0440\u043e\u043d\u044e\u0432\u0430\u043d\u043d\u044f \u0432\u0456\u0434\u0445\u0438\u043b\u0435\u043d\u043e" if (await get_user(callback.from_user.id)).get("language", "uk") == "uk" else "Booking rejected")
     await resend_active_bookings(callback)
     await callback.answer("❌ Відхилено")
@@ -677,12 +707,12 @@ async def reply_h(message: Message, state: FSMContext, bot: Bot):
         return
     target_user = await get_user(tid)
     target_lang = target_user.get("language", "uk") if target_user else "uk"
-    admin_name = html.escape(u.get("name") or message.from_user.full_name or ("Administrator" if target_lang != "uk" else "Адміністратор"))
+    admin_name = html.escape(u.get("name") or message.from_user.full_name or ("Operator" if target_lang != "uk" else "Оператор"))
     reply_text = html.escape(message.text or "")
     if target_lang == "uk":
-        outgoing_text = f"<b>Відповідь від адміністратора</b>\n\n<b>{admin_name}</b>\n\n{reply_text}"
+        outgoing_text = f"<b>Відповідь від оператора</b>\n\n<b>{admin_name}</b>\n\n{reply_text}"
     else:
-        outgoing_text = f"<b>Reply from administrator</b>\n\n<b>{admin_name}</b>\n\n{reply_text}"
+        outgoing_text = f"<b>Reply from operator</b>\n\n<b>{admin_name}</b>\n\n{reply_text}"
     try:
         await bot.send_message(
             tid,
@@ -776,4 +806,7 @@ async def rm_staff_h(callback: CallbackQuery, state: FSMContext):
 @router.callback_query(F.data == "b_st")
 async def back_staff_h(callback: CallbackQuery, state: FSMContext):
     await team_mgmt_h(callback.message, state)
-    await callback.message.delete()
+    try:
+        await callback.message.delete()
+    except TelegramBadRequest:
+        pass
