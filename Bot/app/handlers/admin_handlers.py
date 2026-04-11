@@ -323,8 +323,8 @@ async def add_ap_r(message: Message, state: FSMContext, bot: Bot):
     if message.text in ALL_MENU_BTNS: return await menu_redirect(message, state, bot)
     if not message.text.isdigit(): return await message.answer("Введіть число:")
     await state.update_data(rooms=int(message.text))
-    await message.answer("Кількість спальних місць:")
     await state.set_state(AdminStates.adding_apartment_beds)
+    await message.answer("Кількість спальних місць:")
 
 @router.message(AdminStates.adding_apartment_beds)
 async def add_ap_b(message: Message, state: FSMContext, bot: Bot):
@@ -333,8 +333,8 @@ async def add_ap_b(message: Message, state: FSMContext, bot: Bot):
     if message.text in ALL_MENU_BTNS: return await menu_redirect(message, state, bot)
     if not message.text.isdigit(): return await message.answer("Введіть число:")
     await state.update_data(beds=int(message.text))
-    await message.answer("Макс. гостей:")
     await state.set_state(AdminStates.adding_apartment_guests)
+    await message.answer("Макс. гостей:")
 
 @router.message(AdminStates.adding_apartment_guests)
 async def add_ap_g(message: Message, state: FSMContext, bot: Bot):
@@ -343,8 +343,8 @@ async def add_ap_g(message: Message, state: FSMContext, bot: Bot):
     if message.text in ALL_MENU_BTNS: return await menu_redirect(message, state, bot)
     if not message.text.isdigit(): return await message.answer("Введіть число:")
     await state.update_data(guests=int(message.text))
-    await message.answer("Введіть площу або '-' якщо не вказано:")
     await state.set_state(AdminStates.adding_apartment_area)
+    await message.answer("Введіть площу або '-' якщо не вказано:")
 
 
 @router.message(AdminStates.adding_apartment_area)
