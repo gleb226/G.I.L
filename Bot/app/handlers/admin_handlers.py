@@ -319,6 +319,7 @@ async def desc_tr_manual(message: Message, state: FSMContext, bot: Bot):
 @router.message(AdminStates.adding_apartment_rooms)
 async def add_ap_r(message: Message, state: FSMContext, bot: Bot):
     from app.handlers.user_handlers import menu_redirect
+    if not message.text: return await message.answer("Введіть текст:")
     if message.text in ALL_MENU_BTNS: return await menu_redirect(message, state, bot)
     if not message.text.isdigit(): return await message.answer("Введіть число:")
     await state.update_data(rooms=int(message.text))
@@ -328,6 +329,7 @@ async def add_ap_r(message: Message, state: FSMContext, bot: Bot):
 @router.message(AdminStates.adding_apartment_beds)
 async def add_ap_b(message: Message, state: FSMContext, bot: Bot):
     from app.handlers.user_handlers import menu_redirect
+    if not message.text: return await message.answer("Введіть текст:")
     if message.text in ALL_MENU_BTNS: return await menu_redirect(message, state, bot)
     if not message.text.isdigit(): return await message.answer("Введіть число:")
     await state.update_data(beds=int(message.text))
@@ -337,6 +339,7 @@ async def add_ap_b(message: Message, state: FSMContext, bot: Bot):
 @router.message(AdminStates.adding_apartment_guests)
 async def add_ap_g(message: Message, state: FSMContext, bot: Bot):
     from app.handlers.user_handlers import menu_redirect
+    if not message.text: return await message.answer("Введіть текст:")
     if message.text in ALL_MENU_BTNS: return await menu_redirect(message, state, bot)
     if not message.text.isdigit(): return await message.answer("Введіть число:")
     await state.update_data(guests=int(message.text))
@@ -370,6 +373,7 @@ async def add_ap_ad(message: Message, state: FSMContext, bot: Bot):
 @router.message(AdminStates.adding_apartment_price)
 async def add_ap_p(message: Message, state: FSMContext, bot: Bot):
     from app.handlers.user_handlers import menu_redirect
+    if not message.text: return await message.answer("Введіть текст:")
     if message.text in ALL_MENU_BTNS: return await menu_redirect(message, state, bot)
     if not message.text.isdigit(): return await message.answer("Введіть число:")
     await state.update_data(price=int(message.text))
