@@ -412,14 +412,28 @@ async def add_ap_ph(message: Message, state: FSMContext, bot: Bot):
     
     await message.answer(f"📸 Додано фото: {len(gallery)}. Надішліть ще або натисніть 'Готово'.", reply_markup=photo_done_kb(u['language']))
 
-@router.callback_query(AdminStates.adding_apartment_photo, F.data == "ph_done")
-async def add_ap_ph_done(callback: CallbackQuery, state: FSMContext):
+@router.callback_query(F.data == "ph_done", StateFilter(AdminStates.adding_apartment_photo, AdminStates.editing_apartment_field))
+async def ph_done_h(callback: CallbackQuery, state: FSMContext):
     data = await state.get_data()
-    gallery = data.get('gallery', [])
-    if not gallery: return await callback.answer("❌ Додайте хоча б одне фото", show_alert=True)
+    gallery = data.get('gallery') or data.get('edit_gallery') or []
+    if not gallery: 
+        return await callback.answer("❌ Додайте хоча б одне фото", show_alert=True)
+    
     u = await get_user(callback.from_user.id)
-    await callback.message.answer("Зручності:", reply_markup=features_selection_kb([], u['language']))
-    await state.set_state(AdminStates.adding_apartment_features)
+    lang = u.get('language', 'uk') if u else 'uk'
+    cur_state = await state.get_state()
+
+    if cur_state == AdminStates.adding_apartment_photo:
+        await callback.message.answer("Зручності:", reply_markup=features_selection_kb([], lang))
+        await state.set_state(AdminStates.adding_apartment_features)
+    elif cur_state == AdminStates.editing_apartment_field:
+        aid = data.get('edit_ap_id')
+        if aid:
+            await update_apartment(aid, {"img": gallery[0], "gallery": gallery})
+            await callback.message.answer("✅ Фото оновлено")
+            await state.clear()
+            await show_ap_card(callback, aid, lang, u.get('role', 'admin'))
+    
     await callback.answer()
 
 @router.callback_query(AdminStates.adding_apartment_features, F.data.startswith("fsel_"))
