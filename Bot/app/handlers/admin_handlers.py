@@ -304,20 +304,28 @@ async def add_ap_desc_ua(message: Message, state: FSMContext, bot: Bot):
     ua_desc = message.text
     en_desc = await translate_text(ua_desc)
     await state.update_data(desc_uk=ua_desc, desc_en=en_desc)
-    await message.answer(f"Переклад опису:\n<code>{en_desc}</code>\n\nВсе ок чи змінити?", reply_markup=translation_confirm_kb(), parse_mode="HTML")
+    
+    hint = ""
+    if en_desc == ua_desc:
+        hint = "\n⚠️ <i>(Не вдалося автоматично перекласти)</i>"
+        
+    await message.answer(f"Переклад опису:\n<code>{en_desc}</code>{hint}\n\nВсе ок чи змінити?", reply_markup=translation_confirm_kb(), parse_mode="HTML")
     await state.set_state(AdminStates.confirming_desc_translation)
 
-@router.callback_query(AdminStates.confirming_desc_translation, F.data == "tr_ok")
+@router.callback_query(StateFilter(AdminStates.confirming_desc_translation), F.data == "tr_ok")
 async def desc_tr_ok(callback: CallbackQuery, state: FSMContext):
-    await callback.message.answer("Кількість кімнат:")
     await state.set_state(AdminStates.adding_apartment_rooms)
+    await callback.message.answer("Кількість кімнат:")
+    try:
+        await callback.message.delete()
+    except:
+        pass
     await callback.answer()
 
-@router.callback_query(AdminStates.confirming_desc_translation, F.data == "tr_edit")
+@router.callback_query(StateFilter(AdminStates.confirming_desc_translation), F.data == "tr_edit")
 async def desc_tr_edit(callback: CallbackQuery, state: FSMContext):
     data = await state.get_data()
-    await callback.message.answer(f"Введіть опис англійською (поточна: <code>{data['desc_en']}</code>):", parse_mode="HTML")
-    await state.set_state(AdminStates.confirming_desc_translation)
+    await callback.message.answer(f"Введіть опис англійською (поточна: <code>{data.get('desc_en', '')}</code>):", parse_mode="HTML")
     await callback.answer()
 
 @router.message(AdminStates.confirming_desc_translation)
@@ -325,8 +333,8 @@ async def desc_tr_manual(message: Message, state: FSMContext, bot: Bot):
     from app.handlers.user_handlers import menu_redirect
     if message.text in ALL_MENU_BTNS: return await menu_redirect(message, state, bot)
     await state.update_data(desc_en=message.text)
-    await message.answer("Кількість кімнат:")
     await state.set_state(AdminStates.adding_apartment_rooms)
+    await message.answer("Кількість кімнат:")
 
 @router.message(AdminStates.adding_apartment_rooms)
 async def add_ap_r(message: Message, state: FSMContext, bot: Bot):
