@@ -268,5 +268,42 @@ async def cleanup_errors():
 async def cleanup_runtime_diagnostics():
     await logs_col.delete_many({})
 
+async def register_booking_message(b_id, chat_id, msg_id):
+    try:
+        await bookings_col.update_one(
+            {"_id": ObjectId(b_id)},
+            {"$push": {"admin_messages": {"chat_id": chat_id, "message_id": msg_id}}}
+        )
+    except: pass
+
 async def cleanup_old_bookings():
-    await bookings_col.delete_many({"status": "pending_50", "created_at": {"$lt": datetime.datetime.utcnow() - datetime.timedelta(hours=1)}, "paid_prepayment": 0})
+    # 1. Cleanup unpaid pending bookings older than 1 hour
+    await bookings_col.delete_many({
+        "status": "pending_50", 
+        "created_at": {"$lt": datetime.datetime.utcnow() - datetime.timedelta(hours=1)}, 
+        "paid_prepayment": 0
+    })
+    
+    # 2. Cleanup expired bookings (where end_date < today)
+    today = datetime.datetime.now().replace(hour=0, minute=0, second=0, microsecond=0)
+    all_bookings = await bookings_col.find({}).to_list(None)
+    to_delete_ids = []
+    messages_to_delete = []
+    
+    for b in all_bookings:
+        try:
+            ed_str = b.get("end_date")
+            if ed_str:
+                ed_dt = datetime.datetime.strptime(ed_str, "%d.%m.%Y")
+                if ed_dt < today:
+                    to_delete_ids.append(b["_id"])
+                    if "admin_messages" in b:
+                        messages_to_delete.extend(b["admin_messages"])
+        except Exception:
+            continue
+            
+    if to_delete_ids:
+        await bookings_col.delete_many({"_id": {"$in": to_delete_ids}})
+        await add_log("database", "cleanup_expired_bookings", f"Deleted {len(to_delete_ids)} expired bookings")
+    
+    return messages_to_delete

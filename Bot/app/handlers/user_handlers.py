@@ -214,6 +214,7 @@ def build_booking_apartment_text(apartment: dict, lang: str, price_text: str) ->
 
 async def notify_admins(bot: Bot, text: str, booking: dict | None = None):
     admins = await get_admins()
+    sent_messages = []
     for admin in admins:
         admin_id = admin.get("user_id")
         if not admin_id:
@@ -222,9 +223,14 @@ async def notify_admins(bot: Bot, text: str, booking: dict | None = None):
             reply_markup = None
             if booking:
                 reply_markup = booking_action_inline_kb(booking, admin.get("language", "uk"))
-            await bot.send_message(admin_id, text, parse_mode="HTML", reply_markup=reply_markup)
+            msg = await bot.send_message(admin_id, text, parse_mode="HTML", reply_markup=reply_markup)
+            sent_messages.append(msg)
+            if booking and "_id" in booking:
+                from app.databases.mongodb import register_booking_message
+                await register_booking_message(str(booking["_id"]), admin_id, msg.message_id)
         except Exception:
             pass
+    return sent_messages
 
 async def start_booking_for_apartment(event: Message | CallbackQuery, state: FSMContext, ap_id: str, lang: str):
     apartment = await get_apartment(ap_id)

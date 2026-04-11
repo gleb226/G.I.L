@@ -213,7 +213,9 @@ async def active_bookings_h(message: Message, state: FSMContext):
         return await message.answer(get_text('msg_list_empty', u['language']))
     for b in bs:
         txt = await build_booking_summary_text(b, u['language'])
-        await message.answer(txt, reply_markup=booking_action_inline_kb(b, u['language']))
+        msg = await message.answer(txt, reply_markup=booking_action_inline_kb(b, u['language']))
+        from app.databases.mongodb import register_booking_message
+        await register_booking_message(str(b["_id"]), message.chat.id, msg.message_id)
 
 @router.message(F.text.in_(get_all_translations('btn_objects')), StateFilter("*"))
 async def admin_aps(message: Message, state: FSMContext):
@@ -276,7 +278,7 @@ async def name_tr_edit(callback: CallbackQuery, state: FSMContext):
     await callback.answer()
 
 @router.message(AdminStates.confirming_name_translation)
-async def name_tr_manual(message: Message, state: FSMContext):
+async def name_tr_manual(message: Message, state: FSMContext, bot: Bot):
     from app.handlers.user_handlers import menu_redirect
     if message.text in ALL_MENU_BTNS: return await menu_redirect(message, state, bot)
     await state.update_data(title_en=message.text)
@@ -284,7 +286,7 @@ async def name_tr_manual(message: Message, state: FSMContext):
     await state.set_state(AdminStates.adding_apartment_desc)
 
 @router.message(AdminStates.adding_apartment_desc)
-async def add_ap_desc_ua(message: Message, state: FSMContext):
+async def add_ap_desc_ua(message: Message, state: FSMContext, bot: Bot):
     from app.handlers.user_handlers import menu_redirect
     if message.text in ALL_MENU_BTNS: return await menu_redirect(message, state, bot)
     ua_desc = message.text
@@ -307,7 +309,7 @@ async def desc_tr_edit(callback: CallbackQuery, state: FSMContext):
     await callback.answer()
 
 @router.message(AdminStates.confirming_desc_translation)
-async def desc_tr_manual(message: Message, state: FSMContext):
+async def desc_tr_manual(message: Message, state: FSMContext, bot: Bot):
     from app.handlers.user_handlers import menu_redirect
     if message.text in ALL_MENU_BTNS: return await menu_redirect(message, state, bot)
     await state.update_data(desc_en=message.text)
@@ -315,7 +317,7 @@ async def desc_tr_manual(message: Message, state: FSMContext):
     await state.set_state(AdminStates.adding_apartment_rooms)
 
 @router.message(AdminStates.adding_apartment_rooms)
-async def add_ap_r(message: Message, state: FSMContext):
+async def add_ap_r(message: Message, state: FSMContext, bot: Bot):
     from app.handlers.user_handlers import menu_redirect
     if message.text in ALL_MENU_BTNS: return await menu_redirect(message, state, bot)
     if not message.text.isdigit(): return await message.answer("Введіть число:")
@@ -324,7 +326,7 @@ async def add_ap_r(message: Message, state: FSMContext):
     await state.set_state(AdminStates.adding_apartment_beds)
 
 @router.message(AdminStates.adding_apartment_beds)
-async def add_ap_b(message: Message, state: FSMContext):
+async def add_ap_b(message: Message, state: FSMContext, bot: Bot):
     from app.handlers.user_handlers import menu_redirect
     if message.text in ALL_MENU_BTNS: return await menu_redirect(message, state, bot)
     if not message.text.isdigit(): return await message.answer("Введіть число:")
@@ -333,7 +335,7 @@ async def add_ap_b(message: Message, state: FSMContext):
     await state.set_state(AdminStates.adding_apartment_guests)
 
 @router.message(AdminStates.adding_apartment_guests)
-async def add_ap_g(message: Message, state: FSMContext):
+async def add_ap_g(message: Message, state: FSMContext, bot: Bot):
     from app.handlers.user_handlers import menu_redirect
     if message.text in ALL_MENU_BTNS: return await menu_redirect(message, state, bot)
     if not message.text.isdigit(): return await message.answer("Введіть число:")
@@ -343,7 +345,7 @@ async def add_ap_g(message: Message, state: FSMContext):
 
 
 @router.message(AdminStates.adding_apartment_area)
-async def add_ap_a(message: Message, state: FSMContext):
+async def add_ap_a(message: Message, state: FSMContext, bot: Bot):
     from app.handlers.user_handlers import menu_redirect
     if message.text in ALL_MENU_BTNS: return await menu_redirect(message, state, bot)
     area_value = (message.text or "").strip()
@@ -354,7 +356,7 @@ async def add_ap_a(message: Message, state: FSMContext):
     await state.set_state(AdminStates.adding_apartment_address)
 
 @router.message(AdminStates.adding_apartment_address)
-async def add_ap_ad(message: Message, state: FSMContext):
+async def add_ap_ad(message: Message, state: FSMContext, bot: Bot):
     from app.handlers.user_handlers import menu_redirect
     if message.text in ALL_MENU_BTNS: return await menu_redirect(message, state, bot)
     lat, lng = await resolve_coords(message.text)
@@ -366,7 +368,7 @@ async def add_ap_ad(message: Message, state: FSMContext):
     await state.set_state(AdminStates.adding_apartment_price)
 
 @router.message(AdminStates.adding_apartment_price)
-async def add_ap_p(message: Message, state: FSMContext):
+async def add_ap_p(message: Message, state: FSMContext, bot: Bot):
     from app.handlers.user_handlers import menu_redirect
     if message.text in ALL_MENU_BTNS: return await menu_redirect(message, state, bot)
     if not message.text.isdigit(): return await message.answer("Введіть число:")
@@ -627,7 +629,9 @@ async def resend_active_bookings(callback: CallbackQuery):
         return
     for b in bs:
         txt = await build_booking_summary_text(b, u['language'])
-        await callback.message.answer(txt, reply_markup=booking_action_inline_kb(b, u['language']))
+        msg = await callback.message.answer(txt, reply_markup=booking_action_inline_kb(b, u['language']))
+        from app.databases.mongodb import register_booking_message
+        await register_booking_message(str(b["_id"]), callback.message.chat.id, msg.message_id)
 
 @router.callback_query(F.data.startswith("dl_"), StateFilter("*"))
 async def delete_ap_h(callback: CallbackQuery, state: FSMContext):
@@ -752,7 +756,7 @@ async def add_staff_start(callback: CallbackQuery, state: FSMContext):
     await callback.answer()
 
 @router.message(AdminStates.searching_user)
-async def add_staff_search(message: Message, state: FSMContext):
+async def add_staff_search(message: Message, state: FSMContext, bot: Bot):
     from app.handlers.user_handlers import menu_redirect
     if message.text in ALL_MENU_BTNS: return await menu_redirect(message, state, bot)
     u = await search_user(message.text)
@@ -762,7 +766,7 @@ async def add_staff_search(message: Message, state: FSMContext):
     await state.set_state(AdminStates.adding_staff_name)
 
 @router.message(AdminStates.adding_staff_name)
-async def add_staff_name(message: Message, state: FSMContext):
+async def add_staff_name(message: Message, state: FSMContext, bot: Bot):
     from app.handlers.user_handlers import menu_redirect
     if message.text in ALL_MENU_BTNS: return await menu_redirect(message, state, bot)
     await state.update_data(st_name=message.text)

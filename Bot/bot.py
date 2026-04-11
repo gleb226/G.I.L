@@ -74,7 +74,11 @@ async def daily_reminder(bot: Bot):
                         await bot.send_message(b['user_id'], msg, reply_markup=kb, parse_mode="HTML")
                         await add_log("scheduler", "daily_reminder_sent", f"Reminder sent for booking {b['_id']}", user_id=b["user_id"])
                     except: pass
-                await cleanup_old_bookings()
+                messages_to_delete = await cleanup_old_bookings()
+                for m in messages_to_delete:
+                    try:
+                        await bot.delete_message(m['chat_id'], m['message_id'])
+                    except: pass
                 await cleanup_logs()
                 await add_log("scheduler", "daily_maintenance", "Daily cleanup completed")
                 last_reminder_date = today_str
