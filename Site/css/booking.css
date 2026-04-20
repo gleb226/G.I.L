@@ -17,7 +17,7 @@
 
 .booking_story_eyebrow{
     margin: 0 0 0.7rem;
-    color: #6c727a;
+    color: var(--accent);
     font-size: 0.82rem;
     letter-spacing: 0.14em;
     text-transform: uppercase;
@@ -40,8 +40,7 @@
     padding: 1.15rem;
     border: 0.0625em solid rgba(0, 0, 0, 0.08);
     border-radius: 1.1rem;
-    background:
-        linear-gradient(180deg, rgba(255, 255, 255, 0.96), rgba(246, 247, 249, 0.96));
+    background: #daba9c;
 }
 
 .booking_step_index{
@@ -52,8 +51,8 @@
     min-height: 2.4rem;
     margin-bottom: 0.95rem;
     border-radius: 62.4375em;
-    background: #1c1c1c;
-    color: #ffffff;
+    background: var(--accent);
+    color: var(--text-on-dark);
     font-size: 0.82rem;
     letter-spacing: 0.08em;
 }
@@ -66,7 +65,7 @@
 
 .booking_step_card p{
     margin: 0;
-    color: #4d4d4d;
+    color: rgba(43, 43, 43, 0.78);
     line-height: 1.65;
 }
 
@@ -82,9 +81,9 @@
     display: grid;
     gap: 1.15rem;
     background:
-        radial-gradient(circle at top right, rgba(255, 255, 255, 0.15), transparent 30%),
-        linear-gradient(150deg, #1a1a1a, #323232 58%, #464646);
-    color: #f7f7f7;
+        radial-gradient(circle at top right, rgba(255, 255, 255, 0.12), transparent 30%),
+        linear-gradient(150deg, #4A3430, #5b413a 58%, #6a4c42);
+    color: var(--text-on-dark);
     border-radius: 1.6rem;
     margin-top: -7em;
     padding: 1.55rem;
@@ -123,7 +122,7 @@
 }
 
 .booking_bot_text strong{
-    color: #ffffff;
+    color: var(--text-on-dark);
     font-weight: 700;
 }
 
@@ -136,7 +135,7 @@
     border-radius: 1.15rem;
     background: linear-gradient(135deg, rgba(255, 255, 255, 0.16), rgba(255, 255, 255, 0.08));
     border: 0.0625em solid rgba(255, 255, 255, 0.16);
-    color: #ffffff;
+    color: var(--text-on-dark);
     text-decoration: none;
     box-shadow: inset 0 0.0625em 0 rgba(255, 255, 255, 0.08);
     transition: transform 180ms ease, border-color 180ms ease, background 180ms ease;
@@ -159,16 +158,19 @@
     font-size: 0.76rem;
     letter-spacing: 0.1em;
     text-transform: uppercase;
+    margin-left: 10em;
 }
 
 .booking_bot_portal_title{
     font-size: 1.28rem;
     line-height: 1.2;
+    margin-left: 3em;
 }
 
 .booking_bot_portal_text{
     color: rgba(255, 255, 255, 0.78);
     line-height: 1.55;
+    margin-left: 1em;
 }
 
 .booking_bot_portal_arrow{
@@ -234,11 +236,12 @@
     display: inline-flex;
     align-items: center;
     justify-content: center;
+    gap: 0.65rem;
     min-height: 3.15rem;
     padding: 0 1.25rem;
     border-radius: 0.95rem;
-    background: #ffffff;
-    color: #1d1d1d;
+    background: var(--accent);
+    color: var(--text-on-dark);
     text-decoration: none;
     font-weight: 600;
     box-shadow: 0 0.625em 1.125em rgba(0, 0, 0, 0.12);

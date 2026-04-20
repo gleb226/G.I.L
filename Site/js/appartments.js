@@ -18,7 +18,7 @@ const loadApartments = async () => {
                 const mapped = data
                     .filter((ap) => ap?.is_available !== false)
                     .map(ap => ({
-                        ...ap,
+                        ...(window.normalizeDataTree ? window.normalizeDataTree(ap) : ap),
                         id: ap.external_id || ap._id
                     }));
 

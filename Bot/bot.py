@@ -8,7 +8,7 @@ from aiogram.types import InlineKeyboardButton
 from aiogram.utils.keyboard import InlineKeyboardBuilder
 from app.common.token import BOT_TOKEN, BOSS_IDS, PORTMONE_LIMIT
 from app.handlers import user_handlers, admin_handlers, error_handler
-from app.databases.mongodb import upsert_user, db, cleanup_old_bookings, cleanup_logs, refresh_apartments_cache, export_site_json, add_log, log_error, cleanup_runtime_diagnostics, get_apartments
+from app.databases.mongodb import upsert_user, db, cleanup_old_bookings, cleanup_logs, refresh_apartments_cache, export_site_json, add_log, log_error, get_apartments
 from app.keyboards.user_keyboards import ap_info_inline_kb
 from app.common.texts import get_text
 from app.common.middleware import LanguageMiddleware
@@ -127,7 +127,7 @@ async def start_web_server():
     app.router.add_get('/api/apartments', get_apartments_api)
     app.router.add_get('/api/profile', get_profile_api)
     async def root_redirect(request):
-        raise web.HTTPFound('/html/main.html')
+        raise web.HTTPFound('/index.html')
     app.router.add_get('/', root_redirect)
     site_path = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', 'Site'))
     app.router.add_static('/', path=site_path, name='site', show_index=True)
@@ -149,10 +149,6 @@ async def start_web_server():
 async def main():
     loop = asyncio.get_running_loop()
     logger = configure_logging(loop)
-    try:
-        await cleanup_runtime_diagnostics()
-    except Exception:
-        pass
     bot = None
     try:
         logger.info("Application startup initiated")

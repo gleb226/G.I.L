@@ -76,8 +76,6 @@ const initApartmentPage = () => {
         const image = document.getElementById("image");
         const address = document.getElementById("address");
         const description = document.getElementById("description");
-        const capacity = document.getElementById("capacity");
-        const area = document.getElementById("area");
         const rentButton = document.querySelector(".rent_btn");
         const apartmentFeatures = document.getElementById("apartmentFeatures");
         const apartmentFeaturesBox = document.getElementById("apartmentFeaturesBox");
@@ -102,26 +100,29 @@ const initApartmentPage = () => {
             price.textContent = window.formatPrice(priceValue, pageLang);
         }
 
-        if (capacity) {
-            capacity.textContent = window.formatGuests(apartment.guests, pageLang);
-        }
+
 
         const roomsEl = document.getElementById("rooms");
         if (roomsEl) {
-            roomsEl.textContent = window.formatRooms(apartment.rooms, pageLang);
+            roomsEl.innerHTML = window.buildInfoMarkup(window.formatRooms(apartment.rooms, pageLang), "fas fa-door-open", {
+                iconClassName: "apartment_meta_icon",
+                labelClassName: "apartment_meta_label"
+            });
         }
 
         const bedsEl = document.getElementById("beds");
         if (bedsEl) {
-            bedsEl.textContent = window.formatBeds(apartment.beds, pageLang);
+            bedsEl.innerHTML = window.buildInfoMarkup(window.formatBeds(apartment.beds, pageLang), "fas fa-bed", {
+                iconClassName: "apartment_meta_icon",
+                labelClassName: "apartment_meta_label"
+            });
         }
 
-        if (area) {
-            area.textContent = window.getApartmentArea(apartment, pageLang);
-        }
 
         if (address) {
-            address.textContent = apartment.address || "";
+            address.textContent = window.getApartmentAddress
+                ? window.getApartmentAddress(apartment, pageLang)
+                : (apartment.address || "");
         }
 
         if (rentButton) {
@@ -140,10 +141,10 @@ const initApartmentPage = () => {
                 featureKeys.forEach((featureKey) => {
                     const item = document.createElement("div");
                     item.className = "apartment_feature_item";
-                    item.innerHTML = `
-                        <span class="apartment_feature_check">&#10003;</span>
-                        <span>${window.getFeatureLabel(featureKey, pageLang)}</span>
-                    `;
+                    item.innerHTML = window.buildFeatureMarkup(featureKey, pageLang, {
+                        iconClassName: "apartment_feature_icon",
+                        labelClassName: "apartment_feature_label"
+                    });
                     apartmentFeatures.appendChild(item);
                 });
             }

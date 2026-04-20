@@ -2,3 +2,46 @@
     display: grid;
     gap: 1.5rem;
 }
+
+.contacts_links_card{
+    padding: 1.75rem 1.5rem;
+}
+
+.contacts_links{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.contacts_link_button{
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.6rem;
+    min-height: 3rem;
+    padding: 0.85rem 1rem;
+    border-radius: 0.9rem;
+    background: #daba9c;
+    color: var(--text-main);
+    text-decoration: none;
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    transition: background-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.contacts_link_button:hover{
+    background: #c6a98e;
+    transform: translateY(-1px);
+    box-shadow: 0 0.5rem 1.2rem rgba(0, 0, 0, 0.08);
+}
+
+.contacts_link_button i,
+.contact_inline i{
+    color: #7B3F00;
+}
+
+.contact_inline{
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+}

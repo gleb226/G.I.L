@@ -16,6 +16,11 @@ const initBookingPage = () => {
         }
         window.attachTelegramOpenBehavior?.(element, botUsername, startPayload);
     });
+
+    if (botButton && !botButton.querySelector("i")) {
+        const label = botButton.textContent;
+        botButton.innerHTML = `${window.buildIconMarkup("fab fa-telegram-plane")}<span>${label}</span>`;
+    }
 };
 
 Promise.resolve(window.i18nReady)

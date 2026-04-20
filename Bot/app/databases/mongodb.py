@@ -262,12 +262,6 @@ async def log_error(msg, tb):
 async def cleanup_logs():
     await logs_col.delete_many({"timestamp": {"$lt": datetime.datetime.utcnow() - datetime.timedelta(days=30)}})
 
-async def cleanup_errors():
-    await errors_col.delete_many({})
-
-async def cleanup_runtime_diagnostics():
-    await logs_col.delete_many({})
-
 async def register_booking_message(b_id, chat_id, msg_id):
     try:
         await bookings_col.update_one(

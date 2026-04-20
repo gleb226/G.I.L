@@ -8,7 +8,6 @@ const TRANSLATIONS = {
                 uk: "UA"
             },
             pricePerDay: "{{price}} UAH / day",
-            guests: "{{count}} guests",
             rooms: "{{count}} rooms",
             beds: "{{count}} beds",
             notSpecified: "Not specified",
@@ -28,34 +27,26 @@ const TRANSLATIONS = {
             booking: "Booking",
             contacts: "Contacts",
             apartment: "Apartment",
-            profile: "Profile"
         },
         features: {
-            tv: "TV",
-            fridge: "Refrigerator",
             microwave: "Microwave",
-            hot_water: "Hot water",
             air_conditioner: "Air conditioner",
             near_supermarket: "Nearby supermarket",
-            good_transport: "Good transport links",
             smart_tv: "Smart TV",
             balcony: "Balcony",
-            hob: "Cooktop",
-            internet: "Internet",
-            cable_tv: "Cable TV",
-            secure_parking: "Guarded parking",
-            coded_entry: "Code-entry building",
-            washing_machine: "Washing machine",
-            satellite_tv: "Satellite TV",
-            t2_tv: "T2 television"
+            parking: "Parking",
+            intercom: "Code-entry building",
+            gas_hob: "Gas cooktop",
+            electro_hob: "Electric cooktop"
+
         },
         pages: {
             main: {
-                title: "G.I.L Apartments | Daily Apartments in Uzhhorod",
+                title: "Daily Apartments in Uzhhorod",
                 filterBarAria: "Filter",
                 filterToggle: "Filter",
                 filterPanelAria: "Filter panel",
-                roomsLabel: "Rooms",
+                roomsLabel: "Rooms 🚪",
                 roomsAll: "All listings",
                 room1: "1 room",
                 room2: "2 rooms",
@@ -72,7 +63,7 @@ const TRANSLATIONS = {
                 featuredApartmentAlt: "Featured apartment"
             },
             apartment: {
-                title: "G.I.L Apartments | Apartment Details",
+                title: "Apartment Details",
                 detailTitle: "{{title}} | G.I.L Apartments",
                 previewAlt: "Apartment preview",
                 imageAlt: "Apartment photo",
@@ -84,7 +75,7 @@ const TRANSLATIONS = {
                 loading: "Apartment information is loading."
             },
             booking: {
-                title: "G.I.L Apartments | Booking in Telegram",
+                title: "Booking",
                 heading: "Booking",
                 lead: "To book a stay, it is enough to open our Telegram bot. There you can quickly choose an apartment, enter your stay dates, and move to booking confirmation.",
                 storyEyebrow: "Telegram booking flow",
@@ -124,7 +115,7 @@ const TRANSLATIONS = {
                 info2Text: "One click opens the Telegram bot, where the guest can immediately continue with the booking flow."
             },
             contacts: {
-                title: "G.I.L Apartments | Contacts",
+                title: "Contacts",
                 heading: "Contacts",
                 lead: "Send us a message below or use the direct contact details.",
                 phone: "Phone",
@@ -138,28 +129,9 @@ const TRANSLATIONS = {
                 messageReady: "Your message is ready to be sent."
             },
             map: {
-                title: "G.I.L Apartments | Apartment Map",
+                title: "Apartment Map",
                 heading: "Apartment Map",
                 lead: "Choose an apartment directly on the map and open its details page."
-            },
-            profile: {
-                title: "G.I.L Apartments | Profile",
-                heading: "Profile",
-                lead: "Save your contact details, site language, and preferred currency for browsing apartments.",
-                cardTitle: "Guest profile",
-                nameLabel: "Name",
-                phoneLabel: "Phone",
-                languageLabel: "Language",
-                currencyLabel: "Currency",
-                ratesTitle: "PrivatBank exchange rates",
-                ratesLoading: "Loading current rates...",
-                ratesError: "Failed to load PrivatBank rates right now.",
-                save: "Save profile",
-                saved: "Profile saved.",
-                placeholders: {
-                    name: "Your name",
-                    phone: "+380..."
-                }
             }
         }
     },
@@ -172,7 +144,6 @@ const TRANSLATIONS = {
                 uk: "UA"
             },
             pricePerDay: "{{price}} ₴ / день",
-            guests: "{{count}} гості",
             rooms: "{{count}} кімн.",
             beds: "{{count}} сп. місця",
             notSpecified: "Не вказано",
@@ -192,46 +163,26 @@ const TRANSLATIONS = {
             booking: "Бронювання",
             contacts: "Контакти",
             apartment: "Квартира",
-            profile: "Профіль"
-        },
-        profile: {
-            title: "Профіль користувача",
-            userName: "Ваше ім'я",
-            userPhone: "Номер телефону",
-            language: "Мова сайту",
-            currency: "Бажана валюта",
-            save: "Зберегти зміни",
-            saved: "Налаштування збережено!",
-            privatRates: "Курси ПриватБанку",
-            loading: "Завантаження курсів...",
-            backToHome: "На головну"
         },
         features: {
-            tv: "телевізор",
-            fridge: "холодильник",
             microwave: "мікрохвильова піч",
-            hot_water: "гаряча вода",
             air_conditioner: "кондиціонер",
-            near_supermarket: "поряд супермаркет",
-            good_transport: "гарне транспортне сполучення",
+            near_supermarket: "поряд магазин",
             smart_tv: "Smart TV",
             balcony: "балкон",
-            hob: "варильна поверхня",
-            internet: "Інтернет",
-            cable_tv: "кабельне телебачення",
-            secure_parking: "парковка, що охороняється",
-            coded_entry: "під'їзд на коді",
-            washing_machine: "пральна машина",
-            satellite_tv: "супутникове телебачення",
-            t2_tv: "телебачення T2"
+            gas_hob: "газова плита",
+            electro_hob: "електрична плита",
+            parking: "парковка",
+            intercom: "домофон",
+
         },
         pages: {
             main: {
-                title: "G.I.L Apartments | Подобова оренда квартир в Ужгороді",
+                title: "Подобова оренда квартир в Ужгороді",
                 filterBarAria: "Фільтр",
                 filterToggle: "Фільтр",
                 filterPanelAria: "Панель фільтра",
-                roomsLabel: "Кількість кімнат",
+                roomsLabel: "Кількість кімнат 🛋️",
                 roomsAll: "Всі оголошення",
                 room1: "1 кімната",
                 room2: "2 кімнати",
@@ -248,7 +199,7 @@ const TRANSLATIONS = {
                 featuredApartmentAlt: "Рекомендована квартира"
             },
             apartment: {
-                title: "G.I.L Apartments | Деталі апартамента",
+                title: "Деталі апартамента",
                 detailTitle: "{{title}} | G.I.L Apartments",
                 previewAlt: "Мініатюра квартири",
                 imageAlt: "Фото квартири",
@@ -260,7 +211,7 @@ const TRANSLATIONS = {
                 loading: "Інформація про квартиру завантажується."
             },
             booking: {
-                title: "G.I.L Apartments | Бронювання в Telegram",
+                title: "Бронювання в Telegram",
                 heading: "Бронювання",
                 lead: "Щоб забронювати житло, достатньо перейти в наш Telegram-бот. Там можна швидко обрати квартиру, вказати дати проживання та перейти до підтвердження бронювання.",
                 storyEyebrow: "Telegram-бронювання",
@@ -300,9 +251,8 @@ const TRANSLATIONS = {
                 info2Text: "Один клік відкриває Telegram-бота, де можна одразу почати оформлення без зайвих проміжних кроків."
             },
             contacts: {
-                title: "G.I.L",
+                title: "Контакти",
                 heading: "Контакти",
-                lead: "Напишіть нам у формі нижче або скористайтеся прямими контактами.",
                 phone: "Телефон",
                 email: "Email",
                 location: "Адреса",
@@ -311,10 +261,11 @@ const TRANSLATIONS = {
                 placeholderName: "Ім’я",
                 placeholderEmail: "Email",
                 placeholderMessage: "Ваше повідомлення",
+                lead: "Надішліть нам повідомлення нижче або скористайтеся прямими контактами.",
                 messageReady: "Повідомлення готове до відправлення."
             },
             map: {
-                title: "G.I.L",
+                title: "Мапа квартир",
                 heading: "Мапа квартир",
                 lead: "Оберіть квартиру прямо на мапі та відкрийте її сторінку з деталями."
             }
@@ -322,8 +273,58 @@ const TRANSLATIONS = {
     }
 };
 
+const scoreReadableTranslationText = (value) => {
+    if (typeof value !== "string") {
+        return 0;
+    }
+
+    const readableMatches = value.match(/[A-Za-z0-9\u0400-\u04FFІЇЄҐієїґ']/g) || [];
+    const suspiciousMatches = value.match(/[ГђГ‘Р РЎРѓРЊ]/g) || [];
+
+    return readableMatches.length - suspiciousMatches.length * 2;
+};
+
+const normalizeTranslationText = (value) => {
+    if (typeof value !== "string") {
+        return value;
+    }
+
+    if (!/[ГђГ‘Р РЎРѓ]|Р./.test(value)) {
+        return value;
+    }
+
+    try {
+        const repaired = decodeURIComponent(escape(value));
+        return scoreReadableTranslationText(repaired) > scoreReadableTranslationText(value) ? repaired : value;
+    } catch (error) {
+        return value;
+    }
+};
+
+const normalizeTranslationTree = (value) => {
+    if (Array.isArray(value)) {
+        return value.map((item) => normalizeTranslationTree(item));
+    }
+
+    if (value && typeof value === "object") {
+        return Object.fromEntries(
+            Object.entries(value).map(([key, nestedValue]) => [key, normalizeTranslationTree(nestedValue)])
+        );
+    }
+
+    return normalizeTranslationText(value);
+};
+
+TRANSLATIONS.en.pages.contacts.quickLinks = "Quick links";
+TRANSLATIONS.en.pages.contacts.aboutUs = "About us";
+
+TRANSLATIONS.uk.pages.contacts.quickLinks = "Швидкі посилання";
+TRANSLATIONS.uk.pages.contacts.aboutUs = "Про нас";
+
+const NORMALIZED_TRANSLATIONS = normalizeTranslationTree(TRANSLATIONS);
+
 const I18N_RESOURCES = Object.fromEntries(
-    Object.entries(TRANSLATIONS).map(([language, translation]) => [
+    Object.entries(NORMALIZED_TRANSLATIONS).map(([language, translation]) => [
         language,
         {
             translation
@@ -378,7 +379,7 @@ const translatePage = (root = document) => {
 const t = (key, options = {}) => i18next.t(key, options);
 
 Object.assign(window, {
-    TRANSLATIONS,
+    TRANSLATIONS: NORMALIZED_TRANSLATIONS,
     translatePage,
     t
 });

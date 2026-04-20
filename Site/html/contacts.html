@@ -3,30 +3,80 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>G.I.L Apartments | Contacts</title>
+    <title>Контакти | G.I.L Apartments Ужгород</title>
+    <meta name="description" content="Контакти G.I.L Apartments: телефон, email, локація в Ужгороді та швидкі посилання на Telegram-бот, Instagram і Facebook.">
+    <meta name="keywords" content="контакти G.I.L Apartments, телефон оренда квартир Ужгород, email апартаменти Ужгород, Telegram бот G.I.L Apartments, Instagram G.I.L Apartments">
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+    <meta name="googlebot" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+    <meta name="author" content="G.I.L Apartments">
+    <meta name="publisher" content="G.I.L Apartments">
+    <meta name="application-name" content="G.I.L Apartments">
+    <meta name="apple-mobile-web-app-title" content="G.I.L Apartments">
+    <meta name="theme-color" content="#4A3430">
+    <meta name="color-scheme" content="light">
+    <meta name="format-detection" content="telephone=no, address=no, email=no">
+    <meta name="referrer" content="strict-origin-when-cross-origin">
+    <link rel="canonical" href="https://gil-apartments.com.ua/html/contacts.html">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="G.I.L Apartments">
+    <meta property="og:locale" content="uk_UA">
+    <meta property="og:locale:alternate" content="en_US">
+    <meta property="og:title" content="Контакти | G.I.L Apartments Ужгород">
+    <meta property="og:description" content="Зв'яжіться з G.I.L Apartments телефоном, email або через Telegram і соцмережі.">
+    <meta property="og:url" content="https://gil-apartments.com.ua/html/contacts.html">
+    <meta property="og:image" content="https://gil-apartments.com.ua/images/logo.png">
+    <meta property="og:image:alt" content="Contacts page by G.I.L Apartments">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Контакти | G.I.L Apartments Ужгород">
+    <meta name="twitter:description" content="Контактні дані та швидкі посилання G.I.L Apartments в Ужгороді.">
+    <meta name="twitter:image" content="https://gil-apartments.com.ua/images/logo.png">
+    <meta name="twitter:image:alt" content="Contacts page by G.I.L Apartments">
+    <meta name="geo.region" content="UA-21">
+    <meta name="geo.placename" content="Ужгород">
+    <meta name="geo.position" content="48.6208;22.2879">
+    <meta name="ICBM" content="48.6208, 22.2879">
     <link rel="icon" type="image/jpeg" href="../images/logo.jpg">
     <link rel="shortcut icon" type="image/jpeg" href="../images/logo.jpg">
     <link rel="apple-touch-icon" href="../images/logo.jpg">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reset-css@5.0.2/reset.min.css">
     <link rel="stylesheet" href="../style.css">
     <link rel="stylesheet" href="../css/contacts.css">
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "ContactPage",
+        "name": "Контакти | G.I.L Apartments Ужгород",
+        "url": "https://gil-apartments.com.ua/html/contacts.html",
+        "inLanguage": "uk",
+        "about": {
+            "@type": "LodgingBusiness",
+            "name": "G.I.L Apartments",
+            "address": {
+                "@type": "PostalAddress",
+                "addressLocality": "Ужгород",
+                "addressRegion": "Закарпатська область",
+                "addressCountry": "UA"
+            }
+        }
+    }
+    </script>
 </head>
 <body data-page="contacts" data-title-key="pages.contacts.title">
     <div data-site-header></div>
 
     <main class="page_shell">
         <h1 class="page_title" data-i18n="pages.contacts.heading">Контакти</h1>
-        <p class="page_lead" data-i18n="pages.contacts.lead">Напишіть нам у формі нижче або скористайтеся прямими контактами.</p>
+        <p data-i18n="pages.contacts.lead" class="page_lead">Скористайтеся прямими контактами та швидкими посиланнями нижче.</p>
 
         <section class="contacts_layout">
             <div class="info_grid">
                 <div class="info_item">
                     <h2 data-i18n="pages.contacts.phone">Телефон</h2>
-                    <p>+38 (050) 000 00 00</p>
+                    <p class="contact_inline"><i class="fas fa-phone-alt" aria-hidden="true"></i><a style="text-decoration: none; color: black;" href="tel:+380500000000">+38 (050) 000 00 00</a></p>
                 </div>
                 <div class="info_item">
                     <h2 data-i18n="pages.contacts.email">Email</h2>
-                    <p>gil.apartments@example.com</p>
+                    <p class="contact_inline"><i class="fas fa-envelope" aria-hidden="true"></i><a style="text-decoration: none; color: black;" href="mailto:gil.apartments@example.com">gil.apartments@example.com</a></p>
                 </div>
                 <div class="info_item">
                     <h2 data-i18n="pages.contacts.location">Адреса</h2>
@@ -34,18 +84,19 @@
                 </div>
             </div>
 
-            <div class="page_card">
-                <h2 data-i18n="pages.contacts.writeUs">Написати нам</h2>
-                <form class="site_form" id="contactForm">
-                    <input type="text" data-i18n="[placeholder]pages.contacts.placeholderName" placeholder="Ім’я">
-                    <input type="email" data-i18n="[placeholder]pages.contacts.placeholderEmail" placeholder="Email">
-                    <textarea data-i18n="[placeholder]pages.contacts.placeholderMessage" placeholder="Ваше повідомлення"></textarea>
-                    <button type="submit" class="site_button" data-i18n="common.actions.send">Надіслати</button>
-                </form>
-                <p class="status_text" id="contactStatus"></p>
-            </div>
+            <section class="page_card contacts_links_card">
+                <h2 data-i18n="pages.contacts.quickLinks">Швидкі посилання</h2>
+                <div class="contacts_links">
+                    <a href="https://t.me/GIL_Apartments_Bot" class="contacts_link_button" id="contactsBotLink"><i class="fab fa-telegram-plane" aria-hidden="true"></i><span>Telegram Bot</span></a>
+                    <a href="https://www.instagram.com/kvartiry_posutochno_uzhgorod?igsh=cXA0dHdmbWFrajQ0&utm_source=qr" target="_blank" rel="noopener noreferrer" class="contacts_link_button"><i class="fab fa-instagram" aria-hidden="true"></i><span>Instagram</span></a>
+                    <a href="https://www.facebook.com/GILapartments?mibextid=wwXIfr" target="_blank" rel="noopener noreferrer" class="contacts_link_button"><i class="fab fa-facebook-f" aria-hidden="true"></i><span>Facebook</span></a>
+                    <a href="../index.html" class="contacts_link_button" data-i18n="pages.contacts.aboutUs">Про нас</a>
+                </div>
+            </section>
         </section>
     </main>
+
+    <div data-site-footer></div>
 
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
     <script src="https://unpkg.com/i18next@24.2.3/i18next.min.js"></script>

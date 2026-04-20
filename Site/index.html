@@ -1,22 +1,142 @@
 <!DOCTYPE html>
-<html>
+<html lang="uk">
 <head>
-<meta charset="UTF-8">
-<link rel="icon" type="image/jpeg" href="images/logo.jpg">
-<link rel="shortcut icon" type="image/jpeg" href="images/logo.jpg">
-<link rel="apple-touch-icon" href="images/logo.jpg">
-<title>G.I.L Apartments | Daily Apartments in Uzhhorod</title>
-<script>
-const savedLang = window.localStorage.getItem("siteLanguage");
-const lang = savedLang || navigator.language || navigator.userLanguage;
-
-if(lang.startsWith("uk")){
-    window.location.href = "./html/main.html";
-}else{
-    window.location.href = "./html/main.html";
-}
-</script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+    <title>G.I.L Apartments | Подобова оренда квартир в Ужгороді</title>
+    <meta name="description" content="G.I.L Apartments — подобова оренда квартир в Ужгороді. Переглядайте фото, ціни, зручності, мапу розташування та бронюйте житло через Telegram.">
+    <meta name="keywords" content="подобова оренда квартир Ужгород, квартири подобово Ужгород, апартаменти Ужгород, оренда житла Ужгород, G.I.L Apartments, бронювання квартир Ужгород">
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+    <meta name="googlebot" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+    <meta name="author" content="G.I.L Apartments">
+    <meta name="publisher" content="G.I.L Apartments">
+    <meta name="application-name" content="G.I.L Apartments">
+    <meta name="apple-mobile-web-app-title" content="G.I.L Apartments">
+    <meta name="theme-color" content="#4A3430">
+    <meta name="color-scheme" content="light">
+    <meta name="format-detection" content="telephone=no, address=no, email=no">
+    <meta name="referrer" content="strict-origin-when-cross-origin">
+    <link rel="canonical" href="https://gil-apartments.com.ua/">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="G.I.L Apartments">
+    <meta property="og:locale" content="uk_UA">
+    <meta property="og:locale:alternate" content="en_US">
+    <meta property="og:title" content="G.I.L Apartments | Подобова оренда квартир в Ужгороді">
+    <meta property="og:description" content="Знайдіть квартиру подобово в Ужгороді: фото, ціни, зручності, карта та швидке бронювання через Telegram.">
+    <meta property="og:url" content="https://gil-apartments.com.ua/">
+    <meta property="og:image" content="https://gil-apartments.com.ua/images/logo.png">
+    <meta property="og:image:alt" content="G.I.L Apartments logo">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="G.I.L Apartments | Подобова оренда квартир в Ужгороді">
+    <meta name="twitter:description" content="Подивіться доступні квартири в Ужгороді, їхні зручності та ціни й почніть бронювання онлайн.">
+    <meta name="twitter:image" content="https://gil-apartments.com.ua/images/logo.png">
+    <meta name="twitter:image:alt" content="G.I.L Apartments logo">
+    <meta name="geo.region" content="UA-21">
+    <meta name="geo.placename" content="Ужгород">
+    <meta name="geo.position" content="48.6208;22.2879">
+    <meta name="ICBM" content="48.6208, 22.2879">
+    <link rel="icon" type="image/jpeg" href="images/logo.jpg">
+    <link rel="shortcut icon" type="image/jpeg" href="images/logo.jpg">
+    <link rel="apple-touch-icon" href="images/logo.jpg">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reset-css@5.0.2/reset.min.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="css/main.css">
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "name": "G.I.L Apartments",
+        "url": "https://gil-apartments.com.ua/",
+        "inLanguage": "uk",
+        "publisher": {
+            "@type": "LodgingBusiness",
+            "name": "G.I.L Apartments",
+            "url": "https://gil-apartments.com.ua/",
+            "image": "https://gil-apartments.com.ua/images/logo.png",
+            "address": {
+                "@type": "PostalAddress",
+                "addressLocality": "Ужгород",
+                "addressRegion": "Закарпатська область",
+                "addressCountry": "UA"
+            }
+        }
+    }
+    </script>
 </head>
-<body>
+<body data-page="main" data-title-key="pages.main.title">
+    <div data-site-header></div>
+
+    <main class="main_catalog">
+        <aside class="filter_bar" data-i18n="[aria-label]pages.main.filterBarAria">
+            <button class="filter_button" type="button" id="filterToggle" aria-expanded="false" aria-controls="filterPanel" data-i18n="pages.main.filterToggle">Фільтр</button>
+        </aside>
+
+        <div class="filter_overlay" id="filterOverlay"></div>
+
+        <section class="filter_panel" id="filterPanel" data-i18n="[aria-label]pages.main.filterPanelAria">
+            <form class="filter_form" id="filterForm">
+                <div class="filter_group">
+                    <label for="rooms" data-i18n="pages.main.roomsLabel">Кількість кімнат</label>
+                    <select id="rooms" name="rooms">
+                        <option value="" data-i18n="pages.main.roomsAll">Всі оголошення</option>
+                        <option value="1" data-i18n="pages.main.room1">1 кімната</option>
+                        <option value="2" data-i18n="pages.main.room2">2 кімнати</option>
+                        <option value="3" data-i18n="pages.main.room3">3 кімнати</option>
+                    </select>
+                </div>
+
+                <div class="filter_group">
+                    <label data-i18n="pages.main.priceLabel">Ціна</label>
+                    <div class="filter_range">
+                        <select name="price_from">
+                            <option value="" data-i18n="pages.main.from">Від</option>
+                            <option value="500">500</option>
+                            <option value="800">800</option>
+                            <option value="1000">1000</option>
+                        </select>
+                        <select name="price_to">
+                            <option value="" data-i18n="pages.main.to">До</option>
+                            <option value="1500">1500</option>
+                            <option value="2000">2000</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="filter_group">
+                    <label data-i18n="pages.main.featuresLabel">Параметри</label>
+                    <div class="filter_feature_list" id="featureFilters"></div>
+                </div>
+
+                <div class="filter_actions">
+                    <button type="button" class="filter_action_button filter_action_clear" id="filterReset" data-i18n="common.actions.reset">Скинути</button>
+                    <button type="submit" class="filter_action_button" data-i18n="common.actions.apply">Застосувати</button>
+                </div>
+            </form>
+        </section>
+
+        <section class="hero_flat">
+            <a href="./html/appartments.html?id=111" class="hero_flat_link" id="heroFlatLink">
+                <span class="hero_price_tag" id="heroPriceTag">1500 ₴ / день</span>
+                <span class="hero_image_stage">
+                    <img src="https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?q=80&w=1000" alt="Квартира" class="hero_flat_image hero_flat_image_current" id="heroFlatImageCurrent">
+                    <span class="hero_address_tag" id="heroAddressTag">вул. Лермонтова 1</span>
+                    
+                </span>
+            </a>
+        </section>
+
+        <section class="flats_catalog" id="flatsCatalog" data-i18n="[aria-label]pages.main.listAria"></section>
+        <p class="catalog_empty" id="catalogEmpty" hidden data-i18n="pages.main.empty">За вашим фільтром квартири не знайдені.</p>
+    </main>
+
+    <div data-site-footer></div>
+
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://unpkg.com/i18next@24.2.3/i18next.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery-i18next@1.2.1/jquery-i18next.min.js"></script>
+    <script src="js/i18n.js"></script>
+    <script src="js/site.js"></script>
+    <script src="js/appartments.js"></script>
+    <script src="js/main.js"></script>
 </body>
 </html>

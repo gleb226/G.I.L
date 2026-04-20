@@ -12,9 +12,22 @@ const initMainPage = () => {
     const heroImageCurrent = document.getElementById("heroFlatImageCurrent");
     const heroImageStage = document.querySelector(".hero_image_stage");
     const heroPriceTag = document.getElementById("heroPriceTag");
+    const heroAddressTag = document.getElementById("heroAddressTag");
     const featureFilters = document.getElementById("featureFilters");
+    const priceRangeRoot = filterForm ? filterForm.querySelector(".filter_range") : null;
     const lang = window.getCurrentLang ? window.getCurrentLang() : "en";
     const selectedFeatureKeys = new Set();
+    const apartmentPrices = apartmentsData
+        .map((apartment) => Number(apartment.price))
+        .filter((price) => Number.isFinite(price) && price > 0);
+    const priceStep = 100;
+    const priceMinLimit = apartmentPrices.length > 0 ? Math.floor(Math.min(...apartmentPrices) / priceStep) * priceStep : 0;
+    const priceMaxLimit = apartmentPrices.length > 0 ? Math.ceil(Math.max(...apartmentPrices) / priceStep) * priceStep : priceStep;
+    let priceFromInput = null;
+    let priceToInput = null;
+    let priceFromRange = null;
+    let priceToRange = null;
+    let priceRangeTrack = null;
     let heroCarouselApartments = apartmentsData.slice();
     let heroCarouselIndex = 0;
     let heroCarouselTimer = null;
@@ -30,6 +43,154 @@ const initMainPage = () => {
     }
 
     const getText = (key, options = {}) => window.t(key, { lng: lang, ...options });
+
+    const clampPrice = (value, fallback) => {
+        if (value === "" || value === null || value === undefined) {
+            return fallback;
+        }
+
+        const numericValue = Number(value);
+
+        if (!Number.isFinite(numericValue)) {
+            return fallback;
+        }
+
+        return Math.min(priceMaxLimit, Math.max(priceMinLimit, Math.round(numericValue / priceStep) * priceStep));
+    };
+
+    const getPriceValues = () => {
+        const fromValue = clampPrice(priceFromInput?.value, priceMinLimit);
+        const toValue = clampPrice(priceToInput?.value, priceMaxLimit);
+
+        return {
+            from: Math.min(fromValue, toValue),
+            to: Math.max(fromValue, toValue)
+        };
+    };
+
+    const updatePriceTrack = (from, to) => {
+        if (!priceRangeTrack) {
+            return;
+        }
+
+        const total = Math.max(priceMaxLimit - priceMinLimit, priceStep);
+        const fromPercent = ((from - priceMinLimit) / total) * 100;
+        const toPercent = ((to - priceMinLimit) / total) * 100;
+
+        priceRangeTrack.style.left = `${fromPercent}%`;
+        priceRangeTrack.style.width = `${Math.max(toPercent - fromPercent, 0)}%`;
+    };
+
+    const updatePriceRangeOrder = (activeHandle = "") => {
+        if (!priceFromRange || !priceToRange) {
+            return;
+        }
+
+        const fromValue = Number(priceFromRange.value);
+        const toValue = Number(priceToRange.value);
+        const handlesOverlap = fromValue >= toValue;
+
+        priceFromRange.classList.remove("is-active");
+        priceToRange.classList.remove("is-active");
+
+        if (activeHandle === "from") {
+            priceFromRange.classList.add("is-active");
+            return;
+        }
+
+        if (activeHandle === "to") {
+            priceToRange.classList.add("is-active");
+            return;
+        }
+
+        if (handlesOverlap) {
+            priceToRange.classList.add("is-active");
+            return;
+        }
+
+        priceFromRange.classList.add("is-active");
+    };
+
+    const syncPriceControls = ({ source = "input", apply = true } = {}) => {
+        if (!priceFromInput || !priceToInput || !priceFromRange || !priceToRange) {
+            return;
+        }
+
+        const values = getPriceValues();
+
+        priceFromInput.value = String(values.from);
+        priceToInput.value = String(values.to);
+        priceFromRange.value = String(values.from);
+        priceToRange.value = String(values.to);
+        updatePriceTrack(values.from, values.to);
+        updatePriceRangeOrder(source === "from-range" ? "from" : source === "to-range" ? "to" : "");
+
+        if (apply) {
+            applyFilters();
+        }
+    };
+
+    const initPriceRange = () => {
+        if (!priceRangeRoot) {
+            return;
+        }
+
+        priceRangeRoot.innerHTML = `
+            <div class="filter_price_inputs">
+                <input type="number" id="priceFromInput" name="price_from" min="${priceMinLimit}" max="${priceMaxLimit}" step="${priceStep}" inputmode="numeric">
+                <span class="filter_price_dash" aria-hidden="true"></span>
+                <input type="number" id="priceToInput" name="price_to" min="${priceMinLimit}" max="${priceMaxLimit}" step="${priceStep}" inputmode="numeric">
+            </div>
+            <div class="filter_price_slider" aria-hidden="true">
+                <div class="filter_price_track"></div>
+                <div class="filter_price_range" id="priceRangeTrack"></div>
+                <input type="range" id="priceFromRange" min="${priceMinLimit}" max="${priceMaxLimit}" step="${priceStep}" value="${priceMinLimit}">
+                <input type="range" id="priceToRange" min="${priceMinLimit}" max="${priceMaxLimit}" step="${priceStep}" value="${priceMaxLimit}">
+            </div>
+        `;
+
+        priceFromInput = document.getElementById("priceFromInput");
+        priceToInput = document.getElementById("priceToInput");
+        priceFromRange = document.getElementById("priceFromRange");
+        priceToRange = document.getElementById("priceToRange");
+        priceRangeTrack = document.getElementById("priceRangeTrack");
+
+        syncPriceControls({ apply: false });
+
+        priceFromRange.addEventListener("pointerdown", () => {
+            updatePriceRangeOrder("from");
+        });
+
+        priceToRange.addEventListener("pointerdown", () => {
+            updatePriceRangeOrder("to");
+        });
+
+        priceFromRange.addEventListener("input", () => {
+            const nextFrom = Math.min(clampPrice(priceFromRange.value, priceMinLimit), clampPrice(priceToRange.value, priceMaxLimit));
+            priceFromInput.value = String(nextFrom);
+            syncPriceControls({ source: "from-range" });
+        });
+
+        priceToRange.addEventListener("input", () => {
+            const nextTo = Math.max(clampPrice(priceToRange.value, priceMaxLimit), clampPrice(priceFromRange.value, priceMinLimit));
+            priceToInput.value = String(nextTo);
+            syncPriceControls({ source: "to-range" });
+        });
+
+        [priceFromInput, priceToInput].forEach((input, index) => {
+            input.addEventListener("input", () => {
+                const fallback = index === 0 ? priceMinLimit : priceMaxLimit;
+                input.value = String(clampPrice(input.value, fallback));
+                syncPriceControls();
+            });
+
+            input.addEventListener("blur", () => {
+                const fallback = index === 0 ? priceMinLimit : priceMaxLimit;
+                input.value = String(clampPrice(input.value, fallback));
+                syncPriceControls();
+            });
+        });
+    };
 
     const setFilterState = (isOpen) => {
         if (!filterPanel || !filterOverlay || !filterToggle) {
@@ -62,16 +223,23 @@ const initMainPage = () => {
 
         const apartmentTitle = window.getApartmentTitle(apartment, lang);
         const apartmentUrl = window.getApartmentUrl(apartment.id, lang);
+        const apartmentDetails = window
+            .getApartmentFeatures(apartment)
+            .slice(0, 5)
+            .map((featureKey) => window.buildFeatureMarkup(featureKey, lang, {
+                iconClassName: "flat_detail_icon",
+                labelClassName: "flat_detail_label"
+            }));
+        const visibleDetails = apartmentDetails;
 
         article.innerHTML = `
-            <a href="${apartmentUrl}" class="flat_card_anchor" aria-label="${getText("common.actions.open")} ${apartmentTitle}"></a>
-            <img src="${window.getAssetUrl(apartment.img)}" alt="${apartmentTitle}" class="flat_card_image" loading="lazy" decoding="async">
+            <a href="${apartmentUrl}" class="flat_card_media" aria-label="${getText("common.actions.open")} ${apartmentTitle}">
+                <img src="${window.getAssetUrl(apartment.img)}" alt="${apartmentTitle}" class="flat_card_image" loading="lazy" decoding="async">
+            </a>
             <div class="flat_card_body">
                 <p class="flat_location">${apartmentTitle}</p>
                 <div class="flat_card_details">
-                    <span class="flat_detail">${window.formatGuests(apartment.guests, lang)}</span>
-                    <span class="flat_detail">${window.formatRooms(apartment.rooms, lang)}</span>
-                    <span class="flat_detail">${window.formatBeds(apartment.beds, lang)}</span>
+                    ${visibleDetails.map((detail) => `<span class="flat_detail">${detail}</span>`).join("")}
                 </div>
                 <div class="flat_meta">
                     <span class="flat_price">${window.formatPrice(apartment.price, lang)}</span>
@@ -116,6 +284,12 @@ const initMainPage = () => {
         if (heroPriceTag) {
             heroPriceTag.textContent = window.formatPrice(apartment.price, lang);
         }
+
+        if (heroAddressTag) {
+            heroAddressTag.textContent = window.getApartmentAddress
+                ? window.getApartmentAddress(apartment, lang)
+                : heroTitle;
+        }
     };
 
     const animateHeroToApartment = (apartment) => {
@@ -132,6 +306,12 @@ const initMainPage = () => {
 
         if (heroPriceTag) {
             heroPriceTag.textContent = window.formatPrice(apartment.price, lang);
+        }
+
+        if (heroAddressTag) {
+            heroAddressTag.textContent = window.getApartmentAddress
+                ? window.getApartmentAddress(apartment, lang)
+                : heroTitle;
         }
 
         heroImageStage.classList.remove("is-sliding");
@@ -193,7 +373,12 @@ const initMainPage = () => {
             button.setAttribute("aria-pressed", String(isSelected));
             button.innerHTML = `
                 <span class="filter_feature_check">&#10003;</span>
-                <span class="filter_feature_label">${window.getFeatureLabel(feature.key, lang)}</span>
+                <span class="filter_feature_content">
+                    ${window.buildFeatureMarkup(feature.key, lang, {
+                        iconClassName: "filter_feature_icon",
+                        labelClassName: "filter_feature_label"
+                    })}
+                </span>
                 <span class="filter_feature_remove" aria-hidden="true">${isSelected ? "&times;" : ""}</span>
             `;
 
@@ -270,6 +455,7 @@ const initMainPage = () => {
     };
 
     renderFeatureFilters();
+    initPriceRange();
     renderCatalog(apartmentsData);
     startHeroCarousel(apartmentsData);
 
@@ -294,6 +480,11 @@ const initMainPage = () => {
     if (filterReset && filterForm) {
         filterReset.addEventListener("click", () => {
             filterForm.reset();
+            if (priceFromInput && priceToInput) {
+                priceFromInput.value = String(priceMinLimit);
+                priceToInput.value = String(priceMaxLimit);
+                syncPriceControls({ apply: false });
+            }
             selectedFeatureKeys.clear();
             renderFeatureFilters();
             applyFilters();

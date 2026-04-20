@@ -1,6 +1,6 @@
 const initMapPage = () => {
     const mapLang = window.getCurrentLang();
-    const map = window.createLeafletMap("map", [48.61939, 22.28306], 14);
+    const map = window.createLeafletMap("map", [48.61939, 22.28306], 13);
     const apartmentMarkerIcon = window.createApartmentMarkerIcon();
 
     if (!map) {

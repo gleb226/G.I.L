@@ -1,19 +1,25 @@
 :root{
-    --page-bg: #f6f7f9;
-    --surface: #ffffff;
-    --surface-muted: #e5e5e5;
-    --text-main: #1c1c1c;
-    --text-soft: #5b89c6;
+    --page-bg: #e6b89c;
+    --surface: #F4F1EE;
+    --surface-muted: #7B3F00;
+    --accent: #C89B6D;
+    --text-main: #2B2B2B;
+    --text-on-dark: #FFFFFF;
     --border-soft: rgba(0, 0, 0, 0.1);
     --shadow-soft: 0 0.625em 1.5em rgba(0, 0, 0, 0.07);
-    --accent: #2ca2ff;
 }
 
+::-webkit-scrollbar {
+  width: 0;
+}
 body{
     margin: 0;
+    position: relative;
+    isolation: isolate;
     background-color: var(--page-bg);
     color: var(--text-main);
     font-family: "Segoe UI", Arial, sans-serif;
+    font-weight: 600;
 }
 
 .header{
@@ -26,9 +32,19 @@ body{
     align-items: center;
     justify-content: center;
     min-height: 7.2rem;
-    padding: 1.1rem 2rem;
     background-color: var(--surface-muted);
-    box-shadow: 0 0.125em 0.75em rgba(0, 0, 0, 0.04);
+    box-shadow: none;
+}
+
+.gradient{
+    background: linear-gradient(var(--surface-muted) , var(--page-bg));
+    height: 200px;
+    width: 100%;
+    position: fixed;
+    top: 7.2rem;
+    left: 0;
+    z-index: -1;
+    pointer-events: none;
 }
 
 .logo_link{
@@ -41,7 +57,7 @@ body{
 }
 
 #logo{
-    width: 9.5em;
+    width: 15em;
     height: auto;
 }
 
@@ -53,7 +69,7 @@ body{
 
 .navigation_current,
 .navigation{
-    display: flex;
+    display: flex;  
     justify-content: center;
     align-items: center;
     min-width: 10.1rem;
@@ -62,11 +78,12 @@ body{
     border-radius: 0.2rem;
     overflow: hidden;
     box-shadow: 0 0.25em 0.5em rgba(0, 0, 0, 0.12);
+    transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
 }
 
 .navigation_current{
-    background-color: var(--text-main);
-    border-color: rgba(0, 0, 0, 0.75);
+    background-color: var(--accent);
+    border-color: rgba(200, 155, 109, 0.55);
 }
 
 .navigation{
@@ -86,18 +103,26 @@ body{
     border-radius: inherit;
     font-size: 1.08rem;
     line-height: 1;
+    transition: background-color 0.2s ease, color 0.2s ease;
 }
 
 .navigation a{
     color: var(--text-main);
 }
 
+.navigation:hover{
+    transform: translateY(-0.12rem);
+    border-color: rgba(200, 155, 109, 0.8);
+    box-shadow: 0 0.5em 1em rgba(0, 0, 0, 0.2);
+}
+
 .navigation a:hover{
-    background: #f8f8f8;
+    background: rgba(200, 155, 109, 0.4);
+    color: #6a3400;
 }
 
 .navigation_current a{
-    color: var(--surface);
+    color: var(--text-on-dark);
 }
 
 .lang_switch{
@@ -130,8 +155,8 @@ body{
 }
 
 .current_lang{
-    background: var(--text-main);
-    color: var(--surface);
+    background: var(--accent);
+    color: var(--text-on-dark);
 }
 
 .page_shell{
@@ -147,17 +172,134 @@ body{
 }
 
 .page_lead{
-    max-width: 45em;
-    margin-bottom: 2rem;
-    color: #4d4d4d;
+    margin-bottom: 1em;
+    color: rgba(43, 43, 43, 0.78);
+    background: #ead7c5;
+    padding: 1rem;
     line-height: 1.7;
+    border-radius: 1rem;
+    box-shadow: var(--shadow-soft);
+    width: 44em;
 }
 
-.page_card{
-    background: var(--surface);
+.booking_story{
+    background: #ead7c5;
     border-radius: 1rem;
     padding: 1.5rem;
     box-shadow: var(--shadow-soft);
+    height: 56em;
+}
+
+.contacts_links_card{
+    background: #ead7c5;
+    border-radius: 1rem;
+    padding: 1.5rem;
+    box-shadow: var(--shadow-soft);
+    height: 8em;
+}
+
+
+
+/* Footer styles */
+.footer {
+    background-color: var(--surface-muted);
+    color: var(--text-on-dark);
+    padding: 4.6rem 0 2.6rem;
+    margin-top: 0;
+}
+
+.footer__content {
+    display: grid;
+    grid-template-columns: minmax(220px, 1.2fr) minmax(200px, 1fr) minmax(160px, 0.8fr) minmax(160px, 0.8fr);
+    gap: 2rem;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+.footer__section {
+    min-width: 180px;
+}
+
+@media (max-width: 56rem) {
+    .footer__content {
+        grid-template-columns: repeat(2, minmax(200px, 1fr));
+    }
+}
+
+@media (max-width: 36rem) {
+    .footer__content {
+        grid-template-columns: 1fr;
+        gap: 1.6rem;
+    }
+}
+
+.footer__title {
+    font-size: 1.25rem;
+    margin-bottom: 1rem;
+    color: var(--accent);
+    letter-spacing: 0.02em;
+}
+
+.footer__text {
+    margin: 0.7rem 0;
+    line-height: 1.8;
+    color: rgba(255, 255, 255, 0.92);
+}
+
+.footer__contact {
+    display: flex;
+    align-items: center;
+    gap: 0.65rem;
+}
+
+.footer__icon {
+    flex: 0 0 auto;
+    width: 1.25rem;
+    text-align: center;
+    color: var(--accent);
+    font-size: 1rem;
+}
+
+.footer__link {
+    display: flex;
+    align-items: center;
+    gap: 0.65rem;
+    color: rgba(255, 255, 255, 0.92);
+    text-decoration: none;
+    margin: 0.8rem 0;
+    transition: color 0.25s ease, transform 0.25s ease;
+}
+
+.feature_inline_icon{
+    flex: 0 0 auto;
+}
+
+.feature_inline_label{
+    display: inline-block;
+}
+
+.footer__link:hover {
+    color: var(--accent);
+    transform: translateX(2px);
+}
+
+.footer__bottom {
+    text-align: center;
+    border-top: 1px solid rgba(243, 233, 220, 0.15);
+    padding-top: 2rem;
+    margin-top: 3rem;
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 2rem;
+    padding-right: 2rem;
+}
+
+.footer__copyright {
+    margin: 0.55rem 0;
+    font-size: 0.95rem;
+    color: rgba(255, 255, 255, 0.76);
 }
 
 .info_grid{
@@ -167,7 +309,7 @@ body{
 }
 
 .info_item{
-    background: var(--surface);
+    background: #ead7c5;
     border-radius: 1rem;
     padding: 1.25rem;
     box-shadow: var(--shadow-soft);
@@ -199,7 +341,7 @@ body{
     padding: 0.75rem 0.9rem;
     border: 0.0625em solid var(--border-soft);
     border-radius: 0.7rem;
-    background: #fafafa;
+    background: var(--surface);
     font: inherit;
 }
 
@@ -216,8 +358,8 @@ body{
     padding: 0 1.2rem;
     border: none;
     border-radius: 0.7rem;
-    background: var(--text-main);
-    color: var(--surface);
+    background: var(--accent);
+    color: var(--text-on-dark);
     text-decoration: none;
     font: inherit;
     cursor: pointer;
@@ -273,6 +415,11 @@ body{
 
     .page_shell{
         padding-top: 2rem;
+    }
+
+    .gradient{
+        position: static;
+        top: auto;
     }
 }
 
