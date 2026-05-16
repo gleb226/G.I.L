@@ -1,0 +1,215 @@
+.about_page{
+    display: grid;
+    gap: 1.5rem;
+}
+
+.about_hero{
+    display: grid;
+    grid-template-columns: minmax(0, 1.35fr) minmax(18rem, 0.85fr);
+    gap: 1.5rem;
+    align-items: stretch;
+}
+
+.about_hero_content,
+.about_story_card,
+.about_quote_card,
+.about_cta{
+    background: linear-gradient(180deg, var(--surface), var(--surface-tint));
+    border: 1px solid var(--border-soft);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-1);
+}
+
+.about_hero_content{
+    padding: 1.8rem;
+}
+
+.about_eyebrow,
+.about_section_tag,
+.about_highlight_label{
+    display: inline-flex;
+    width: fit-content;
+    align-items: center;
+    min-height: 2rem;
+    padding: 0 0.8rem;
+    border-radius: 999px;
+    background: var(--accent-soft);
+    color: var(--surface-muted);
+    font-size: 0.8rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+}
+
+.about_hero .page_title{
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    font-size: 2.7rem;
+}
+
+.about_hero .page_lead{
+    width: auto;
+    margin-bottom: 0;
+    padding: 0;
+    background: transparent;
+    box-shadow: none;
+    text-align: left;
+}
+
+.about_highlight{
+    display: grid;
+    gap: 1rem;
+    align-content: start;
+    padding: 1.6rem;
+    border-radius: var(--radius-lg);
+    background:
+        radial-gradient(circle at top right, rgba(var(--text-on-dark-rgb), 0.14), transparent 35%),
+        linear-gradient(150deg, var(--surface-muted-3), var(--surface-muted-2) 55%, var(--surface-muted));
+    color: var(--text-on-dark);
+    box-shadow: 0 1.125em 2.25em rgba(0, 0, 0, 0.16);
+}
+
+.about_highlight_label{
+    background: rgba(var(--text-on-dark-rgb), 0.14);
+    color: var(--text-on-dark);
+}
+
+.about_highlight h2{
+    margin: 0;
+    font-size: 1.6rem;
+    line-height: 1.15;
+}
+
+.about_highlight p{
+    margin: 0;
+    line-height: 1.7;
+    color: rgba(var(--text-on-dark-rgb), 0.82);
+}
+
+.about_grid{
+    display: grid;
+    grid-template-columns: minmax(0, 1.15fr) minmax(18rem, 0.85fr);
+    gap: 1.5rem;
+}
+
+.about_story_card,
+.about_quote_card{
+    padding: 1.6rem;
+}
+
+.about_story_card p + p{
+    margin-top: 1rem;
+}
+
+.about_quote_card blockquote{
+    margin: 1rem 0 0;
+    padding-left: 1rem;
+    border-left: 0.25rem solid var(--accent);
+    color: var(--text-muted);
+    font-size: 1.05rem;
+    line-height: 1.8;
+}
+
+.about_values{
+    display: grid;
+    gap: 1.2rem;
+}
+
+.about_values_intro h2{
+    margin: 0.85rem 0 0;
+    font-size: 1.8rem;
+    line-height: 1.2;
+}
+
+.about_values_grid{
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1rem;
+}
+
+.about_value{
+    position: relative;
+    padding-top: 4rem;
+}
+
+.about_value h3{
+    margin: 0 0 0.75rem;
+    font-size: 1.1rem;
+}
+
+.about_value_index{
+    position: absolute;
+    top: 1.1rem;
+    left: 1.1rem;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 2.4rem;
+    height: 2.4rem;
+    border-radius: 999px;
+    background: var(--accent);
+    color: var(--text-on-dark);
+    font-size: 0.82rem;
+    letter-spacing: 0.08em;
+}
+
+.about_cta{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1.5rem;
+    padding: 1.6rem;
+}
+
+.about_cta_text h2{
+    margin: 0.85rem 0 0.7rem;
+    font-size: 1.6rem;
+}
+
+.about_cta_text p:last-child{
+    margin: 0;
+    color: var(--text-muted);
+    line-height: 1.7;
+}
+
+.about_cta_actions{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.8rem;
+    align-items: center;
+}
+
+.about_secondary_link{
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 2.8rem;
+    padding: 0 1.2rem;
+    border-radius: var(--radius-sm);
+    border: 1px solid var(--border-soft);
+    background: var(--surface);
+    color: var(--text-main);
+    text-decoration: none;
+}
+
+.about_secondary_link:hover{
+    background: var(--surface-tint);
+}
+
+@media (max-width: 61.25em){
+    .about_hero,
+    .about_grid,
+    .about_values_grid{
+        grid-template-columns: 1fr;
+    }
+
+    .about_cta{
+        flex-direction: column;
+        align-items: flex-start;
+    }
+}
+
+@media (max-width: 40em){
+    .about_hero .page_title{
+        font-size: 2.1rem;
+    }
+}

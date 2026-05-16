@@ -90,7 +90,8 @@ const SITE_CONFIG = {
             map: "html/map.html",
             booking: "html/booking.html",
             contacts: "html/contacts.html",
-            apartment: "html/appartments.html"
+            apartment: "html/appartments.html",
+            about: "html/AboutUs.html"
         }
     },
     en: {
@@ -99,7 +100,8 @@ const SITE_CONFIG = {
             map: "html/map.html",
             booking: "html/booking.html",
             contacts: "html/contacts.html",
-            apartment: "html/appartments.html"
+            apartment: "html/appartments.html",
+            about: "html/AboutUs.html"
         }
     }
 };
@@ -437,7 +439,7 @@ const buildFooterMarkup = () => {
                     <a href="https://www.instagram.com/kvartiry_posutochno_uzhgorod?igsh=cXA0dHdmbWFrajQ0&utm_source=qr" target="_blank" rel="noopener noreferrer" class="footer__link">${buildInfoMarkup(copy.instagram, "fab fa-instagram", { iconClassName: "footer__icon" })}</a>
                     <a href="https://www.facebook.com/GILapartments?mibextid=wwXIfr" target="_blank" rel="noopener noreferrer" class="footer__link">${buildInfoMarkup(copy.facebook, "fab fa-facebook-f", { iconClassName: "footer__icon" })}</a>
                     <a href="https://t.me/GIL_Apartments_Bot" target="_blank" rel="noopener noreferrer" class="footer__link">${buildInfoMarkup(copy.telegram, "fab fa-telegram-plane", { iconClassName: "footer__icon" })}</a>
-                    <a href="#" rel="noopener noreferrer" class="footer__link">${buildInfoMarkup(copy.AboutUs, "fas fa-info-circle", { iconClassName: "footer__icon" })}</a>
+                    <a href="${getPageUrl(currentPaths.about)}" class="footer__link">${buildInfoMarkup(copy.AboutUs, "fas fa-info-circle", { iconClassName: "footer__icon" })}</a>
                 </div>
             </div>
             <div class="footer__bottom">
@@ -475,22 +477,7 @@ const mountSiteFooter = () => {
     window.translatePage?.(footerRoot);
 };
 
-const mountSiteGradient = () => {
-    if (!document.body || document.querySelector(".gradient")) {
-        return;
-    }
 
-    const gradient = document.createElement("div");
-    gradient.className = "gradient";
-    const headerRoot = document.querySelector("[data-site-header]");
-
-    if (headerRoot) {
-        headerRoot.insertAdjacentElement("afterend", gradient);
-        return;
-    }
-
-    document.body.prepend(gradient);
-};
 
 const normalizeDocumentTitle = (title, lang = getCurrentLang()) => {
     const brand = "G.I.L Apartments";
@@ -630,7 +617,6 @@ const attachTelegramOpenBehavior = (element, botUsername, startPayload = "") => 
 
 const initSiteChrome = () => {
     mountSiteHeader();
-    mountSiteGradient();
     mountSiteFooter();
 
     const pageTitleKey = document.body?.dataset.titleKey;
@@ -673,7 +659,6 @@ Object.assign(window, {
     mountSiteHeader,
     buildFooterMarkup,
     mountSiteFooter,
-    mountSiteGradient,
     updateDocumentTitle,
     createLeafletMap,
     createApartmentMarkerIcon,

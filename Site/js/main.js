@@ -21,12 +21,16 @@ const initMainPage = () => {
         .map((apartment) => Number(apartment.price))
         .filter((price) => Number.isFinite(price) && price > 0);
     const priceStep = 100;
+    const priceMinGap = 100;
     const priceMinLimit = apartmentPrices.length > 0 ? Math.floor(Math.min(...apartmentPrices) / priceStep) * priceStep : 0;
     const priceMaxLimit = apartmentPrices.length > 0 ? Math.ceil(Math.max(...apartmentPrices) / priceStep) * priceStep : priceStep;
+    let effectivePriceMinGap = priceMinGap;
     let priceFromInput = null;
     let priceToInput = null;
     let priceFromRange = null;
     let priceToRange = null;
+    let priceSlider = null;
+    let priceTrackLayer = null;
     let priceRangeTrack = null;
     let heroCarouselApartments = apartmentsData.slice();
     let heroCarouselIndex = 0;
@@ -58,16 +62,91 @@ const initMainPage = () => {
         return Math.min(priceMaxLimit, Math.max(priceMinLimit, Math.round(numericValue / priceStep) * priceStep));
     };
 
-    const getPriceValues = () => {
-        const fromValue = clampPrice(priceFromInput?.value, priceMinLimit);
-        const toValue = clampPrice(priceToInput?.value, priceMaxLimit);
+    const lengthToPixels = (value, contextElement = document.documentElement) => {
+        if (typeof value !== "string") {
+            return Number(value) || 0;
+        }
 
-        return {
-            from: Math.min(fromValue, toValue),
-            to: Math.max(fromValue, toValue)
-        };
+        const trimmedValue = value.trim();
+
+        if (!trimmedValue) {
+            return 0;
+        }
+
+        if (trimmedValue.endsWith("rem")) {
+            return parseFloat(trimmedValue) * parseFloat(window.getComputedStyle(document.documentElement).fontSize || "16");
+        }
+
+        if (trimmedValue.endsWith("em")) {
+            return parseFloat(trimmedValue) * parseFloat(window.getComputedStyle(contextElement).fontSize || "16");
+        }
+
+        return parseFloat(trimmedValue) || 0;
     };
 
+    const updateEffectivePriceMinGap = () => {
+        if (!priceSlider || !priceTrackLayer) {
+            effectivePriceMinGap = priceMinGap;
+            return effectivePriceMinGap;
+        }
+
+        const sliderStyles = window.getComputedStyle(priceSlider);
+        const thumbSize = lengthToPixels(sliderStyles.getPropertyValue("--price-thumb-size"), priceSlider);
+        const trackWidth = priceTrackLayer.getBoundingClientRect().width;
+        const total = Math.max(priceMaxLimit - priceMinLimit, priceStep);
+
+        if (thumbSize <= 0 || trackWidth <= 0 || total <= 0) {
+            effectivePriceMinGap = priceMinGap;
+            return effectivePriceMinGap;
+        }
+
+        const thumbCollisionSize = thumbSize * 1.4;
+        const visualGap = Math.ceil(((thumbCollisionSize / trackWidth) * total) / priceStep) * priceStep;
+        effectivePriceMinGap = Math.max(priceMinGap, visualGap);
+
+        return effectivePriceMinGap;
+    };
+
+    const normalizePriceValues = ({
+        rawFrom = priceFromInput?.value,
+        rawTo = priceToInput?.value,
+        activeHandle = ""
+    } = {}) => {
+        const minGap = updateEffectivePriceMinGap();
+        let fromValue = clampPrice(rawFrom, priceMinLimit);
+        let toValue = clampPrice(rawTo, priceMaxLimit);
+
+        fromValue = Math.min(Math.max(fromValue, priceMinLimit), priceMaxLimit - minGap);
+        toValue = Math.min(Math.max(toValue, priceMinLimit + minGap), priceMaxLimit);
+
+        if (fromValue + minGap > toValue) {
+            if (activeHandle === "to") {
+                toValue = Math.min(priceMaxLimit, fromValue + minGap);
+            } else {
+                fromValue = Math.max(priceMinLimit, toValue - minGap);
+            }
+        }
+
+        if (toValue > priceMaxLimit) {
+            toValue = priceMaxLimit;
+            fromValue = Math.min(fromValue, toValue - minGap);
+        }
+
+        if (fromValue < priceMinLimit) {
+            fromValue = priceMinLimit;
+            toValue = Math.max(toValue, fromValue + minGap);
+        }
+
+        if (fromValue + minGap > toValue) {
+            toValue = Math.min(priceMaxLimit, Math.max(toValue, fromValue + minGap));
+            fromValue = Math.max(priceMinLimit, Math.min(fromValue, toValue - minGap));
+        }
+
+        return {
+            from: fromValue,
+            to: toValue
+        };
+    };
     const updatePriceTrack = (from, to) => {
         if (!priceRangeTrack) {
             return;
@@ -79,6 +158,54 @@ const initMainPage = () => {
 
         priceRangeTrack.style.left = `${fromPercent}%`;
         priceRangeTrack.style.width = `${Math.max(toPercent - fromPercent, 0)}%`;
+    };
+
+    const getHandleFromPointer = (clientX) => {
+        if (!priceTrackLayer || !priceFromRange || !priceToRange) {
+            return "";
+        }
+
+        const trackRect = priceTrackLayer.getBoundingClientRect();
+        const trackWidth = trackRect.width;
+        const total = Math.max(priceMaxLimit - priceMinLimit, priceStep);
+
+        if (trackWidth <= 0 || total <= 0) {
+            return "";
+        }
+
+        const fromValue = Number(priceFromRange.value);
+        const toValue = Number(priceToRange.value);
+        const fromX = trackRect.left + ((fromValue - priceMinLimit) / total) * trackWidth;
+        const toX = trackRect.left + ((toValue - priceMinLimit) / total) * trackWidth;
+        const fromDistance = Math.abs(clientX - fromX);
+        const toDistance = Math.abs(clientX - toX);
+
+        if (fromDistance === toDistance) {
+            return clientX <= (fromX + toX) / 2 ? "from" : "to";
+        }
+
+        return fromDistance < toDistance ? "from" : "to";
+    };
+
+    const updateActiveHandleFromPointer = (event) => {
+        const handle = getHandleFromPointer(event.clientX);
+
+        if (handle) {
+            updatePriceRangeOrder(handle);
+        }
+    };
+
+    const handlePriceSliderResize = () => {
+        if (!priceFromInput || !priceToInput) {
+            return;
+        }
+
+        updateEffectivePriceMinGap();
+        syncPriceControls({
+            apply: false,
+            rawFrom: priceFromInput.value,
+            rawTo: priceToInput.value
+        });
     };
 
     const updatePriceRangeOrder = (activeHandle = "") => {
@@ -111,23 +238,46 @@ const initMainPage = () => {
         priceFromRange.classList.add("is-active");
     };
 
-    const syncPriceControls = ({ source = "input", apply = true } = {}) => {
+    const syncPriceControls = ({
+        activeHandle = "",
+        apply = true,
+        rawFrom = priceFromInput?.value,
+        rawTo = priceToInput?.value
+    } = {}) => {
         if (!priceFromInput || !priceToInput || !priceFromRange || !priceToRange) {
             return;
         }
 
-        const values = getPriceValues();
+        const values = normalizePriceValues({ rawFrom, rawTo, activeHandle });
 
         priceFromInput.value = String(values.from);
         priceToInput.value = String(values.to);
         priceFromRange.value = String(values.from);
         priceToRange.value = String(values.to);
         updatePriceTrack(values.from, values.to);
-        updatePriceRangeOrder(source === "from-range" ? "from" : source === "to-range" ? "to" : "");
+        updatePriceRangeOrder(activeHandle);
 
         if (apply) {
             applyFilters();
         }
+
+        return values;
+    };
+
+    const syncFromNumberInput = () => {
+        syncPriceControls({
+            activeHandle: "from",
+            rawFrom: priceFromInput?.value,
+            rawTo: priceToInput?.value
+        });
+    };
+
+    const syncToNumberInput = () => {
+        syncPriceControls({
+            activeHandle: "to",
+            rawFrom: priceFromInput?.value,
+            rawTo: priceToInput?.value
+        });
     };
 
     const initPriceRange = () => {
@@ -136,16 +286,29 @@ const initMainPage = () => {
         }
 
         priceRangeRoot.innerHTML = `
-            <div class="filter_price_inputs">
-                <input type="number" id="priceFromInput" name="price_from" min="${priceMinLimit}" max="${priceMaxLimit}" step="${priceStep}" inputmode="numeric">
-                <span class="filter_price_dash" aria-hidden="true"></span>
-                <input type="number" id="priceToInput" name="price_to" min="${priceMinLimit}" max="${priceMaxLimit}" step="${priceStep}" inputmode="numeric">
-            </div>
-            <div class="filter_price_slider" aria-hidden="true">
-                <div class="filter_price_track"></div>
-                <div class="filter_price_range" id="priceRangeTrack"></div>
-                <input type="range" id="priceFromRange" min="${priceMinLimit}" max="${priceMaxLimit}" step="${priceStep}" value="${priceMinLimit}">
-                <input type="range" id="priceToRange" min="${priceMinLimit}" max="${priceMaxLimit}" step="${priceStep}" value="${priceMaxLimit}">
+            <div class="filter_price_section" data-price-ui-version="20260516-9">
+                <div class="filter_price_slider_group">
+                    <div class="filter_price_slider_shell">
+                        <div class="filter_price_slider" aria-hidden="true">
+                            <div class="filter_price_track_layer">
+                                <div class="filter_price_track"></div>
+                                <div class="filter_price_range" id="priceRangeTrack"></div>
+                            </div>
+                            <input type="range" id="priceFromRange" min="${priceMinLimit}" max="${priceMaxLimit - priceMinGap}" step="${priceStep}" value="${priceMinLimit}">
+                            <input type="range" id="priceToRange" min="${priceMinLimit + priceMinGap}" max="${priceMaxLimit}" step="${priceStep}" value="${priceMaxLimit}">
+                        </div>
+                    </div>
+                </div>
+                <div class="filter_price_inputs">
+                    <label class="filter_price_field" for="priceFromInput">
+                        <span class="filter_price_label">${getText("pages.main.from")}</span>
+                        <input type="number" id="priceFromInput" name="price_from" min="${priceMinLimit}" max="${priceMaxLimit - priceMinGap}" step="${priceStep}" inputmode="numeric" placeholder="${getText("pages.main.from")}" aria-label="${getText("pages.main.from")}">
+                    </label>
+                    <label class="filter_price_field" for="priceToInput">
+                        <span class="filter_price_label">${getText("pages.main.to")}</span>
+                        <input type="number" id="priceToInput" name="price_to" min="${priceMinLimit + priceMinGap}" max="${priceMaxLimit}" step="${priceStep}" inputmode="numeric" placeholder="${getText("pages.main.to")}" aria-label="${getText("pages.main.to")}">
+                    </label>
+                </div>
             </div>
         `;
 
@@ -153,9 +316,18 @@ const initMainPage = () => {
         priceToInput = document.getElementById("priceToInput");
         priceFromRange = document.getElementById("priceFromRange");
         priceToRange = document.getElementById("priceToRange");
+        priceSlider = priceRangeRoot.querySelector(".filter_price_slider");
+        priceTrackLayer = priceRangeRoot.querySelector(".filter_price_track_layer");
         priceRangeTrack = document.getElementById("priceRangeTrack");
 
+        updateEffectivePriceMinGap();
         syncPriceControls({ apply: false });
+
+        if (priceSlider) {
+            priceSlider.addEventListener("pointermove", updateActiveHandleFromPointer);
+        }
+
+        window.addEventListener("resize", handlePriceSliderResize);
 
         priceFromRange.addEventListener("pointerdown", () => {
             updatePriceRangeOrder("from");
@@ -166,30 +338,25 @@ const initMainPage = () => {
         });
 
         priceFromRange.addEventListener("input", () => {
-            const nextFrom = Math.min(clampPrice(priceFromRange.value, priceMinLimit), clampPrice(priceToRange.value, priceMaxLimit));
-            priceFromInput.value = String(nextFrom);
-            syncPriceControls({ source: "from-range" });
+            syncPriceControls({
+                activeHandle: "from",
+                rawFrom: priceFromRange.value,
+                rawTo: priceToRange.value
+            });
         });
 
         priceToRange.addEventListener("input", () => {
-            const nextTo = Math.max(clampPrice(priceToRange.value, priceMaxLimit), clampPrice(priceFromRange.value, priceMinLimit));
-            priceToInput.value = String(nextTo);
-            syncPriceControls({ source: "to-range" });
-        });
-
-        [priceFromInput, priceToInput].forEach((input, index) => {
-            input.addEventListener("input", () => {
-                const fallback = index === 0 ? priceMinLimit : priceMaxLimit;
-                input.value = String(clampPrice(input.value, fallback));
-                syncPriceControls();
-            });
-
-            input.addEventListener("blur", () => {
-                const fallback = index === 0 ? priceMinLimit : priceMaxLimit;
-                input.value = String(clampPrice(input.value, fallback));
-                syncPriceControls();
+            syncPriceControls({
+                activeHandle: "to",
+                rawFrom: priceFromRange.value,
+                rawTo: priceToRange.value
             });
         });
+
+        priceFromInput.addEventListener("input", syncFromNumberInput);
+        priceFromInput.addEventListener("blur", syncFromNumberInput);
+        priceToInput.addEventListener("input", syncToNumberInput);
+        priceToInput.addEventListener("blur", syncToNumberInput);
     };
 
     const setFilterState = (isOpen) => {
@@ -233,19 +400,21 @@ const initMainPage = () => {
         const visibleDetails = apartmentDetails;
 
         article.innerHTML = `
-            <a href="${apartmentUrl}" class="flat_card_media" aria-label="${getText("common.actions.open")} ${apartmentTitle}">
-                <img src="${window.getAssetUrl(apartment.img)}" alt="${apartmentTitle}" class="flat_card_image" loading="lazy" decoding="async">
+            <a href="${apartmentUrl}" class="flat_card_link" aria-label="${getText("common.actions.open")} ${apartmentTitle}">
+                <div class="flat_card_media">
+                    <img src="${window.getAssetUrl(apartment.img)}" alt="${apartmentTitle}" class="flat_card_image" loading="lazy" decoding="async">
+                </div>
+                <div class="flat_card_body">
+                    <p class="flat_location">${apartmentTitle}</p>
+                    <div class="flat_card_details">
+                        ${visibleDetails.map((detail) => `<span class="flat_detail">${detail}</span>`).join("")}
+                    </div>
+                    <div class="flat_meta">
+                        <span class="flat_price">${window.formatPrice(apartment.price, lang)}</span>
+                        <span class="flat_button">${getText("common.actions.rent")}</span>
+                    </div>
+                </div>
             </a>
-            <div class="flat_card_body">
-                <p class="flat_location">${apartmentTitle}</p>
-                <div class="flat_card_details">
-                    ${visibleDetails.map((detail) => `<span class="flat_detail">${detail}</span>`).join("")}
-                </div>
-                <div class="flat_meta">
-                    <span class="flat_price">${window.formatPrice(apartment.price, lang)}</span>
-                    <a href="${apartmentUrl}" class="flat_button">${getText("common.actions.rent")}</a>
-                </div>
-            </div>
         `;
 
         return article;
@@ -356,6 +525,26 @@ const initMainPage = () => {
         return Number.isFinite(value) && value > 0 ? value : null;
     };
 
+    const getNormalizedFilterPrices = () => {
+        if (!priceFromInput || !priceToInput) {
+            return {
+                priceFrom: null,
+                priceTo: null
+            };
+        }
+
+        const values = syncPriceControls({
+            apply: false,
+            rawFrom: priceFromInput.value,
+            rawTo: priceToInput.value
+        });
+
+        return {
+            priceFrom: values?.from ?? null,
+            priceTo: values?.to ?? null
+        };
+    };
+
     const renderFeatureFilters = () => {
         if (!featureFilters) {
             return;
@@ -412,11 +601,12 @@ const initMainPage = () => {
         }
 
         const formData = new FormData(filterForm);
+        const normalizedPrices = getNormalizedFilterPrices();
 
         return {
             rooms: getNumericValue(formData, "rooms"),
-            priceFrom: getNumericValue(formData, "price_from"),
-            priceTo: getNumericValue(formData, "price_to"),
+            priceFrom: normalizedPrices.priceFrom,
+            priceTo: normalizedPrices.priceTo,
             monthFrom: getNumericValue(formData, "month_from"),
             monthTo: getNumericValue(formData, "month_to"),
             bedsFrom: getNumericValue(formData, "beds_from"),

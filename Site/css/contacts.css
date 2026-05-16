@@ -5,6 +5,10 @@
 
 .contacts_links_card{
     padding: 1.75rem 1.5rem;
+    background: linear-gradient(180deg, var(--surface), var(--surface-tint));
+    border: 1px solid var(--border-soft);
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-1);
 }
 
 .contacts_links{
@@ -22,26 +26,35 @@
     min-height: 3rem;
     padding: 0.85rem 1rem;
     border-radius: 0.9rem;
-    background: #daba9c;
+    background: var(--surface);
     color: var(--text-main);
     text-decoration: none;
-    border: 1px solid rgba(0, 0, 0, 0.08);
+    border: 1px solid var(--border-soft);
     transition: background-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 .contacts_link_button:hover{
-    background: #c6a98e;
+    background: var(--surface-tint);
     transform: translateY(-1px);
     box-shadow: 0 0.5rem 1.2rem rgba(0, 0, 0, 0.08);
 }
 
 .contacts_link_button i,
 .contact_inline i{
-    color: #7B3F00;
+    color: var(--accent);
 }
 
 .contact_inline{
     display: inline-flex;
     align-items: center;
     gap: 0.6rem;
+}
+
+.contact_inline a{
+    color: var(--text-main);
+    text-decoration: none;
+}
+
+.contact_inline a:hover{
+    color: var(--accent);
 }
