@@ -25,32 +25,60 @@ const initContactsPage = () => {
     const phoneList = document.getElementById("phoneList");
 
     const getOperator = (phone) => {
-        if (phone.includes("(050)") || phone.includes("(095)") || phone.includes("(099)") || phone.includes("(066)")) return "Vodafone";
-        if (phone.includes("(067)") || phone.includes("(096)") || phone.includes("(097)") || phone.includes("(098)") || phone.includes("(068)")) return "Kyivstar";
-        if (phone.includes("(063)") || phone.includes("(093)") || phone.includes("(073)")) return "Lifecell";
+        const p = String(phone || "");
+        if (p.includes("(050)") || p.includes("(095)") || p.includes("(099)") || p.includes("(066)")) return "Vodafone";
+        if (p.includes("(067)") || p.includes("(096)") || p.includes("(097)") || p.includes("(098)") || p.includes("(068)")) return "Kyivstar";
+        if (p.includes("(063)") || p.includes("(093)") || p.includes("(073)")) return "Lifecell";
         return "";
     };
 
     if (phoneTrigger && phonePopup && phoneList) {
-        const copy = window.getStaticCopy?.();
-        const phones = Array.isArray(copy?.footer?.phoneValue) ? copy.footer.phoneValue : [];
+        const populatePhones = () => {
+            const copy = typeof window.getStaticCopy === "function" ? window.getStaticCopy() : null;
+            const phones = Array.isArray(copy?.footer?.phoneValue) ? copy.footer.phoneValue : [];
 
-        if (phones.length > 0) {
-            phoneList.innerHTML = phones.map(phone => {
-                const operator = getOperator(phone);
-                return `
-                    <a href="tel:${phone.replace(/\D/g, '')}" class="phone_list_item">
-                        <div class="phone_item_info">
-                            <i class="fas fa-phone-alt"></i>
-                            <span>${phone}</span>
-                        </div>
-                        ${operator ? `<span class="operator_badge">${operator}</span>` : ''}
-                    </a>
-                `;
-            }).join('');
-        }
+            if (phones.length > 0) {
+                phoneList.innerHTML = phones.map(phone => {
+                    const operator = getOperator(phone);
+                    return `
+                        <a href="tel:${phone.replace(/\D/g, '')}" class="phone_list_item">
+                            <div class="phone_item_info">
+                                <i class="fas fa-phone-alt"></i>
+                                <span>${phone}</span>
+                            </div>
+                            ${operator ? `<span class="operator_badge">${operator}</span>` : ''}
+                        </a>
+                    `;
+                }).join('');
+                return true;
+            }
+            return false;
+        };
 
         const openPopup = () => {
+            const hasPhones = populatePhones();
+            if (!hasPhones) {
+                // Fallback to manual list if getStaticCopy failed
+                const fallbackPhones = [
+                    "+38 (050) 941-61-95",
+                    "+38 (097) 903-62-25",
+                    "+38 (093) 170-41-79",
+                    "+38 (099) 499-33-99",
+                    "+38 (068) 499-33-99"
+                ];
+                phoneList.innerHTML = fallbackPhones.map(phone => {
+                    const operator = getOperator(phone);
+                    return `
+                        <a href="tel:${phone.replace(/\D/g, '')}" class="phone_list_item">
+                            <div class="phone_item_info">
+                                <i class="fas fa-phone-alt"></i>
+                                <span>${phone}</span>
+                            </div>
+                            ${operator ? `<span class="operator_badge">${operator}</span>` : ''}
+                        </a>
+                    `;
+                }).join('');
+            }
             phonePopup.classList.add("is-visible");
             document.body.style.overflow = "hidden";
         };
