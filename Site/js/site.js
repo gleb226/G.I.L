@@ -366,7 +366,7 @@ const buildHeaderMarkup = (page) => {
     const preservedParams = getPreservedParamsForPage(page);
     const currentPaths = SITE_CONFIG[lang].paths;
 
-    const items = ["main", "about", "map", "booking", "contacts"]
+    const items = ["main", "map", "booking", "contacts", "about"]
         .map((key) => {
             const className = key === page ? "navigation_current" : "navigation";
             const href =
@@ -382,7 +382,7 @@ const buildHeaderMarkup = (page) => {
         })
         .join("");
 
-    const mobileLinks = ["main", "about", "map", "booking", "contacts"]
+    const mobileLinks = ["main", "map", "booking", "contacts", "about"]
         .map((key) => {
             const isActive = key === page;
             const href =

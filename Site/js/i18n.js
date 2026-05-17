@@ -18,6 +18,7 @@ const TRANSLATIONS = {
                 reset: "Reset",
                 details: "Details",
                 send: "Send",
+                back: "Back",
                 openTelegram: "Open in Telegram"
             }
         },
@@ -155,6 +156,7 @@ const TRANSLATIONS = {
                 reset: "Скинути",
                 details: "Детальніше",
                 send: "Надіслати",
+                back: "Назад",
                 openTelegram: "Перейти в Telegram"
             }
         },
