@@ -20,6 +20,7 @@
     grid-area: gallery;
     display: grid;
     grid-template-columns: 7.5em minmax(0, 1fr);
+    grid-template-areas: "thumbs main";
     gap: 1.25em;
 }
 

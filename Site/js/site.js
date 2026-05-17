@@ -302,15 +302,20 @@ const formatBeds = (beds, lang = getCurrentLang()) =>
     translateKey("common.beds", { lng: lang, count: beds });
 
 const APARTMENT_FEATURE_DEFINITIONS = [
-    { key: "microwave", icon: "" },
+    { key: "microwave", iconClass: "fas fa-utensils" },
     { key: "air_conditioner", iconClass: "fas fa-snowflake" },
-    { key: "near_supermarket", iconClass:"fas fa-store" },
+    { key: "near_supermarket", iconClass: "fas fa-store" },
     { key: "smart_tv", iconClass: "fas fa-tv" },
     { key: "balcony", iconClass: "fas fa-door-open" },
     { key: "gas_hob", iconClass: "fas fa-fire" },
     { key: "electro_hob", iconClass: "fas fa-bolt" },
     { key: "parking", iconClass: "fas fa-parking" },
-    { key: "intercom", iconClass: "fas fa-bell" }
+    { key: "intercom", iconClass: "fas fa-bell" },
+    { key: "washing_machine", iconClass: "fas fa-tshirt" },
+    { key: "refrigerator", iconClass: "fas fa-ice-cream" },
+    { key: "hot_water", iconClass: "fas fa-tint" },
+    { key: "internet", iconClass: "fas fa-wifi" },
+    { key: "wifi", iconClass: "fas fa-wifi" }
 ];
 
 const getFeatureDefinition = (featureKey) =>

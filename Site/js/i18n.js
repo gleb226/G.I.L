@@ -39,8 +39,12 @@ const TRANSLATIONS = {
             parking: "Parking",
             intercom: "Code-entry building",
             gas_hob: "Gas cooktop",
-            electro_hob: "Electric cooktop"
-
+            electro_hob: "Electric cooktop",
+            washing_machine: "Washing machine",
+            refrigerator: "Refrigerator",
+            hot_water: "Hot water",
+            internet: "Internet",
+            wifi: "Wi-Fi"
         },
         pages: {
             main: {
@@ -179,7 +183,11 @@ const TRANSLATIONS = {
             electro_hob: "Електрична плита",
             parking: "Парковка",
             intercom: "Домофон",
-
+            washing_machine: "Пральна машина",
+            refrigerator: "Холодильник",
+            hot_water: "Гаряча вода",
+            internet: "Інтернет",
+            wifi: "Wi-Fi"
         },
         pages: {
             main: {
