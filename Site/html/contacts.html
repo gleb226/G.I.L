@@ -70,9 +70,25 @@
 
         <section class="contacts_layout">
             <div class="info_grid">
-                <div class="info_item">
+                <div class="info_item" id="phoneInfoItem">
                     <h2 data-i18n="pages.contacts.phone">Телефон</h2>
-                    <p class="contact_inline"><i class="fas fa-phone-alt" aria-hidden="true"></i><a href="tel:+380500000000">+38 (050) 000 00 00</a></p>
+                    <p class="contact_inline phone_trigger" id="phoneTrigger">
+                        <i class="fas fa-phone-alt" aria-hidden="true"></i>
+                        <span id="mainPhoneDisplay">+38 (050) 941-61-95</span>
+                        <i class="fas fa-chevron-down phone_chevron" aria-hidden="true"></i>
+                    </p>
+                    
+                    <div class="phone_popup" id="phonePopup">
+                        <div class="phone_popup_content">
+                            <div class="phone_popup_header">
+                                <h3 data-i18n="pages.contacts.phone">Телефон</h3>
+                                <button type="button" class="phone_popup_close" id="phonePopupClose">&times;</button>
+                            </div>
+                            <div class="phone_list" id="phoneList">
+                                <!-- Phones will be injected by JS -->
+                            </div>
+                        </div>
+                    </div>
                 </div>
                 <div class="info_item">
                     <h2 data-i18n="pages.contacts.email">Email</h2>

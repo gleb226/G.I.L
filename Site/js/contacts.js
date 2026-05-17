@@ -1,7 +1,7 @@
 const initContactsPage = () => {
     const botLink = document.getElementById("contactsBotLink");
     const locationNode = document.querySelector('.info_item p[data-i18n="pages.contacts.locationValue"]');
-    const aboutUsLink = document.querySelector('a[href="https://www.facebook.com/GILapartments?mibextid=wwXIfr"].contacts_link_button');
+    const aboutUsLink = document.querySelector('a[href="AboutUs.html"].contacts_link_button');
 
     if (botLink) {
         window.attachTelegramOpenBehavior?.(botLink, "GIL_Apartments_Bot");
@@ -16,6 +16,47 @@ const initContactsPage = () => {
     if (aboutUsLink && !aboutUsLink.querySelector("i")) {
         const text = aboutUsLink.textContent;
         aboutUsLink.innerHTML = `${window.buildIconMarkup("fas fa-circle-info")}<span>${text}</span>`;
+    }
+
+    // Phone Popup Logic
+    const phoneTrigger = document.getElementById("phoneTrigger");
+    const phonePopup = document.getElementById("phonePopup");
+    const phonePopupClose = document.getElementById("phonePopupClose");
+    const phoneList = document.getElementById("phoneList");
+
+    if (phoneTrigger && phonePopup && phoneList) {
+        const copy = window.getStaticCopy?.();
+        const phones = Array.isArray(copy?.footer?.phoneValue) ? copy.footer.phoneValue : [];
+
+        if (phones.length > 0) {
+            phoneList.innerHTML = phones.map(phone => `
+                <a href="tel:${phone.replace(/\D/g, '')}" class="phone_list_item">
+                    <i class="fas fa-phone-alt"></i>
+                    <span>${phone}</span>
+                </a>
+            `).join('');
+        }
+
+        const openPopup = () => {
+            phonePopup.classList.add("is-visible");
+            document.body.style.overflow = "hidden";
+        };
+
+        const closePopup = () => {
+            phonePopup.classList.remove("is-visible");
+            document.body.style.overflow = "";
+        };
+
+        phoneTrigger.addEventListener("click", openPopup);
+        phonePopupClose?.addEventListener("click", closePopup);
+
+        phonePopup.addEventListener("click", (e) => {
+            if (e.target === phonePopup) closePopup();
+        });
+
+        document.addEventListener("keydown", (e) => {
+            if (e.key === "Escape") closePopup();
+        });
     }
 };
 

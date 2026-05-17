@@ -123,7 +123,13 @@ const STATIC_COPY = {
             facebook: "Facebook",
             telegram: "Telegram",
             AboutUs: "Про нас",
-            phoneValue: "+38 (050) 000 00 00",
+            phoneValue: [
+                "+38 (050) 941-61-95",
+                "+38 (097) 903-62-25",
+                "+38 (093) 170-41-79",
+                "+38 (099) 499-33-99",
+                "+38 (068) 499-33-99"
+            ],
             emailValue: "gil.apartments@example.com",
             copyright: "© 2026 G.I.L Apartments. Усі права захищено.",
             madeBy: "Сайт створено Глєбом та Кирилом - веброзробниками з Ужгорода."
@@ -150,7 +156,13 @@ const STATIC_COPY = {
             facebook: "Facebook",
             telegram: "Telegram",
             AboutUs: "About Us",
-            phoneValue: "+38 (050) 000 00 00",
+            phoneValue: [
+                "+38 (050) 941-61-95",
+                "+38 (097) 903-62-25",
+                "+38 (093) 170-41-79",
+                "+38 (099) 499-33-99",
+                "+38 (068) 499-33-99"
+            ],
             emailValue: "gil.apartments@example.com",
             copyright: "© 2026 G.I.L Apartments. All rights reserved.",
             madeBy: "Website created by Gleb and Kirill - web developers from Uzhhorod."
@@ -489,6 +501,18 @@ const buildFooterMarkup = () => {
     const copy = getStaticCopy(lang).footer;
     const currentPaths = SITE_CONFIG[lang].paths;
 
+    const phones = Array.isArray(copy.phoneValue) ? copy.phoneValue : [copy.phoneValue];
+    const phoneListMarkup = phones
+        .map(
+            (phone) => `
+        <p class="footer__text footer__contact">
+            ${buildIconMarkup("fas fa-phone-alt", "footer__icon")}
+            <span>${phone}</span>
+        </p>
+    `
+        )
+        .join("");
+
     return `
         <footer class="footer">
             <div class="footer__content">
@@ -499,10 +523,7 @@ const buildFooterMarkup = () => {
                 </div>
                 <div class="footer__section">
                     <h3 class="footer__title">${copy.contactsTitle}</h3>
-                    <p class="footer__text footer__contact">
-                        ${buildIconMarkup("fas fa-phone-alt", "footer__icon")}
-                        <span>${copy.phoneValue}</span>
-                    </p>
+                    ${phoneListMarkup}
                     <p class="footer__text footer__contact">
                         ${buildIconMarkup("fas fa-envelope", "footer__icon")}
                         <span>${copy.emailValue}</span>
