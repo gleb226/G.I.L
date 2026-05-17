@@ -235,18 +235,18 @@
       "en": "Apartment at the address st. Corso 7. Number of rooms: 1. Number of guests: 3. Located on the 2nd floor. Amenities: TV, refrigerator, microwave oven, hot water, air conditioner, supermarket nearby, convenient transport interchange, balcony, internet, coded entrance, washing machine, satellite TV."
     },
     "features": [
-      
-      
+      "tv",
+      "refrigerator",
       "microwave",
-      
+      "hot_water",
       "air_conditioner",
       "near_supermarket",
-      
+      "good_transport",
       "balcony",
-      
-      "intercom"
-      
-      
+      "internet",
+      "coded_entry",
+      "washing_machine",
+      "satellite_tv"
     ],
     "floor": 2,
     "gallery": [
@@ -285,18 +285,18 @@
       "en": "Apartment at the address st. Corso 7. Number of rooms: 1. Number of guests: 4. Located on the 2nd floor. Amenities: TV, refrigerator, microwave oven, hot water, air conditioner, supermarket nearby, convenient transport interchange, balcony, internet, coded entrance, washing machine, satellite TV."
     },
     "features": [
-      
-      
+      "tv",
+      "refrigerator",
       "microwave",
-      
+      "hot_water",
       "air_conditioner",
       "near_supermarket",
-      
+      "good_transport",
       "balcony",
-      
-      "intercom"
-      
-      
+      "internet",
+      "coded_entry",
+      "washing_machine",
+      "satellite_tv"
     ],
     "floor": 2,
     "gallery": [
@@ -333,18 +333,18 @@
       "en": "Apartment at the address st. Corso 7. Number of rooms: 1. Number of guests: 3. Located on the 2nd floor. Amenities: TV, refrigerator, microwave oven, hot water, air conditioner, supermarket nearby, convenient transport interchange, balcony, internet, coded entrance, washing machine, satellite TV."
     },
     "features": [
-      
-      
+      "tv",
+      "refrigerator",
       "microwave",
-      
+      "hot_water",
       "air_conditioner",
       "near_supermarket",
-      
+      "good_transport",
       "balcony",
-      
-      "intercom"
-      
-      
+      "internet",
+      "coded_entry",
+      "washing_machine",
+      "satellite_tv"
     ],
     "floor": 2,
     "gallery": [
@@ -1711,18 +1711,18 @@
       "en": "Apartment at the address st. Corso 7. Number of rooms: 1. Number of guests: 4. Located on the 2nd floor. Amenities: TV, refrigerator, microwave oven, hot water, air conditioner, supermarket nearby, convenient transport interchange, balcony, internet, coded entrance, washing machine, satellite TV."
     },
     "features": [
-      
-      
+      "tv",
+      "refrigerator",
       "microwave",
-      
+      "hot_water",
       "air_conditioner",
       "near_supermarket",
-      
+      "good_transport",
       "balcony",
-      
-      "intercom"
-      
-      
+      "internet",
+      "coded_entry",
+      "washing_machine",
+      "satellite_tv"
     ],
     "floor": 2,
     "gallery": [

@@ -10,9 +10,16 @@
     display: grid;
     grid-template-columns: minmax(0, 1fr) 20em;
     grid-template-areas:
-        "gallery info"
-        "description features"
+        "gallery sidebar"
+        "description sidebar"
         "map map";
+    gap: 1.875em;
+}
+
+.apartment_sidebar{
+    grid-area: sidebar;
+    display: flex;
+    flex-direction: column;
     gap: 1.875em;
 }
 
@@ -155,9 +162,6 @@
     font-size: 1.05rem;
     margin-bottom: 0.875em;
 }
-#apartmentFeaturesBox{
-    margin-top: -6em;
-}
 
 .apartment_features{
     display: grid;
@@ -299,6 +303,10 @@
             "features"
             "description"
             "map";
+    }
+
+    .apartment_sidebar{
+        display: contents;
     }
 
     .gallery{

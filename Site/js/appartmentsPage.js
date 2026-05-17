@@ -153,6 +153,10 @@ const initApartmentPage = () => {
         if (image) {
             image.src = mainImageSrc;
             image.alt = apartmentTitle;
+            image.onerror = () => {
+                image.src = window.getAssetUrl("images/logo.png");
+                image.classList.add("is-fallback");
+            };
             image.addEventListener("click", () => galleryViewer.open(0));
         }
 
@@ -168,6 +172,9 @@ const initApartmentPage = () => {
                 img.alt = apartmentTitle;
                 img.className = "thumb_image";
                 img.loading = "lazy";
+                img.onerror = () => {
+                    img.src = window.getAssetUrl("images/logo.png");
+                };
                 img.addEventListener("click", () => {
                     if (image) {
                         image.src = src;
