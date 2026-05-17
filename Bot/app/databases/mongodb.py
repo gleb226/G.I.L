@@ -69,12 +69,22 @@ async def export_site_json():
         for ap in aps: ap["_id"] = str(ap["_id"])
         site_api_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..', '..', 'Site', 'api'))
         if not os.path.exists(site_api_dir): os.makedirs(site_api_dir, exist_ok=True)
+        
+        # Export as JSON
         json_path = os.path.join(site_api_dir, 'apartments.json')
         with open(json_path, 'w', encoding='utf-8') as f:
             json.dump(aps, f, ensure_ascii=False, indent=2)
-        await add_log("database", "export_site_json", f"Exported {len(aps)} apartments to {json_path}")
+            
+        # Export as JS data (for the site)
+        js_path = os.path.join(site_api_dir, 'apartments-data.js')
+        with open(js_path, 'w', encoding='utf-8') as f:
+            f.write("window.APARTMENTS_DATA = ")
+            json.dump(aps, f, ensure_ascii=False, indent=2)
+            f.write(";")
+            
+        await add_log("database", "export_site_json", f"Exported {len(aps)} apartments to {json_path} and {js_path}")
     except Exception as e:
-        await log_error(f"Error exporting apartments.json: {e}", "")
+        await log_error(f"Error exporting site data: {e}", "")
 
 async def refresh_apartments_cache():
     global _apartments_cache
