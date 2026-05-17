@@ -306,7 +306,6 @@ a:focus-visible{
     box-shadow: var(--shadow-1);
     max-width: 44em;
     width: 100%;
-    text-align: center;
     box-sizing: border-box;
 }
 
