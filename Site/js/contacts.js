@@ -24,17 +24,30 @@ const initContactsPage = () => {
     const phonePopupClose = document.getElementById("phonePopupClose");
     const phoneList = document.getElementById("phoneList");
 
+    const getOperator = (phone) => {
+        if (phone.includes("(050)") || phone.includes("(095)") || phone.includes("(099)") || phone.includes("(066)")) return "Vodafone";
+        if (phone.includes("(067)") || phone.includes("(096)") || phone.includes("(097)") || phone.includes("(098)") || phone.includes("(068)")) return "Kyivstar";
+        if (phone.includes("(063)") || phone.includes("(093)") || phone.includes("(073)")) return "Lifecell";
+        return "";
+    };
+
     if (phoneTrigger && phonePopup && phoneList) {
         const copy = window.getStaticCopy?.();
         const phones = Array.isArray(copy?.footer?.phoneValue) ? copy.footer.phoneValue : [];
 
         if (phones.length > 0) {
-            phoneList.innerHTML = phones.map(phone => `
-                <a href="tel:${phone.replace(/\D/g, '')}" class="phone_list_item">
-                    <i class="fas fa-phone-alt"></i>
-                    <span>${phone}</span>
-                </a>
-            `).join('');
+            phoneList.innerHTML = phones.map(phone => {
+                const operator = getOperator(phone);
+                return `
+                    <a href="tel:${phone.replace(/\D/g, '')}" class="phone_list_item">
+                        <div class="phone_item_info">
+                            <i class="fas fa-phone-alt"></i>
+                            <span>${phone}</span>
+                        </div>
+                        ${operator ? `<span class="operator_badge">${operator}</span>` : ''}
+                    </a>
+                `;
+            }).join('');
         }
 
         const openPopup = () => {
