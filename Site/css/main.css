@@ -198,7 +198,7 @@
     opacity: 0;
     visibility: hidden;
     pointer-events: none;
-    max-height: calc(100vh - 10rem);
+    max-height: calc(100dvh - 10rem);
     overflow-y: auto;
     backdrop-filter: blur(14px);
     -webkit-backdrop-filter: blur(14px);
@@ -811,7 +811,7 @@
 
 @media (max-width: 53.75em){
     .main_catalog{
-        padding: 10em 1.2em 3em;
+        padding: clamp(7.75rem, 22vw, 9.5rem) 1.1rem 3em;
     }
 
     .filter_bar{
@@ -823,7 +823,7 @@
         top: 8.5rem;
         left: 0;
         width: min(30rem, calc(100vw - 1rem));
-        max-height: calc(100vh - 9.5rem);
+        max-height: calc(100dvh - 9.5rem);
     }
 
     .filter_button{
@@ -832,6 +832,12 @@
 }
 
 @media (max-width: 35em){
+    .main_catalog{
+        padding-top: clamp(7.25rem, 24vw, 8.5rem);
+        padding-left: 0.95rem;
+        padding-right: 0.95rem;
+    }
+
     .hero_price_tag{
         min-height: 2.4rem;
         padding: 0.2rem 0.8rem 0.2rem 0.7rem;
@@ -845,12 +851,12 @@
     }
 
     .filter_panel{
-        top: 7.8rem;
+        top: clamp(5.9rem, 18vw, 7.25rem);
         left: 0;
         width: min(30rem, calc(100vw - 1rem));
         padding-left: 1rem;
         border-radius: 0 1.6rem 1.6rem 0;
-        max-height: calc(100vh - 8.8rem);
+        max-height: calc(100dvh - 7.75rem);
     }
 
     .filter_feature_list{
@@ -862,8 +868,8 @@
     }
 
     .flat_meta{
-        flex-direction: column;
-        align-items: stretch;
+        grid-template-columns: 1fr;
+        gap: 0.75rem;
     }
 
     .flat_button{

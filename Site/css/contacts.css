@@ -58,3 +58,14 @@
 .contact_inline a:hover{
     color: var(--accent);
 }
+
+@media (max-width: 40em){
+    .contacts_links{
+        grid-template-columns: 1fr;
+    }
+
+    .contacts_link_button{
+        width: 100%;
+        justify-content: center;
+    }
+}

@@ -139,7 +139,11 @@
 
 @media (max-width: 40em){
     #map{
-        height: 26rem;
+        position: relative;
+        top: auto;
+        height: 24rem;
+        margin-top: 1.25rem;
+        border-radius: var(--radius-md);
     }
 
     .leaflet-popup-content .popup{
@@ -152,5 +156,12 @@
 
     .leaflet-popup-content .popup__actions{
         grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 56.25em){
+    #map{
+        position: relative;
+        top: auto;
     }
 }

@@ -366,7 +366,7 @@ const buildHeaderMarkup = (page) => {
     const preservedParams = getPreservedParamsForPage(page);
     const currentPaths = SITE_CONFIG[lang].paths;
 
-    const items = ["main", "map", "booking", "contacts"]
+    const items = ["main", "about", "map", "booking", "contacts"]
         .map((key) => {
             const className = key === page ? "navigation_current" : "navigation";
             const href =
@@ -379,6 +379,18 @@ const buildHeaderMarkup = (page) => {
                     <a href="${href}" data-i18n="nav.${key}"></a>
                 </div>
             `;
+        })
+        .join("");
+
+    const mobileLinks = ["main", "about", "map", "booking", "contacts"]
+        .map((key) => {
+            const isActive = key === page;
+            const href =
+                isActive
+                    ? "#"
+                    : getPageUrlWithCurrentParams(currentPaths[key] || currentPaths.main, preservedParams);
+
+            return `<a class="mobile_menu_link${isActive ? " is-active" : ""}" href="${href}" data-i18n="nav.${key}"></a>`;
         })
         .join("");
 
@@ -396,7 +408,80 @@ const buildHeaderMarkup = (page) => {
                 </div>
             </div>
         </header>
+
+        <div class="mobile_menu" data-mobile-menu>
+            <button class="mobile_menu_toggle" type="button" aria-expanded="false" aria-controls="mobileMenuPanel" data-mobile-menu-toggle>
+                <span class="mobile_menu_icon" aria-hidden="true"></span>
+                <span class="sr_only" data-i18n="common.actions.menu">Menu</span>
+            </button>
+            <nav class="mobile_menu_panel" id="mobileMenuPanel" data-mobile-menu-panel>
+                <div class="mobile_menu_header">
+                    <img class="mobile_menu_logo" src="${getAssetUrl("images/logo.png")}" alt="${translateKey("common.siteName", { lng: lang })}">
+                </div>
+                <div class="mobile_menu_links">
+                    ${mobileLinks}
+                </div>
+                <div class="mobile_menu_lang">
+                    <a href="${getPageUrlWithCurrentParams(SITE_CONFIG.en.paths[page] || SITE_CONFIG.en.paths.main, preservedParams)}" class="mobile_menu_lang_btn ${lang === "en" ? "is-active" : ""}" data-lang-choice="en">EN</a>
+                    <a href="${getPageUrlWithCurrentParams(SITE_CONFIG.uk.paths[page] || SITE_CONFIG.uk.paths.main, preservedParams)}" class="mobile_menu_lang_btn ${lang === "uk" ? "is-active" : ""}" data-lang-choice="uk">UA</a>
+                </div>
+            </nav>
+        </div>
     `;
+};
+
+const setupMobileMenu = (root) => {
+    const toggle = root?.querySelector("[data-mobile-menu-toggle]");
+    const panel = root?.querySelector("[data-mobile-menu-panel]");
+    if (!toggle || !panel) {
+        return;
+    }
+
+    const close = () => {
+        toggle.setAttribute("aria-expanded", "false");
+        panel.classList.remove("is-open");
+    };
+
+    const open = () => {
+        toggle.setAttribute("aria-expanded", "true");
+        panel.classList.add("is-open");
+    };
+
+    const isOpen = () => toggle.getAttribute("aria-expanded") === "true";
+
+    toggle.addEventListener("click", (event) => {
+        event.preventDefault();
+        if (isOpen()) {
+            close();
+        } else {
+            open();
+        }
+    });
+
+    panel.addEventListener("click", (event) => {
+        const link = event.target?.closest?.("a");
+        if (link) {
+            close();
+        }
+    });
+
+    document.addEventListener("keydown", (event) => {
+        if (event.key === "Escape") {
+            close();
+        }
+    });
+
+    document.addEventListener("pointerdown", (event) => {
+        if (!isOpen()) {
+            return;
+        }
+
+        if (panel.contains(event.target) || toggle.contains(event.target)) {
+            return;
+        }
+
+        close();
+    });
 };
 
 const buildFooterMarkup = () => {
@@ -433,13 +518,13 @@ const buildFooterMarkup = () => {
                     <a href="${getPageUrl(currentPaths.map)}" class="footer__link" data-i18n="nav.map"></a>
                     <a href="${getPageUrl(currentPaths.booking)}" class="footer__link" data-i18n="nav.booking"></a>
                     <a href="${getPageUrl(currentPaths.contacts)}" class="footer__link" data-i18n="nav.contacts"></a>
+                    <a href="${getPageUrl(currentPaths.about)}" class="footer__link">${buildInfoMarkup(copy.AboutUs, "fas fa-info-circle", { iconClassName: "footer__icon" })}</a>
                 </div>
                 <div class="footer__section">
                     <h3 class="footer__title">${copy.socialTitle}</h3>
                     <a href="https://www.instagram.com/kvartiry_posutochno_uzhgorod?igsh=cXA0dHdmbWFrajQ0&utm_source=qr" target="_blank" rel="noopener noreferrer" class="footer__link">${buildInfoMarkup(copy.instagram, "fab fa-instagram", { iconClassName: "footer__icon" })}</a>
                     <a href="https://www.facebook.com/GILapartments?mibextid=wwXIfr" target="_blank" rel="noopener noreferrer" class="footer__link">${buildInfoMarkup(copy.facebook, "fab fa-facebook-f", { iconClassName: "footer__icon" })}</a>
                     <a href="https://t.me/GIL_Apartments_Bot" target="_blank" rel="noopener noreferrer" class="footer__link">${buildInfoMarkup(copy.telegram, "fab fa-telegram-plane", { iconClassName: "footer__icon" })}</a>
-                    <a href="${getPageUrl(currentPaths.about)}" class="footer__link">${buildInfoMarkup(copy.AboutUs, "fas fa-info-circle", { iconClassName: "footer__icon" })}</a>
                 </div>
             </div>
             <div class="footer__bottom">
@@ -459,6 +544,7 @@ const mountSiteHeader = () => {
     const page = document.body?.dataset.page || "main";
     headerRoot.innerHTML = buildHeaderMarkup(page);
     window.translatePage?.(headerRoot);
+    setupMobileMenu(headerRoot);
 
     headerRoot.querySelectorAll("[data-lang-choice]").forEach((link) => {
         link.addEventListener("click", () => {

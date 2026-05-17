@@ -26,6 +26,7 @@ const TRANSLATIONS = {
             map: "Map",
             booking: "Booking",
             contacts: "Contacts",
+            about: "About Us",
             apartment: "Apartment",
         },
         features: {
@@ -162,6 +163,7 @@ const TRANSLATIONS = {
             map: "Мапа",
             booking: "Бронювання",
             contacts: "Контакти",
+            about: "Про нас",
             apartment: "Квартира",
         },
         features: {

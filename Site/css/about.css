@@ -212,4 +212,15 @@
     .about_hero .page_title{
         font-size: 2.1rem;
     }
+
+    .about_hero_content,
+    .about_story_card,
+    .about_quote_card,
+    .about_cta{
+        padding: 1.25rem;
+    }
+
+    .about_highlight{
+        padding: 1.25rem;
+    }
 }
