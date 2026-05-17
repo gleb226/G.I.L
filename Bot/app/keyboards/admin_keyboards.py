@@ -208,6 +208,7 @@ def features_selection_kb(selected_features=None, lang="uk"):
     keys = [
         "tv",
         "fridge",
+        "refrigerator",
         "microwave",
         "hot_water",
         "air_conditioner",
@@ -216,13 +217,18 @@ def features_selection_kb(selected_features=None, lang="uk"):
         "smart_tv",
         "balcony",
         "hob",
+        "gas_hob",
+        "electro_hob",
         "internet",
-        "cable_tv",
+        "wifi",
+        "parking",
         "secure_parking",
+        "intercom",
         "coded_entry",
         "washing_machine",
         "satellite_tv",
         "t2_tv",
+        "cable_tv",
     ]
 
     builder = InlineKeyboardBuilder()

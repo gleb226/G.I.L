@@ -44,7 +44,16 @@ const TRANSLATIONS = {
             refrigerator: "Refrigerator",
             hot_water: "Hot water",
             internet: "Internet",
-            wifi: "Wi-Fi"
+            wifi: "Wi-Fi",
+            coded_entry: "Coded entry building",
+            fridge: "Refrigerator",
+            good_transport: "Good transport access",
+            satellite_tv: "Satellite TV",
+            tv: "TV",
+            cable_tv: "Cable TV",
+            t2_tv: "T2 TV",
+            secure_parking: "Secure parking",
+            hob: "Gas cooktop"
         },
         pages: {
             main: {
@@ -176,7 +185,7 @@ const TRANSLATIONS = {
         features: {
             microwave: "Мікрохвильова піч",
             air_conditioner: "Кондиціонер",
-            near_supermarket: "Поряд магазин",
+            near_supermarket: "Поруч магазин",
             smart_tv: "Smart TV",
             balcony: "Балкон",
             gas_hob: "Газова плита",
@@ -185,9 +194,18 @@ const TRANSLATIONS = {
             intercom: "Домофон",
             washing_machine: "Пральна машина",
             refrigerator: "Холодильник",
+            fridge: "Холодильник",
             hot_water: "Гаряча вода",
             internet: "Інтернет",
-            wifi: "Wi-Fi"
+            wifi: "Wi-Fi",
+            coded_entry: "Під'їзд на коді",
+            good_transport: "Зручна розв'язка",
+            satellite_tv: "Супутникове ТБ",
+            tv: "Телевізор",
+            cable_tv: "Кабельне ТБ",
+            t2_tv: "ТБ T2",
+            secure_parking: "Парковка під охороною",
+            hob: "Варильна поверхня"
         },
         pages: {
             main: {

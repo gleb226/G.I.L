@@ -312,10 +312,19 @@ const APARTMENT_FEATURE_DEFINITIONS = [
     { key: "parking", iconClass: "fas fa-parking" },
     { key: "intercom", iconClass: "fas fa-bell" },
     { key: "washing_machine", iconClass: "fas fa-tshirt" },
-    { key: "refrigerator", iconClass: "fas fa-ice-cream" },
+    { key: "refrigerator", iconClass: "fas fa-snowflake" },
     { key: "hot_water", iconClass: "fas fa-tint" },
     { key: "internet", iconClass: "fas fa-wifi" },
-    { key: "wifi", iconClass: "fas fa-wifi" }
+    { key: "wifi", iconClass: "fas fa-wifi" },
+    { key: "coded_entry", iconClass: "fas fa-bell" },
+    { key: "fridge", iconClass: "fas fa-snowflake" },
+    { key: "good_transport", iconClass: "fas fa-bus" },
+    { key: "satellite_tv", iconClass: "fas fa-tv" },
+    { key: "tv", iconClass: "fas fa-tv" },
+    { key: "cable_tv", iconClass: "fas fa-tv" },
+    { key: "t2_tv", iconClass: "fas fa-tv" },
+    { key: "secure_parking", iconClass: "fas fa-parking" },
+    { key: "hob", iconClass: "fas fa-fire" }
 ];
 
 const getFeatureDefinition = (featureKey) =>

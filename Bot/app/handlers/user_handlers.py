@@ -147,8 +147,20 @@ def format_area_value(area, lang: str) -> str:
 def format_feature_list(features: list[str] | None, lang: str) -> str:
     if not features:
         return "Не вказано" if lang == "uk" else "Not specified"
+    
     labels = FEATURE_LABELS.get(lang, FEATURE_LABELS["uk"])
-    return ", ".join(labels.get(feature, feature.replace("_", " ")) for feature in features)
+    formatted = []
+    
+    for f in features:
+        if not f: continue
+        key = str(f).strip().lower()
+        label = labels.get(key)
+        if not label:
+            # Fallback: replace underscores and capitalize
+            label = key.replace("_", " ").capitalize()
+        formatted.append(label)
+        
+    return ", ".join(formatted) if formatted else ("Не вказано" if lang == "uk" else "Not specified")
 
 def normalize_phone_input(raw_phone: str | None) -> str:
     digits = "".join(filter(str.isdigit, raw_phone or ""))

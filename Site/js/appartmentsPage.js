@@ -159,7 +159,7 @@ const initApartmentPage = () => {
         const thumbsContainer = document.querySelector(".thumbs");
         if (thumbsContainer) {
             thumbsContainer.innerHTML = "";
-            const visibleGallery = gallery.length > 4 ? gallery.slice(0, 3) : gallery;
+            const visibleGallery = gallery.length > 5 ? gallery.slice(0, 4) : gallery;
 
             visibleGallery.forEach((galleryImage, index) => {
                 const img = document.createElement("img");
@@ -177,12 +177,12 @@ const initApartmentPage = () => {
                 thumbsContainer.appendChild(img);
             });
 
-            if (gallery.length > 4) {
+            if (gallery.length > 5) {
                 const moreButton = document.createElement("button");
                 moreButton.type = "button";
                 moreButton.className = "thumb_more";
-                moreButton.textContent = `+${gallery.length - 3}`;
-                moreButton.addEventListener("click", () => galleryViewer.open(3));
+                moreButton.textContent = `+${gallery.length - 4}`;
+                moreButton.addEventListener("click", () => galleryViewer.open(4));
                 thumbsContainer.appendChild(moreButton);
             }
         }
