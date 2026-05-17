@@ -49,6 +49,21 @@ const createGalleryViewer = (gallery, apartmentTitle, imageElement) => {
     overlay.querySelector(".gallery_viewer_prev").addEventListener("click", () => step(-1));
     overlay.querySelector(".gallery_viewer_next").addEventListener("click", () => step(1));
 
+    let touchStartX = 0;
+    let touchEndX = 0;
+
+    overlay.addEventListener("touchstart", (e) => {
+        touchStartX = e.changedTouches[0].screenX;
+    }, { passive: true });
+
+    overlay.addEventListener("touchend", (e) => {
+        touchEndX = e.changedTouches[0].screenX;
+        const diff = touchEndX - touchStartX;
+        if (Math.abs(diff) > 50) {
+            step(diff > 0 ? -1 : 1);
+        }
+    }, { passive: true });
+
     document.addEventListener("keydown", (event) => {
         if (overlay.hidden) {
             return;

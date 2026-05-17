@@ -12,7 +12,8 @@ BASE_URL = "https://rooms.net.ua/"
 LIST_URL = urljoin(BASE_URL, "apartments/")
 
 FEATURE_MAP = {
-    "телевізор": "tv",
+    "телевізор": "tv",,
+"refrigerator": "холодильник"
     "холодильник": "refrigerator",
     "мікрохвильова піч": "microwave",
     "гаряча вода": "hot_water",
@@ -38,7 +39,6 @@ FEATURE_MAP = {
 FEATURE_LABELS = {
     "uk": {
         "tv": "телевізор",
-        "refrigerator": "холодильник",
         "fridge": "холодильник",
         "microwave": "мікрохвильова піч",
         "hot_water": "гаряча вода",
