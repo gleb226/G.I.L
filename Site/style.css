@@ -291,6 +291,7 @@ a:focus-visible{
     margin-bottom: 1.5rem;
     font-size: 2rem;
     line-height: 1.2;
+    text-align: center;
 }
 
 .page_lead{
