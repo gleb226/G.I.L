@@ -725,7 +725,21 @@ async def pay_booking_h(callback: CallbackQuery):
     is_final = payload.startswith("p50_final_")
     parts = payload.split("_")
     booking_id = parts[2] if is_final else parts[1]
-    custom_amount = int(parts[3]) if len(parts) > 3 else None
+    custom_amount = None
+    # Callback formats:
+    # - p50_{booking_id}
+    # - p50_{booking_id}_{amount}                 (split prepayment)
+    # - p50_final_{booking_id}
+    # - p50_final_{booking_id}_{amount}           (split final payment)
+    try:
+        if is_final:
+            if len(parts) > 3:
+                custom_amount = int(parts[3])
+        else:
+            if len(parts) > 2:
+                custom_amount = int(parts[2])
+    except (TypeError, ValueError):
+        custom_amount = None
     booking = await get_booking(booking_id)
     if not booking:
         await callback.answer(get_text("msg_list_empty", lang), show_alert=True)
@@ -748,8 +762,18 @@ async def pay_booking_h(callback: CallbackQuery):
             if is_final else
             booking["prepayment"] - booking.get("paid_prepayment", 0)
         )
+    if amount <= 0:
+        await callback.answer(get_text("msg_already_paid", lang), show_alert=True)
+        return
 
     description_key = "msg_invoice_desc_balance" if is_final else "msg_invoice_desc_prepayment"
+    await add_log(
+        "payment",
+        "create_invoice",
+        details="Created Telegram invoice (Portmone provider)",
+        user_id=callback.from_user.id,
+        extra={"booking_id": str(booking_id), "amount": int(amount), "is_final": bool(is_final), "raw_payload": payload},
+    )
     await callback.message.answer_invoice(
         title="G.I.L Apartments",
         description=get_text(description_key, lang),
