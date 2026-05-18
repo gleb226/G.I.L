@@ -781,6 +781,10 @@ async def pay_booking_h(callback: CallbackQuery):
         provider_token=PAYMENT_TOKEN,
         currency="UAH",
         prices=[LabeledPrice(label="G.I.L Apartments", amount=amount * 100)],
+        need_email=True,
+        send_email_to_provider=True,
+        need_phone_number=True,
+        send_phone_number_to_provider=True,
     )
     await callback.answer()
 
