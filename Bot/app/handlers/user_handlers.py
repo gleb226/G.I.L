@@ -790,6 +790,33 @@ async def pay_booking_h(callback: CallbackQuery):
 
 @router.pre_checkout_query()
 async def pre_checkout_h(pre_checkout_query: PreCheckoutQuery):
+    try:
+        order_info = pre_checkout_query.order_info
+        await add_log(
+            "payment",
+            "pre_checkout",
+            details="Received pre-checkout query",
+            user_id=pre_checkout_query.from_user.id,
+            extra={
+                "invoice_payload": pre_checkout_query.invoice_payload,
+                "currency": pre_checkout_query.currency,
+                "total_amount": pre_checkout_query.total_amount,
+                "order_info": {
+                    "name": getattr(order_info, "name", None),
+                    "phone_number": getattr(order_info, "phone_number", None),
+                    "email": getattr(order_info, "email", None),
+                    "shipping_address": bool(getattr(order_info, "shipping_address", None)),
+                } if order_info else None,
+            },
+        )
+    except Exception as e:
+        await add_log(
+            "payment",
+            "pre_checkout_log_error",
+            details=f"Failed to log pre-checkout query: {type(e).__name__}",
+            level="ERROR",
+            extra={"error": str(e)[:1000]},
+        )
     await pre_checkout_query.answer(ok=True)
 
 @router.message(F.successful_payment)
