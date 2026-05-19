@@ -1,4 +1,4 @@
-﻿from aiogram import Router, F, Bot
+from aiogram import Router, F, Bot
 from aiogram.exceptions import TelegramBadRequest
 from aiogram.types import Message, CallbackQuery, PreCheckoutQuery, LabeledPrice, FSInputFile, InlineKeyboardButton
 from aiogram.filters import CommandStart, StateFilter
@@ -989,8 +989,6 @@ async def user_reply_to_staff_h(message: Message, state: FSMContext, bot: Bot):
                 sent = True
             except Exception:
                 continue
-        except Exception:
-            pass
 
     await state.clear()
     await message.answer(get_text("msg_sent_to_admin", lang if sent else "uk"))
