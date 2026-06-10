@@ -8,6 +8,10 @@
     margin-bottom: 4.5em;
 }
 
+.hero_flat.is-hidden{
+    display: none !important;
+}
+
 .hero_flat_link{
     position: relative;
     display: block;
@@ -621,8 +625,7 @@
     width: min(78rem, 100%);
     margin: 0 auto;
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(18.5rem, 1fr));
-    gap: 2rem;
+    gap: 2.6rem;
 }
 
 .flat_card{
@@ -669,10 +672,30 @@
 }
 
 .flat_card_media{
+    position: relative;
     display: block;
     border-radius: 0.95rem;
     overflow: hidden;
     margin-bottom: 0.65em;
+}
+
+.flat_state_badge{
+    position: absolute;
+    top: 0.7rem;
+    left: 0.7rem;
+    z-index: 2;
+    display: inline-flex;
+    align-items: center;
+    min-height: 2rem;
+    padding: 0 0.8rem;
+    border-radius: 999px;
+    background: rgba(var(--surface-muted-rgb), 0.9);
+    color: var(--text-on-dark);
+    font-size: 0.76rem;
+    font-weight: 800;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    box-shadow: 0 0.8rem 1.5rem rgba(0, 0, 0, 0.15);
 }
 
 .flat_card_image{

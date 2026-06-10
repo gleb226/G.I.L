@@ -5,10 +5,17 @@ const mapApartmentsData = (data) => {
 
     return data
         .filter((apartment) => apartment?.is_available !== false)
-        .map((apartment) => ({
-            ...(window.normalizeDataTree ? window.normalizeDataTree(apartment) : apartment),
-            id: apartment.external_id || apartment._id
-        }));
+        .map((apartment) => {
+            const normalizedApartment = window.normalizeDataTree ? window.normalizeDataTree(apartment) : apartment;
+
+            return {
+                ...normalizedApartment,
+                id: apartment.external_id || apartment._id,
+                isBooked: normalizedApartment.isBooked ?? normalizedApartment.isbooked ?? false,
+                checkInDate: normalizedApartment.checkInDate ?? null,
+                checkOutDate: normalizedApartment.checkOutDate ?? null
+            };
+        });
 };
 
 const setApartments = (data) => {

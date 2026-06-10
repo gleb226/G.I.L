@@ -8,15 +8,27 @@ const initMainPage = () => {
     const filterReset = document.getElementById("filterReset");
     const flatsCatalog = document.getElementById("flatsCatalog");
     const catalogEmpty = document.getElementById("catalogEmpty");
+    const availabilityCalendarRoot = document.getElementById("mainAvailabilityCalendar");
+    const heroSection = document.querySelector(".hero_flat");
     const heroFlatLink = document.getElementById("heroFlatLink");
     const heroImageCurrent = document.getElementById("heroFlatImageCurrent");
     const heroImageStage = document.querySelector(".hero_image_stage");
     const heroPriceTag = document.getElementById("heroPriceTag");
     const heroAddressTag = document.getElementById("heroAddressTag");
     const featureFilters = document.getElementById("featureFilters");
+    const roomsSelect = document.getElementById("rooms");
     const priceRangeRoot = filterForm ? filterForm.querySelector(".filter_range") : null;
     const lang = window.getCurrentLang ? window.getCurrentLang() : "en";
-    const selectedFeatureKeys = new Set();
+    const dateUtils = window.AvailabilityCalendarUtils || null;
+    const urlParams = new URLSearchParams(window.location.search);
+    const initialAvailabilityRange = dateUtils?.normalizeRange(
+        urlParams.get("check_in"),
+        urlParams.get("check_out")
+    ) || {
+        checkIn: null,
+        checkOut: null
+    };
+    const selectedFeatureAliases = new Set();
     const apartmentPrices = apartmentsData
         .map((apartment) => Number(apartment.price))
         .filter((price) => Number.isFinite(price) && price > 0);
@@ -24,6 +36,37 @@ const initMainPage = () => {
     const priceMinGap = 100;
     const priceMinLimit = apartmentPrices.length > 0 ? Math.floor(Math.min(...apartmentPrices) / priceStep) * priceStep : 0;
     const priceMaxLimit = apartmentPrices.length > 0 ? Math.ceil(Math.max(...apartmentPrices) / priceStep) * priceStep : priceStep;
+    const featureUrlAliasByKey = {
+        microwave: "microwave",
+        air_conditioner: "ac",
+        near_supermarket: "store",
+        smart_tv: "smart-tv",
+        balcony: "balcony",
+        gas_hob: "gas",
+        electro_hob: "electric",
+        parking: "parking",
+        intercom: "intercom",
+        washing_machine: "washer",
+        refrigerator: "ref",
+        hot_water: "hot-water",
+        internet: "ethernet",
+        wifi: "wifi",
+        coded_entry: "coded-entry",
+        fridge: "ref",
+        good_transport: "transport",
+        satellite_tv: "satellite-tv",
+        tv: "tv",
+        cable_tv: "cable-tv",
+        t2_tv: "t2-tv",
+        secure_parking: "secure-parking",
+        hob: "hob"
+    };
+    const getFeatureUrlAlias = (featureKey) =>
+        featureUrlAliasByKey[featureKey] || String(featureKey || "").trim().toLowerCase();
+    const orderedFeatureAliases = Array.from(new Set(
+        featureDefinitions.map((feature) => getFeatureUrlAlias(feature.key))
+    ));
+    const validFeatureAliases = new Set(orderedFeatureAliases);
     let effectivePriceMinGap = priceMinGap;
     let priceFromInput = null;
     let priceToInput = null;
@@ -32,6 +75,15 @@ const initMainPage = () => {
     let priceSlider = null;
     let priceTrackLayer = null;
     let priceRangeTrack = null;
+    let availabilityCalendar = null;
+    let selectedStay = {
+        checkIn: initialAvailabilityRange.checkIn,
+        checkOut: initialAvailabilityRange.checkOut,
+        isComplete: !!initialAvailabilityRange.checkIn && !!initialAvailabilityRange.checkOut,
+        nights: initialAvailabilityRange.checkIn && initialAvailabilityRange.checkOut && dateUtils
+            ? dateUtils.diffInDays(initialAvailabilityRange.checkIn, initialAvailabilityRange.checkOut)
+            : 0
+    };
     let heroCarouselApartments = apartmentsData.slice();
     let heroCarouselIndex = 0;
     let heroCarouselTimer = null;
@@ -47,6 +99,35 @@ const initMainPage = () => {
     }
 
     const getText = (key, options = {}) => window.t(key, { lng: lang, ...options });
+    const hasSelectedDates = () => !!selectedStay.checkIn || !!selectedStay.checkOut;
+    const hasCompleteSelectedDates = () => !!selectedStay.checkIn && !!selectedStay.checkOut;
+
+    const buildApartmentDetailUrl = (apartmentId) => {
+        const url = new URL(window.getApartmentUrl(apartmentId, lang));
+
+        if (selectedStay.checkIn) {
+            url.searchParams.set("check_in", selectedStay.checkIn);
+        }
+
+        if (selectedStay.checkOut) {
+            url.searchParams.set("check_out", selectedStay.checkOut);
+        }
+
+        return url.href;
+    };
+
+    const isApartmentBookedForSelectedDates = (apartment) => {
+        if (!hasCompleteSelectedDates() || !dateUtils || !apartment?.isBooked) {
+            return false;
+        }
+
+        return dateUtils.doRangesOverlap(
+            selectedStay.checkIn,
+            selectedStay.checkOut,
+            apartment.checkInDate,
+            apartment.checkOutDate
+        );
+    };
 
     const clampPrice = (value, fallback) => {
         if (value === "" || value === null || value === undefined) {
@@ -384,12 +465,12 @@ const initMainPage = () => {
         });
     }
 
-    const createApartmentCard = (apartment) => {
+    const createApartmentCard = (apartment, options = {}) => {
         const article = document.createElement("article");
-        article.className = "flat_card flat_card_linked";
+        article.className = `flat_card flat_card_linked${options.isBooked ? " flat_card--booked" : ""}`;
 
         const apartmentTitle = window.getApartmentTitle(apartment, lang);
-        const apartmentUrl = window.getApartmentUrl(apartment.id, lang);
+        const apartmentUrl = buildApartmentDetailUrl(apartment.id);
         const apartmentDetails = window
             .getApartmentFeatures(apartment)
             .slice(0, 5)
@@ -398,11 +479,15 @@ const initMainPage = () => {
                 labelClassName: "flat_detail_label"
             }));
         const visibleDetails = apartmentDetails;
+        const bookingBadge = options.isBooked
+            ? `<span class="flat_state_badge">${getText("pages.main.bookedBadge")}</span>`
+            : "";
 
         article.innerHTML = `
             <a href="${apartmentUrl}" class="flat_card_link" aria-label="${getText("common.actions.open")} ${apartmentTitle}">
                 <div class="flat_card_media">
                     <img src="${window.getAssetUrl(apartment.img)}" alt="${apartmentTitle}" class="flat_card_image" loading="lazy" decoding="async">
+                    ${bookingBadge}
                 </div>
                 <div class="flat_card_body">
                     <p class="flat_location">${apartmentTitle}</p>
@@ -420,7 +505,35 @@ const initMainPage = () => {
         return article;
     };
 
-    const renderCatalog = (catalogApartments) => {
+    const renderCatalogGroup = ({
+        title = "",
+        description = "",
+        apartments = [],
+        isBookedGroup = false
+    }) => {
+        const group = document.createElement("section");
+        group.className = `catalog_group${isBookedGroup ? " catalog_group--booked" : ""}`;
+
+        if (title || description) {
+            const heading = document.createElement("div");
+            heading.className = "catalog_group_heading";
+            heading.innerHTML = `
+                <h3>${title}</h3>
+            `;
+            group.appendChild(heading);
+        }
+
+        const grid = document.createElement("div");
+        grid.className = "catalog_group_grid";
+        apartments.forEach((apartment) => {
+            grid.appendChild(createApartmentCard(apartment, { isBooked: isBookedGroup }));
+        });
+        group.appendChild(grid);
+
+        return group;
+    };
+
+    const renderCatalog = (catalogApartments, filters) => {
         if (!flatsCatalog || !catalogEmpty) {
             return;
         }
@@ -434,9 +547,43 @@ const initMainPage = () => {
         }
 
         catalogEmpty.hidden = true;
+
+        if (!hasCompleteSelectedDates()) {
+            flatsCatalog.appendChild(renderCatalogGroup({
+                apartments: catalogApartments
+            }));
+            return;
+        }
+
+        const availableApartments = [];
+        const bookedApartments = [];
+
         catalogApartments.forEach((apartment) => {
-            flatsCatalog.appendChild(createApartmentCard(apartment));
+            if (isApartmentBookedForSelectedDates(apartment)) {
+                bookedApartments.push(apartment);
+            } else {
+                availableApartments.push(apartment);
+            }
         });
+
+        if (availableApartments.length > 0) {
+            flatsCatalog.appendChild(renderCatalogGroup({
+                title: getText("pages.main.availableHeading"),
+                description: bookedApartments.length > 0
+                    ? getText("pages.main.availableLead")
+                    : getText("pages.main.availableOnlyLead"),
+                apartments: availableApartments
+            }));
+        }
+
+        if (bookedApartments.length > 0) {
+            flatsCatalog.appendChild(renderCatalogGroup({
+                title: getText("pages.main.bookedHeading"),
+                description: getText("pages.main.bookedLead"),
+                apartments: bookedApartments,
+                isBookedGroup: true
+            }));
+        }
     };
 
     const updateHero = (apartment) => {
@@ -446,7 +593,7 @@ const initMainPage = () => {
 
         const heroTitle = window.getApartmentTitle(apartment, lang);
 
-        heroFlatLink.href = window.getApartmentUrl(apartment.id, lang);
+        heroFlatLink.href = buildApartmentDetailUrl(apartment.id);
         heroImageCurrent.src = window.getAssetUrl(apartment.img);
         heroImageCurrent.alt = heroTitle;
 
@@ -471,7 +618,7 @@ const initMainPage = () => {
 
         heroImageNext.src = window.getAssetUrl(apartment.img);
         heroImageNext.alt = heroTitle;
-        heroFlatLink.href = window.getApartmentUrl(apartment.id, lang);
+        heroFlatLink.href = buildApartmentDetailUrl(apartment.id);
 
         if (heroPriceTag) {
             heroPriceTag.textContent = window.formatPrice(apartment.price, lang);
@@ -525,6 +672,23 @@ const initMainPage = () => {
         return Number.isFinite(value) && value > 0 ? value : null;
     };
 
+    const normalizeFeatureUrlAlias = (value) =>
+        String(value || "").trim().toLowerCase();
+
+    const parseFeatureAliases = (rawValues) => {
+        const values = Array.isArray(rawValues) ? rawValues : [rawValues];
+
+        return values
+            .flatMap((value) => String(value || "").split(/[;,|]/))
+            .map((value) => normalizeFeatureUrlAlias(value))
+            .filter((value, index, collection) =>
+                value && collection.indexOf(value) === index && validFeatureAliases.has(value)
+            );
+    };
+
+    const getOrderedSelectedFeatureAliases = () =>
+        orderedFeatureAliases.filter((alias) => selectedFeatureAliases.has(alias));
+
     const getNormalizedFilterPrices = () => {
         if (!priceFromInput || !priceToInput) {
             return {
@@ -553,12 +717,13 @@ const initMainPage = () => {
         featureFilters.innerHTML = "";
 
         featureDefinitions.forEach((feature) => {
-            const isSelected = selectedFeatureKeys.has(feature.key);
+            const featureAlias = getFeatureUrlAlias(feature.key);
+            const isSelected = selectedFeatureAliases.has(featureAlias);
             const button = document.createElement("button");
 
             button.type = "button";
             button.className = `filter_feature_tag${isSelected ? " is-selected" : ""}`;
-            button.dataset.feature = feature.key;
+            button.dataset.feature = featureAlias;
             button.setAttribute("aria-pressed", String(isSelected));
             button.innerHTML = `
                 <span class="filter_feature_check">&#10003;</span>
@@ -572,10 +737,10 @@ const initMainPage = () => {
             `;
 
             button.addEventListener("click", () => {
-                if (selectedFeatureKeys.has(feature.key)) {
-                    selectedFeatureKeys.delete(feature.key);
+                if (selectedFeatureAliases.has(featureAlias)) {
+                    selectedFeatureAliases.delete(featureAlias);
                 } else {
-                    selectedFeatureKeys.add(feature.key);
+                    selectedFeatureAliases.add(featureAlias);
                 }
 
                 renderFeatureFilters();
@@ -592,6 +757,8 @@ const initMainPage = () => {
                 rooms: null,
                 priceFrom: null,
                 priceTo: null,
+                checkIn: selectedStay.checkIn,
+                checkOut: selectedStay.checkOut,
                 monthFrom: null,
                 monthTo: null,
                 bedsFrom: null,
@@ -607,12 +774,132 @@ const initMainPage = () => {
             rooms: getNumericValue(formData, "rooms"),
             priceFrom: normalizedPrices.priceFrom,
             priceTo: normalizedPrices.priceTo,
+            checkIn: selectedStay.checkIn,
+            checkOut: selectedStay.checkOut,
             monthFrom: getNumericValue(formData, "month_from"),
             monthTo: getNumericValue(formData, "month_to"),
             bedsFrom: getNumericValue(formData, "beds_from"),
             bedsTo: getNumericValue(formData, "beds_to"),
-            features: Array.from(selectedFeatureKeys)
+            features: getOrderedSelectedFeatureAliases()
         };
+    };
+
+    const isPriceFromActive = (priceFrom) =>
+        Number.isFinite(priceFrom) && priceFrom > priceMinLimit;
+
+    const isPriceToActive = (priceTo) =>
+        Number.isFinite(priceTo) && priceTo < priceMaxLimit;
+
+    const hasActiveFilters = (filters) => {
+        if (!filters) {
+            return false;
+        }
+
+        const hasPriceFilter = isPriceFromActive(filters.priceFrom)
+            || isPriceToActive(filters.priceTo);
+
+        return filters.rooms !== null
+            || hasPriceFilter
+            || !!filters.checkIn
+            || !!filters.checkOut
+            || filters.monthFrom !== null
+            || filters.monthTo !== null
+            || filters.bedsFrom !== null
+            || filters.bedsTo !== null
+            || filters.features.length > 0;
+    };
+
+    const syncFiltersToUrl = (filters) => {
+        const url = new URL(window.location.href);
+        const featureAliases = Array.isArray(filters?.features) ? filters.features : [];
+
+        if (filters?.rooms !== null) {
+            url.searchParams.set("rooms", String(filters.rooms));
+        } else {
+            url.searchParams.delete("rooms");
+        }
+
+        if (isPriceFromActive(filters?.priceFrom)) {
+            url.searchParams.set("price_from", String(filters.priceFrom));
+        } else {
+            url.searchParams.delete("price_from");
+        }
+
+        if (isPriceToActive(filters?.priceTo)) {
+            url.searchParams.set("price_to", String(filters.priceTo));
+        } else {
+            url.searchParams.delete("price_to");
+        }
+
+        if (filters?.checkIn) {
+            url.searchParams.set("check_in", String(filters.checkIn));
+        } else {
+            url.searchParams.delete("check_in");
+        }
+
+        if (filters?.checkOut) {
+            url.searchParams.set("check_out", String(filters.checkOut));
+        } else {
+            url.searchParams.delete("check_out");
+        }
+
+        url.searchParams.delete("features");
+
+        featureAliases.forEach((featureAlias) => {
+            url.searchParams.append("features", featureAlias);
+        });
+
+        window.history.replaceState(window.history.state, "", `${url.pathname}${url.search}${url.hash}`);
+    };
+
+    const applyFiltersFromUrl = () => {
+        const params = new URLSearchParams(window.location.search);
+        const urlFeatureAliases = parseFeatureAliases(params.getAll("features"));
+        const roomsValue = params.get("rooms") || "";
+        const dateRange = dateUtils?.normalizeRange(
+            params.get("check_in"),
+            params.get("check_out")
+        ) || {
+            checkIn: null,
+            checkOut: null
+        };
+
+        selectedFeatureAliases.clear();
+        urlFeatureAliases.forEach((featureAlias) => selectedFeatureAliases.add(featureAlias));
+        selectedStay = {
+            checkIn: dateRange.checkIn,
+            checkOut: dateRange.checkOut,
+            isComplete: !!dateRange.checkIn && !!dateRange.checkOut,
+            nights: dateRange.checkIn && dateRange.checkOut && dateUtils
+                ? dateUtils.diffInDays(dateRange.checkIn, dateRange.checkOut)
+                : 0
+        };
+
+        if (roomsSelect) {
+            const hasMatchingOption = Array.from(roomsSelect.options).some((option) => option.value === roomsValue);
+            roomsSelect.value = hasMatchingOption ? roomsValue : "";
+        }
+
+        if (priceFromInput && priceToInput) {
+            syncPriceControls({
+                apply: false,
+                rawFrom: params.get("price_from") ?? priceMinLimit,
+                rawTo: params.get("price_to") ?? priceMaxLimit
+            });
+        }
+    };
+
+    const setHeroVisibility = (isVisible) => {
+        if (!heroSection) {
+            return;
+        }
+
+        heroSection.classList.toggle("is-hidden", !isVisible);
+        heroSection.hidden = !isVisible;
+
+        if (!isVisible) {
+            stopHeroCarousel();
+        }
     };
 
     const apartmentMatchesFilters = (apartment, filters) => {
@@ -625,8 +912,8 @@ const initMainPage = () => {
         if (filters.bedsTo !== null && apartment.beds > filters.bedsTo) return false;
 
         if (filters.features.length > 0) {
-            const apartmentFeatures = window.getApartmentFeatures(apartment);
-            const hasAllSelectedFeatures = filters.features.every((featureKey) => apartmentFeatures.includes(featureKey));
+            const apartmentFeatures = new Set(window.getApartmentFeatures(apartment).map((featureKey) => getFeatureUrlAlias(featureKey)));
+            const hasAllSelectedFeatures = filters.features.every((featureAlias) => apartmentFeatures.has(featureAlias));
 
             if (!hasAllSelectedFeatures) {
                 return false;
@@ -639,15 +926,32 @@ const initMainPage = () => {
     const applyFilters = () => {
         const filters = getFilters();
         const filteredApartments = apartmentsData.filter((apartment) => apartmentMatchesFilters(apartment, filters));
+        const shouldShowHero = !hasActiveFilters(filters);
 
-        renderCatalog(filteredApartments);
-        startHeroCarousel(filteredApartments);
+        syncFiltersToUrl(filters);
+        renderCatalog(filteredApartments, filters);
+        setHeroVisibility(shouldShowHero);
+
+        if (shouldShowHero) {
+            startHeroCarousel(filteredApartments);
+        }
     };
 
-    renderFeatureFilters();
     initPriceRange();
-    renderCatalog(apartmentsData);
-    startHeroCarousel(apartmentsData);
+    applyFiltersFromUrl();
+    if (availabilityCalendarRoot && typeof window.createAvailabilityCalendar === "function") {
+        availabilityCalendar = window.createAvailabilityCalendar(availabilityCalendarRoot, {
+            lang,
+            initialCheckIn: selectedStay.checkIn,
+            initialCheckOut: selectedStay.checkOut,
+            onSelectionChange: (rangeState) => {
+                selectedStay = rangeState;
+                applyFilters();
+            }
+        });
+    }
+    renderFeatureFilters();
+    applyFilters();
 
     if (filterForm) {
         filterForm.addEventListener("submit", (event) => {
@@ -675,9 +979,19 @@ const initMainPage = () => {
                 priceToInput.value = String(priceMaxLimit);
                 syncPriceControls({ apply: false });
             }
-            selectedFeatureKeys.clear();
+            selectedFeatureAliases.clear();
             renderFeatureFilters();
-            applyFilters();
+            if (availabilityCalendar) {
+                availabilityCalendar.setSelection(null, null);
+            } else {
+                selectedStay = {
+                    checkIn: null,
+                    checkOut: null,
+                    isComplete: false,
+                    nights: 0
+                };
+                applyFilters();
+            }
         });
     }
 };

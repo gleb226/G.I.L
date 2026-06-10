@@ -40,7 +40,8 @@
     <link rel="apple-touch-icon" href="images/logo.png">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reset-css@5.0.2/reset.min.css">
     <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="css/main.css?v=20260516-7">
+    <link rel="stylesheet" href="css/availability-calendar.css">
+    <link rel="stylesheet" href="css/main.css?v=20260518-1">
     <script type="application/ld+json">
     {
         "@context": "https://schema.org",
@@ -125,6 +126,15 @@
             </a>
         </section>
 
+        <section class="availability_panel home_availability_panel" id="mainAvailabilityPanel">
+            <div class="availability_panel_intro">
+                <span class="availability_eyebrow" data-i18n="pages.main.availabilityEyebrow">Р”Р°С‚Рё РїСЂРѕР¶РёРІР°РЅРЅСЏ</span>
+                <h2 data-i18n="pages.main.availabilityTitle">РћР±РµСЂС–С‚СЊ РґР°С‚Рё С‚Р° РѕРґСЂР°Р·Сѓ РїРѕР±Р°С‡С‚Рµ, С‰Рѕ РІС–Р»СЊРЅРѕ</h2>
+                <p data-i18n="pages.main.availabilityLead">РџРѕР·РЅР°С‡С‚Рµ Р·Р°С—Р·Рґ С– РІРёС—Р·Рґ, Р° РјРё РїС–РґРЅС–РјРµРјРѕ РґРѕСЃС‚СѓРїРЅС– РєРІР°СЂС‚РёСЂРё РІРіРѕСЂСѓ, Р° Р·Р°Р№РЅСЏС‚С– Р·Р°Р»РёС€РёРјРѕ РЅРёР¶С‡Рµ РѕРєСЂРµРјРёРј Р±Р»РѕРєРѕРј.</p>
+            </div>
+            <div id="mainAvailabilityCalendar"></div>
+        </section>
+
         <section class="flats_catalog" id="flatsCatalog" data-i18n="[aria-label]pages.main.listAria"></section>
         <p class="catalog_empty" id="catalogEmpty" hidden data-i18n="pages.main.empty">За вашим фільтром квартири не знайдені.</p>
     </main>
@@ -135,9 +145,10 @@
     <script src="https://unpkg.com/i18next@24.2.3/i18next.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/jquery-i18next@1.2.1/jquery-i18next.min.js"></script>
     <script src="js/i18n.js"></script>
-    <script src="api/apartments-data.js?v=20260516-10"></script>
+    <script src="api/apartments-data.js?v=20260517-01"></script>
     <script src="js/site.js"></script>
+    <script src="js/availabilityCalendar.js"></script>
     <script src="js/appartments.js?v=20260516-10"></script>
-    <script src="js/main.js?v=20260516-10"></script>
+    <script src="js/main.js?v=20260518-3"></script>
 </body>
 </html>

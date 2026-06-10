@@ -2,11 +2,11 @@
   {
     "_id": "69d49d5bd8810233ba1da2c1",
     "external_id": 180,
-    "address": "РІСѓР». РњСѓРєР°С‡С–РІСЃСЊРєР° 77/42",
+    "address": "вул. Мукачівська 77/42",
     "area": "-",
     "beds": 2,
     "description": {
-      "uk": "РђРїР°СЂС‚Р°РјРµРЅС‚Рё Р·Р° Р°РґСЂРµСЃРѕСЋ РІСѓР». РњСѓРєР°С‡С–РІСЃСЊРєР° 77/42. РљС–Р»СЊРєС–СЃС‚СЊ РєС–РјРЅР°С‚: 1. РљС–Р»СЊРєС–СЃС‚СЊ РіРѕСЃС‚РµР№: 2. Р РѕР·С‚Р°С€РѕРІР°РЅС– РЅР° 4 РїРѕРІРµСЂСЃС–. Р—СЂСѓС‡РЅРѕСЃС‚С–: С‚РµР»РµРІС–Р·РѕСЂ, С…РѕР»РѕРґРёР»СЊРЅРёРє, РјС–РєСЂРѕС…РІРёР»СЊРѕРІР° РїС–С‡, РіР°СЂСЏС‡Р° РІРѕРґР°, РєРѕРЅРґРёС†С–РѕРЅРµСЂ, РїРѕСЂСѓС‡ СЃСѓРїРµСЂРјР°СЂРєРµС‚, Р·СЂСѓС‡РЅР° С‚СЂР°РЅСЃРїРѕСЂС‚РЅР° СЂРѕР·РІ'СЏР·РєР°, Smart TV.",
+      "uk": "Апартаменти за адресою вул. Мукачівська 77/42. Кількість кімнат: 1. Кількість гостей: 2. Розташовані на 4 поверсі. Зручності: телевізор, холодильник, мікрохвильова піч, гаряча вода, кондиціонер, поруч супермаркет, зручна транспортна розв'язка, Smart TV.",
       "en": "Apartment at the address st. Mukachivska 77/42. Number of rooms: 1. Number of guests: 2. Located on the 4th floor. Amenities: TV, refrigerator, microwave oven, hot water, air conditioner, nearby supermarket, convenient transport interchange, Smart TV."
     },
     "features": [
@@ -21,14 +21,14 @@
     ],
     "floor": 4,
     "gallery": [
-      "https://rooms.net.ua/photos/180.jpg",
-      "https://rooms.net.ua/photos/180-02.jpg",
-      "https://rooms.net.ua/photos/180-03.jpg",
-      "https://rooms.net.ua/photos/180-04.jpg",
-      "https://rooms.net.ua/photos/180-05.jpg"
+      "images/180.jpg",
+      "images/180-02.jpg",
+      "images/180-03.jpg",
+      "images/180-04.jpg",
+      "images/180-05.jpg"
     ],
     "guests": 2,
-    "img": "https://rooms.net.ua/photos/180.jpg",
+    "img": "images/180.jpg",
     "is_available": true,
     "lat": 48.613578,
     "lng": 22.302807,
@@ -36,18 +36,21 @@
     "rooms": 1,
     "source_url": "https://rooms.net.ua/apartments/180/",
     "title": {
-      "uk": "РІСѓР». РњСѓРєР°С‡С–РІСЃСЊРєР° 77/42",
+      "uk": "вул. Мукачівська 77/42",
       "en": "St. Mukachivska 77/42"
-    }
+    },
+    "isBooked": true,
+    "checkInDate": "2026-05-29",
+    "checkOutDate": "2026-05-31"
   },
   {
     "_id": "69d49d5bd8810233ba1da2c2",
     "external_id": 182,
-    "address": "РІСѓР». РњСѓРєР°С‡С–РІСЃСЊРєР° 77/43",
+    "address": "вул. Мукачівська 77/43",
     "area": "-",
     "beds": 2,
     "description": {
-      "uk": "РђРїР°СЂС‚Р°РјРµРЅС‚Рё Р·Р° Р°РґСЂРµСЃРѕСЋ РІСѓР». РњСѓРєР°С‡С–РІСЃСЊРєР° 77/43. РљС–Р»СЊРєС–СЃС‚СЊ РєС–РјРЅР°С‚: 1. РљС–Р»СЊРєС–СЃС‚СЊ РіРѕСЃС‚РµР№: 2. Р РѕР·С‚Р°С€РѕРІР°РЅС– РЅР° 4 РїРѕРІРµСЂСЃС–. Р—СЂСѓС‡РЅРѕСЃС‚С–: С‚РµР»РµРІС–Р·РѕСЂ, С…РѕР»РѕРґРёР»СЊРЅРёРє, РјС–РєСЂРѕС…РІРёР»СЊРѕРІР° РїС–С‡, РіР°СЂСЏС‡Р° РІРѕРґР°, РєРѕРЅРґРёС†С–РѕРЅРµСЂ, РїРѕСЂСѓС‡ СЃСѓРїРµСЂРјР°СЂРєРµС‚, Р·СЂСѓС‡РЅР° С‚СЂР°РЅСЃРїРѕСЂС‚РЅР° СЂРѕР·РІ'СЏР·РєР°, Smart TV, РІР°СЂРёР»СЊРЅР° РїРѕРІРµСЂС…РЅСЏ.",
+      "uk": "Апартаменти за адресою вул. Мукачівська 77/43. Кількість кімнат: 1. Кількість гостей: 2. Розташовані на 4 поверсі. Зручності: телевізор, холодильник, мікрохвильова піч, гаряча вода, кондиціонер, поруч супермаркет, зручна транспортна розв'язка, Smart TV, варильна поверхня.",
       "en": "Apartment at the address st. Mukachivska 77/43. Number of rooms: 1. Number of guests: 2. Located on the 4th floor. Amenities: TV, refrigerator, microwave oven, hot water, air conditioner, supermarket nearby, convenient transport interchange, Smart TV, cooking surface."
     },
     "features": [
@@ -63,17 +66,17 @@
     ],
     "floor": 4,
     "gallery": [
-      "https://rooms.net.ua/photos/182.jpg",
-      "https://rooms.net.ua/photos/182-02.jpg",
-      "https://rooms.net.ua/photos/182-03.jpg",
-      "https://rooms.net.ua/photos/182-04.jpg",
-      "https://rooms.net.ua/photos/182-05.jpg",
-      "https://rooms.net.ua/photos/182-06.jpg",
-      "https://rooms.net.ua/photos/182-07.jpg",
-      "https://rooms.net.ua/photos/182-08.jpg"
+      "images/182.jpg",
+      "images/182-02.jpg",
+      "images/182-03.jpg",
+      "images/182-04.jpg",
+      "images/182-05.jpg",
+      "images/182-06.jpg",
+      "images/182-07.jpg",
+      "images/182-08.jpg"
     ],
     "guests": 2,
-    "img": "https://rooms.net.ua/photos/182.jpg",
+    "img": "images/182.jpg",
     "is_available": true,
     "lat": 48.613578,
     "lng": 22.302807,
@@ -81,18 +84,21 @@
     "rooms": 1,
     "source_url": "https://rooms.net.ua/apartments/182/",
     "title": {
-      "uk": "РІСѓР». РњСѓРєР°С‡С–РІСЃСЊРєР° 77/43",
+      "uk": "вул. Мукачівська 77/43",
       "en": "St. Mukachivska 77/43"
-    }
+    },
+    "isBooked": false,
+    "checkInDate": "2026-05-17",
+    "checkOutDate": "2026-05-21"
   },
   {
     "_id": "69d49d5bd8810233ba1da2c3",
     "external_id": 167,
-    "address": "РїР».РЁ. РџРµС‚РµС„С– 8Р°5Р°",
+    "address": "пл.Ш. Петефі 8а5а",
     "area": "-",
     "beds": 2,
     "description": {
-      "uk": "РђРїР°СЂС‚Р°РјРµРЅС‚Рё Р·Р° Р°РґСЂРµСЃРѕСЋ РїР».РЁ. РџРµС‚РµС„С– 8Р°5Р°. РљС–Р»СЊРєС–СЃС‚СЊ РєС–РјРЅР°С‚: 1. РљС–Р»СЊРєС–СЃС‚СЊ РіРѕСЃС‚РµР№: 2. Р РѕР·С‚Р°С€РѕРІР°РЅС– РЅР° 2 РїРѕРІРµСЂСЃС–. Р—СЂСѓС‡РЅРѕСЃС‚С–: С‚РµР»РµРІС–Р·РѕСЂ, С…РѕР»РѕРґРёР»СЊРЅРёРє, РјС–РєСЂРѕС…РІРёР»СЊРѕРІР° РїС–С‡, РіР°СЂСЏС‡Р° РІРѕРґР°, РєРѕРЅРґРёС†С–РѕРЅРµСЂ, РїРѕСЂСѓС‡ СЃСѓРїРµСЂРјР°СЂРєРµС‚, Р·СЂСѓС‡РЅР° С‚СЂР°РЅСЃРїРѕСЂС‚РЅР° СЂРѕР·РІ'СЏР·РєР°, Smart TV.",
+      "uk": "Апартаменти за адресою пл.Ш. Петефі 8а5а. Кількість кімнат: 1. Кількість гостей: 2. Розташовані на 2 поверсі. Зручності: телевізор, холодильник, мікрохвильова піч, гаряча вода, кондиціонер, поруч супермаркет, зручна транспортна розв'язка, Smart TV.",
       "en": "Apartment at the address Sh. Petefi 8a5a. Number of rooms: 1. Number of guests: 2. Located on the 2nd floor. Amenities: TV, refrigerator, microwave oven, hot water, air conditioner, nearby supermarket, convenient transport interchange, Smart TV."
     },
     "features": [
@@ -107,18 +113,18 @@
     ],
     "floor": 2,
     "gallery": [
-      "https://rooms.net.ua/photos/167.jpg",
-      "https://rooms.net.ua/photos/167-02.jpg",
-      "https://rooms.net.ua/photos/167-03.jpg",
-      "https://rooms.net.ua/photos/167-04.jpg",
-      "https://rooms.net.ua/photos/167-05.jpg",
-      "https://rooms.net.ua/photos/167-06.jpg",
-      "https://rooms.net.ua/photos/167-07.jpg",
-      "https://rooms.net.ua/photos/167-08.jpg",
-      "https://rooms.net.ua/photos/167-09.jpg"
+      "images/167.jpg",
+      "images/167-02.jpg",
+      "images/167-03.jpg",
+      "images/167-04.jpg",
+      "images/167-05.jpg",
+      "images/167-06.jpg",
+      "images/167-07.jpg",
+      "images/167-08.jpg",
+      "images/167-09.jpg"
     ],
     "guests": 2,
-    "img": "https://rooms.net.ua/photos/167.jpg",
+    "img": "images/167.jpg",
     "is_available": true,
     "lat": 48.6205583,
     "lng": 22.29650171,
@@ -126,18 +132,21 @@
     "rooms": 1,
     "source_url": "https://rooms.net.ua/apartments/167/",
     "title": {
-      "uk": "РїР».РЁ. РџРµС‚РµС„С– 8Р°5Р°",
+      "uk": "пл.Ш. Петефі 8а5а",
       "en": "Square Sh. Petefi 8a5a"
-    }
+    },
+    "isBooked": false,
+    "checkInDate": "2026-05-18",
+    "checkOutDate": "2026-05-21"
   },
   {
     "_id": "69d49d5bd8810233ba1da2c4",
     "external_id": 111,
-    "address": "РџСЂРѕСЃРїРµРєС‚ РЎРІРѕР±РѕРґРё 20",
+    "address": "Проспект Свободи 20",
     "area": "-",
     "beds": 2,
     "description": {
-      "uk": "РђРїР°СЂС‚Р°РјРµРЅС‚Рё Р·Р° Р°РґСЂРµСЃРѕСЋ РџСЂРѕСЃРїРµРєС‚ РЎРІРѕР±РѕРґРё 20. РљС–Р»СЊРєС–СЃС‚СЊ РєС–РјРЅР°С‚: 1. РљС–Р»СЊРєС–СЃС‚СЊ РіРѕСЃС‚РµР№: 2. Р РѕР·С‚Р°С€РѕРІР°РЅС– РЅР° 2 РїРѕРІРµСЂСЃС–. Р—СЂСѓС‡РЅРѕСЃС‚С–: С‚РµР»РµРІС–Р·РѕСЂ, С…РѕР»РѕРґРёР»СЊРЅРёРє, РјС–РєСЂРѕС…РІРёР»СЊРѕРІР° РїС–С‡, РіР°СЂСЏС‡Р° РІРѕРґР°, РїРѕСЂСѓС‡ СЃСѓРїРµСЂРјР°СЂРєРµС‚, Р·СЂСѓС‡РЅР° С‚СЂР°РЅСЃРїРѕСЂС‚РЅР° СЂРѕР·РІ'СЏР·РєР°, С–РЅС‚РµСЂРЅРµС‚, РїС–Рґ'С—Р·Рґ РЅР° РєРѕРґС–, РїСЂР°Р»СЊРЅР° РјР°С€РёРЅР°, СЃСѓРїСѓС‚РЅРёРєРѕРІРµ С‚РµР»РµР±Р°С‡РµРЅРЅСЏ.",
+      "uk": "Апартаменти за адресою Проспект Свободи 20. Кількість кімнат: 1. Кількість гостей: 2. Розташовані на 2 поверсі. Зручності: телевізор, холодильник, мікрохвильова піч, гаряча вода, поруч супермаркет, зручна транспортна розв'язка, інтернет, під'їзд на коді, пральна машина, супутникове телебачення.",
       "en": "Apartment at 20 Svobody Avenue. Number of rooms: 1. Number of guests: 2. Located on the 2nd floor. Amenities: TV, refrigerator, microwave oven, hot water, supermarket nearby, convenient transport interchange, internet, coded entrance, washing machine, satellite TV."
     },
     "features": [
@@ -154,17 +163,17 @@
     ],
     "floor": 2,
     "gallery": [
-      "https://rooms.net.ua/photos/111.jpg",
-      "https://rooms.net.ua/photos/111-02.jpg",
-      "https://rooms.net.ua/photos/111-03.jpg",
-      "https://rooms.net.ua/photos/111-04.jpg",
-      "https://rooms.net.ua/photos/111-05.jpg",
-      "https://rooms.net.ua/photos/111-06.jpg",
-      "https://rooms.net.ua/photos/111-07.jpg",
-      "https://rooms.net.ua/photos/111-08.jpg"
+      "images/111.jpg",
+      "images/111-02.jpg",
+      "images/111-03.jpg",
+      "images/111-04.jpg",
+      "images/111-05.jpg",
+      "images/111-06.jpg",
+      "images/111-07.jpg",
+      "images/111-08.jpg"
     ],
     "guests": 2,
-    "img": "https://rooms.net.ua/photos/111.jpg",
+    "img": "images/111.jpg",
     "is_available": true,
     "lat": 48.617661,
     "lng": 22.28934,
@@ -172,18 +181,21 @@
     "rooms": 1,
     "source_url": "https://rooms.net.ua/apartments/111/",
     "title": {
-      "uk": "РџСЂРѕСЃРїРµРєС‚ РЎРІРѕР±РѕРґРё 20",
+      "uk": "Проспект Свободи 20",
       "en": "20 Svoboda Avenue"
-    }
+    },
+    "isBooked": true,
+    "checkInDate": "2026-05-30",
+    "checkOutDate": "2026-06-03"
   },
   {
     "_id": "69d49d5bd8810233ba1da2c5",
     "external_id": 135,
-    "address": "РІСѓР». Р›РµСЂРјРѕРЅС‚РѕРІР° 1",
+    "address": "вул. Лермонтова 1",
     "area": "-",
     "beds": 2,
     "description": {
-      "uk": "РђРїР°СЂС‚Р°РјРµРЅС‚Рё Р·Р° Р°РґСЂРµСЃРѕСЋ РІСѓР». Р›РµСЂРјРѕРЅС‚РѕРІР° 1. РљС–Р»СЊРєС–СЃС‚СЊ РєС–РјРЅР°С‚: 1. РљС–Р»СЊРєС–СЃС‚СЊ РіРѕСЃС‚РµР№: 2. Р РѕР·С‚Р°С€РѕРІР°РЅС– РЅР° 3 РїРѕРІРµСЂСЃС–. Р—СЂСѓС‡РЅРѕСЃС‚С–: С‚РµР»РµРІС–Р·РѕСЂ, С…РѕР»РѕРґРёР»СЊРЅРёРє, РјС–РєСЂРѕС…РІРёР»СЊРѕРІР° РїС–С‡, РіР°СЂСЏС‡Р° РІРѕРґР°, РїРѕСЂСѓС‡ СЃСѓРїРµСЂРјР°СЂРєРµС‚, Р·СЂСѓС‡РЅР° С‚СЂР°РЅСЃРїРѕСЂС‚РЅР° СЂРѕР·РІ'СЏР·РєР°, Р±Р°Р»РєРѕРЅ, С–РЅС‚РµСЂРЅРµС‚, РєР°Р±РµР»СЊРЅРµ С‚РµР»РµР±Р°С‡РµРЅРЅСЏ, РїС–Рґ'С—Р·Рґ РЅР° РєРѕРґС–, РїСЂР°Р»СЊРЅР° РјР°С€РёРЅР°.",
+      "uk": "Апартаменти за адресою вул. Лермонтова 1. Кількість кімнат: 1. Кількість гостей: 2. Розташовані на 3 поверсі. Зручності: телевізор, холодильник, мікрохвильова піч, гаряча вода, поруч супермаркет, зручна транспортна розв'язка, балкон, інтернет, кабельне телебачення, під'їзд на коді, пральна машина.",
       "en": "Apartment at the address st. Lermontova 1. Number of rooms: 1. Number of guests: 2. Located on the 3rd floor. Amenities: TV, refrigerator, microwave oven, hot water, supermarket nearby, convenient transport interchange, balcony, internet, cable TV, coded entrance, washing machine."
     },
     "features": [
@@ -201,18 +213,18 @@
     ],
     "floor": 3,
     "gallery": [
-      "https://rooms.net.ua/photos/135.jpg",
-      "https://rooms.net.ua/photos/135-02.jpg",
-      "https://rooms.net.ua/photos/135-03.jpg",
-      "https://rooms.net.ua/photos/135-04.jpg",
-      "https://rooms.net.ua/photos/135-05.jpg",
-      "https://rooms.net.ua/photos/135-06.jpg",
-      "https://rooms.net.ua/photos/135-07.jpg",
-      "https://rooms.net.ua/photos/135-08.jpg",
-      "https://rooms.net.ua/photos/135-09.jpg"
+      "images/135.jpg",
+      "images/135-02.jpg",
+      "images/135-03.jpg",
+      "images/135-04.jpg",
+      "images/135-05.jpg",
+      "images/135-06.jpg",
+      "images/135-07.jpg",
+      "images/135-08.jpg",
+      "images/135-09.jpg"
     ],
     "guests": 2,
-    "img": "https://rooms.net.ua/photos/135.jpg",
+    "img": "images/135.jpg",
     "is_available": true,
     "lat": 48.616857,
     "lng": 22.296228,
@@ -220,18 +232,21 @@
     "rooms": 1,
     "source_url": "https://rooms.net.ua/apartments/135/",
     "title": {
-      "uk": "РІСѓР». Р›РµСЂРјРѕРЅС‚РѕРІР° 1",
+      "uk": "вул. Лермонтова 1",
       "en": "St. Lermontova 1"
-    }
+    },
+    "isBooked": true,
+    "checkInDate": "2026-05-18",
+    "checkOutDate": "2026-05-23"
   },
   {
     "_id": "69d49d5bd8810233ba1da2c6",
     "external_id": 148,
-    "address": "РІСѓР». РљРѕСЂР·Рѕ 7",
+    "address": "вул. Корзо 7",
     "area": "-",
     "beds": 3,
     "description": {
-      "uk": "РђРїР°СЂС‚Р°РјРµРЅС‚Рё Р·Р° Р°РґСЂРµСЃРѕСЋ РІСѓР». РљРѕСЂР·Рѕ 7. РљС–Р»СЊРєС–СЃС‚СЊ РєС–РјРЅР°С‚: 1. РљС–Р»СЊРєС–СЃС‚СЊ РіРѕСЃС‚РµР№: 3. Р РѕР·С‚Р°С€РѕРІР°РЅС– РЅР° 2 РїРѕРІРµСЂСЃС–. Р—СЂСѓС‡РЅРѕСЃС‚С–: С‚РµР»РµРІС–Р·РѕСЂ, С…РѕР»РѕРґРёР»СЊРЅРёРє, РјС–РєСЂРѕС…РІРёР»СЊРѕРІР° РїС–С‡, РіР°СЂСЏС‡Р° РІРѕРґР°, РєРѕРЅРґРёС†С–РѕРЅРµСЂ, РїРѕСЂСѓС‡ СЃСѓРїРµСЂРјР°СЂРєРµС‚, Р·СЂСѓС‡РЅР° С‚СЂР°РЅСЃРїРѕСЂС‚РЅР° СЂРѕР·РІ'СЏР·РєР°, Р±Р°Р»РєРѕРЅ, С–РЅС‚РµСЂРЅРµС‚, РїС–Рґ'С—Р·Рґ РЅР° РєРѕРґС–, РїСЂР°Р»СЊРЅР° РјР°С€РёРЅР°, СЃСѓРїСѓС‚РЅРёРєРѕРІРµ С‚РµР»РµР±Р°С‡РµРЅРЅСЏ.",
+      "uk": "Апартаменти за адресою вул. Корзо 7. Кількість кімнат: 1. Кількість гостей: 3. Розташовані на 2 поверсі. Зручності: телевізор, холодильник, мікрохвильова піч, гаряча вода, кондиціонер, поруч супермаркет, зручна транспортна розв'язка, балкон, інтернет, під'їзд на коді, пральна машина, супутникове телебачення.",
       "en": "Apartment at the address st. Corso 7. Number of rooms: 1. Number of guests: 3. Located on the 2nd floor. Amenities: TV, refrigerator, microwave oven, hot water, air conditioner, supermarket nearby, convenient transport interchange, balcony, internet, coded entrance, washing machine, satellite TV."
     },
     "features": [
@@ -250,19 +265,19 @@
     ],
     "floor": 2,
     "gallery": [
-      "https://rooms.net.ua/photos/148.jpg",
-      "https://rooms.net.ua/photos/148-02.jpg",
-      "https://rooms.net.ua/photos/148-03.jpg",
-      "https://rooms.net.ua/photos/148-04.jpg",
-      "https://rooms.net.ua/photos/148-05.jpg",
-      "https://rooms.net.ua/photos/148-06.jpg",
-      "https://rooms.net.ua/photos/148-07.jpg",
-      "https://rooms.net.ua/photos/148-08.jpg",
-      "https://rooms.net.ua/photos/148-09.jpg",
-      "https://rooms.net.ua/photos/148-10.jpg"
+      "images/148.jpg",
+      "images/148-02.jpg",
+      "images/148-03.jpg",
+      "images/148-04.jpg",
+      "images/148-05.jpg",
+      "images/148-06.jpg",
+      "images/148-07.jpg",
+      "images/148-08.jpg",
+      "images/148-09.jpg",
+      "images/148-10.jpg"
     ],
     "guests": 3,
-    "img": "https://rooms.net.ua/photos/148.jpg",
+    "img": "images/148.jpg",
     "is_available": true,
     "lat": 48.622996,
     "lng": 22.297339,
@@ -270,18 +285,21 @@
     "rooms": 1,
     "source_url": "https://rooms.net.ua/apartments/148/",
     "title": {
-      "uk": "РІСѓР». РљРѕСЂР·Рѕ 7",
+      "uk": "вул. Корзо 7",
       "en": "St. Corso 7"
-    }
+    },
+    "isBooked": true,
+    "checkInDate": "2026-05-19",
+    "checkOutDate": "2026-05-22"
   },
   {
     "_id": "69d49d5bd8810233ba1da2c7",
     "external_id": 149,
-    "address": "РІСѓР». РљРѕСЂР·Рѕ 7",
+    "address": "вул. Корзо 7",
     "area": "-",
     "beds": 4,
     "description": {
-      "uk": "РђРїР°СЂС‚Р°РјРµРЅС‚Рё Р·Р° Р°РґСЂРµСЃРѕСЋ РІСѓР». РљРѕСЂР·Рѕ 7. РљС–Р»СЊРєС–СЃС‚СЊ РєС–РјРЅР°С‚: 1. РљС–Р»СЊРєС–СЃС‚СЊ РіРѕСЃС‚РµР№: 4. Р РѕР·С‚Р°С€РѕРІР°РЅС– РЅР° 2 РїРѕРІРµСЂСЃС–. Р—СЂСѓС‡РЅРѕСЃС‚С–: С‚РµР»РµРІС–Р·РѕСЂ, С…РѕР»РѕРґРёР»СЊРЅРёРє, РјС–РєСЂРѕС…РІРёР»СЊРѕРІР° РїС–С‡, РіР°СЂСЏС‡Р° РІРѕРґР°, РєРѕРЅРґРёС†С–РѕРЅРµСЂ, РїРѕСЂСѓС‡ СЃСѓРїРµСЂРјР°СЂРєРµС‚, Р·СЂСѓС‡РЅР° С‚СЂР°РЅСЃРїРѕСЂС‚РЅР° СЂРѕР·РІ'СЏР·РєР°, Р±Р°Р»РєРѕРЅ, С–РЅС‚РµСЂРЅРµС‚, РїС–Рґ'С—Р·Рґ РЅР° РєРѕРґС–, РїСЂР°Р»СЊРЅР° РјР°С€РёРЅР°, СЃСѓРїСѓС‚РЅРёРєРѕРІРµ С‚РµР»РµР±Р°С‡РµРЅРЅСЏ.",
+      "uk": "Апартаменти за адресою вул. Корзо 7. Кількість кімнат: 1. Кількість гостей: 4. Розташовані на 2 поверсі. Зручності: телевізор, холодильник, мікрохвильова піч, гаряча вода, кондиціонер, поруч супермаркет, зручна транспортна розв'язка, балкон, інтернет, під'їзд на коді, пральна машина, супутникове телебачення.",
       "en": "Apartment at the address st. Corso 7. Number of rooms: 1. Number of guests: 4. Located on the 2nd floor. Amenities: TV, refrigerator, microwave oven, hot water, air conditioner, supermarket nearby, convenient transport interchange, balcony, internet, coded entrance, washing machine, satellite TV."
     },
     "features": [
@@ -300,17 +318,17 @@
     ],
     "floor": 2,
     "gallery": [
-      "https://rooms.net.ua/photos/149.jpg",
-      "https://rooms.net.ua/photos/149-02.jpg",
-      "https://rooms.net.ua/photos/149-03.jpg",
-      "https://rooms.net.ua/photos/149-04.jpg",
-      "https://rooms.net.ua/photos/149-05.jpg",
-      "https://rooms.net.ua/photos/149-06.jpg",
-      "https://rooms.net.ua/photos/149-07.jpg",
-      "https://rooms.net.ua/photos/149-08.jpg"
+      "images/149.jpg",
+      "images/149-02.jpg",
+      "images/149-03.jpg",
+      "images/149-04.jpg",
+      "images/149-05.jpg",
+      "images/149-06.jpg",
+      "images/149-07.jpg",
+      "images/149-08.jpg"
     ],
     "guests": 4,
-    "img": "https://rooms.net.ua/photos/149.jpg",
+    "img": "images/149.jpg",
     "is_available": true,
     "lat": 48.622996,
     "lng": 22.297339,
@@ -318,18 +336,21 @@
     "rooms": 1,
     "source_url": "https://rooms.net.ua/apartments/149/",
     "title": {
-      "uk": "РІСѓР». РљРѕСЂР·Рѕ 7",
+      "uk": "вул. Корзо 7",
       "en": "St. Corso 7"
-    }
+    },
+    "isBooked": false,
+    "checkInDate": "2026-05-25",
+    "checkOutDate": "2026-05-28"
   },
   {
     "_id": "69d49d5bd8810233ba1da2c8",
     "external_id": 150,
-    "address": "РІСѓР». РљРѕСЂР·Рѕ 7",
+    "address": "вул. Корзо 7",
     "area": "-",
     "beds": 3,
     "description": {
-      "uk": "РђРїР°СЂС‚Р°РјРµРЅС‚Рё Р·Р° Р°РґСЂРµСЃРѕСЋ РІСѓР». РљРѕСЂР·Рѕ 7. РљС–Р»СЊРєС–СЃС‚СЊ РєС–РјРЅР°С‚: 1. РљС–Р»СЊРєС–СЃС‚СЊ РіРѕСЃС‚РµР№: 3. Р РѕР·С‚Р°С€РѕРІР°РЅС– РЅР° 2 РїРѕРІРµСЂСЃС–. Р—СЂСѓС‡РЅРѕСЃС‚С–: С‚РµР»РµРІС–Р·РѕСЂ, С…РѕР»РѕРґРёР»СЊРЅРёРє, РјС–РєСЂРѕС…РІРёР»СЊРѕРІР° РїС–С‡, РіР°СЂСЏС‡Р° РІРѕРґР°, РєРѕРЅРґРёС†С–РѕРЅРµСЂ, РїРѕСЂСѓС‡ СЃСѓРїРµСЂРјР°СЂРєРµС‚, Р·СЂСѓС‡РЅР° С‚СЂР°РЅСЃРїРѕСЂС‚РЅР° СЂРѕР·РІ'СЏР·РєР°, Р±Р°Р»РєРѕРЅ, С–РЅС‚РµСЂРЅРµС‚, РїС–Рґ'С—Р·Рґ РЅР° РєРѕРґС–, РїСЂР°Р»СЊРЅР° РјР°С€РёРЅР°, СЃСѓРїСѓС‚РЅРёРєРѕРІРµ С‚РµР»РµР±Р°С‡РµРЅРЅСЏ.",
+      "uk": "Апартаменти за адресою вул. Корзо 7. Кількість кімнат: 1. Кількість гостей: 3. Розташовані на 2 поверсі. Зручності: телевізор, холодильник, мікрохвильова піч, гаряча вода, кондиціонер, поруч супермаркет, зручна транспортна розв'язка, балкон, інтернет, під'їзд на коді, пральна машина, супутникове телебачення.",
       "en": "Apartment at the address st. Corso 7. Number of rooms: 1. Number of guests: 3. Located on the 2nd floor. Amenities: TV, refrigerator, microwave oven, hot water, air conditioner, supermarket nearby, convenient transport interchange, balcony, internet, coded entrance, washing machine, satellite TV."
     },
     "features": [
@@ -348,15 +369,15 @@
     ],
     "floor": 2,
     "gallery": [
-      "https://rooms.net.ua/photos/150.jpg",
-      "https://rooms.net.ua/photos/150-02.jpg",
-      "https://rooms.net.ua/photos/150-03.jpg",
-      "https://rooms.net.ua/photos/150-04.jpg",
-      "https://rooms.net.ua/photos/150-05.jpg",
-      "https://rooms.net.ua/photos/150-06.jpg"
+      "images/150.jpg",
+      "images/150-02.jpg",
+      "images/150-03.jpg",
+      "images/150-04.jpg",
+      "images/150-05.jpg",
+      "images/150-06.jpg"
     ],
     "guests": 3,
-    "img": "https://rooms.net.ua/photos/150.jpg",
+    "img": "images/150.jpg",
     "is_available": true,
     "lat": 48.622996,
     "lng": 22.297339,
@@ -364,18 +385,21 @@
     "rooms": 1,
     "source_url": "https://rooms.net.ua/apartments/150/",
     "title": {
-      "uk": "РІСѓР». РљРѕСЂР·Рѕ 7",
+      "uk": "вул. Корзо 7",
       "en": "St. Corso 7"
-    }
+    },
+    "isBooked": true,
+    "checkInDate": "2026-05-23",
+    "checkOutDate": "2026-05-26"
   },
   {
     "_id": "69d49d5bd8810233ba1da2c9",
     "external_id": 172,
-    "address": "РїР». Р‘РѕРіРґР°РЅР° РҐРјРµР»СЊРЅРёС†СЊРєРѕРіРѕ",
+    "address": "пл. Богдана Хмельницького",
     "area": "-",
     "beds": 2,
     "description": {
-      "uk": "РђРїР°СЂС‚Р°РјРµРЅС‚Рё Р·Р° Р°РґСЂРµСЃРѕСЋ РїР». Р‘РѕРіРґР°РЅР° РҐРјРµР»СЊРЅРёС†СЊРєРѕРіРѕ. РљС–Р»СЊРєС–СЃС‚СЊ РєС–РјРЅР°С‚: 1. РљС–Р»СЊРєС–СЃС‚СЊ РіРѕСЃС‚РµР№: 2. Р РѕР·С‚Р°С€РѕРІР°РЅС– РЅР° 5 РїРѕРІРµСЂСЃС–. Р—СЂСѓС‡РЅРѕСЃС‚С–: С‚РµР»РµРІС–Р·РѕСЂ, С…РѕР»РѕРґРёР»СЊРЅРёРє, РјС–РєСЂРѕС…РІРёР»СЊРѕРІР° РїС–С‡, РіР°СЂСЏС‡Р° РІРѕРґР°, РєРѕРЅРґРёС†С–РѕРЅРµСЂ, Р·СЂСѓС‡РЅР° С‚СЂР°РЅСЃРїРѕСЂС‚РЅР° СЂРѕР·РІ'СЏР·РєР°, Р±Р°Р»РєРѕРЅ, РІР°СЂРёР»СЊРЅР° РїРѕРІРµСЂС…РЅСЏ, РїСЂР°Р»СЊРЅР° РјР°С€РёРЅР°, С‚РµР»РµР±Р°С‡РµРЅРЅСЏ T2.",
+      "uk": "Апартаменти за адресою пл. Богдана Хмельницького. Кількість кімнат: 1. Кількість гостей: 2. Розташовані на 5 поверсі. Зручності: телевізор, холодильник, мікрохвильова піч, гаряча вода, кондиціонер, зручна транспортна розв'язка, балкон, варильна поверхня, пральна машина, телебачення T2.",
       "en": "Apartment at the address of the square Bohdan Khmelnytskyi. Number of rooms: 1. Number of guests: 2. Located on the 5th floor. Amenities: TV, refrigerator, microwave oven, hot water, air conditioner, convenient transport interchange, balcony, cooking surface, washing machine, TV T2."
     },
     "features": [
@@ -392,15 +416,15 @@
     ],
     "floor": 5,
     "gallery": [
-      "https://rooms.net.ua/photos/172.jpeg",
-      "https://rooms.net.ua/photos/172-02.jpeg",
-      "https://rooms.net.ua/photos/172-03.jpeg",
-      "https://rooms.net.ua/photos/172-04.jpeg",
-      "https://rooms.net.ua/photos/172-05.jpeg",
-      "https://rooms.net.ua/photos/172-06.jpeg"
+      "images/172.jpg",
+      "images/172-02.jpg",
+      "images/172-03.jpg",
+      "images/172-04.jpg",
+      "images/172-05.jpg",
+      "images/172-06.jpg"
     ],
     "guests": 2,
-    "img": "https://rooms.net.ua/photos/172.jpeg",
+    "img": "images/172.jpg",
     "is_available": true,
     "lat": 48.621989,
     "lng": 22.2886741,
@@ -408,18 +432,21 @@
     "rooms": 1,
     "source_url": "https://rooms.net.ua/apartments/172/",
     "title": {
-      "uk": "РїР». Р‘РѕРіРґР°РЅР° РҐРјРµР»СЊРЅРёС†СЊРєРѕРіРѕ",
+      "uk": "пл. Богдана Хмельницького",
       "en": "sq. Bohdan Khmelnytskyi"
-    }
+    },
+    "isBooked": false,
+    "checkInDate": "2026-05-25",
+    "checkOutDate": "2026-05-27"
   },
   {
     "_id": "69d49d5bd8810233ba1da2ca",
     "external_id": 184,
-    "address": "РІСѓР». РњСѓРєР°С‡С–РІСЃСЊРєР° 77/41",
+    "address": "вул. Мукачівська 77/41",
     "area": "-",
     "beds": 2,
     "description": {
-      "uk": "РђРїР°СЂС‚Р°РјРµРЅС‚Рё Р·Р° Р°РґСЂРµСЃРѕСЋ РІСѓР». РњСѓРєР°С‡С–РІСЃСЊРєР° 77/41. РљС–Р»СЊРєС–СЃС‚СЊ РєС–РјРЅР°С‚: 1. РљС–Р»СЊРєС–СЃС‚СЊ РіРѕСЃС‚РµР№: 2. Р РѕР·С‚Р°С€РѕРІР°РЅС– РЅР° 4 РїРѕРІРµСЂСЃС–. Р—СЂСѓС‡РЅРѕСЃС‚С–: С‚РµР»РµРІС–Р·РѕСЂ, С…РѕР»РѕРґРёР»СЊРЅРёРє, РјС–РєСЂРѕС…РІРёР»СЊРѕРІР° РїС–С‡, РіР°СЂСЏС‡Р° РІРѕРґР°, РєРѕРЅРґРёС†С–РѕРЅРµСЂ, РїРѕСЂСѓС‡ СЃСѓРїРµСЂРјР°СЂРєРµС‚, Р·СЂСѓС‡РЅР° С‚СЂР°РЅСЃРїРѕСЂС‚РЅР° СЂРѕР·РІ'СЏР·РєР°, Smart TV, РІР°СЂРёР»СЊРЅР° РїРѕРІРµСЂС…РЅСЏ.",
+      "uk": "Апартаменти за адресою вул. Мукачівська 77/41. Кількість кімнат: 1. Кількість гостей: 2. Розташовані на 4 поверсі. Зручності: телевізор, холодильник, мікрохвильова піч, гаряча вода, кондиціонер, поруч супермаркет, зручна транспортна розв'язка, Smart TV, варильна поверхня.",
       "en": "Apartment at the address st. Mukachivska 77/41. Number of rooms: 1. Number of guests: 2. Located on the 4th floor. Amenities: TV, refrigerator, microwave oven, hot water, air conditioner, supermarket nearby, convenient transport interchange, Smart TV, cooking surface."
     },
     "features": [
@@ -435,15 +462,15 @@
     ],
     "floor": 4,
     "gallery": [
-      "https://rooms.net.ua/photos/184.jpg",
-      "https://rooms.net.ua/photos/184-02.jpg",
-      "https://rooms.net.ua/photos/184-03.jpg",
-      "https://rooms.net.ua/photos/184-04.jpg",
-      "https://rooms.net.ua/photos/184-05.jpg",
-      "https://rooms.net.ua/photos/184-06.jpg"
+      "images/184.jpg",
+      "images/184-02.jpg",
+      "images/184-03.jpg",
+      "images/184-04.jpg",
+      "images/184-05.jpg",
+      "images/184-06.jpg"
     ],
     "guests": 2,
-    "img": "https://rooms.net.ua/photos/184.jpg",
+    "img": "images/184.jpg",
     "is_available": true,
     "lat": 48.613578,
     "lng": 22.302807,
@@ -451,18 +478,21 @@
     "rooms": 1,
     "source_url": "https://rooms.net.ua/apartments/184/",
     "title": {
-      "uk": "РІСѓР». РњСѓРєР°С‡С–РІСЃСЊРєР° 77/41",
+      "uk": "вул. Мукачівська 77/41",
       "en": "St. Mukachivska 77/41"
-    }
+    },
+    "isBooked": false,
+    "checkInDate": "2026-06-01",
+    "checkOutDate": "2026-06-05"
   },
   {
     "_id": "69d49d5bd8810233ba1da2cb",
     "external_id": 123,
-    "address": "РІСѓР». РњРёРЅР°Р№СЃСЊРєР° 18Рі",
+    "address": "вул. Минайська 18г",
     "area": "-",
     "beds": 2,
     "description": {
-      "uk": "РђРїР°СЂС‚Р°РјРµРЅС‚Рё Р·Р° Р°РґСЂРµСЃРѕСЋ РІСѓР». РњРёРЅР°Р№СЃСЊРєР° 18Рі. РљС–Р»СЊРєС–СЃС‚СЊ РєС–РјРЅР°С‚: 1. РљС–Р»СЊРєС–СЃС‚СЊ РіРѕСЃС‚РµР№: 2. Р РѕР·С‚Р°С€РѕРІР°РЅС– РЅР° 1 РїРѕРІРµСЂСЃС–. Р—СЂСѓС‡РЅРѕСЃС‚С–: С‚РµР»РµРІС–Р·РѕСЂ, С…РѕР»РѕРґРёР»СЊРЅРёРє, РјС–РєСЂРѕС…РІРёР»СЊРѕРІР° РїС–С‡, РіР°СЂСЏС‡Р° РІРѕРґР°, РєРѕРЅРґРёС†С–РѕРЅРµСЂ, РїРѕСЂСѓС‡ СЃСѓРїРµСЂРјР°СЂРєРµС‚, Р·СЂСѓС‡РЅР° С‚СЂР°РЅСЃРїРѕСЂС‚РЅР° СЂРѕР·РІ'СЏР·РєР°, Р±Р°Р»РєРѕРЅ, С–РЅС‚РµСЂРЅРµС‚, РєР°Р±РµР»СЊРЅРµ С‚РµР»РµР±Р°С‡РµРЅРЅСЏ, РїР°СЂРєРѕРІРєР° РїС–Рґ РѕС…РѕСЂРѕРЅРѕСЋ, РїС–Рґ'С—Р·Рґ РЅР° РєРѕРґС–, РїСЂР°Р»СЊРЅР° РјР°С€РёРЅР°.",
+      "uk": "Апартаменти за адресою вул. Минайська 18г. Кількість кімнат: 1. Кількість гостей: 2. Розташовані на 1 поверсі. Зручності: телевізор, холодильник, мікрохвильова піч, гаряча вода, кондиціонер, поруч супермаркет, зручна транспортна розв'язка, балкон, інтернет, кабельне телебачення, парковка під охороною, під'їзд на коді, пральна машина.",
       "en": "Apartment at the address st. Minayska 18 Number of rooms: 1. Number of guests: 2. Located on the 1st floor. Amenities: TV, refrigerator, microwave oven, hot water, air conditioner, nearby supermarket, convenient transport interchange, balcony, internet, cable TV, guarded parking, coded entrance, washing machine."
     },
     "features": [
@@ -482,19 +512,19 @@
     ],
     "floor": 1,
     "gallery": [
-      "https://rooms.net.ua/photos/123.jpg",
-      "https://rooms.net.ua/photos/123-02.jpg",
-      "https://rooms.net.ua/photos/123-03.jpg",
-      "https://rooms.net.ua/photos/123-04.jpg",
-      "https://rooms.net.ua/photos/123-05.jpg",
-      "https://rooms.net.ua/photos/123-06.jpg",
-      "https://rooms.net.ua/photos/123-07.jpg",
-      "https://rooms.net.ua/photos/123-08.jpg",
-      "https://rooms.net.ua/photos/123-09.jpg",
-      "https://rooms.net.ua/photos/123-10.jpg"
+      "images/123.jpg",
+      "images/123-02.jpg",
+      "images/123-03.jpg",
+      "images/123-04.jpg",
+      "images/123-05.jpg",
+      "images/123-06.jpg",
+      "images/123-07.jpg",
+      "images/123-08.jpg",
+      "images/123-09.jpg",
+      "images/123-10.jpg"
     ],
     "guests": 2,
-    "img": "https://rooms.net.ua/photos/123.jpg",
+    "img": "images/123.jpg",
     "is_available": true,
     "lat": 48.606925,
     "lng": 22.288788,
@@ -502,18 +532,21 @@
     "rooms": 1,
     "source_url": "https://rooms.net.ua/apartments/123/",
     "title": {
-      "uk": "РІСѓР». РњРёРЅР°Р№СЃСЊРєР° 18Рі",
+      "uk": "вул. Минайська 18г",
       "en": "St. Minayska 18"
-    }
+    },
+    "isBooked": false,
+    "checkInDate": "2026-05-23",
+    "checkOutDate": "2026-05-25"
   },
   {
     "_id": "69d49d5bd8810233ba1da2cc",
     "external_id": 166,
-    "address": "РІСѓР». РњСѓРєР°С‡С–РІСЃСЊРєР° 77/22",
+    "address": "вул. Мукачівська 77/22",
     "area": "-",
     "beds": 2,
     "description": {
-      "uk": "РђРїР°СЂС‚Р°РјРµРЅС‚Рё Р·Р° Р°РґСЂРµСЃРѕСЋ РІСѓР». РњСѓРєР°С‡С–РІСЃСЊРєР° 77/22. РљС–Р»СЊРєС–СЃС‚СЊ РєС–РјРЅР°С‚: 1. РљС–Р»СЊРєС–СЃС‚СЊ РіРѕСЃС‚РµР№: 2. Р РѕР·С‚Р°С€РѕРІР°РЅС– РЅР° 2 РїРѕРІРµСЂСЃС–. Р—СЂСѓС‡РЅРѕСЃС‚С–: С‚РµР»РµРІС–Р·РѕСЂ, С…РѕР»РѕРґРёР»СЊРЅРёРє, РјС–РєСЂРѕС…РІРёР»СЊРѕРІР° РїС–С‡, РіР°СЂСЏС‡Р° РІРѕРґР°, РєРѕРЅРґРёС†С–РѕРЅРµСЂ, Р·СЂСѓС‡РЅР° С‚СЂР°РЅСЃРїРѕСЂС‚РЅР° СЂРѕР·РІ'СЏР·РєР°, Smart TV, РІР°СЂРёР»СЊРЅР° РїРѕРІРµСЂС…РЅСЏ, С–РЅС‚РµСЂРЅРµС‚.",
+      "uk": "Апартаменти за адресою вул. Мукачівська 77/22. Кількість кімнат: 1. Кількість гостей: 2. Розташовані на 2 поверсі. Зручності: телевізор, холодильник, мікрохвильова піч, гаряча вода, кондиціонер, зручна транспортна розв'язка, Smart TV, варильна поверхня, інтернет.",
       "en": "Apartment at the address st. Mukachivska 77/22. Number of rooms: 1. Number of guests: 2. Located on the 2nd floor. Amenities: TV, refrigerator, microwave oven, hot water, air conditioner, convenient transport interchange, Smart TV, cooking surface, Internet."
     },
     "features": [
@@ -529,24 +562,24 @@
     ],
     "floor": 2,
     "gallery": [
-      "https://rooms.net.ua/photos/166.jpg",
-      "https://rooms.net.ua/photos/166-02.jpg",
-      "https://rooms.net.ua/photos/166-03.jpg",
-      "https://rooms.net.ua/photos/166-04.jpg",
-      "https://rooms.net.ua/photos/166-05.jpg",
-      "https://rooms.net.ua/photos/166-06.jpg",
-      "https://rooms.net.ua/photos/166-07.jpg",
-      "https://rooms.net.ua/photos/166-08.jpg",
-      "https://rooms.net.ua/photos/166-09.jpg",
-      "https://rooms.net.ua/photos/166-10.jpg",
-      "https://rooms.net.ua/photos/166-11.jpg",
-      "https://rooms.net.ua/photos/166-12.jpg",
-      "https://rooms.net.ua/photos/166-13.jpeg",
-      "https://rooms.net.ua/photos/166-14.jpg",
-      "https://rooms.net.ua/photos/166-15.jpg"
+      "images/166.jpg",
+      "images/166-02.jpg",
+      "images/166-03.jpg",
+      "images/166-04.jpg",
+      "images/166-05.jpg",
+      "images/166-06.jpg",
+      "images/166-07.jpg",
+      "images/166-08.jpg",
+      "images/166-09.jpg",
+      "images/166-10.jpg",
+      "images/166-11.jpg",
+      "images/166-12.jpg",
+      "images/166-13.jpg",
+      "images/166-14.jpg",
+      "images/166-15.jpg"
     ],
     "guests": 2,
-    "img": "https://rooms.net.ua/photos/166.jpg",
+    "img": "images/166.jpg",
     "is_available": true,
     "lat": 48.613578,
     "lng": 22.302807,
@@ -554,18 +587,21 @@
     "rooms": 1,
     "source_url": "https://rooms.net.ua/apartments/166/",
     "title": {
-      "uk": "РІСѓР». РњСѓРєР°С‡С–РІСЃСЊРєР° 77/22",
+      "uk": "вул. Мукачівська 77/22",
       "en": "St. Mukachivska 77/22"
-    }
+    },
+    "isBooked": false,
+    "checkInDate": "2026-05-16",
+    "checkOutDate": "2026-05-21"
   },
   {
     "_id": "69d49d5bd8810233ba1da2cd",
     "external_id": 175,
-    "address": "РІСѓР». РњСѓРєР°С‡С–РІСЃСЊРєР° 77/01",
+    "address": "вул. Мукачівська 77/01",
     "area": "-",
     "beds": 2,
     "description": {
-      "uk": "РђРїР°СЂС‚Р°РјРµРЅС‚Рё Р·Р° Р°РґСЂРµСЃРѕСЋ РІСѓР». РњСѓРєР°С‡С–РІСЃСЊРєР° 77/01. РљС–Р»СЊРєС–СЃС‚СЊ РєС–РјРЅР°С‚: 1. РљС–Р»СЊРєС–СЃС‚СЊ РіРѕСЃС‚РµР№: 2. Р РѕР·С‚Р°С€РѕРІР°РЅС– РЅР° 1 РїРѕРІРµСЂСЃС–. Р—СЂСѓС‡РЅРѕСЃС‚С–: С‚РµР»РµРІС–Р·РѕСЂ, С…РѕР»РѕРґРёР»СЊРЅРёРє, РјС–РєСЂРѕС…РІРёР»СЊРѕРІР° РїС–С‡, РіР°СЂСЏС‡Р° РІРѕРґР°, Р·СЂСѓС‡РЅР° С‚СЂР°РЅСЃРїРѕСЂС‚РЅР° СЂРѕР·РІ'СЏР·РєР°, Smart TV, РІР°СЂРёР»СЊРЅР° РїРѕРІРµСЂС…РЅСЏ.",
+      "uk": "Апартаменти за адресою вул. Мукачівська 77/01. Кількість кімнат: 1. Кількість гостей: 2. Розташовані на 1 поверсі. Зручності: телевізор, холодильник, мікрохвильова піч, гаряча вода, зручна транспортна розв'язка, Smart TV, варильна поверхня.",
       "en": "Apartment at the address st. Mukachivska 77/01. Number of rooms: 1. Number of guests: 2. Located on the 1st floor. Amenities: TV, refrigerator, microwave oven, hot water, convenient transport interchange, Smart TV, cooking surface."
     },
     "features": [
@@ -580,20 +616,20 @@
     ],
     "floor": 1,
     "gallery": [
-      "https://rooms.net.ua/photos/175.jpg",
-      "https://rooms.net.ua/photos/175-02.jpg",
-      "https://rooms.net.ua/photos/175-03.jpg",
-      "https://rooms.net.ua/photos/175-04.jpg",
-      "https://rooms.net.ua/photos/175-05.jpg",
-      "https://rooms.net.ua/photos/175-06.jpg",
-      "https://rooms.net.ua/photos/175-07.jpg",
-      "https://rooms.net.ua/photos/175-08.jpg",
-      "https://rooms.net.ua/photos/175-09.jpeg",
-      "https://rooms.net.ua/photos/175-10.jpg",
-      "https://rooms.net.ua/photos/175-11.jpg"
+      "images/175.jpg",
+      "images/175-02.jpg",
+      "images/175-03.jpg",
+      "images/175-04.jpg",
+      "images/175-05.jpg",
+      "images/175-06.jpg",
+      "images/175-07.jpg",
+      "images/175-08.jpg",
+      "images/175-09.jpg",
+      "images/175-10.jpg",
+      "images/175-11.jpg"
     ],
     "guests": 2,
-    "img": "https://rooms.net.ua/photos/175.jpg",
+    "img": "images/175.jpg",
     "is_available": true,
     "lat": 48.613578,
     "lng": 22.302807,
@@ -601,18 +637,21 @@
     "rooms": 1,
     "source_url": "https://rooms.net.ua/apartments/175/",
     "title": {
-      "uk": "РІСѓР». РњСѓРєР°С‡С–РІСЃСЊРєР° 77/01",
+      "uk": "вул. Мукачівська 77/01",
       "en": "St. Mukachivska 77/01"
-    }
+    },
+    "isBooked": false,
+    "checkInDate": "2026-06-01",
+    "checkOutDate": "2026-06-05"
   },
   {
     "_id": "69d49d5bd8810233ba1da2ce",
     "external_id": 179,
-    "address": "РІСѓР». РњСѓРєР°С‡С–РІСЃСЊРєР° 77/02",
+    "address": "вул. Мукачівська 77/02",
     "area": "-",
     "beds": 2,
     "description": {
-      "uk": "РђРїР°СЂС‚Р°РјРµРЅС‚Рё Р·Р° Р°РґСЂРµСЃРѕСЋ РІСѓР». РњСѓРєР°С‡С–РІСЃСЊРєР° 77/02. РљС–Р»СЊРєС–СЃС‚СЊ РєС–РјРЅР°С‚: 1. РљС–Р»СЊРєС–СЃС‚СЊ РіРѕСЃС‚РµР№: 2. Р РѕР·С‚Р°С€РѕРІР°РЅС– РЅР° 1 РїРѕРІРµСЂСЃС–. Р—СЂСѓС‡РЅРѕСЃС‚С–: С‚РµР»РµРІС–Р·РѕСЂ, С…РѕР»РѕРґРёР»СЊРЅРёРє, РјС–РєСЂРѕС…РІРёР»СЊРѕРІР° РїС–С‡, РіР°СЂСЏС‡Р° РІРѕРґР°, Р·СЂСѓС‡РЅР° С‚СЂР°РЅСЃРїРѕСЂС‚РЅР° СЂРѕР·РІ'СЏР·РєР°, Smart TV, РІР°СЂРёР»СЊРЅР° РїРѕРІРµСЂС…РЅСЏ, РїР°СЂРєРѕРІРєР° РїС–Рґ РѕС…РѕСЂРѕРЅРѕСЋ.",
+      "uk": "Апартаменти за адресою вул. Мукачівська 77/02. Кількість кімнат: 1. Кількість гостей: 2. Розташовані на 1 поверсі. Зручності: телевізор, холодильник, мікрохвильова піч, гаряча вода, зручна транспортна розв'язка, Smart TV, варильна поверхня, парковка під охороною.",
       "en": "Apartment at the address st. Mukachivska 77/02. Number of rooms: 1. Number of guests: 2. Located on the 1st floor. Amenities: TV, refrigerator, microwave oven, hot water, convenient transport interchange, Smart TV, cooking surface, secure parking."
     },
     "features": [
@@ -627,16 +666,16 @@
     ],
     "floor": 1,
     "gallery": [
-      "https://rooms.net.ua/photos/179.jpg",
-      "https://rooms.net.ua/photos/179-02.jpg",
-      "https://rooms.net.ua/photos/179-03.jpg",
-      "https://rooms.net.ua/photos/179-04.jpg",
-      "https://rooms.net.ua/photos/179-05.jpg",
-      "https://rooms.net.ua/photos/179-06.jpeg",
-      "https://rooms.net.ua/photos/179-07.jpg"
+      "images/179.jpg",
+      "images/179-02.jpg",
+      "images/179-03.jpg",
+      "images/179-04.jpg",
+      "images/179-05.jpg",
+      "images/179-06.jpg",
+      "images/179-07.jpg"
     ],
     "guests": 2,
-    "img": "https://rooms.net.ua/photos/179.jpg",
+    "img": "images/179.jpg",
     "is_available": true,
     "lat": 48.613578,
     "lng": 22.302807,
@@ -644,18 +683,21 @@
     "rooms": 1,
     "source_url": "https://rooms.net.ua/apartments/179/",
     "title": {
-      "uk": "РІСѓР». РњСѓРєР°С‡С–РІСЃСЊРєР° 77/02",
+      "uk": "вул. Мукачівська 77/02",
       "en": "St. Mukachivska 77/02"
-    }
+    },
+    "isBooked": false,
+    "checkInDate": "2026-05-15",
+    "checkOutDate": "2026-05-20"
   },
   {
     "_id": "69d49d5bd8810233ba1da2cf",
     "external_id": 183,
-    "address": "РІСѓР». РњСѓРєР°С‡С–РІСЃСЊРєР° 77/44",
+    "address": "вул. Мукачівська 77/44",
     "area": "-",
     "beds": 2,
     "description": {
-      "uk": "РђРїР°СЂС‚Р°РјРµРЅС‚Рё Р·Р° Р°РґСЂРµСЃРѕСЋ РІСѓР». РњСѓРєР°С‡С–РІСЃСЊРєР° 77/44. РљС–Р»СЊРєС–СЃС‚СЊ РєС–РјРЅР°С‚: 1. РљС–Р»СЊРєС–СЃС‚СЊ РіРѕСЃС‚РµР№: 2. Р РѕР·С‚Р°С€РѕРІР°РЅС– РЅР° 4 РїРѕРІРµСЂСЃС–. Р—СЂСѓС‡РЅРѕСЃС‚С–: С‚РµР»РµРІС–Р·РѕСЂ, С…РѕР»РѕРґРёР»СЊРЅРёРє, РјС–РєСЂРѕС…РІРёР»СЊРѕРІР° РїС–С‡, РіР°СЂСЏС‡Р° РІРѕРґР°, РєРѕРЅРґРёС†С–РѕРЅРµСЂ, РїРѕСЂСѓС‡ СЃСѓРїРµСЂРјР°СЂРєРµС‚, Р·СЂСѓС‡РЅР° С‚СЂР°РЅСЃРїРѕСЂС‚РЅР° СЂРѕР·РІ'СЏР·РєР°, Smart TV, РІР°СЂРёР»СЊРЅР° РїРѕРІРµСЂС…РЅСЏ.",
+      "uk": "Апартаменти за адресою вул. Мукачівська 77/44. Кількість кімнат: 1. Кількість гостей: 2. Розташовані на 4 поверсі. Зручності: телевізор, холодильник, мікрохвильова піч, гаряча вода, кондиціонер, поруч супермаркет, зручна транспортна розв'язка, Smart TV, варильна поверхня.",
       "en": "Apartment at the address st. Mukachivska 77/44. Number of rooms: 1. Number of guests: 2. Located on the 4th floor. Amenities: TV, refrigerator, microwave oven, hot water, air conditioner, supermarket nearby, convenient transport interchange, Smart TV, cooking surface."
     },
     "features": [
@@ -671,17 +713,17 @@
     ],
     "floor": 4,
     "gallery": [
-      "https://rooms.net.ua/photos/183.jpg",
-      "https://rooms.net.ua/photos/183-02.jpg",
-      "https://rooms.net.ua/photos/183-03.jpg",
-      "https://rooms.net.ua/photos/183-04.jpg",
-      "https://rooms.net.ua/photos/183-05.jpg",
-      "https://rooms.net.ua/photos/183-06.jpg",
-      "https://rooms.net.ua/photos/183-07.jpg",
-      "https://rooms.net.ua/photos/183-08.jpg"
+      "images/183.jpg",
+      "images/183-02.jpg",
+      "images/183-03.jpg",
+      "images/183-04.jpg",
+      "images/183-05.jpg",
+      "images/183-06.jpg",
+      "images/183-07.jpg",
+      "images/183-08.jpg"
     ],
     "guests": 2,
-    "img": "https://rooms.net.ua/photos/183.jpg",
+    "img": "images/183.jpg",
     "is_available": true,
     "lat": 48.613578,
     "lng": 22.302807,
@@ -689,18 +731,21 @@
     "rooms": 1,
     "source_url": "https://rooms.net.ua/apartments/183/",
     "title": {
-      "uk": "РІСѓР». РњСѓРєР°С‡С–РІСЃСЊРєР° 77/44",
+      "uk": "вул. Мукачівська 77/44",
       "en": "St. Mukachivska 77/44"
-    }
+    },
+    "isBooked": false,
+    "checkInDate": "2026-05-18",
+    "checkOutDate": "2026-05-24"
   },
   {
     "_id": "69d49d5bd8810233ba1da2d0",
     "external_id": 137,
-    "address": "РІСѓР». РўР»РµС…Р°СЃР° 14",
+    "address": "вул. Тлехаса 14",
     "area": "-",
     "beds": 3,
     "description": {
-      "uk": "РђРїР°СЂС‚Р°РјРµРЅС‚Рё Р·Р° Р°РґСЂРµСЃРѕСЋ РІСѓР». РўР»РµС…Р°СЃР° 14. РљС–Р»СЊРєС–СЃС‚СЊ РєС–РјРЅР°С‚: 1. РљС–Р»СЊРєС–СЃС‚СЊ РіРѕСЃС‚РµР№: 3. Р РѕР·С‚Р°С€РѕРІР°РЅС– РЅР° 1 РїРѕРІРµСЂСЃС–. Р—СЂСѓС‡РЅРѕСЃС‚С–: С‚РµР»РµРІС–Р·РѕСЂ, С…РѕР»РѕРґРёР»СЊРЅРёРє, РјС–РєСЂРѕС…РІРёР»СЊРѕРІР° РїС–С‡, РіР°СЂСЏС‡Р° РІРѕРґР°, РєРѕРЅРґРёС†С–РѕРЅРµСЂ, РїРѕСЂСѓС‡ СЃСѓРїРµСЂРјР°СЂРєРµС‚, Р·СЂСѓС‡РЅР° С‚СЂР°РЅСЃРїРѕСЂС‚РЅР° СЂРѕР·РІ'СЏР·РєР°, Smart TV, Р±Р°Р»РєРѕРЅ, С–РЅС‚РµСЂРЅРµС‚, РєР°Р±РµР»СЊРЅРµ С‚РµР»РµР±Р°С‡РµРЅРЅСЏ, РїС–Рґ'С—Р·Рґ РЅР° РєРѕРґС–, РїСЂР°Р»СЊРЅР° РјР°С€РёРЅР°.",
+      "uk": "Апартаменти за адресою вул. Тлехаса 14. Кількість кімнат: 1. Кількість гостей: 3. Розташовані на 1 поверсі. Зручності: телевізор, холодильник, мікрохвильова піч, гаряча вода, кондиціонер, поруч супермаркет, зручна транспортна розв'язка, Smart TV, балкон, інтернет, кабельне телебачення, під'їзд на коді, пральна машина.",
       "en": "Apartment at the address st. Tlejasa 14. Number of rooms: 1. Number of guests: 3. Located on the 1st floor. Amenities: TV, refrigerator, microwave oven, hot water, air conditioner, supermarket nearby, convenient transport interchange, Smart TV, balcony, internet, cable TV, coded entrance, washing machine."
     },
     "features": [
@@ -720,19 +765,19 @@
     ],
     "floor": 1,
     "gallery": [
-      "https://rooms.net.ua/photos/137.jpg",
-      "https://rooms.net.ua/photos/137-02.jpg",
-      "https://rooms.net.ua/photos/137-03.jpg",
-      "https://rooms.net.ua/photos/137-04.jpg",
-      "https://rooms.net.ua/photos/137-05.jpg",
-      "https://rooms.net.ua/photos/137-06.jpg",
-      "https://rooms.net.ua/photos/137-07.jpg",
-      "https://rooms.net.ua/photos/137-08.jpg",
-      "https://rooms.net.ua/photos/137-09.jpg",
-      "https://rooms.net.ua/photos/137-10.jpg"
+      "images/137.jpg",
+      "images/137-02.jpg",
+      "images/137-03.jpg",
+      "images/137-04.jpg",
+      "images/137-05.jpg",
+      "images/137-06.jpg",
+      "images/137-07.jpg",
+      "images/137-08.jpg",
+      "images/137-09.jpg",
+      "images/137-10.jpg"
     ],
     "guests": 3,
-    "img": "https://rooms.net.ua/photos/137.jpg",
+    "img": "images/137.jpg",
     "is_available": true,
     "lat": 48.608106,
     "lng": 22.264019,
@@ -740,18 +785,21 @@
     "rooms": 1,
     "source_url": "https://rooms.net.ua/apartments/137/",
     "title": {
-      "uk": "РІСѓР». РўР»РµС…Р°СЃР° 14",
+      "uk": "вул. Тлехаса 14",
       "en": "St. Tlejasa 14"
-    }
+    },
+    "isBooked": false,
+    "checkInDate": "2026-05-29",
+    "checkOutDate": "2026-06-02"
   },
   {
     "_id": "69d49d5bd8810233ba1da2d1",
     "external_id": 138,
-    "address": "РІСѓР». РўР»РµС…Р°СЃР° 14",
+    "address": "вул. Тлехаса 14",
     "area": "-",
     "beds": 3,
     "description": {
-      "uk": "РђРїР°СЂС‚Р°РјРµРЅС‚Рё Р·Р° Р°РґСЂРµСЃРѕСЋ РІСѓР». РўР»РµС…Р°СЃР° 14. РљС–Р»СЊРєС–СЃС‚СЊ РєС–РјРЅР°С‚: 1. РљС–Р»СЊРєС–СЃС‚СЊ РіРѕСЃС‚РµР№: 3. Р РѕР·С‚Р°С€РѕРІР°РЅС– РЅР° 1 РїРѕРІРµСЂСЃС–. Р—СЂСѓС‡РЅРѕСЃС‚С–: С‚РµР»РµРІС–Р·РѕСЂ, С…РѕР»РѕРґРёР»СЊРЅРёРє, РјС–РєСЂРѕС…РІРёР»СЊРѕРІР° РїС–С‡, РіР°СЂСЏС‡Р° РІРѕРґР°, РєРѕРЅРґРёС†С–РѕРЅРµСЂ, РїРѕСЂСѓС‡ СЃСѓРїРµСЂРјР°СЂРєРµС‚, Р·СЂСѓС‡РЅР° С‚СЂР°РЅСЃРїРѕСЂС‚РЅР° СЂРѕР·РІ'СЏР·РєР°, Р±Р°Р»РєРѕРЅ, С–РЅС‚РµСЂРЅРµС‚, РєР°Р±РµР»СЊРЅРµ С‚РµР»РµР±Р°С‡РµРЅРЅСЏ, РїС–Рґ'С—Р·Рґ РЅР° РєРѕРґС–.",
+      "uk": "Апартаменти за адресою вул. Тлехаса 14. Кількість кімнат: 1. Кількість гостей: 3. Розташовані на 1 поверсі. Зручності: телевізор, холодильник, мікрохвильова піч, гаряча вода, кондиціонер, поруч супермаркет, зручна транспортна розв'язка, балкон, інтернет, кабельне телебачення, під'їзд на коді.",
       "en": "Apartment at the address st. Tlejasa 14. Number of rooms: 1. Number of guests: 3. Located on the 1st floor. Amenities: TV, refrigerator, microwave oven, hot water, air conditioning, supermarket nearby, convenient transport interchange, balcony, internet, cable TV, coded entrance."
     },
     "features": [
@@ -769,26 +817,26 @@
     ],
     "floor": 1,
     "gallery": [
-      "https://rooms.net.ua/photos/138.jpg",
-      "https://rooms.net.ua/photos/138-02.jpg",
-      "https://rooms.net.ua/photos/138-03.jpg",
-      "https://rooms.net.ua/photos/138-04.jpg",
-      "https://rooms.net.ua/photos/138-05.jpg",
-      "https://rooms.net.ua/photos/138-06.jpg",
-      "https://rooms.net.ua/photos/138-07.jpg",
-      "https://rooms.net.ua/photos/138-08.jpg",
-      "https://rooms.net.ua/photos/138-09.jpg",
-      "https://rooms.net.ua/photos/138-10.jpg",
-      "https://rooms.net.ua/photos/138-11.jpg",
-      "https://rooms.net.ua/photos/138-12.jpg",
-      "https://rooms.net.ua/photos/138-13.jpg",
-      "https://rooms.net.ua/photos/138-14.jpg",
-      "https://rooms.net.ua/photos/138-15.jpg",
-      "https://rooms.net.ua/photos/138-16.jpg",
-      "https://rooms.net.ua/photos/138-17.jpg"
+      "images/138.jpg",
+      "images/138-02.jpg",
+      "images/138-03.jpg",
+      "images/138-04.jpg",
+      "images/138-05.jpg",
+      "images/138-06.jpg",
+      "images/138-07.jpg",
+      "images/138-08.jpg",
+      "images/138-09.jpg",
+      "images/138-10.jpg",
+      "images/138-11.jpg",
+      "images/138-12.jpg",
+      "images/138-13.jpg",
+      "images/138-14.jpg",
+      "images/138-15.jpg",
+      "images/138-16.jpg",
+      "images/138-17.jpg"
     ],
     "guests": 3,
-    "img": "https://rooms.net.ua/photos/138.jpg",
+    "img": "images/138.jpg",
     "is_available": true,
     "lat": 48.608106,
     "lng": 22.264019,
@@ -796,18 +844,21 @@
     "rooms": 1,
     "source_url": "https://rooms.net.ua/apartments/138/",
     "title": {
-      "uk": "РІСѓР». РўР»РµС…Р°СЃР° 14",
+      "uk": "вул. Тлехаса 14",
       "en": "St. Tlejasa 14"
-    }
+    },
+    "isBooked": false,
+    "checkInDate": "2026-05-18",
+    "checkOutDate": "2026-05-20"
   },
   {
     "_id": "69d49d5bd8810233ba1da2d2",
     "external_id": 139,
-    "address": "СѓР». РўР»РµС…Р°СЃР° 14",
+    "address": "ул. Тлехаса 14",
     "area": "-",
     "beds": 3,
     "description": {
-      "uk": "РђРїР°СЂС‚Р°РјРµРЅС‚Рё Р·Р° Р°РґСЂРµСЃРѕСЋ СѓР». РўР»РµС…Р°СЃР° 14. РљС–Р»СЊРєС–СЃС‚СЊ РєС–РјРЅР°С‚: 1. РљС–Р»СЊРєС–СЃС‚СЊ РіРѕСЃС‚РµР№: 3. Р РѕР·С‚Р°С€РѕРІР°РЅС– РЅР° 3 РїРѕРІРµСЂСЃС–. Р—СЂСѓС‡РЅРѕСЃС‚С–: С‚РµР»РµРІС–Р·РѕСЂ, С…РѕР»РѕРґРёР»СЊРЅРёРє, РјС–РєСЂРѕС…РІРёР»СЊРѕРІР° РїС–С‡, РіР°СЂСЏС‡Р° РІРѕРґР°, РєРѕРЅРґРёС†С–РѕРЅРµСЂ, РїРѕСЂСѓС‡ СЃСѓРїРµСЂРјР°СЂРєРµС‚, Р·СЂСѓС‡РЅР° С‚СЂР°РЅСЃРїРѕСЂС‚РЅР° СЂРѕР·РІ'СЏР·РєР°, Р±Р°Р»РєРѕРЅ, С–РЅС‚РµСЂРЅРµС‚, РєР°Р±РµР»СЊРЅРµ С‚РµР»РµР±Р°С‡РµРЅРЅСЏ, РїС–Рґ'С—Р·Рґ РЅР° РєРѕРґС–, РїСЂР°Р»СЊРЅР° РјР°С€РёРЅР°.",
+      "uk": "Апартаменти за адресою ул. Тлехаса 14. Кількість кімнат: 1. Кількість гостей: 3. Розташовані на 3 поверсі. Зручності: телевізор, холодильник, мікрохвильова піч, гаряча вода, кондиціонер, поруч супермаркет, зручна транспортна розв'язка, балкон, інтернет, кабельне телебачення, під'їзд на коді, пральна машина.",
       "en": "Apartment at ul. Tlejasa 14. Number of rooms: 1. Number of guests: 3. Located on the 3rd floor. Amenities: TV, refrigerator, microwave oven, hot water, air conditioning, supermarket nearby, convenient transport interchange, balcony, internet, cable TV, coded entrance, washing machine."
     },
     "features": [
@@ -826,26 +877,26 @@
     ],
     "floor": 3,
     "gallery": [
-      "https://rooms.net.ua/photos/139.jpg",
-      "https://rooms.net.ua/photos/139-02.jpg",
-      "https://rooms.net.ua/photos/139-03.jpg",
-      "https://rooms.net.ua/photos/139-04.jpg",
-      "https://rooms.net.ua/photos/139-05.jpg",
-      "https://rooms.net.ua/photos/139-06.jpg",
-      "https://rooms.net.ua/photos/139-07.jpg",
-      "https://rooms.net.ua/photos/139-08.jpg",
-      "https://rooms.net.ua/photos/139-09.jpg",
-      "https://rooms.net.ua/photos/139-10.jpg",
-      "https://rooms.net.ua/photos/139-11.jpg",
-      "https://rooms.net.ua/photos/139-12.jpg",
-      "https://rooms.net.ua/photos/139-13.jpg",
-      "https://rooms.net.ua/photos/139-14.jpg",
-      "https://rooms.net.ua/photos/139-15.jpg",
-      "https://rooms.net.ua/photos/139-16.jpg",
-      "https://rooms.net.ua/photos/139-17.jpg"
+      "images/139.jpg",
+      "images/139-02.jpg",
+      "images/139-03.jpg",
+      "images/139-04.jpg",
+      "images/139-05.jpg",
+      "images/139-06.jpg",
+      "images/139-07.jpg",
+      "images/139-08.jpg",
+      "images/139-09.jpg",
+      "images/139-10.jpg",
+      "images/139-11.jpg",
+      "images/139-12.jpg",
+      "images/139-13.jpg",
+      "images/139-14.jpg",
+      "images/139-15.jpg",
+      "images/139-16.jpg",
+      "images/139-17.jpg"
     ],
     "guests": 3,
-    "img": "https://rooms.net.ua/photos/139.jpg",
+    "img": "images/139.jpg",
     "is_available": true,
     "lat": 48.608106,
     "lng": 22.264019,
@@ -853,18 +904,21 @@
     "rooms": 1,
     "source_url": "https://rooms.net.ua/apartments/139/",
     "title": {
-      "uk": "СѓР». РўР»РµС…Р°СЃР° 14",
+      "uk": "ул. Тлехаса 14",
       "en": "St. Tlejasa 14"
-    }
+    },
+    "isBooked": false,
+    "checkInDate": "2026-05-21",
+    "checkOutDate": "2026-05-25"
   },
   {
     "_id": "69d49d5bd8810233ba1da2d3",
     "external_id": 141,
-    "address": "СѓР». РўР»РµС…Р°СЃР° 14",
+    "address": "ул. Тлехаса 14",
     "area": "-",
     "beds": 2,
     "description": {
-      "uk": "РђРїР°СЂС‚Р°РјРµРЅС‚Рё Р·Р° Р°РґСЂРµСЃРѕСЋ СѓР». РўР»РµС…Р°СЃР° 14. РљС–Р»СЊРєС–СЃС‚СЊ РєС–РјРЅР°С‚: 1. РљС–Р»СЊРєС–СЃС‚СЊ РіРѕСЃС‚РµР№: 2. Р РѕР·С‚Р°С€РѕРІР°РЅС– РЅР° 1 РїРѕРІРµСЂСЃС–. Р—СЂСѓС‡РЅРѕСЃС‚С–: С‚РµР»РµРІС–Р·РѕСЂ, С…РѕР»РѕРґРёР»СЊРЅРёРє, РјС–РєСЂРѕС…РІРёР»СЊРѕРІР° РїС–С‡, РіР°СЂСЏС‡Р° РІРѕРґР°, РєРѕРЅРґРёС†С–РѕРЅРµСЂ, РїРѕСЂСѓС‡ СЃСѓРїРµСЂРјР°СЂРєРµС‚, Р·СЂСѓС‡РЅР° С‚СЂР°РЅСЃРїРѕСЂС‚РЅР° СЂРѕР·РІ'СЏР·РєР°, Р±Р°Р»РєРѕРЅ, С–РЅС‚РµСЂРЅРµС‚, РєР°Р±РµР»СЊРЅРµ С‚РµР»РµР±Р°С‡РµРЅРЅСЏ, РїС–Рґ'С—Р·Рґ РЅР° РєРѕРґС–, РїСЂР°Р»СЊРЅР° РјР°С€РёРЅР°.",
+      "uk": "Апартаменти за адресою ул. Тлехаса 14. Кількість кімнат: 1. Кількість гостей: 2. Розташовані на 1 поверсі. Зручності: телевізор, холодильник, мікрохвильова піч, гаряча вода, кондиціонер, поруч супермаркет, зручна транспортна розв'язка, балкон, інтернет, кабельне телебачення, під'їзд на коді, пральна машина.",
       "en": "Apartment at ul. Tlejasa 14. Number of rooms: 1. Number of guests: 2. Located on the 1st floor. Amenities: TV, refrigerator, microwave oven, hot water, air conditioning, supermarket nearby, convenient transport interchange, balcony, internet, cable TV, coded entrance, washing machine."
     },
     "features": [
@@ -883,21 +937,21 @@
     ],
     "floor": 1,
     "gallery": [
-      "https://rooms.net.ua/photos/141.jpg",
-      "https://rooms.net.ua/photos/141-02.jpg",
-      "https://rooms.net.ua/photos/141-03.jpg",
-      "https://rooms.net.ua/photos/141-04.jpg",
-      "https://rooms.net.ua/photos/141-05.jpg",
-      "https://rooms.net.ua/photos/141-06.jpg",
-      "https://rooms.net.ua/photos/141-07.jpg",
-      "https://rooms.net.ua/photos/141-08.jpg",
-      "https://rooms.net.ua/photos/141-09.jpg",
-      "https://rooms.net.ua/photos/141-10.jpg",
-      "https://rooms.net.ua/photos/141-11.jpg",
-      "https://rooms.net.ua/photos/141-12.jpg"
+      "images/141.jpg",
+      "images/141-02.jpg",
+      "images/141-03.jpg",
+      "images/141-04.jpg",
+      "images/141-05.jpg",
+      "images/141-06.jpg",
+      "images/141-07.jpg",
+      "images/141-08.jpg",
+      "images/141-09.jpg",
+      "images/141-10.jpg",
+      "images/141-11.jpg",
+      "images/141-12.jpg"
     ],
     "guests": 2,
-    "img": "https://rooms.net.ua/photos/141.jpg",
+    "img": "images/141.jpg",
     "is_available": true,
     "lat": 48.608106,
     "lng": 22.264019,
@@ -905,18 +959,21 @@
     "rooms": 1,
     "source_url": "https://rooms.net.ua/apartments/141/",
     "title": {
-      "uk": "СѓР». РўР»РµС…Р°СЃР° 14",
+      "uk": "ул. Тлехаса 14",
       "en": "St. Tlejasa 14"
-    }
+    },
+    "isBooked": false,
+    "checkInDate": "2026-06-01",
+    "checkOutDate": "2026-06-03"
   },
   {
     "_id": "69d49d5bd8810233ba1da2d4",
     "external_id": 160,
-    "address": "РІСѓР» Р’РѕР»РѕРґРёРјРёСЂСЃСЊРєР° 90",
+    "address": "вул Володимирська 90",
     "area": "-",
     "beds": 2,
     "description": {
-      "uk": "РђРїР°СЂС‚Р°РјРµРЅС‚Рё Р·Р° Р°РґСЂРµСЃРѕСЋ РІСѓР» Р’РѕР»РѕРґРёРјРёСЂСЃСЊРєР° 90. РљС–Р»СЊРєС–СЃС‚СЊ РєС–РјРЅР°С‚: 1. РљС–Р»СЊРєС–СЃС‚СЊ РіРѕСЃС‚РµР№: 2. Р РѕР·С‚Р°С€РѕРІР°РЅС– РЅР° 2 РїРѕРІРµСЂСЃС–. Р—СЂСѓС‡РЅРѕСЃС‚С–: С‚РµР»РµРІС–Р·РѕСЂ, С…РѕР»РѕРґРёР»СЊРЅРёРє, РјС–РєСЂРѕС…РІРёР»СЊРѕРІР° РїС–С‡, РіР°СЂСЏС‡Р° РІРѕРґР°, РїРѕСЂСѓС‡ СЃСѓРїРµСЂРјР°СЂРєРµС‚, Р·СЂСѓС‡РЅР° С‚СЂР°РЅСЃРїРѕСЂС‚РЅР° СЂРѕР·РІ'СЏР·РєР°, С–РЅС‚РµСЂРЅРµС‚, РїС–Рґ'С—Р·Рґ РЅР° РєРѕРґС–, РїСЂР°Р»СЊРЅР° РјР°С€РёРЅР°.",
+      "uk": "Апартаменти за адресою вул Володимирська 90. Кількість кімнат: 1. Кількість гостей: 2. Розташовані на 2 поверсі. Зручності: телевізор, холодильник, мікрохвильова піч, гаряча вода, поруч супермаркет, зручна транспортна розв'язка, інтернет, під'їзд на коді, пральна машина.",
       "en": "Apartment at 90 Volodymyrska St. Number of rooms: 1. Number of guests: 2. Located on the 2nd floor. Amenities: TV, refrigerator, microwave oven, hot water, supermarket nearby, convenient transport interchange, internet, coded entrance, washing machine."
     },
     "features": [
@@ -932,22 +989,22 @@
     ],
     "floor": 2,
     "gallery": [
-      "https://rooms.net.ua/photos/160.jpg",
-      "https://rooms.net.ua/photos/160-02.jpg",
-      "https://rooms.net.ua/photos/160-03.jpg",
-      "https://rooms.net.ua/photos/160-04.jpg",
-      "https://rooms.net.ua/photos/160-05.jpg",
-      "https://rooms.net.ua/photos/160-06.jpg",
-      "https://rooms.net.ua/photos/160-07.jpg",
-      "https://rooms.net.ua/photos/160-08.jpg",
-      "https://rooms.net.ua/photos/160-09.jpg",
-      "https://rooms.net.ua/photos/160-10.jpg",
-      "https://rooms.net.ua/photos/160-11.jpg",
-      "https://rooms.net.ua/photos/160-12.jpg",
-      "https://rooms.net.ua/photos/160-13.jpg"
+      "images/160.jpg",
+      "images/160-02.jpg",
+      "images/160-03.jpg",
+      "images/160-04.jpg",
+      "images/160-05.jpg",
+      "images/160-06.jpg",
+      "images/160-07.jpg",
+      "images/160-08.jpg",
+      "images/160-09.jpg",
+      "images/160-10.jpg",
+      "images/160-11.jpg",
+      "images/160-12.jpg",
+      "images/160-13.jpg"
     ],
     "guests": 2,
-    "img": "https://rooms.net.ua/photos/160.jpg",
+    "img": "images/160.jpg",
     "is_available": true,
     "lat": 48.621,
     "lng": 22.288,
@@ -955,18 +1012,21 @@
     "rooms": 1,
     "source_url": "https://rooms.net.ua/apartments/160/",
     "title": {
-      "uk": "РІСѓР» Р’РѕР»РѕРґРёРјРёСЂСЃСЊРєР° 90",
+      "uk": "вул Володимирська 90",
       "en": "90 Volodymyrska St"
-    }
+    },
+    "isBooked": false,
+    "checkInDate": "2026-05-26",
+    "checkOutDate": "2026-06-01"
   },
   {
     "_id": "69d49d5bd8810233ba1da2d5",
     "external_id": 162,
-    "address": "РІСѓР». РњСѓРєР°С‡С–РІСЃСЊРєР° 77/21 Р· Р±Р°Р»РєРѕРЅРѕРј",
+    "address": "вул. Мукачівська 77/21 з балконом",
     "area": "-",
     "beds": 2,
     "description": {
-      "uk": "РђРїР°СЂС‚Р°РјРµРЅС‚Рё Р·Р° Р°РґСЂРµСЃРѕСЋ РІСѓР». РњСѓРєР°С‡С–РІСЃСЊРєР° 77/21 Р· Р±Р°Р»РєРѕРЅРѕРј. РљС–Р»СЊРєС–СЃС‚СЊ РєС–РјРЅР°С‚: 1. РљС–Р»СЊРєС–СЃС‚СЊ РіРѕСЃС‚РµР№: 2. Р РѕР·С‚Р°С€РѕРІР°РЅС– РЅР° 2 РїРѕРІРµСЂСЃС–. Р—СЂСѓС‡РЅРѕСЃС‚С–: С‚РµР»РµРІС–Р·РѕСЂ, С…РѕР»РѕРґРёР»СЊРЅРёРє, РјС–РєСЂРѕС…РІРёР»СЊРѕРІР° РїС–С‡, РіР°СЂСЏС‡Р° РІРѕРґР°, РєРѕРЅРґРёС†С–РѕРЅРµСЂ, РїРѕСЂСѓС‡ СЃСѓРїРµСЂРјР°СЂРєРµС‚, Р·СЂСѓС‡РЅР° С‚СЂР°РЅСЃРїРѕСЂС‚РЅР° СЂРѕР·РІ'СЏР·РєР°, Smart TV, Р±Р°Р»РєРѕРЅ, РІР°СЂРёР»СЊРЅР° РїРѕРІРµСЂС…РЅСЏ, С–РЅС‚РµСЂРЅРµС‚, РїСЂР°Р»СЊРЅР° РјР°С€РёРЅР°.",
+      "uk": "Апартаменти за адресою вул. Мукачівська 77/21 з балконом. Кількість кімнат: 1. Кількість гостей: 2. Розташовані на 2 поверсі. Зручності: телевізор, холодильник, мікрохвильова піч, гаряча вода, кондиціонер, поруч супермаркет, зручна транспортна розв'язка, Smart TV, балкон, варильна поверхня, інтернет, пральна машина.",
       "en": "Apartment at the address st. Mukachivska 77/21 with a balcony. Number of rooms: 1. Number of guests: 2. Located on the 2nd floor. Amenities: TV, refrigerator, microwave oven, hot water, air conditioning, supermarket nearby, convenient transport interchange, Smart TV, balcony, cooking surface, internet, washing machine."
     },
     "features": [
@@ -985,22 +1045,22 @@
     ],
     "floor": 2,
     "gallery": [
-      "https://rooms.net.ua/photos/162.jpeg",
-      "https://rooms.net.ua/photos/162-02.jpeg",
-      "https://rooms.net.ua/photos/162-03.jpeg",
-      "https://rooms.net.ua/photos/162-04.jpeg",
-      "https://rooms.net.ua/photos/162-05.jpg",
-      "https://rooms.net.ua/photos/162-06.jpeg",
-      "https://rooms.net.ua/photos/162-07.jpeg",
-      "https://rooms.net.ua/photos/162-08.jpeg",
-      "https://rooms.net.ua/photos/162-09.jpeg",
-      "https://rooms.net.ua/photos/162-10.jpeg",
-      "https://rooms.net.ua/photos/162-11.jpeg",
-      "https://rooms.net.ua/photos/162-12.jpg",
-      "https://rooms.net.ua/photos/162-13.jpg"
+      "images/162.jpg",
+      "images/162-02.jpg",
+      "images/162-03.jpg",
+      "images/162-04.jpg",
+      "images/162-05.jpg",
+      "images/162-06.jpg",
+      "images/162-07.jpg",
+      "images/162-08.jpg",
+      "images/162-09.jpg",
+      "images/162-10.jpg",
+      "images/162-11.jpg",
+      "images/162-12.jpg",
+      "images/162-13.jpg"
     ],
     "guests": 2,
-    "img": "https://rooms.net.ua/photos/162.jpeg",
+    "img": "images/162.jpg",
     "is_available": true,
     "lat": 48.613578,
     "lng": 22.302807,
@@ -1008,18 +1068,21 @@
     "rooms": 1,
     "source_url": "https://rooms.net.ua/apartments/162/",
     "title": {
-      "uk": "РІСѓР». РњСѓРєР°С‡С–РІСЃСЊРєР° 77/21 Р· Р±Р°Р»РєРѕРЅРѕРј",
+      "uk": "вул. Мукачівська 77/21 з балконом",
       "en": "St. Mukachivska 77/21 with a balcony"
-    }
+    },
+    "isBooked": false,
+    "checkInDate": "2026-05-30",
+    "checkOutDate": "2026-06-02"
   },
   {
     "_id": "69d49d5bd8810233ba1da2d6",
     "external_id": 163,
-    "address": "РІСѓР». РўРѕР±С–Р»РµРІРёС‡Р° 13",
+    "address": "вул. Тобілевича 13",
     "area": "-",
     "beds": 2,
     "description": {
-      "uk": "РђРїР°СЂС‚Р°РјРµРЅС‚Рё Р·Р° Р°РґСЂРµСЃРѕСЋ РІСѓР». РўРѕР±С–Р»РµРІРёС‡Р° 13. РљС–Р»СЊРєС–СЃС‚СЊ РєС–РјРЅР°С‚: 1. РљС–Р»СЊРєС–СЃС‚СЊ РіРѕСЃС‚РµР№: 2. Р РѕР·С‚Р°С€РѕРІР°РЅС– РЅР° 1 РїРѕРІРµСЂСЃС–. Р—СЂСѓС‡РЅРѕСЃС‚С–: С‚РµР»РµРІС–Р·РѕСЂ, С…РѕР»РѕРґРёР»СЊРЅРёРє, РјС–РєСЂРѕС…РІРёР»СЊРѕРІР° РїС–С‡, РіР°СЂСЏС‡Р° РІРѕРґР°, РїРѕСЂСѓС‡ СЃСѓРїРµСЂРјР°СЂРєРµС‚, Р·СЂСѓС‡РЅР° С‚СЂР°РЅСЃРїРѕСЂС‚РЅР° СЂРѕР·РІ'СЏР·РєР°, Smart TV, Р±Р°Р»РєРѕРЅ, РїС–Рґ'С—Р·Рґ РЅР° РєРѕРґС–, РїСЂР°Р»СЊРЅР° РјР°С€РёРЅР°.",
+      "uk": "Апартаменти за адресою вул. Тобілевича 13. Кількість кімнат: 1. Кількість гостей: 2. Розташовані на 1 поверсі. Зручності: телевізор, холодильник, мікрохвильова піч, гаряча вода, поруч супермаркет, зручна транспортна розв'язка, Smart TV, балкон, під'їзд на коді, пральна машина.",
       "en": "Apartment at the address st. Tobilevicha 13. Number of rooms: 1. Number of guests: 2. Located on the 1st floor. Amenities: TV, refrigerator, microwave oven, hot water, supermarket nearby, convenient transport interchange, Smart TV, balcony, coded entrance, washing machine."
     },
     "features": [
@@ -1036,20 +1099,20 @@
     ],
     "floor": 1,
     "gallery": [
-      "https://rooms.net.ua/photos/163.jpeg",
-      "https://rooms.net.ua/photos/163-02.jpeg",
-      "https://rooms.net.ua/photos/163-03.jpeg",
-      "https://rooms.net.ua/photos/163-04.jpeg",
-      "https://rooms.net.ua/photos/163-05.jpeg",
-      "https://rooms.net.ua/photos/163-06.jpeg",
-      "https://rooms.net.ua/photos/163-07.jpeg",
-      "https://rooms.net.ua/photos/163-08.jpeg",
-      "https://rooms.net.ua/photos/163-09.jpeg",
-      "https://rooms.net.ua/photos/163-10.jpg",
-      "https://rooms.net.ua/photos/163-11.jpg"
+      "images/163.jpg",
+      "images/163-02.jpg",
+      "images/163-03.jpg",
+      "images/163-04.jpg",
+      "images/163-05.jpg",
+      "images/163-06.jpg",
+      "images/163-07.jpeg",
+      "images/163-08.jpg",
+      "images/163-09.jpg",
+      "images/163-10.jpg",
+      "images/163-11.jpg"
     ],
     "guests": 2,
-    "img": "https://rooms.net.ua/photos/163.jpeg",
+    "img": "images/163.jpg",
     "is_available": true,
     "lat": 48.61078573,
     "lng": 22.27234863,
@@ -1057,18 +1120,21 @@
     "rooms": 1,
     "source_url": "https://rooms.net.ua/apartments/163/",
     "title": {
-      "uk": "РІСѓР». РўРѕР±С–Р»РµРІРёС‡Р° 13",
+      "uk": "вул. Тобілевича 13",
       "en": "St. Tobilevicha 13"
-    }
+    },
+    "isBooked": false,
+    "checkInDate": "2026-05-18",
+    "checkOutDate": "2026-05-20"
   },
   {
     "_id": "69d49d5bd8810233ba1da2d7",
     "external_id": 165,
-    "address": "РІСѓР». РўР»РµС…Р°СЃР°, 14",
+    "address": "вул. Тлехаса, 14",
     "area": "-",
     "beds": 2,
     "description": {
-      "uk": "РђРїР°СЂС‚Р°РјРµРЅС‚Рё Р·Р° Р°РґСЂРµСЃРѕСЋ РІСѓР». РўР»РµС…Р°СЃР°, 14. РљС–Р»СЊРєС–СЃС‚СЊ РєС–РјРЅР°С‚: 1. РљС–Р»СЊРєС–СЃС‚СЊ РіРѕСЃС‚РµР№: 2. Р РѕР·С‚Р°С€РѕРІР°РЅС– РЅР° 1 РїРѕРІРµСЂСЃС–. Р—СЂСѓС‡РЅРѕСЃС‚С–: С‚РµР»РµРІС–Р·РѕСЂ, С…РѕР»РѕРґРёР»СЊРЅРёРє, РјС–РєСЂРѕС…РІРёР»СЊРѕРІР° РїС–С‡, РіР°СЂСЏС‡Р° РІРѕРґР°, РєРѕРЅРґРёС†С–РѕРЅРµСЂ, РїРѕСЂСѓС‡ СЃСѓРїРµСЂРјР°СЂРєРµС‚, Р·СЂСѓС‡РЅР° С‚СЂР°РЅСЃРїРѕСЂС‚РЅР° СЂРѕР·РІ'СЏР·РєР°, Р±Р°Р»РєРѕРЅ, РєР°Р±РµР»СЊРЅРµ С‚РµР»РµР±Р°С‡РµРЅРЅСЏ, РїС–Рґ'С—Р·Рґ РЅР° РєРѕРґС–, РїСЂР°Р»СЊРЅР° РјР°С€РёРЅР°.",
+      "uk": "Апартаменти за адресою вул. Тлехаса, 14. Кількість кімнат: 1. Кількість гостей: 2. Розташовані на 1 поверсі. Зручності: телевізор, холодильник, мікрохвильова піч, гаряча вода, кондиціонер, поруч супермаркет, зручна транспортна розв'язка, балкон, кабельне телебачення, під'їзд на коді, пральна машина.",
       "en": "Apartment at the address st. Tlejasa, 14. Number of rooms: 1. Number of guests: 2. Located on the 1st floor. Amenities: TV, refrigerator, microwave oven, hot water, air conditioning, supermarket nearby, convenient transport interchange, balcony, cable TV, coded entrance, washing machine."
     },
     "features": [
@@ -1086,20 +1152,20 @@
     ],
     "floor": 1,
     "gallery": [
-      "https://rooms.net.ua/photos/165.jpg",
-      "https://rooms.net.ua/photos/165-02.jpg",
-      "https://rooms.net.ua/photos/165-03.jpg",
-      "https://rooms.net.ua/photos/165-04.jpg",
-      "https://rooms.net.ua/photos/165-05.jpg",
-      "https://rooms.net.ua/photos/165-06.jpg",
-      "https://rooms.net.ua/photos/165-07.jpg",
-      "https://rooms.net.ua/photos/165-08.jpg",
-      "https://rooms.net.ua/photos/165-09.jpg",
-      "https://rooms.net.ua/photos/165-10.jpg",
-      "https://rooms.net.ua/photos/165-11.jpg"
+      "images/165.jpg",
+      "images/165-02.jpg",
+      "images/165-03.jpg",
+      "images/165-04.jpg",
+      "images/165-05.jpg",
+      "images/165-06.jpg",
+      "images/165-07.jpg",
+      "images/165-08.jpg",
+      "images/165-09.jpg",
+      "images/165-10.jpg",
+      "images/165-11.jpg"
     ],
     "guests": 2,
-    "img": "https://rooms.net.ua/photos/165.jpg",
+    "img": "images/165.jpg",
     "is_available": true,
     "lat": 48.608106,
     "lng": 22.264019,
@@ -1107,18 +1173,21 @@
     "rooms": 1,
     "source_url": "https://rooms.net.ua/apartments/165/",
     "title": {
-      "uk": "РІСѓР». РўР»РµС…Р°СЃР°, 14",
+      "uk": "вул. Тлехаса, 14",
       "en": "St. Tlejasa, 14"
-    }
+    },
+    "isBooked": false,
+    "checkInDate": "2026-05-16",
+    "checkOutDate": "2026-05-21"
   },
   {
     "_id": "69d49d5bd8810233ba1da2d8",
     "external_id": 171,
-    "address": "РІСѓР». РњСѓРєР°С‡С–РІСЃСЊРєР° 77/23  Р· Р±Р°Р»РєРѕРЅРѕРј",
+    "address": "вул. Мукачівська 77/23  з балконом",
     "area": "-",
     "beds": 2,
     "description": {
-      "uk": "РђРїР°СЂС‚Р°РјРµРЅС‚Рё Р·Р° Р°РґСЂРµСЃРѕСЋ РІСѓР». РњСѓРєР°С‡С–РІСЃСЊРєР° 77/23  Р· Р±Р°Р»РєРѕРЅРѕРј. РљС–Р»СЊРєС–СЃС‚СЊ РєС–РјРЅР°С‚: 1. РљС–Р»СЊРєС–СЃС‚СЊ РіРѕСЃС‚РµР№: 2. Р РѕР·С‚Р°С€РѕРІР°РЅС– РЅР° 2 РїРѕРІРµСЂСЃС–. Р—СЂСѓС‡РЅРѕСЃС‚С–: С‚РµР»РµРІС–Р·РѕСЂ, С…РѕР»РѕРґРёР»СЊРЅРёРє, РјС–РєСЂРѕС…РІРёР»СЊРѕРІР° РїС–С‡, РіР°СЂСЏС‡Р° РІРѕРґР°, РєРѕРЅРґРёС†С–РѕРЅРµСЂ, Р·СЂСѓС‡РЅР° С‚СЂР°РЅСЃРїРѕСЂС‚РЅР° СЂРѕР·РІ'СЏР·РєР°, Smart TV, Р±Р°Р»РєРѕРЅ, РІР°СЂРёР»СЊРЅР° РїРѕРІРµСЂС…РЅСЏ.",
+      "uk": "Апартаменти за адресою вул. Мукачівська 77/23  з балконом. Кількість кімнат: 1. Кількість гостей: 2. Розташовані на 2 поверсі. Зручності: телевізор, холодильник, мікрохвильова піч, гаряча вода, кондиціонер, зручна транспортна розв'язка, Smart TV, балкон, варильна поверхня.",
       "en": "Apartment at the address st. Mukachivska 77/23 with a balcony. Number of rooms: 1. Number of guests: 2. Located on the 2nd floor. Amenities: TV, refrigerator, microwave oven, hot water, air conditioner, convenient transport interchange, Smart TV, balcony, cooking surface."
     },
     "features": [
@@ -1134,18 +1203,18 @@
     ],
     "floor": 2,
     "gallery": [
-      "https://rooms.net.ua/photos/171.jpeg",
-      "https://rooms.net.ua/photos/171-02.jpeg",
-      "https://rooms.net.ua/photos/171-03.jpeg",
-      "https://rooms.net.ua/photos/171-04.jpeg",
-      "https://rooms.net.ua/photos/171-05.jpeg",
-      "https://rooms.net.ua/photos/171-06.jpeg",
-      "https://rooms.net.ua/photos/171-07.jpeg",
-      "https://rooms.net.ua/photos/171-08.jpeg",
-      "https://rooms.net.ua/photos/171-09.jpeg"
+      "images/171.jpg",
+      "images/171-02.jpg",
+      "images/171-03.jpg",
+      "images/171-04.jpg",
+      "images/171-05.jpg",
+      "images/171-06.jpg",
+      "images/171-07.jpg",
+      "images/171-08.jpg",
+      "images/171-09.jpg"
     ],
     "guests": 2,
-    "img": "https://rooms.net.ua/photos/171.jpeg",
+    "img": "images/171.jpg",
     "is_available": true,
     "lat": 48.613578,
     "lng": 22.302807,
@@ -1153,18 +1222,21 @@
     "rooms": 1,
     "source_url": "https://rooms.net.ua/apartments/171/",
     "title": {
-      "uk": "РІСѓР». РњСѓРєР°С‡С–РІСЃСЊРєР° 77/23  Р· Р±Р°Р»РєРѕРЅРѕРј",
+      "uk": "вул. Мукачівська 77/23  з балконом",
       "en": "St. Mukachivska 77/23 with a balcony"
-    }
+    },
+    "isBooked": false,
+    "checkInDate": "2026-05-28",
+    "checkOutDate": "2026-05-30"
   },
   {
     "_id": "69d49d5cd8810233ba1da2d9",
     "external_id": 181,
-    "address": "РІСѓР». РўР»РµС…Р°СЃР° 18",
+    "address": "вул. Тлехаса 18",
     "area": "-",
     "beds": 4,
     "description": {
-      "uk": "РђРїР°СЂС‚Р°РјРµРЅС‚Рё Р·Р° Р°РґСЂРµСЃРѕСЋ РІСѓР». РўР»РµС…Р°СЃР° 18. РљС–Р»СЊРєС–СЃС‚СЊ РєС–РјРЅР°С‚: 1. РљС–Р»СЊРєС–СЃС‚СЊ РіРѕСЃС‚РµР№: 4. Р РѕР·С‚Р°С€РѕРІР°РЅС– РЅР° 1 РїРѕРІРµСЂСЃС–. Р—СЂСѓС‡РЅРѕСЃС‚С–: С‚РµР»РµРІС–Р·РѕСЂ, С…РѕР»РѕРґРёР»СЊРЅРёРє, РјС–РєСЂРѕС…РІРёР»СЊРѕРІР° РїС–С‡, РіР°СЂСЏС‡Р° РІРѕРґР°, РєРѕРЅРґРёС†С–РѕРЅРµСЂ, РїРѕСЂСѓС‡ СЃСѓРїРµСЂРјР°СЂРєРµС‚, Р·СЂСѓС‡РЅР° С‚СЂР°РЅСЃРїРѕСЂС‚РЅР° СЂРѕР·РІ'СЏР·РєР°, РІР°СЂРёР»СЊРЅР° РїРѕРІРµСЂС…РЅСЏ, РєР°Р±РµР»СЊРЅРµ С‚РµР»РµР±Р°С‡РµРЅРЅСЏ, РїС–Рґ'С—Р·Рґ РЅР° РєРѕРґС–.",
+      "uk": "Апартаменти за адресою вул. Тлехаса 18. Кількість кімнат: 1. Кількість гостей: 4. Розташовані на 1 поверсі. Зручності: телевізор, холодильник, мікрохвильова піч, гаряча вода, кондиціонер, поруч супермаркет, зручна транспортна розв'язка, варильна поверхня, кабельне телебачення, під'їзд на коді.",
       "en": "Apartment at the address st. Tlejasa 18. Number of rooms: 1. Number of guests: 4. Located on the 1st floor. Amenities: TV, refrigerator, microwave oven, hot water, air conditioning, supermarket nearby, convenient transportation interchange, cooking surface, cable TV, coded entrance."
     },
     "features": [
@@ -1181,19 +1253,19 @@
     ],
     "floor": 1,
     "gallery": [
-      "https://rooms.net.ua/photos/181.jpg",
-      "https://rooms.net.ua/photos/181-02.jpg",
-      "https://rooms.net.ua/photos/181-03.jpg",
-      "https://rooms.net.ua/photos/181-04.jpg",
-      "https://rooms.net.ua/photos/181-05.jpg",
-      "https://rooms.net.ua/photos/181-06.jpg",
-      "https://rooms.net.ua/photos/181-07.jpg",
-      "https://rooms.net.ua/photos/181-08.jpg",
-      "https://rooms.net.ua/photos/181-09.jpg",
-      "https://rooms.net.ua/photos/181-10.jpg"
+      "images/181.jpg",
+      "images/181-02.jpg",
+      "images/181-03.jpg",
+      "images/181-04.jpg",
+      "images/181-05.jpg",
+      "images/181-06.jpg",
+      "images/181-07.jpg",
+      "images/181-08.jpg",
+      "images/181-09.jpg",
+      "images/181-10.jpg"
     ],
     "guests": 4,
-    "img": "https://rooms.net.ua/photos/181.jpg",
+    "img": "images/181.jpg",
     "is_available": true,
     "lat": 48.608106,
     "lng": 22.264019,
@@ -1201,18 +1273,21 @@
     "rooms": 1,
     "source_url": "https://rooms.net.ua/apartments/181/",
     "title": {
-      "uk": "РІСѓР». РўР»РµС…Р°СЃР° 18",
+      "uk": "вул. Тлехаса 18",
       "en": "St. 18 Tlejasa"
-    }
+    },
+    "isBooked": false,
+    "checkInDate": "2026-05-20",
+    "checkOutDate": "2026-05-25"
   },
   {
     "_id": "69d49d5cd8810233ba1da2da",
     "external_id": 161,
-    "address": "РїР». РЁ.РџРµС‚РµС„С– 8Р°/5",
+    "address": "пл. Ш.Петефі 8а/5",
     "area": "-",
     "beds": 4,
     "description": {
-      "uk": "РђРїР°СЂС‚Р°РјРµРЅС‚Рё Р·Р° Р°РґСЂРµСЃРѕСЋ РїР». РЁ.РџРµС‚РµС„С– 8Р°/5. РљС–Р»СЊРєС–СЃС‚СЊ РєС–РјРЅР°С‚: 2. РљС–Р»СЊРєС–СЃС‚СЊ РіРѕСЃС‚РµР№: 4. Р РѕР·С‚Р°С€РѕРІР°РЅС– РЅР° 2 РїРѕРІРµСЂСЃС–. Р—СЂСѓС‡РЅРѕСЃС‚С–: С‚РµР»РµРІС–Р·РѕСЂ, С…РѕР»РѕРґРёР»СЊРЅРёРє, РјС–РєСЂРѕС…РІРёР»СЊРѕРІР° РїС–С‡, РіР°СЂСЏС‡Р° РІРѕРґР°, РєРѕРЅРґРёС†С–РѕРЅРµСЂ, РїРѕСЂСѓС‡ СЃСѓРїРµСЂРјР°СЂРєРµС‚, Р·СЂСѓС‡РЅР° С‚СЂР°РЅСЃРїРѕСЂС‚РЅР° СЂРѕР·РІ'СЏР·РєР°, Smart TV, С–РЅС‚РµСЂРЅРµС‚.",
+      "uk": "Апартаменти за адресою пл. Ш.Петефі 8а/5. Кількість кімнат: 2. Кількість гостей: 4. Розташовані на 2 поверсі. Зручності: телевізор, холодильник, мікрохвильова піч, гаряча вода, кондиціонер, поруч супермаркет, зручна транспортна розв'язка, Smart TV, інтернет.",
       "en": "Apartment at the address of the square Sh. Petefi 8a/5. Number of rooms: 2. Number of guests: 4. Located on the 2nd floor. Amenities: TV, refrigerator, microwave oven, hot water, air conditioner, supermarket nearby, convenient transport interchange, Smart TV, Internet."
     },
     "features": [
@@ -1228,17 +1303,17 @@
     ],
     "floor": 2,
     "gallery": [
-      "https://rooms.net.ua/photos/161.jpg",
-      "https://rooms.net.ua/photos/161-02.jpg",
-      "https://rooms.net.ua/photos/161-03.jpg",
-      "https://rooms.net.ua/photos/161-04.jpg",
-      "https://rooms.net.ua/photos/161-05.jpg",
-      "https://rooms.net.ua/photos/161-06.jpg",
-      "https://rooms.net.ua/photos/161-07.jpg",
-      "https://rooms.net.ua/photos/161-08.jpg"
+      "images/161.jpg",
+      "images/161-02.jpg",
+      "images/161-03.jpg",
+      "images/161-04.jpg",
+      "images/161-05.jpg",
+      "images/161-06.jpg",
+      "images/161-07.jpg",
+      "images/161-08.jpg"
     ],
     "guests": 4,
-    "img": "https://rooms.net.ua/photos/161.jpg",
+    "img": "images/161.jpg",
     "is_available": true,
     "lat": 48.6205583,
     "lng": 22.29650171,
@@ -1246,18 +1321,21 @@
     "rooms": 2,
     "source_url": "https://rooms.net.ua/apartments/161/",
     "title": {
-      "uk": "РїР». РЁ.РџРµС‚РµС„С– 8Р°/5",
+      "uk": "пл. Ш.Петефі 8а/5",
       "en": "sq. Sh. Petefi 8a/5"
-    }
+    },
+    "isBooked": false,
+    "checkInDate": "2026-05-21",
+    "checkOutDate": "2026-05-26"
   },
   {
     "_id": "69d49d5cd8810233ba1da2db",
     "external_id": 164,
-    "address": "РІСѓР». РўРѕР±С–Р»РµРІРёС‡Р° 13",
+    "address": "вул. Тобілевича 13",
     "area": "-",
     "beds": 2,
     "description": {
-      "uk": "РђРїР°СЂС‚Р°РјРµРЅС‚Рё Р·Р° Р°РґСЂРµСЃРѕСЋ РІСѓР». РўРѕР±С–Р»РµРІРёС‡Р° 13. РљС–Р»СЊРєС–СЃС‚СЊ РєС–РјРЅР°С‚: 1. РљС–Р»СЊРєС–СЃС‚СЊ РіРѕСЃС‚РµР№: 2. Р РѕР·С‚Р°С€РѕРІР°РЅС– РЅР° 3 РїРѕРІРµСЂСЃС–. Р—СЂСѓС‡РЅРѕСЃС‚С–: С‚РµР»РµРІС–Р·РѕСЂ, С…РѕР»РѕРґРёР»СЊРЅРёРє, РјС–РєСЂРѕС…РІРёР»СЊРѕРІР° РїС–С‡, РіР°СЂСЏС‡Р° РІРѕРґР°, РїРѕСЂСѓС‡ СЃСѓРїРµСЂРјР°СЂРєРµС‚, Р·СЂСѓС‡РЅР° С‚СЂР°РЅСЃРїРѕСЂС‚РЅР° СЂРѕР·РІ'СЏР·РєР°, Smart TV, Р±Р°Р»РєРѕРЅ, РїС–Рґ'С—Р·Рґ РЅР° РєРѕРґС–, РїСЂР°Р»СЊРЅР° РјР°С€РёРЅР°.",
+      "uk": "Апартаменти за адресою вул. Тобілевича 13. Кількість кімнат: 1. Кількість гостей: 2. Розташовані на 3 поверсі. Зручності: телевізор, холодильник, мікрохвильова піч, гаряча вода, поруч супермаркет, зручна транспортна розв'язка, Smart TV, балкон, під'їзд на коді, пральна машина.",
       "en": "Apartment at the address st. Tobilevicha 13. Number of rooms: 1. Number of guests: 2. Located on the 3rd floor. Amenities: TV, refrigerator, microwave oven, hot water, supermarket nearby, convenient transport interchange, Smart TV, balcony, coded entrance, washing machine."
     },
     "features": [
@@ -1274,25 +1352,25 @@
     ],
     "floor": 3,
     "gallery": [
-      "https://rooms.net.ua/photos/164.jpg",
-      "https://rooms.net.ua/photos/164-02.jpg",
-      "https://rooms.net.ua/photos/164-03.jpg",
-      "https://rooms.net.ua/photos/164-04.jpg",
-      "https://rooms.net.ua/photos/164-05.jpg",
-      "https://rooms.net.ua/photos/164-06.jpg",
-      "https://rooms.net.ua/photos/164-07.jpg",
-      "https://rooms.net.ua/photos/164-08.jpg",
-      "https://rooms.net.ua/photos/164-09.jpg",
-      "https://rooms.net.ua/photos/164-10.jpg",
-      "https://rooms.net.ua/photos/164-11.jpg",
-      "https://rooms.net.ua/photos/164-12.jpg",
-      "https://rooms.net.ua/photos/164-13.jpg",
-      "https://rooms.net.ua/photos/164-14.jpg",
-      "https://rooms.net.ua/photos/164-15.jpg",
-      "https://rooms.net.ua/photos/164-16.jpg"
+      "images/164.jpg",
+      "images/164-02.jpg",
+      "images/164-03.jpg",
+      "images/164-04.jpg",
+      "images/164-05.jpg",
+      "images/164-06.jpg",
+      "images/164-07.jpg",
+      "images/164-08.jpg",
+      "images/164-09.jpg",
+      "images/164-10.jpg",
+      "images/164-11.jpg",
+      "images/164-12.jpg",
+      "images/164-13.jpg",
+      "images/164-14.jpg",
+      "images/164-15.jpg",
+      "images/164-16.jpg"
     ],
     "guests": 2,
-    "img": "https://rooms.net.ua/photos/164.jpg",
+    "img": "images/164.jpg",
     "is_available": true,
     "lat": 48.61078573,
     "lng": 22.27234863,
@@ -1300,18 +1378,21 @@
     "rooms": 1,
     "source_url": "https://rooms.net.ua/apartments/164/",
     "title": {
-      "uk": "РІСѓР». РўРѕР±С–Р»РµРІРёС‡Р° 13",
+      "uk": "вул. Тобілевича 13",
       "en": "St. Tobilevicha 13"
-    }
+    },
+    "isBooked": false,
+    "checkInDate": "2026-05-18",
+    "checkOutDate": "2026-05-20"
   },
   {
     "_id": "69d49d5cd8810233ba1da2dc",
     "external_id": 169,
-    "address": "РІСѓР». РЎРѕР±СЂР°РЅРµС†СЊРєР° 160/120",
+    "address": "вул. Собранецька 160/120",
     "area": "-",
     "beds": 2,
     "description": {
-      "uk": "РђРїР°СЂС‚Р°РјРµРЅС‚Рё Р·Р° Р°РґСЂРµСЃРѕСЋ РІСѓР». РЎРѕР±СЂР°РЅРµС†СЊРєР° 160/120. РљС–Р»СЊРєС–СЃС‚СЊ РєС–РјРЅР°С‚: 1. РљС–Р»СЊРєС–СЃС‚СЊ РіРѕСЃС‚РµР№: 2. Р РѕР·С‚Р°С€РѕРІР°РЅС– РЅР° 5 РїРѕРІРµСЂСЃС–. Р—СЂСѓС‡РЅРѕСЃС‚С–: С‚РµР»РµРІС–Р·РѕСЂ, С…РѕР»РѕРґРёР»СЊРЅРёРє, РіР°СЂСЏС‡Р° РІРѕРґР°, РїРѕСЂСѓС‡ СЃСѓРїРµСЂРјР°СЂРєРµС‚, Р·СЂСѓС‡РЅР° С‚СЂР°РЅСЃРїРѕСЂС‚РЅР° СЂРѕР·РІ'СЏР·РєР°, РІР°СЂРёР»СЊРЅР° РїРѕРІРµСЂС…РЅСЏ, РїСЂР°Р»СЊРЅР° РјР°С€РёРЅР°, С‚РµР»РµР±Р°С‡РµРЅРЅСЏ T2.",
+      "uk": "Апартаменти за адресою вул. Собранецька 160/120. Кількість кімнат: 1. Кількість гостей: 2. Розташовані на 5 поверсі. Зручності: телевізор, холодильник, гаряча вода, поруч супермаркет, зручна транспортна розв'язка, варильна поверхня, пральна машина, телебачення T2.",
       "en": "Apartment at the address st. Sobranetska 160/120. Number of rooms: 1. Number of guests: 2. Located on the 5th floor. Amenities: TV, refrigerator, hot water, nearby supermarket, convenient transport interchange, cooking surface, washing machine, TV T2."
     },
     "features": [
@@ -1327,22 +1408,22 @@
     ],
     "floor": 5,
     "gallery": [
-      "https://rooms.net.ua/photos/169.jpg",
-      "https://rooms.net.ua/photos/169-02.jpg",
-      "https://rooms.net.ua/photos/169-03.jpg",
-      "https://rooms.net.ua/photos/169-04.jpg",
-      "https://rooms.net.ua/photos/169-05.jpg",
-      "https://rooms.net.ua/photos/169-06.jpg",
-      "https://rooms.net.ua/photos/169-07.jpg",
-      "https://rooms.net.ua/photos/169-08.jpg",
-      "https://rooms.net.ua/photos/169-09.jpg",
-      "https://rooms.net.ua/photos/169-10.jpg",
-      "https://rooms.net.ua/photos/169-11.jpg",
-      "https://rooms.net.ua/photos/169-12.jpg",
-      "https://rooms.net.ua/photos/169-13.jpg"
+      "images/169.jpg",
+      "images/169-02.jpg",
+      "images/169-03.jpg",
+      "images/169-04.jpg",
+      "images/169-05.jpg",
+      "images/169-06.jpg",
+      "images/169-07.jpg",
+      "images/169-08.jpg",
+      "images/169-09.jpg",
+      "images/169-10.jpg",
+      "images/169-11.jpg",
+      "images/169-12.jpg",
+      "images/169-13.jpg"
     ],
     "guests": 2,
-    "img": "https://rooms.net.ua/photos/169.jpg",
+    "img": "images/169.jpg",
     "is_available": true,
     "lat": 48.641136,
     "lng": 22.2690494,
@@ -1350,18 +1431,21 @@
     "rooms": 1,
     "source_url": "https://rooms.net.ua/apartments/169/",
     "title": {
-      "uk": "РІСѓР». РЎРѕР±СЂР°РЅРµС†СЊРєР° 160/120",
+      "uk": "вул. Собранецька 160/120",
       "en": "St. Sobranetska 160/120"
-    }
+    },
+    "isBooked": false,
+    "checkInDate": "2026-05-27",
+    "checkOutDate": "2026-05-31"
   },
   {
     "_id": "69d49d5cd8810233ba1da2dd",
     "external_id": 170,
-    "address": "РІСѓР». РњСѓРєР°С‡С–РІСЃСЊРєР° 77/33  Р· РјР°РЅСЃР°СЂРґРЅРёРј РІС–РєРЅРѕРј С– Р±Р°Р»РєРѕРЅРѕРј",
+    "address": "вул. Мукачівська 77/33  з мансардним вікном і балконом",
     "area": "-",
     "beds": 2,
     "description": {
-      "uk": "РђРїР°СЂС‚Р°РјРµРЅС‚Рё Р·Р° Р°РґСЂРµСЃРѕСЋ РІСѓР». РњСѓРєР°С‡С–РІСЃСЊРєР° 77/33  Р· РјР°РЅСЃР°СЂРґРЅРёРј РІС–РєРЅРѕРј С– Р±Р°Р»РєРѕРЅРѕРј. РљС–Р»СЊРєС–СЃС‚СЊ РєС–РјРЅР°С‚: 1. РљС–Р»СЊРєС–СЃС‚СЊ РіРѕСЃС‚РµР№: 2. Р РѕР·С‚Р°С€РѕРІР°РЅС– РЅР° 3 РїРѕРІРµСЂСЃС–. Р—СЂСѓС‡РЅРѕСЃС‚С–: С‚РµР»РµРІС–Р·РѕСЂ, С…РѕР»РѕРґРёР»СЊРЅРёРє, РјС–РєСЂРѕС…РІРёР»СЊРѕРІР° РїС–С‡, РіР°СЂСЏС‡Р° РІРѕРґР°, РєРѕРЅРґРёС†С–РѕРЅРµСЂ, Р·СЂСѓС‡РЅР° С‚СЂР°РЅСЃРїРѕСЂС‚РЅР° СЂРѕР·РІ'СЏР·РєР°, Smart TV, Р±Р°Р»РєРѕРЅ, РІР°СЂРёР»СЊРЅР° РїРѕРІРµСЂС…РЅСЏ.",
+      "uk": "Апартаменти за адресою вул. Мукачівська 77/33  з мансардним вікном і балконом. Кількість кімнат: 1. Кількість гостей: 2. Розташовані на 3 поверсі. Зручності: телевізор, холодильник, мікрохвильова піч, гаряча вода, кондиціонер, зручна транспортна розв'язка, Smart TV, балкон, варильна поверхня.",
       "en": "Apartment at the address st. Mukachivska 77/33 with a skylight and a balcony. Number of rooms: 1. Number of guests: 2. Located on the 3rd floor. Amenities: TV, refrigerator, microwave oven, hot water, air conditioner, convenient transport interchange, Smart TV, balcony, cooking surface."
     },
     "features": [
@@ -1377,16 +1461,16 @@
     ],
     "floor": 3,
     "gallery": [
-      "https://rooms.net.ua/photos/170.jpeg",
-      "https://rooms.net.ua/photos/170-02.jpeg",
-      "https://rooms.net.ua/photos/170-03.jpeg",
-      "https://rooms.net.ua/photos/170-04.jpeg",
-      "https://rooms.net.ua/photos/170-05.jpeg",
-      "https://rooms.net.ua/photos/170-06.jpeg",
-      "https://rooms.net.ua/photos/170-07.jpeg"
+      "images/170.jpg",
+      "images/170-02.jpg",
+      "images/170-03.jpg",
+      "images/170-04.jpg",
+      "images/170-05.jpg",
+      "images/170-06.jpg",
+      "images/170-07.jpg"
     ],
     "guests": 2,
-    "img": "https://rooms.net.ua/photos/170.jpeg",
+    "img": "images/170.jpg",
     "is_available": true,
     "lat": 48.613578,
     "lng": 22.302807,
@@ -1394,18 +1478,21 @@
     "rooms": 1,
     "source_url": "https://rooms.net.ua/apartments/170/",
     "title": {
-      "uk": "РІСѓР». РњСѓРєР°С‡С–РІСЃСЊРєР° 77/33  Р· РјР°РЅСЃР°СЂРґРЅРёРј РІС–РєРЅРѕРј С– Р±Р°Р»РєРѕРЅРѕРј",
+      "uk": "вул. Мукачівська 77/33  з мансардним вікном і балконом",
       "en": "St. Mukachivska 77/33 with a skylight and a balcony"
-    }
+    },
+    "isBooked": false,
+    "checkInDate": "2026-05-16",
+    "checkOutDate": "2026-05-20"
   },
   {
     "_id": "69d49d5cd8810233ba1da2de",
     "external_id": 185,
-    "address": "РІСѓР». РЎРѕР±СЂР°РЅРµС†СЊРєР° 160/155",
+    "address": "вул. Собранецька 160/155",
     "area": "-",
     "beds": 2,
     "description": {
-      "uk": "РђРїР°СЂС‚Р°РјРµРЅС‚Рё Р·Р° Р°РґСЂРµСЃРѕСЋ РІСѓР». РЎРѕР±СЂР°РЅРµС†СЊРєР° 160/155. РљС–Р»СЊРєС–СЃС‚СЊ РєС–РјРЅР°С‚: 1. РљС–Р»СЊРєС–СЃС‚СЊ РіРѕСЃС‚РµР№: 2. Р РѕР·С‚Р°С€РѕРІР°РЅС– РЅР° 4 РїРѕРІРµСЂСЃС–. Р—СЂСѓС‡РЅРѕСЃС‚С–: С‚РµР»РµРІС–Р·РѕСЂ, С…РѕР»РѕРґРёР»СЊРЅРёРє, РјС–РєСЂРѕС…РІРёР»СЊРѕРІР° РїС–С‡, РіР°СЂСЏС‡Р° РІРѕРґР°, РїРѕСЂСѓС‡ СЃСѓРїРµСЂРјР°СЂРєРµС‚, Р·СЂСѓС‡РЅР° С‚СЂР°РЅСЃРїРѕСЂС‚РЅР° СЂРѕР·РІ'СЏР·РєР°, Smart TV, РІР°СЂРёР»СЊРЅР° РїРѕРІРµСЂС…РЅСЏ, РїС–Рґ'С—Р·Рґ РЅР° РєРѕРґС–, РїСЂР°Р»СЊРЅР° РјР°С€РёРЅР°.",
+      "uk": "Апартаменти за адресою вул. Собранецька 160/155. Кількість кімнат: 1. Кількість гостей: 2. Розташовані на 4 поверсі. Зручності: телевізор, холодильник, мікрохвильова піч, гаряча вода, поруч супермаркет, зручна транспортна розв'язка, Smart TV, варильна поверхня, під'їзд на коді, пральна машина.",
       "en": "Apartment at the address st. Sobranetska 160/155. Number of rooms: 1. Number of guests: 2. Located on the 4th floor. Amenities: TV, refrigerator, microwave oven, hot water, nearby supermarket, convenient transport interchange, Smart TV, cooking surface, coded entrance, washing machine."
     },
     "features": [
@@ -1422,17 +1509,17 @@
     ],
     "floor": 4,
     "gallery": [
-      "https://rooms.net.ua/photos/185.jpg",
-      "https://rooms.net.ua/photos/185-02.jpg",
-      "https://rooms.net.ua/photos/185-03.jpg",
-      "https://rooms.net.ua/photos/185-04.jpg",
-      "https://rooms.net.ua/photos/185-05.jpg",
-      "https://rooms.net.ua/photos/185-06.jpg",
-      "https://rooms.net.ua/photos/185-07.jpg",
-      "https://rooms.net.ua/photos/185-08.jpg"
+      "images/185.jpg",
+      "images/185-02.jpg",
+      "images/185-03.jpg",
+      "images/185-04.jpg",
+      "images/185-05.jpg",
+      "images/185-06.jpg",
+      "images/185-07.jpg",
+      "images/185-08.jpg"
     ],
     "guests": 2,
-    "img": "https://rooms.net.ua/photos/185.jpg",
+    "img": "images/185.jpg",
     "is_available": true,
     "lat": 48.641136,
     "lng": 22.2690494,
@@ -1440,18 +1527,21 @@
     "rooms": 1,
     "source_url": "https://rooms.net.ua/apartments/185/",
     "title": {
-      "uk": "РІСѓР». РЎРѕР±СЂР°РЅРµС†СЊРєР° 160/155",
+      "uk": "вул. Собранецька 160/155",
       "en": "St. Sobranetska 160/155"
-    }
+    },
+    "isBooked": false,
+    "checkInDate": "2026-05-29",
+    "checkOutDate": "2026-06-03"
   },
   {
     "_id": "69d49d5cd8810233ba1da2df",
     "external_id": 186,
-    "address": "РІСѓР» РћРґРµСЃСЊРєР° 5/17",
+    "address": "вул Одеська 5/17",
     "area": "-",
     "beds": 4,
     "description": {
-      "uk": "РђРїР°СЂС‚Р°РјРµРЅС‚Рё Р·Р° Р°РґСЂРµСЃРѕСЋ РІСѓР» РћРґРµСЃСЊРєР° 5/17. РљС–Р»СЊРєС–СЃС‚СЊ РєС–РјРЅР°С‚: 1. РљС–Р»СЊРєС–СЃС‚СЊ РіРѕСЃС‚РµР№: 4. Р РѕР·С‚Р°С€РѕРІР°РЅС– РЅР° 4 РїРѕРІРµСЂСЃС–. Р—СЂСѓС‡РЅРѕСЃС‚С–: С‚РµР»РµРІС–Р·РѕСЂ, С…РѕР»РѕРґРёР»СЊРЅРёРє, РјС–РєСЂРѕС…РІРёР»СЊРѕРІР° РїС–С‡, РіР°СЂСЏС‡Р° РІРѕРґР°, РєРѕРЅРґРёС†С–РѕРЅРµСЂ, РїРѕСЂСѓС‡ СЃСѓРїРµСЂРјР°СЂРєРµС‚, Р·СЂСѓС‡РЅР° С‚СЂР°РЅСЃРїРѕСЂС‚РЅР° СЂРѕР·РІ'СЏР·РєР°, Smart TV, Р±Р°Р»РєРѕРЅ, РІР°СЂРёР»СЊРЅР° РїРѕРІРµСЂС…РЅСЏ, РїС–Рґ'С—Р·Рґ РЅР° РєРѕРґС–, РїСЂР°Р»СЊРЅР° РјР°С€РёРЅР°.",
+      "uk": "Апартаменти за адресою вул Одеська 5/17. Кількість кімнат: 1. Кількість гостей: 4. Розташовані на 4 поверсі. Зручності: телевізор, холодильник, мікрохвильова піч, гаряча вода, кондиціонер, поруч супермаркет, зручна транспортна розв'язка, Smart TV, балкон, варильна поверхня, під'їзд на коді, пральна машина.",
       "en": "Apartment at 5/17 Odeska St. Number of rooms: 1. Number of guests: 4. Located on the 4th floor. Amenities: TV, refrigerator, microwave oven, hot water, air conditioning, supermarket nearby, convenient transport interchange, Smart TV, balcony, cooking surface, coded entrance, washing machine."
     },
     "features": [
@@ -1470,19 +1560,19 @@
     ],
     "floor": 4,
     "gallery": [
-      "https://rooms.net.ua/photos/186.jpg",
-      "https://rooms.net.ua/photos/186-02.jpg",
-      "https://rooms.net.ua/photos/186-03.jpg",
-      "https://rooms.net.ua/photos/186-04.jpg",
-      "https://rooms.net.ua/photos/186-05.jpg",
-      "https://rooms.net.ua/photos/186-06.jpg",
-      "https://rooms.net.ua/photos/186-07.jpg",
-      "https://rooms.net.ua/photos/186-08.jpg",
-      "https://rooms.net.ua/photos/186-09.jpg",
-      "https://rooms.net.ua/photos/186-10.jpg"
+      "images/186.jpg",
+      "images/186-02.jpg",
+      "images/186-03.jpg",
+      "images/186-04.jpg",
+      "images/186-05.jpg",
+      "images/186-06.jpg",
+      "images/186-07.jpg",
+      "images/186-08.jpg",
+      "images/186-09.jpg",
+      "images/186-10.jpg"
     ],
     "guests": 4,
-    "img": "https://rooms.net.ua/photos/186.jpg",
+    "img": "images/186.jpg",
     "is_available": true,
     "lat": 48.61264607,
     "lng": 22.30170699,
@@ -1490,18 +1580,21 @@
     "rooms": 1,
     "source_url": "https://rooms.net.ua/apartments/186/",
     "title": {
-      "uk": "РІСѓР» РћРґРµСЃСЊРєР° 5/17",
+      "uk": "вул Одеська 5/17",
       "en": "5/17 Odesa St"
-    }
+    },
+    "isBooked": false,
+    "checkInDate": "2026-05-19",
+    "checkOutDate": "2026-05-21"
   },
   {
     "_id": "69d49d5cd8810233ba1da2e0",
     "external_id": 177,
-    "address": "РџСЂРѕСЃРїРµРєС‚ РЎРІРѕР±РѕРґРё 5",
+    "address": "Проспект Свободи 5",
     "area": "-",
     "beds": 2,
     "description": {
-      "uk": "РђРїР°СЂС‚Р°РјРµРЅС‚Рё Р·Р° Р°РґСЂРµСЃРѕСЋ РџСЂРѕСЃРїРµРєС‚ РЎРІРѕР±РѕРґРё 5. РљС–Р»СЊРєС–СЃС‚СЊ РєС–РјРЅР°С‚: 1. РљС–Р»СЊРєС–СЃС‚СЊ РіРѕСЃС‚РµР№: 2. Р РѕР·С‚Р°С€РѕРІР°РЅС– РЅР° 6 РїРѕРІРµСЂСЃС–. Р—СЂСѓС‡РЅРѕСЃС‚С–: С…РѕР»РѕРґРёР»СЊРЅРёРє, РіР°СЂСЏС‡Р° РІРѕРґР°, РїРѕСЂСѓС‡ СЃСѓРїРµСЂРјР°СЂРєРµС‚, Р·СЂСѓС‡РЅР° С‚СЂР°РЅСЃРїРѕСЂС‚РЅР° СЂРѕР·РІ'СЏР·РєР°, РІР°СЂРёР»СЊРЅР° РїРѕРІРµСЂС…РЅСЏ, РїС–Рґ'С—Р·Рґ РЅР° РєРѕРґС–, РїСЂР°Р»СЊРЅР° РјР°С€РёРЅР°.",
+      "uk": "Апартаменти за адресою Проспект Свободи 5. Кількість кімнат: 1. Кількість гостей: 2. Розташовані на 6 поверсі. Зручності: холодильник, гаряча вода, поруч супермаркет, зручна транспортна розв'язка, варильна поверхня, під'їзд на коді, пральна машина.",
       "en": "Apartment at 5 Freedom Avenue. Number of rooms: 1. Number of guests: 2. Located on the 6th floor. Amenities: refrigerator, hot water, nearby supermarket, convenient transport interchange, cooking surface, coded entrance, washing machine."
     },
     "features": [
@@ -1516,26 +1609,26 @@
     ],
     "floor": 6,
     "gallery": [
-      "https://rooms.net.ua/photos/177.jpg",
-      "https://rooms.net.ua/photos/177-02.jpg",
-      "https://rooms.net.ua/photos/177-03.jpg",
-      "https://rooms.net.ua/photos/177-04.jpg",
-      "https://rooms.net.ua/photos/177-05.jpg",
-      "https://rooms.net.ua/photos/177-06.jpg",
-      "https://rooms.net.ua/photos/177-07.jpg",
-      "https://rooms.net.ua/photos/177-08.jpg",
-      "https://rooms.net.ua/photos/177-09.jpg",
-      "https://rooms.net.ua/photos/177-10.jpg",
-      "https://rooms.net.ua/photos/177-11.jpg",
-      "https://rooms.net.ua/photos/177-12.jpg",
-      "https://rooms.net.ua/photos/177-13.jpg",
-      "https://rooms.net.ua/photos/177-14.jpg",
-      "https://rooms.net.ua/photos/177-15.jpg",
-      "https://rooms.net.ua/photos/177-16.jpg",
-      "https://rooms.net.ua/photos/177-17.jpg"
+      "images/177.jpg",
+      "images/177-02.jpg",
+      "images/177-03.jpg",
+      "images/177-04.jpg",
+      "images/177-05.jpg",
+      "images/177-06.jpg",
+      "images/177-07.jpg",
+      "images/177-08.jpg",
+      "images/177-09.jpg",
+      "images/177-10.jpg",
+      "images/177-11.jpg",
+      "images/177-12.jpg",
+      "images/177-13.jpg",
+      "images/177-14.jpg",
+      "images/177-15.jpg",
+      "images/177-16.jpg",
+      "images/177-17.jpg"
     ],
     "guests": 2,
-    "img": "https://rooms.net.ua/photos/177.jpg",
+    "img": "images/177.jpg",
     "is_available": true,
     "lat": 48.621,
     "lng": 22.288,
@@ -1543,18 +1636,21 @@
     "rooms": 1,
     "source_url": "https://rooms.net.ua/apartments/177/",
     "title": {
-      "uk": "РџСЂРѕСЃРїРµРєС‚ РЎРІРѕР±РѕРґРё 5",
+      "uk": "Проспект Свободи 5",
       "en": "Svoboda Avenue 5"
-    }
+    },
+    "isBooked": false,
+    "checkInDate": "2026-05-22",
+    "checkOutDate": "2026-05-25"
   },
   {
     "_id": "69d49d5cd8810233ba1da2e1",
     "external_id": 178,
-    "address": "РІСѓР». РЎРѕР±СЂР°РЅРµС†СЊРєР° 160/163",
+    "address": "вул. Собранецька 160/163",
     "area": "-",
     "beds": 4,
     "description": {
-      "uk": "РђРїР°СЂС‚Р°РјРµРЅС‚Рё Р·Р° Р°РґСЂРµСЃРѕСЋ РІСѓР». РЎРѕР±СЂР°РЅРµС†СЊРєР° 160/163. РљС–Р»СЊРєС–СЃС‚СЊ РєС–РјРЅР°С‚: 1. РљС–Р»СЊРєС–СЃС‚СЊ РіРѕСЃС‚РµР№: 4. Р РѕР·С‚Р°С€РѕРІР°РЅС– РЅР° 5 РїРѕРІРµСЂСЃС–. Р—СЂСѓС‡РЅРѕСЃС‚С–: С‚РµР»РµРІС–Р·РѕСЂ, С…РѕР»РѕРґРёР»СЊРЅРёРє, РјС–РєСЂРѕС…РІРёР»СЊРѕРІР° РїС–С‡, РіР°СЂСЏС‡Р° РІРѕРґР°, РїРѕСЂСѓС‡ СЃСѓРїРµСЂРјР°СЂРєРµС‚, Р·СЂСѓС‡РЅР° С‚СЂР°РЅСЃРїРѕСЂС‚РЅР° СЂРѕР·РІ'СЏР·РєР°, Smart TV, РІР°СЂРёР»СЊРЅР° РїРѕРІРµСЂС…РЅСЏ, РїС–Рґ'С—Р·Рґ РЅР° РєРѕРґС–, РїСЂР°Р»СЊРЅР° РјР°С€РёРЅР°.",
+      "uk": "Апартаменти за адресою вул. Собранецька 160/163. Кількість кімнат: 1. Кількість гостей: 4. Розташовані на 5 поверсі. Зручності: телевізор, холодильник, мікрохвильова піч, гаряча вода, поруч супермаркет, зручна транспортна розв'язка, Smart TV, варильна поверхня, під'їзд на коді, пральна машина.",
       "en": "Apartment at the address st. Sobranetska 160/163. Number of rooms: 1. Number of guests: 4. Located on the 5th floor. Amenities: TV, refrigerator, microwave oven, hot water, nearby supermarket, convenient transport interchange, Smart TV, cooking surface, coded entrance, washing machine."
     },
     "features": [
@@ -1571,23 +1667,23 @@
     ],
     "floor": 5,
     "gallery": [
-      "https://rooms.net.ua/photos/178.jpg",
-      "https://rooms.net.ua/photos/178-02.jpg",
-      "https://rooms.net.ua/photos/178-03.jpg",
-      "https://rooms.net.ua/photos/178-04.jpg",
-      "https://rooms.net.ua/photos/178-05.jpg",
-      "https://rooms.net.ua/photos/178-06.jpg",
-      "https://rooms.net.ua/photos/178-07.jpg",
-      "https://rooms.net.ua/photos/178-08.jpg",
-      "https://rooms.net.ua/photos/178-09.jpg",
-      "https://rooms.net.ua/photos/178-10.jpg",
-      "https://rooms.net.ua/photos/178-11.jpg",
-      "https://rooms.net.ua/photos/178-12.jpg",
-      "https://rooms.net.ua/photos/178-13.jpg",
-      "https://rooms.net.ua/photos/178-14.jpg"
+      "images/178.jpg",
+      "images/178-02.jpg",
+      "images/178-03.jpg",
+      "images/178-04.jpg",
+      "images/178-05.jpg",
+      "images/178-06.jpg",
+      "images/178-07.jpg",
+      "images/178-08.jpg",
+      "images/178-09.jpg",
+      "images/178-10.jpg",
+      "images/178-11.jpg",
+      "images/178-12.jpg",
+      "images/178-13.jpg",
+      "images/178-14.jpg"
     ],
     "guests": 4,
-    "img": "https://rooms.net.ua/photos/178.jpg",
+    "img": "images/178.jpg",
     "is_available": true,
     "lat": 48.641136,
     "lng": 22.2690494,
@@ -1595,18 +1691,21 @@
     "rooms": 1,
     "source_url": "https://rooms.net.ua/apartments/178/",
     "title": {
-      "uk": "РІСѓР». РЎРѕР±СЂР°РЅРµС†СЊРєР° 160/163",
+      "uk": "вул. Собранецька 160/163",
       "en": "St. Sobranetska 160/163"
-    }
+    },
+    "isBooked": false,
+    "checkInDate": "2026-05-16",
+    "checkOutDate": "2026-05-21"
   },
   {
     "_id": "69d49d5cd8810233ba1da2e2",
     "external_id": 116,
-    "address": "РІСѓР» РњРёРЅР°Р№СЃСЊРєР° 3",
+    "address": "вул Минайська 3",
     "area": "-",
     "beds": 5,
     "description": {
-      "uk": "РђРїР°СЂС‚Р°РјРµРЅС‚Рё Р·Р° Р°РґСЂРµСЃРѕСЋ РІСѓР» РњРёРЅР°Р№СЃСЊРєР° 3. РљС–Р»СЊРєС–СЃС‚СЊ РєС–РјРЅР°С‚: 2. РљС–Р»СЊРєС–СЃС‚СЊ РіРѕСЃС‚РµР№: 5. Р РѕР·С‚Р°С€РѕРІР°РЅС– РЅР° 3 РїРѕРІРµСЂСЃС–. Р—СЂСѓС‡РЅРѕСЃС‚С–: С‚РµР»РµРІС–Р·РѕСЂ, С…РѕР»РѕРґРёР»СЊРЅРёРє, РјС–РєСЂРѕС…РІРёР»СЊРѕРІР° РїС–С‡, РіР°СЂСЏС‡Р° РІРѕРґР°, РїРѕСЂСѓС‡ СЃСѓРїРµСЂРјР°СЂРєРµС‚, Р·СЂСѓС‡РЅР° С‚СЂР°РЅСЃРїРѕСЂС‚РЅР° СЂРѕР·РІ'СЏР·РєР°, Р±Р°Р»РєРѕРЅ, С–РЅС‚РµСЂРЅРµС‚, РїСЂР°Р»СЊРЅР° РјР°С€РёРЅР°, СЃСѓРїСѓС‚РЅРёРєРѕРІРµ С‚РµР»РµР±Р°С‡РµРЅРЅСЏ.",
+      "uk": "Апартаменти за адресою вул Минайська 3. Кількість кімнат: 2. Кількість гостей: 5. Розташовані на 3 поверсі. Зручності: телевізор, холодильник, мікрохвильова піч, гаряча вода, поруч супермаркет, зручна транспортна розв'язка, балкон, інтернет, пральна машина, супутникове телебачення.",
       "en": "Apartment at 3 Minayska St. Number of rooms: 2. Number of guests: 5. Located on the 3rd floor. Amenities: TV, refrigerator, microwave oven, hot water, supermarket nearby, convenient transport interchange, balcony, internet, washing machine, satellite TV."
     },
     "features": [
@@ -1623,25 +1722,25 @@
     ],
     "floor": 3,
     "gallery": [
-      "https://rooms.net.ua/photos/116.jpg",
-      "https://rooms.net.ua/photos/116-02.jpg",
-      "https://rooms.net.ua/photos/116-03.jpg",
-      "https://rooms.net.ua/photos/116-04.jpg",
-      "https://rooms.net.ua/photos/116-05.jpg",
-      "https://rooms.net.ua/photos/116-06.jpg",
-      "https://rooms.net.ua/photos/116-07.jpg",
-      "https://rooms.net.ua/photos/116-08.jpg",
-      "https://rooms.net.ua/photos/116-09.jpg",
-      "https://rooms.net.ua/photos/116-10.jpg",
-      "https://rooms.net.ua/photos/116-11.jpg",
-      "https://rooms.net.ua/photos/116-12.jpg",
-      "https://rooms.net.ua/photos/116-13.jpg",
-      "https://rooms.net.ua/photos/116-14.jpg",
-      "https://rooms.net.ua/photos/116-15.jpg",
-      "https://rooms.net.ua/photos/116-16.jpg"
+      "images/116.jpg",
+      "images/116-02.jpg",
+      "images/116-03.jpg",
+      "images/116-04.jpg",
+      "images/116-05.jpg",
+      "images/116-06.jpg",
+      "images/116-07.jpg",
+      "images/116-08.jpg",
+      "images/116-09.jpg",
+      "images/116-10.jpg",
+      "images/116-11.jpg",
+      "images/116-12.jpg",
+      "images/116-13.jpg",
+      "images/116-14.jpg",
+      "images/116-15.jpg",
+      "images/116-16.jpg"
     ],
     "guests": 5,
-    "img": "https://rooms.net.ua/photos/116.jpg",
+    "img": "images/116.jpg",
     "is_available": true,
     "lat": 48.610655,
     "lng": 22.291984,
@@ -1649,18 +1748,21 @@
     "rooms": 2,
     "source_url": "https://rooms.net.ua/apartments/116/",
     "title": {
-      "uk": "РІСѓР» РњРёРЅР°Р№СЃСЊРєР° 3",
+      "uk": "вул Минайська 3",
       "en": "Minayska St. 3"
-    }
+    },
+    "isBooked": false,
+    "checkInDate": "2026-05-16",
+    "checkOutDate": "2026-05-20"
   },
   {
     "_id": "69d49d5cd8810233ba1da2e3",
     "external_id": 168,
-    "address": "РІСѓР». Р’РѕР»РѕРґРёРјРёСЂСЃСЊРєР° 90",
+    "address": "вул. Володимирська 90",
     "area": "-",
     "beds": 5,
     "description": {
-      "uk": "РђРїР°СЂС‚Р°РјРµРЅС‚Рё Р·Р° Р°РґСЂРµСЃРѕСЋ РІСѓР». Р’РѕР»РѕРґРёРјРёСЂСЃСЊРєР° 90. РљС–Р»СЊРєС–СЃС‚СЊ РєС–РјРЅР°С‚: 1. РљС–Р»СЊРєС–СЃС‚СЊ РіРѕСЃС‚РµР№: 5. Р РѕР·С‚Р°С€РѕРІР°РЅС– РЅР° 5 РїРѕРІРµСЂСЃС–. Р—СЂСѓС‡РЅРѕСЃС‚С–: С‚РµР»РµРІС–Р·РѕСЂ, С…РѕР»РѕРґРёР»СЊРЅРёРє, РіР°СЂСЏС‡Р° РІРѕРґР°, РєРѕРЅРґРёС†С–РѕРЅРµСЂ, РїРѕСЂСѓС‡ СЃСѓРїРµСЂРјР°СЂРєРµС‚, Р·СЂСѓС‡РЅР° С‚СЂР°РЅСЃРїРѕСЂС‚РЅР° СЂРѕР·РІ'СЏР·РєР°, РїР°СЂРєРѕРІРєР° РїС–Рґ РѕС…РѕСЂРѕРЅРѕСЋ, РїС–Рґ'С—Р·Рґ РЅР° РєРѕРґС–, РїСЂР°Р»СЊРЅР° РјР°С€РёРЅР°, С‚РµР»РµР±Р°С‡РµРЅРЅСЏ T2.",
+      "uk": "Апартаменти за адресою вул. Володимирська 90. Кількість кімнат: 1. Кількість гостей: 5. Розташовані на 5 поверсі. Зручності: телевізор, холодильник, гаряча вода, кондиціонер, поруч супермаркет, зручна транспортна розв'язка, парковка під охороною, під'їзд на коді, пральна машина, телебачення T2.",
       "en": "Apartment at Volodymyrska 90. Number of rooms: 1. Number of guests: 5. Located on the 5th floor. Amenities: TV, refrigerator, hot water, air conditioner, supermarket nearby, convenient transport interchange, guarded parking, coded entrance, washing machine, TV T2."
     },
     "features": [
@@ -1677,37 +1779,40 @@
     ],
     "floor": 5,
     "gallery": [
-      "https://rooms.net.ua/photos/168.jpg",
-      "https://rooms.net.ua/photos/168-02.jpg",
-      "https://rooms.net.ua/photos/168-03.jpg",
-      "https://rooms.net.ua/photos/168-04.jpg",
-      "https://rooms.net.ua/photos/168-05.jpg",
-      "https://rooms.net.ua/photos/168-06.jpg",
-      "https://rooms.net.ua/photos/168-07.jpg",
-      "https://rooms.net.ua/photos/168-08.jpg",
-      "https://rooms.net.ua/photos/168-09.jpg"
+      "images/168.jpg",
+      "images/168-02.jpg",
+      "images/168-03.jpg",
+      "images/168-04.jpg",
+      "images/168-05.jpg",
+      "images/168-06.jpg",
+      "images/168-07.jpg",
+      "images/168-08.jpg",
+      "images/168-09.jpg"
     ],
     "guests": 5,
-    "img": "https://rooms.net.ua/photos/168.jpg",
+    "img": "images/168.jpg",
     "is_available": true,
-    "lat": 22.264416,
-    "lng": 48.614097,
+        "lat": 48.614097,
+        "lng": 22.264416,
     "price": 2100,
     "rooms": 1,
     "source_url": "https://rooms.net.ua/apartments/168/",
     "title": {
-      "uk": "РІСѓР». Р’РѕР»РѕРґРёРјРёСЂСЃСЊРєР° 90",
+      "uk": "вул. Володимирська 90",
       "en": "St. Volodymyrska 90"
-    }
+    },
+    "isBooked": false,
+    "checkInDate": "2026-05-15",
+    "checkOutDate": "2026-05-20"
   },
   {
     "_id": "69d49d5cd8810233ba1da2e4",
     "external_id": 147,
-    "address": "РІСѓР». РљРѕСЂР·Рѕ 7",
+    "address": "вул. Корзо 7",
     "area": "-",
     "beds": 4,
     "description": {
-      "uk": "РђРїР°СЂС‚Р°РјРµРЅС‚Рё Р·Р° Р°РґСЂРµСЃРѕСЋ РІСѓР». РљРѕСЂР·Рѕ 7. РљС–Р»СЊРєС–СЃС‚СЊ РєС–РјРЅР°С‚: 1. РљС–Р»СЊРєС–СЃС‚СЊ РіРѕСЃС‚РµР№: 4. Р РѕР·С‚Р°С€РѕРІР°РЅС– РЅР° 2 РїРѕРІРµСЂСЃС–. Р—СЂСѓС‡РЅРѕСЃС‚С–: С‚РµР»РµРІС–Р·РѕСЂ, С…РѕР»РѕРґРёР»СЊРЅРёРє, РјС–РєСЂРѕС…РІРёР»СЊРѕРІР° РїС–С‡, РіР°СЂСЏС‡Р° РІРѕРґР°, РєРѕРЅРґРёС†С–РѕРЅРµСЂ, РїРѕСЂСѓС‡ СЃСѓРїРµСЂРјР°СЂРєРµС‚, Р·СЂСѓС‡РЅР° С‚СЂР°РЅСЃРїРѕСЂС‚РЅР° СЂРѕР·РІ'СЏР·РєР°, Р±Р°Р»РєРѕРЅ, С–РЅС‚РµСЂРЅРµС‚, РїС–Рґ'С—Р·Рґ РЅР° РєРѕРґС–, РїСЂР°Р»СЊРЅР° РјР°С€РёРЅР°, СЃСѓРїСѓС‚РЅРёРєРѕРІРµ С‚РµР»РµР±Р°С‡РµРЅРЅСЏ.",
+      "uk": "Апартаменти за адресою вул. Корзо 7. Кількість кімнат: 1. Кількість гостей: 4. Розташовані на 2 поверсі. Зручності: телевізор, холодильник, мікрохвильова піч, гаряча вода, кондиціонер, поруч супермаркет, зручна транспортна розв'язка, балкон, інтернет, під'їзд на коді, пральна машина, супутникове телебачення.",
       "en": "Apartment at the address st. Corso 7. Number of rooms: 1. Number of guests: 4. Located on the 2nd floor. Amenities: TV, refrigerator, microwave oven, hot water, air conditioner, supermarket nearby, convenient transport interchange, balcony, internet, coded entrance, washing machine, satellite TV."
     },
     "features": [
@@ -1726,18 +1831,18 @@
     ],
     "floor": 2,
     "gallery": [
-      "https://rooms.net.ua/photos/147.jpg",
-      "https://rooms.net.ua/photos/147-02.jpg",
-      "https://rooms.net.ua/photos/147-03.jpg",
-      "https://rooms.net.ua/photos/147-04.jpg",
-      "https://rooms.net.ua/photos/147-05.jpg",
-      "https://rooms.net.ua/photos/147-06.jpg",
-      "https://rooms.net.ua/photos/147-07.jpg",
-      "https://rooms.net.ua/photos/147-08.jpg",
-      "https://rooms.net.ua/photos/147-09.jpg"
+      "images/147.jpg",
+      "images/147-02.jpg",
+      "images/147-03.jpg",
+      "images/147-04.jpg",
+      "images/147-05.jpg",
+      "images/147-06.jpg",
+      "images/147-07.jpg",
+      "images/147-08.jpg",
+      "images/147-09.jpg"
     ],
     "guests": 4,
-    "img": "https://rooms.net.ua/photos/147.jpg",
+    "img": "images/147.jpg",
     "is_available": true,
     "lat": 48.622996,
     "lng": 22.297339,
@@ -1745,18 +1850,21 @@
     "rooms": 1,
     "source_url": "https://rooms.net.ua/apartments/147/",
     "title": {
-      "uk": "РІСѓР». РљРѕСЂР·Рѕ 7",
+      "uk": "вул. Корзо 7",
       "en": "St. Corso 7"
-    }
+    },
+    "isBooked": false,
+    "checkInDate": "2026-05-24",
+    "checkOutDate": "2026-05-28"
   },
   {
     "_id": "69d49d5cd8810233ba1da2e5",
     "external_id": 76,
-    "address": "РІСѓР». РњРёРЅР°Р№СЃСЊРєР° 18Рі",
+    "address": "вул. Минайська 18г",
     "area": "-",
     "beds": 4,
     "description": {
-      "uk": "РђРїР°СЂС‚Р°РјРµРЅС‚Рё Р·Р° Р°РґСЂРµСЃРѕСЋ РІСѓР». РњРёРЅР°Р№СЃСЊРєР° 18Рі. РљС–Р»СЊРєС–СЃС‚СЊ РєС–РјРЅР°С‚: 2. РљС–Р»СЊРєС–СЃС‚СЊ РіРѕСЃС‚РµР№: 4. Р РѕР·С‚Р°С€РѕРІР°РЅС– РЅР° 3 РїРѕРІРµСЂСЃС–. Р—СЂСѓС‡РЅРѕСЃС‚С–: С‚РµР»РµРІС–Р·РѕСЂ, С…РѕР»РѕРґРёР»СЊРЅРёРє, РјС–РєСЂРѕС…РІРёР»СЊРѕРІР° РїС–С‡, РіР°СЂСЏС‡Р° РІРѕРґР°, РєРѕРЅРґРёС†С–РѕРЅРµСЂ, РїРѕСЂСѓС‡ СЃСѓРїРµСЂРјР°СЂРєРµС‚, Р·СЂСѓС‡РЅР° С‚СЂР°РЅСЃРїРѕСЂС‚РЅР° СЂРѕР·РІ'СЏР·РєР°, Р±Р°Р»РєРѕРЅ, РІР°СЂРёР»СЊРЅР° РїРѕРІРµСЂС…РЅСЏ, С–РЅС‚РµСЂРЅРµС‚, РєР°Р±РµР»СЊРЅРµ С‚РµР»РµР±Р°С‡РµРЅРЅСЏ, РїР°СЂРєРѕРІРєР° РїС–Рґ РѕС…РѕСЂРѕРЅРѕСЋ, РїС–Рґ'С—Р·Рґ РЅР° РєРѕРґС–, РїСЂР°Р»СЊРЅР° РјР°С€РёРЅР°.",
+      "uk": "Апартаменти за адресою вул. Минайська 18г. Кількість кімнат: 2. Кількість гостей: 4. Розташовані на 3 поверсі. Зручності: телевізор, холодильник, мікрохвильова піч, гаряча вода, кондиціонер, поруч супермаркет, зручна транспортна розв'язка, балкон, варильна поверхня, інтернет, кабельне телебачення, парковка під охороною, під'їзд на коді, пральна машина.",
       "en": "Apartment at the address st. Minayska 18 Number of rooms: 2. Number of guests: 4. Located on the 3rd floor. Amenities: TV, refrigerator, microwave oven, hot water, air conditioner, nearby supermarket, convenient transport interchange, balcony, cooking surface, internet, cable TV, secure parking, coded entrance, washing machine."
     },
     "features": [
@@ -1777,17 +1885,17 @@
     ],
     "floor": 3,
     "gallery": [
-      "https://rooms.net.ua/photos/76.jpg",
-      "https://rooms.net.ua/photos/76-02.jpg",
-      "https://rooms.net.ua/photos/76-03.jpg",
-      "https://rooms.net.ua/photos/76-04.jpg",
-      "https://rooms.net.ua/photos/76-05.jpg",
-      "https://rooms.net.ua/photos/76-06.jpg",
-      "https://rooms.net.ua/photos/76-07.jpg",
-      "https://rooms.net.ua/photos/76-08.jpg"
+      "images/76.jpg",
+      "images/76-02.jpg",
+      "images/76-03.jpg",
+      "images/76-04.jpg",
+      "images/76-05.jpg",
+      "images/76-06.jpg",
+      "images/76-07.jpg",
+      "images/76-08.jpg"
     ],
     "guests": 4,
-    "img": "https://rooms.net.ua/photos/76.jpg",
+    "img": "images/76.jpg",
     "is_available": true,
     "lat": 48.606988,
     "lng": 22.288753,
@@ -1795,18 +1903,21 @@
     "rooms": 2,
     "source_url": "https://rooms.net.ua/apartments/76/",
     "title": {
-      "uk": "РІСѓР». РњРёРЅР°Р№СЃСЊРєР° 18Рі",
+      "uk": "вул. Минайська 18г",
       "en": "St. Minayska 18"
-    }
+    },
+    "isBooked": false,
+    "checkInDate": "2026-05-25",
+    "checkOutDate": "2026-05-27"
   },
   {
     "_id": "69d49d5cd8810233ba1da2e6",
     "external_id": 96,
-    "address": "РІСѓР». РњРёРЅР°Р№СЃСЊРєР° 18Рі",
+    "address": "вул. Минайська 18г",
     "area": "-",
     "beds": 4,
     "description": {
-      "uk": "РђРїР°СЂС‚Р°РјРµРЅС‚Рё Р·Р° Р°РґСЂРµСЃРѕСЋ РІСѓР». РњРёРЅР°Р№СЃСЊРєР° 18Рі. РљС–Р»СЊРєС–СЃС‚СЊ РєС–РјРЅР°С‚: 2. РљС–Р»СЊРєС–СЃС‚СЊ РіРѕСЃС‚РµР№: 4. Р РѕР·С‚Р°С€РѕРІР°РЅС– РЅР° 3 РїРѕРІРµСЂСЃС–. Р—СЂСѓС‡РЅРѕСЃС‚С–: С‚РµР»РµРІС–Р·РѕСЂ, С…РѕР»РѕРґРёР»СЊРЅРёРє, РјС–РєСЂРѕС…РІРёР»СЊРѕРІР° РїС–С‡, РіР°СЂСЏС‡Р° РІРѕРґР°, РєРѕРЅРґРёС†С–РѕРЅРµСЂ, РїРѕСЂСѓС‡ СЃСѓРїРµСЂРјР°СЂРєРµС‚, Р·СЂСѓС‡РЅР° С‚СЂР°РЅСЃРїРѕСЂС‚РЅР° СЂРѕР·РІ'СЏР·РєР°, Р±Р°Р»РєРѕРЅ, С–РЅС‚РµСЂРЅРµС‚, РєР°Р±РµР»СЊРЅРµ С‚РµР»РµР±Р°С‡РµРЅРЅСЏ, РїР°СЂРєРѕРІРєР° РїС–Рґ РѕС…РѕСЂРѕРЅРѕСЋ, РїС–Рґ'С—Р·Рґ РЅР° РєРѕРґС–, РїСЂР°Р»СЊРЅР° РјР°С€РёРЅР°, С‚РµР»РµР±Р°С‡РµРЅРЅСЏ T2.",
+      "uk": "Апартаменти за адресою вул. Минайська 18г. Кількість кімнат: 2. Кількість гостей: 4. Розташовані на 3 поверсі. Зручності: телевізор, холодильник, мікрохвильова піч, гаряча вода, кондиціонер, поруч супермаркет, зручна транспортна розв'язка, балкон, інтернет, кабельне телебачення, парковка під охороною, під'їзд на коді, пральна машина, телебачення T2.",
       "en": "Apartment at the address st. Minayska 18 Number of rooms: 2. Number of guests: 4. Located on the 3rd floor. Amenities: TV, refrigerator, microwave oven, hot water, air conditioner, supermarket nearby, convenient transport interchange, balcony, internet, cable TV, guarded parking, coded entrance, washing machine, TV T2."
     },
     "features": [
@@ -1827,11 +1938,11 @@
     ],
     "floor": 3,
     "gallery": [
-      "https://rooms.net.ua/photos/96.jpg",
-      "https://rooms.net.ua/photos/96-02.jpg"
+      "images/96.jpg",
+      "images/96-02.jpg"
     ],
     "guests": 4,
-    "img": "https://rooms.net.ua/photos/96.jpg",
+    "img": "images/96.jpg",
     "is_available": true,
     "lat": 48.606925,
     "lng": 22.288788,
@@ -1839,18 +1950,21 @@
     "rooms": 2,
     "source_url": "https://rooms.net.ua/apartments/96/",
     "title": {
-      "uk": "РІСѓР». РњРёРЅР°Р№СЃСЊРєР° 18Рі",
+      "uk": "вул. Минайська 18г",
       "en": "St. Minayska 18"
-    }
+    },
+    "isBooked": false,
+    "checkInDate": "2026-06-01",
+    "checkOutDate": "2026-06-03"
   },
   {
     "_id": "69d49d5cd8810233ba1da2e7",
     "external_id": 125,
-    "address": "РІСѓР». Р”РѕР±СЂСЏРЅСЃСЊРєРѕРіРѕ 4",
+    "address": "вул. Добрянського 4",
     "area": "-",
     "beds": 5,
     "description": {
-      "uk": "РђРїР°СЂС‚Р°РјРµРЅС‚Рё Р·Р° Р°РґСЂРµСЃРѕСЋ РІСѓР». Р”РѕР±СЂСЏРЅСЃСЊРєРѕРіРѕ 4. РљС–Р»СЊРєС–СЃС‚СЊ РєС–РјРЅР°С‚: 2. РљС–Р»СЊРєС–СЃС‚СЊ РіРѕСЃС‚РµР№: 5. Р РѕР·С‚Р°С€РѕРІР°РЅС– РЅР° 4 РїРѕРІРµСЂСЃС–. Р—СЂСѓС‡РЅРѕСЃС‚С–: С‚РµР»РµРІС–Р·РѕСЂ, С…РѕР»РѕРґРёР»СЊРЅРёРє, РјС–РєСЂРѕС…РІРёР»СЊРѕРІР° РїС–С‡, РіР°СЂСЏС‡Р° РІРѕРґР°, РїРѕСЂСѓС‡ СЃСѓРїРµСЂРјР°СЂРєРµС‚, Р·СЂСѓС‡РЅР° С‚СЂР°РЅСЃРїРѕСЂС‚РЅР° СЂРѕР·РІ'СЏР·РєР°, Р±Р°Р»РєРѕРЅ, РєР°Р±РµР»СЊРЅРµ С‚РµР»РµР±Р°С‡РµРЅРЅСЏ, РїСЂР°Р»СЊРЅР° РјР°С€РёРЅР°.",
+      "uk": "Апартаменти за адресою вул. Добрянського 4. Кількість кімнат: 2. Кількість гостей: 5. Розташовані на 4 поверсі. Зручності: телевізор, холодильник, мікрохвильова піч, гаряча вода, поруч супермаркет, зручна транспортна розв'язка, балкон, кабельне телебачення, пральна машина.",
       "en": "Apartment at the address st. Dobryanskoho 4. Number of rooms: 2. Number of guests: 5. Located on the 4th floor. Amenities: TV, refrigerator, microwave oven, hot water, supermarket nearby, convenient transport interchange, balcony, cable TV, washing machine."
     },
     "features": [
@@ -1866,25 +1980,25 @@
     ],
     "floor": 4,
     "gallery": [
-      "https://rooms.net.ua/photos/125.jpg",
-      "https://rooms.net.ua/photos/125-02.jpg",
-      "https://rooms.net.ua/photos/125-03.jpg",
-      "https://rooms.net.ua/photos/125-04.jpg",
-      "https://rooms.net.ua/photos/125-05.jpg",
-      "https://rooms.net.ua/photos/125-06.jpg",
-      "https://rooms.net.ua/photos/125-07.jpg",
-      "https://rooms.net.ua/photos/125-08.jpg",
-      "https://rooms.net.ua/photos/125-09.jpg",
-      "https://rooms.net.ua/photos/125-10.jpg",
-      "https://rooms.net.ua/photos/125-11.jpg",
-      "https://rooms.net.ua/photos/125-12.jpg",
-      "https://rooms.net.ua/photos/125-13.jpg",
-      "https://rooms.net.ua/photos/125-14.jpg",
-      "https://rooms.net.ua/photos/125-15.jpg",
-      "https://rooms.net.ua/photos/125-16.jpg"
+      "images/125.jpg",
+      "images/125-02.jpg",
+      "images/125-03.jpg",
+      "images/125-04.jpg",
+      "images/125-05.jpg",
+      "images/125-06.jpg",
+      "images/125-07.jpg",
+      "images/125-08.jpg",
+      "images/125-09.jpg",
+      "images/125-10.jpg",
+      "images/125-11.jpg",
+      "images/125-12.jpg",
+      "images/125-13.jpg",
+      "images/125-14.jpg",
+      "images/125-15.jpg",
+      "images/125-16.jpg"
     ],
     "guests": 5,
-    "img": "https://rooms.net.ua/photos/125.jpg",
+    "img": "images/125.jpg",
     "is_available": true,
     "lat": 48.624318,
     "lng": 22.306238,
@@ -1892,18 +2006,21 @@
     "rooms": 2,
     "source_url": "https://rooms.net.ua/apartments/125/",
     "title": {
-      "uk": "РІСѓР». Р”РѕР±СЂСЏРЅСЃСЊРєРѕРіРѕ 4",
+      "uk": "вул. Добрянського 4",
       "en": "St. Dobryansky 4"
-    }
+    },
+    "isBooked": false,
+    "checkInDate": "2026-05-15",
+    "checkOutDate": "2026-05-17"
   },
   {
     "_id": "69d49d5cd8810233ba1da2e8",
     "external_id": 157,
-    "address": "РІСѓР» Р’РѕР»РѕРґРёРјРёСЂСЃСЊРєР° 90/246",
+    "address": "вул Володимирська 90/246",
     "area": "-",
     "beds": 4,
     "description": {
-      "uk": "РђРїР°СЂС‚Р°РјРµРЅС‚Рё Р·Р° Р°РґСЂРµСЃРѕСЋ РІСѓР» Р’РѕР»РѕРґРёРјРёСЂСЃСЊРєР° 90/246. РљС–Р»СЊРєС–СЃС‚СЊ РєС–РјРЅР°С‚: 2. РљС–Р»СЊРєС–СЃС‚СЊ РіРѕСЃС‚РµР№: 4. Р РѕР·С‚Р°С€РѕРІР°РЅС– РЅР° 2 РїРѕРІРµСЂСЃС–. Р—СЂСѓС‡РЅРѕСЃС‚С–: С‚РµР»РµРІС–Р·РѕСЂ, С…РѕР»РѕРґРёР»СЊРЅРёРє, РјС–РєСЂРѕС…РІРёР»СЊРѕРІР° РїС–С‡, РіР°СЂСЏС‡Р° РІРѕРґР°, РїРѕСЂСѓС‡ СЃСѓРїРµСЂРјР°СЂРєРµС‚, Р·СЂСѓС‡РЅР° С‚СЂР°РЅСЃРїРѕСЂС‚РЅР° СЂРѕР·РІ'СЏР·РєР°, Р±Р°Р»РєРѕРЅ, С–РЅС‚РµСЂРЅРµС‚, РїС–Рґ'С—Р·Рґ РЅР° РєРѕРґС–, РїСЂР°Р»СЊРЅР° РјР°С€РёРЅР°, СЃСѓРїСѓС‚РЅРёРєРѕРІРµ С‚РµР»РµР±Р°С‡РµРЅРЅСЏ.",
+      "uk": "Апартаменти за адресою вул Володимирська 90/246. Кількість кімнат: 2. Кількість гостей: 4. Розташовані на 2 поверсі. Зручності: телевізор, холодильник, мікрохвильова піч, гаряча вода, поруч супермаркет, зручна транспортна розв'язка, балкон, інтернет, під'їзд на коді, пральна машина, супутникове телебачення.",
       "en": "Apartment at 90/246 Volodymyrska St. Number of rooms: 2. Number of guests: 4. Located on the 2nd floor. Amenities: TV, refrigerator, microwave oven, hot water, supermarket nearby, convenient transport interchange, balcony, internet, coded entrance, washing machine, satellite TV."
     },
     "features": [
@@ -1921,22 +2038,22 @@
     ],
     "floor": 2,
     "gallery": [
-      "https://rooms.net.ua/photos/157.jpg",
-      "https://rooms.net.ua/photos/157-02.jpg",
-      "https://rooms.net.ua/photos/157-03.jpg",
-      "https://rooms.net.ua/photos/157-04.jpg",
-      "https://rooms.net.ua/photos/157-05.jpg",
-      "https://rooms.net.ua/photos/157-06.jpg",
-      "https://rooms.net.ua/photos/157-07.jpg",
-      "https://rooms.net.ua/photos/157-08.jpg",
-      "https://rooms.net.ua/photos/157-09.jpg",
-      "https://rooms.net.ua/photos/157-10.jpg",
-      "https://rooms.net.ua/photos/157-11.jpg",
-      "https://rooms.net.ua/photos/157-12.jpg",
-      "https://rooms.net.ua/photos/157-13.jpg"
+      "images/157.jpg",
+      "images/157-02.jpg",
+      "images/157-03.jpg",
+      "images/157-04.jpg",
+      "images/157-05.jpg",
+      "images/157-06.jpg",
+      "images/157-07.jpg",
+      "images/157-08.jpg",
+      "images/157-09.jpg",
+      "images/157-10.jpg",
+      "images/157-11.jpg",
+      "images/157-12.jpg",
+      "images/157-13.jpg"
     ],
     "guests": 4,
-    "img": "https://rooms.net.ua/photos/157.jpg",
+    "img": "images/157.jpg",
     "is_available": true,
     "lat": 22.264416,
     "lng": 48.614097,
@@ -1944,18 +2061,21 @@
     "rooms": 2,
     "source_url": "https://rooms.net.ua/apartments/157/",
     "title": {
-      "uk": "РІСѓР» Р’РѕР»РѕРґРёРјРёСЂСЃСЊРєР° 90/246",
+      "uk": "вул Володимирська 90/246",
       "en": "90/246 Volodymyrska St"
-    }
+    },
+    "isBooked": true,
+    "checkInDate": "2026-05-28",
+    "checkOutDate": "2026-05-30"
   },
   {
     "_id": "69d49d5cd8810233ba1da2e9",
     "external_id": 187,
-    "address": "РІСѓР». РњСѓРєР°С‡С–РІСЃСЊРєР° 77/112",
+    "address": "вул. Мукачівська 77/112",
     "area": "-",
     "beds": 2,
     "description": {
-      "uk": "РђРїР°СЂС‚Р°РјРµРЅС‚Рё Р·Р° Р°РґСЂРµСЃРѕСЋ РІСѓР». РњСѓРєР°С‡С–РІСЃСЊРєР° 77/112. РљС–Р»СЊРєС–СЃС‚СЊ РєС–РјРЅР°С‚: 1. РљС–Р»СЊРєС–СЃС‚СЊ РіРѕСЃС‚РµР№: 2. Р РѕР·С‚Р°С€РѕРІР°РЅС– РЅР° 1 РїРѕРІРµСЂСЃС–. Р—СЂСѓС‡РЅРѕСЃС‚С–: С‚РµР»РµРІС–Р·РѕСЂ, С…РѕР»РѕРґРёР»СЊРЅРёРє, РјС–РєСЂРѕС…РІРёР»СЊРѕРІР° РїС–С‡, РіР°СЂСЏС‡Р° РІРѕРґР°, РїРѕСЂСѓС‡ СЃСѓРїРµСЂРјР°СЂРєРµС‚, Р·СЂСѓС‡РЅР° С‚СЂР°РЅСЃРїРѕСЂС‚РЅР° СЂРѕР·РІ'СЏР·РєР°, Smart TV, Р±Р°Р»РєРѕРЅ, РІР°СЂРёР»СЊРЅР° РїРѕРІРµСЂС…РЅСЏ, РїСЂР°Р»СЊРЅР° РјР°С€РёРЅР°.",
+      "uk": "Апартаменти за адресою вул. Мукачівська 77/112. Кількість кімнат: 1. Кількість гостей: 2. Розташовані на 1 поверсі. Зручності: телевізор, холодильник, мікрохвильова піч, гаряча вода, поруч супермаркет, зручна транспортна розв'язка, Smart TV, балкон, варильна поверхня, пральна машина.",
       "en": "Apartment at the address st. Mukachivska 77/112. Number of rooms: 1. Number of guests: 2. Located on the 1st floor. Amenities: TV, refrigerator, microwave oven, hot water, supermarket nearby, convenient transport interchange, Smart TV, balcony, cooking surface, washing machine."
     },
     "features": [
@@ -1972,25 +2092,25 @@
     ],
     "floor": 1,
     "gallery": [
-      "https://rooms.net.ua/photos/187.jpg",
-      "https://rooms.net.ua/photos/187-02.jpg",
-      "https://rooms.net.ua/photos/187-03.jpg",
-      "https://rooms.net.ua/photos/187-04.jpg",
-      "https://rooms.net.ua/photos/187-05.jpg",
-      "https://rooms.net.ua/photos/187-06.jpg",
-      "https://rooms.net.ua/photos/187-07.jpg",
-      "https://rooms.net.ua/photos/187-08.jpg",
-      "https://rooms.net.ua/photos/187-09.jpg",
-      "https://rooms.net.ua/photos/187-10.jpg",
-      "https://rooms.net.ua/photos/187-11.jpg",
-      "https://rooms.net.ua/photos/187-12.jpg",
-      "https://rooms.net.ua/photos/187-13.jpg",
-      "https://rooms.net.ua/photos/187-14.jpg",
-      "https://rooms.net.ua/photos/187-15.jpg",
-      "https://rooms.net.ua/photos/187-16.jpg"
+      "images/187.jpg",
+      "images/187-02.jpg",
+      "images/187-03.jpg",
+      "images/187-04.jpg",
+      "images/187-05.jpg",
+      "images/187-06.jpg",
+      "images/187-07.jpg",
+      "images/187-08.jpg",
+      "images/187-09.jpg",
+      "images/187-10.jpg",
+      "images/187-11.jpg",
+      "images/187-12.jpg",
+      "images/187-13.jpg",
+      "images/187-14.jpg",
+      "images/187-15.jpg",
+      "images/187-16.jpg"
     ],
     "guests": 2,
-    "img": "https://rooms.net.ua/photos/187.jpg",
+    "img": "images/187.jpg",
     "is_available": true,
     "lat": 48.613578,
     "lng": 22.302807,
@@ -1998,18 +2118,21 @@
     "rooms": 1,
     "source_url": "https://rooms.net.ua/apartments/187/",
     "title": {
-      "uk": "РІСѓР». РњСѓРєР°С‡С–РІСЃСЊРєР° 77/112",
+      "uk": "вул. Мукачівська 77/112",
       "en": "St. Mukachivska 77/112"
-    }
+    },
+    "isBooked": false,
+    "checkInDate": "2026-06-03",
+    "checkOutDate": "2026-06-09"
   },
   {
     "_id": "69d49d5cd8810233ba1da2ea",
     "external_id": 188,
-    "address": "РІСѓР». РњСѓРєР°С‡С–РІСЃСЊРєР° 77/111",
+    "address": "вул. Мукачівська 77/111",
     "area": "-",
     "beds": 4,
     "description": {
-      "uk": "РђРїР°СЂС‚Р°РјРµРЅС‚Рё Р·Р° Р°РґСЂРµСЃРѕСЋ РІСѓР». РњСѓРєР°С‡С–РІСЃСЊРєР° 77/111. РљС–Р»СЊРєС–СЃС‚СЊ РєС–РјРЅР°С‚: 1. РљС–Р»СЊРєС–СЃС‚СЊ РіРѕСЃС‚РµР№: 4. Р РѕР·С‚Р°С€РѕРІР°РЅС– РЅР° 1 РїРѕРІРµСЂСЃС–. Р—СЂСѓС‡РЅРѕСЃС‚С–: С‚РµР»РµРІС–Р·РѕСЂ, С…РѕР»РѕРґРёР»СЊРЅРёРє, РјС–РєСЂРѕС…РІРёР»СЊРѕРІР° РїС–С‡, РіР°СЂСЏС‡Р° РІРѕРґР°, РїРѕСЂСѓС‡ СЃСѓРїРµСЂРјР°СЂРєРµС‚, Р·СЂСѓС‡РЅР° С‚СЂР°РЅСЃРїРѕСЂС‚РЅР° СЂРѕР·РІ'СЏР·РєР°, Smart TV, Р±Р°Р»РєРѕРЅ, РІР°СЂРёР»СЊРЅР° РїРѕРІРµСЂС…РЅСЏ, РїСЂР°Р»СЊРЅР° РјР°С€РёРЅР°.",
+      "uk": "Апартаменти за адресою вул. Мукачівська 77/111. Кількість кімнат: 1. Кількість гостей: 4. Розташовані на 1 поверсі. Зручності: телевізор, холодильник, мікрохвильова піч, гаряча вода, поруч супермаркет, зручна транспортна розв'язка, Smart TV, балкон, варильна поверхня, пральна машина.",
       "en": "Apartment at the address st. Mukachivska 77/111. Number of rooms: 1. Number of guests: 4. Located on the 1st floor. Amenities: TV, refrigerator, microwave oven, hot water, supermarket nearby, convenient transport interchange, Smart TV, balcony, cooking surface, washing machine."
     },
     "features": [
@@ -2026,26 +2149,26 @@
     ],
     "floor": 1,
     "gallery": [
-      "https://rooms.net.ua/photos/188.jpg",
-      "https://rooms.net.ua/photos/188-02.jpg",
-      "https://rooms.net.ua/photos/188-03.jpg",
-      "https://rooms.net.ua/photos/188-04.jpg",
-      "https://rooms.net.ua/photos/188-05.jpg",
-      "https://rooms.net.ua/photos/188-06.jpg",
-      "https://rooms.net.ua/photos/188-07.jpg",
-      "https://rooms.net.ua/photos/188-08.jpg",
-      "https://rooms.net.ua/photos/188-09.jpg",
-      "https://rooms.net.ua/photos/188-10.jpg",
-      "https://rooms.net.ua/photos/188-11.jpg",
-      "https://rooms.net.ua/photos/188-12.jpg",
-      "https://rooms.net.ua/photos/188-13.jpg",
-      "https://rooms.net.ua/photos/188-14.jpg",
-      "https://rooms.net.ua/photos/188-15.jpg",
-      "https://rooms.net.ua/photos/188-16.jpg",
-      "https://rooms.net.ua/photos/188-17.jpg"
+      "images/188.jpg",
+      "images/188-02.jpg",
+      "images/188-03.jpg",
+      "images/188-04.jpg",
+      "images/188-05.jpg",
+      "images/188-06.jpg",
+      "images/188-07.jpg",
+      "images/188-08.jpg",
+      "images/188-09.jpg",
+      "images/188-10.jpg",
+      "images/188-11.jpg",
+      "images/188-12.jpg",
+      "images/188-13.jpg",
+      "images/188-14.jpg",
+      "images/188-15.jpg",
+      "images/188-16.jpg",
+      "images/188-17.jpg"
     ],
     "guests": 4,
-    "img": "https://rooms.net.ua/photos/188.jpg",
+    "img": "images/188.jpg",
     "is_available": true,
     "lat": 48.613578,
     "lng": 22.302807,
@@ -2053,18 +2176,21 @@
     "rooms": 1,
     "source_url": "https://rooms.net.ua/apartments/188/",
     "title": {
-      "uk": "РІСѓР». РњСѓРєР°С‡С–РІСЃСЊРєР° 77/111",
+      "uk": "вул. Мукачівська 77/111",
       "en": "St. Mukachivska 77/111"
-    }
+    },
+    "isBooked": true,
+    "checkInDate": "2026-05-24",
+    "checkOutDate": "2026-05-27"
   },
   {
     "_id": "69d49d5cd8810233ba1da2ec",
     "external_id": 92,
-    "address": "РІСѓР». РњРёРЅР°Р№СЃСЊРєР° 12",
+    "address": "вул. Минайська 12",
     "area": "-",
     "beds": 7,
     "description": {
-      "uk": "РђРїР°СЂС‚Р°РјРµРЅС‚Рё Р·Р° Р°РґСЂРµСЃРѕСЋ РІСѓР». РњРёРЅР°Р№СЃСЊРєР° 12. РљС–Р»СЊРєС–СЃС‚СЊ РєС–РјРЅР°С‚: 3. РљС–Р»СЊРєС–СЃС‚СЊ РіРѕСЃС‚РµР№: 7. Р РѕР·С‚Р°С€РѕРІР°РЅС– РЅР° 4 РїРѕРІРµСЂСЃС–. Р—СЂСѓС‡РЅРѕСЃС‚С–: С‚РµР»РµРІС–Р·РѕСЂ, С…РѕР»РѕРґРёР»СЊРЅРёРє, РјС–РєСЂРѕС…РІРёР»СЊРѕРІР° РїС–С‡, РіР°СЂСЏС‡Р° РІРѕРґР°, РїРѕСЂСѓС‡ СЃСѓРїРµСЂРјР°СЂРєРµС‚, Р·СЂСѓС‡РЅР° С‚СЂР°РЅСЃРїРѕСЂС‚РЅР° СЂРѕР·РІ'СЏР·РєР°, Smart TV, Р±Р°Р»РєРѕРЅ, С–РЅС‚РµСЂРЅРµС‚, РїР°СЂРєРѕРІРєР° РїС–Рґ РѕС…РѕСЂРѕРЅРѕСЋ, РїС–Рґ'С—Р·Рґ РЅР° РєРѕРґС–.",
+      "uk": "Апартаменти за адресою вул. Минайська 12. Кількість кімнат: 3. Кількість гостей: 7. Розташовані на 4 поверсі. Зручності: телевізор, холодильник, мікрохвильова піч, гаряча вода, поруч супермаркет, зручна транспортна розв'язка, Smart TV, балкон, інтернет, парковка під охороною, під'їзд на коді.",
       "en": "Apartment at the address st. Minayska 12. Number of rooms: 3. Number of guests: 7. Located on the 4th floor. Amenities: TV, refrigerator, microwave oven, hot water, nearby supermarket, convenient transport interchange, Smart TV, balcony, Internet, guarded parking, coded entrance."
     },
     "features": [
@@ -2082,24 +2208,24 @@
     ],
     "floor": 4,
     "gallery": [
-      "https://rooms.net.ua/photos/92.jpg",
-      "https://rooms.net.ua/photos/92-02.jpg",
-      "https://rooms.net.ua/photos/92-03.jpg",
-      "https://rooms.net.ua/photos/92-04.jpg",
-      "https://rooms.net.ua/photos/92-05.jpg",
-      "https://rooms.net.ua/photos/92-06.jpg",
-      "https://rooms.net.ua/photos/92-07.jpg",
-      "https://rooms.net.ua/photos/92-08.jpg",
-      "https://rooms.net.ua/photos/92-09.jpg",
-      "https://rooms.net.ua/photos/92-10.jpg",
-      "https://rooms.net.ua/photos/92-11.jpg",
-      "https://rooms.net.ua/photos/92-12.jpg",
-      "https://rooms.net.ua/photos/92-13.jpg",
-      "https://rooms.net.ua/photos/92-14.jpg",
-      "https://rooms.net.ua/photos/92-15.jpg"
+      "images/92.jpg",
+      "images/92-02.jpg",
+      "images/92-03.jpg",
+      "images/92-04.jpg",
+      "images/92-05.jpg",
+      "images/92-06.jpg",
+      "images/92-07.jpg",
+      "images/92-08.jpg",
+      "images/92-09.jpg",
+      "images/92-10.jpg",
+      "images/92-11.jpg",
+      "images/92-12.jpg",
+      "images/92-13.jpg",
+      "images/92-14.jpg",
+      "images/92-15.jpg"
     ],
     "guests": 7,
-    "img": "https://rooms.net.ua/photos/92.jpg",
+    "img": "images/92.jpg",
     "is_available": true,
     "lat": 48.610196,
     "lng": 22.290083,
@@ -2107,18 +2233,21 @@
     "rooms": 3,
     "source_url": "https://rooms.net.ua/apartments/92/",
     "title": {
-      "uk": "РІСѓР». РњРёРЅР°Р№СЃСЊРєР° 12",
+      "uk": "вул. Минайська 12",
       "en": "St. Minayska 12"
-    }
+    },
+    "isBooked": true,
+    "checkInDate": "2026-05-27",
+    "checkOutDate": "2026-05-29"
   },
   {
     "_id": "69d49d5cd8810233ba1da2ed",
     "external_id": 81,
-    "address": "РІСѓР». РњРёРЅР°Р№СЃСЊРєР° 18Р“",
+    "address": "вул. Минайська 18Г",
     "area": "-",
     "beds": 7,
     "description": {
-      "uk": "РђРїР°СЂС‚Р°РјРµРЅС‚Рё Р·Р° Р°РґСЂРµСЃРѕСЋ РІСѓР». РњРёРЅР°Р№СЃСЊРєР° 18Р“. РљС–Р»СЊРєС–СЃС‚СЊ РєС–РјРЅР°С‚: 3. РљС–Р»СЊРєС–СЃС‚СЊ РіРѕСЃС‚РµР№: 7. Р РѕР·С‚Р°С€РѕРІР°РЅС– РЅР° 3 РїРѕРІРµСЂСЃС–. Р—СЂСѓС‡РЅРѕСЃС‚С–: С‚РµР»РµРІС–Р·РѕСЂ, С…РѕР»РѕРґРёР»СЊРЅРёРє, РјС–РєСЂРѕС…РІРёР»СЊРѕРІР° РїС–С‡, РіР°СЂСЏС‡Р° РІРѕРґР°, РєРѕРЅРґРёС†С–РѕРЅРµСЂ, РїРѕСЂСѓС‡ СЃСѓРїРµСЂРјР°СЂРєРµС‚, Р·СЂСѓС‡РЅР° С‚СЂР°РЅСЃРїРѕСЂС‚РЅР° СЂРѕР·РІ'СЏР·РєР°, Р±Р°Р»РєРѕРЅ, С–РЅС‚РµСЂРЅРµС‚, РєР°Р±РµР»СЊРЅРµ С‚РµР»РµР±Р°С‡РµРЅРЅСЏ, РїР°СЂРєРѕРІРєР° РїС–Рґ РѕС…РѕСЂРѕРЅРѕСЋ, РїС–Рґ'С—Р·Рґ РЅР° РєРѕРґС–, РїСЂР°Р»СЊРЅР° РјР°С€РёРЅР°.",
+      "uk": "Апартаменти за адресою вул. Минайська 18Г. Кількість кімнат: 3. Кількість гостей: 7. Розташовані на 3 поверсі. Зручності: телевізор, холодильник, мікрохвильова піч, гаряча вода, кондиціонер, поруч супермаркет, зручна транспортна розв'язка, балкон, інтернет, кабельне телебачення, парковка під охороною, під'їзд на коді, пральна машина.",
       "en": "Apartment at the address st. Minayska 18G. Number of rooms: 3. Number of guests: 7. Located on the 3rd floor. Amenities: TV, refrigerator, microwave oven, hot water, air conditioner, nearby supermarket, convenient transport interchange, balcony, internet, cable TV, guarded parking, coded entrance, washing machine."
     },
     "features": [
@@ -2138,16 +2267,16 @@
     ],
     "floor": 3,
     "gallery": [
-      "https://rooms.net.ua/photos/81.jpg",
-      "https://rooms.net.ua/photos/81-02.jpg",
-      "https://rooms.net.ua/photos/81-03.jpg",
-      "https://rooms.net.ua/photos/81-04.jpg",
-      "https://rooms.net.ua/photos/81-05.jpg",
-      "https://rooms.net.ua/photos/81-06.jpg",
-      "https://rooms.net.ua/photos/81-07.jpg"
+      "images/81.jpg",
+      "images/81-02.jpg",
+      "images/81-03.jpg",
+      "images/81-04.jpg",
+      "images/81-05.jpg",
+      "images/81-06.jpg",
+      "images/81-07.jpg"
     ],
     "guests": 7,
-    "img": "https://rooms.net.ua/photos/81.jpg",
+    "img": "images/81.jpg",
     "is_available": true,
     "lat": 48.606925,
     "lng": 22.288788,
@@ -2155,9 +2284,12 @@
     "rooms": 3,
     "source_url": "https://rooms.net.ua/apartments/81/",
     "title": {
-      "uk": "РІСѓР». РњРёРЅР°Р№СЃСЊРєР° 18Р“",
+      "uk": "вул. Минайська 18Г",
       "en": "St. Minayska 18G"
-    }
+    },
+    "isBooked": false,
+    "checkInDate": "2026-05-22",
+    "checkOutDate": "2026-05-24"
   }
 ]
 ;

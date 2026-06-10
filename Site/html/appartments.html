@@ -40,6 +40,7 @@
     <link rel="apple-touch-icon" href="../images/logo.png">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reset-css@5.0.2/reset.min.css">
     <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="../css/availability-calendar.css">
     <link rel="stylesheet" href="../css/appartments.css">
     <link rel="stylesheet" href="../css/map.css">
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" crossorigin="">
@@ -99,15 +100,23 @@
                 </section>
             </div>
 
-            <article class="description_box">
-                <h2 data-i18n="pages.apartment.description"></h2>
-                <p id="description"></p>
-            </article>
-
             <section class="map_box">
                 <h2 data-i18n="pages.apartment.location"></h2>
                 <div id="map"></div>
             </section>
+
+            <section class="availability_detail_panel" id="apartmentAvailabilityPanel">
+                <div class="availability_panel_intro">
+                    <span class="availability_eyebrow" data-i18n="pages.apartment.bookingEyebrow">Дати бронювання</span>
+                    <h2 data-i18n="pages.apartment.bookingCalendar">Календар доступності</h2>
+                </div>
+                <div id="apartmentAvailabilityCalendar"></div>
+            </section>
+
+            <article class="description_box">
+                <h2 data-i18n="pages.apartment.description"></h2>
+                <p id="description"></p>
+            </article>
         </section>
     </main>
     <div data-site-footer></div>
@@ -116,8 +125,9 @@
     <script src="https://cdn.jsdelivr.net/npm/jquery-i18next@1.2.1/jquery-i18next.min.js"></script>
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" crossorigin=""></script>
     <script src="../js/i18n.js"></script>
-    <script src="../api/apartments-data.js?v=20260516-10"></script>
+    <script src="../api/apartments-data.js?v=20260517-01"></script>
     <script src="../js/site.js"></script>
+    <script src="../js/availabilityCalendar.js"></script>
     <script src="../js/appartments.js?v=20260516-10"></script>
     <script src="../js/appartmentsPage.js"></script>
 </body>

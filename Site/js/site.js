@@ -626,6 +626,141 @@ const updateDocumentTitle = (key, options = {}) => {
     document.title = normalizeDocumentTitle(translateKey(key, options), lang);
 };
 
+const setDocumentTitle = (title, options = {}) => {
+    const lang = options.lng || getCurrentLang();
+    document.title = normalizeDocumentTitle(title, lang);
+    return document.title;
+};
+
+const ensureMetaTag = (attributeName, attributeValue) => {
+    if (!document.head) {
+        return null;
+    }
+
+    let meta = document.head.querySelector(`meta[${attributeName}="${attributeValue}"]`);
+
+    if (!meta) {
+        meta = document.createElement("meta");
+        meta.setAttribute(attributeName, attributeValue);
+        document.head.appendChild(meta);
+    }
+
+    return meta;
+};
+
+const updateMetaTagContent = (attributeName, attributeValue, content) => {
+    if (content === undefined || content === null || content === "") {
+        return;
+    }
+
+    const meta = ensureMetaTag(attributeName, attributeValue);
+    if (meta) {
+        meta.setAttribute("content", String(content));
+    }
+};
+
+const ensureLinkTag = (relValue) => {
+    if (!document.head) {
+        return null;
+    }
+
+    let link = document.head.querySelector(`link[rel="${relValue}"]`);
+
+    if (!link) {
+        link = document.createElement("link");
+        link.rel = relValue;
+        document.head.appendChild(link);
+    }
+
+    return link;
+};
+
+const updateCanonicalUrl = (href) => {
+    if (!href) {
+        return;
+    }
+
+    const canonical = ensureLinkTag("canonical");
+    if (canonical) {
+        canonical.href = String(href);
+    }
+};
+
+const updateStructuredData = (key, data) => {
+    if (!document.head || !key) {
+        return;
+    }
+
+    const selector = `script[type="application/ld+json"][data-seo-schema="${key}"]`;
+    let script = document.head.querySelector(selector);
+
+    if (!data) {
+        script?.remove();
+        return;
+    }
+
+    if (!script) {
+        script = document.createElement("script");
+        script.type = "application/ld+json";
+        script.dataset.seoSchema = key;
+        document.head.appendChild(script);
+    }
+
+    script.textContent = JSON.stringify(data, null, 2);
+};
+
+const updateSeoMetadata = ({
+    title,
+    lang = getCurrentLang(),
+    description,
+    canonicalUrl,
+    robots,
+    ogType,
+    ogTitle,
+    ogDescription,
+    ogUrl,
+    ogImage,
+    ogImageAlt,
+    twitterCard,
+    twitterTitle,
+    twitterDescription,
+    twitterImage,
+    twitterImageAlt
+} = {}) => {
+    if (title) {
+        setDocumentTitle(title, { lng: lang });
+    }
+
+    if (description) {
+        updateMetaTagContent("name", "description", description);
+    }
+
+    if (robots) {
+        updateMetaTagContent("name", "robots", robots);
+        updateMetaTagContent("name", "googlebot", robots);
+    }
+
+    if (canonicalUrl) {
+        updateCanonicalUrl(canonicalUrl);
+    }
+
+    if (ogType) {
+        updateMetaTagContent("property", "og:type", ogType);
+    }
+
+    updateMetaTagContent("property", "og:title", ogTitle || document.title);
+    updateMetaTagContent("property", "og:description", ogDescription || description);
+    updateMetaTagContent("property", "og:url", ogUrl || canonicalUrl);
+    updateMetaTagContent("property", "og:image", ogImage);
+    updateMetaTagContent("property", "og:image:alt", ogImageAlt);
+
+    updateMetaTagContent("name", "twitter:card", twitterCard || "summary_large_image");
+    updateMetaTagContent("name", "twitter:title", twitterTitle || ogTitle || document.title);
+    updateMetaTagContent("name", "twitter:description", twitterDescription || ogDescription || description);
+    updateMetaTagContent("name", "twitter:image", twitterImage || ogImage);
+    updateMetaTagContent("name", "twitter:image:alt", twitterImageAlt || ogImageAlt);
+};
+
 const createLeafletMap = (elementId, center, zoom = 16) => {
     if (typeof L === "undefined") {
         return null;
@@ -781,6 +916,11 @@ Object.assign(window, {
     buildFooterMarkup,
     mountSiteFooter,
     updateDocumentTitle,
+    setDocumentTitle,
+    updateMetaTagContent,
+    updateCanonicalUrl,
+    updateStructuredData,
+    updateSeoMetadata,
     createLeafletMap,
     createApartmentMarkerIcon,
     buildApartmentMapPopup,

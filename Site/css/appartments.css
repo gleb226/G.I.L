@@ -11,8 +11,9 @@
     grid-template-columns: minmax(0, 1fr) 20em;
     grid-template-areas:
         "gallery sidebar"
-        "description sidebar"
-        "map map";
+        "map map"
+        "availability availability"
+        "description description";
     gap: 1.875em;
 }
 
@@ -74,7 +75,7 @@
 
 .main_photo img{
     width: 100%;
-    height: 28.125em;
+    height: 100%;
     object-fit: cover;
     border: 1px solid rgba(var(--surface-muted-rgb), 0.22);
     background: var(--surface);
@@ -156,6 +157,7 @@
 .apartment_features_panel{
     grid-area: features;
     align-self: start;
+    width: 20em;
 }
 
 .apartment_features_panel h2{
@@ -299,10 +301,11 @@
         grid-template-columns: 1fr;
         grid-template-areas:
             "gallery"
+            "map"
+            "availability"
             "info"
             "features"
-            "description"
-            "map";
+            "description";
     }
 
     .apartment_sidebar{
@@ -324,6 +327,7 @@
 
     #apartmentFeaturesBox{
         margin-top: 0;
+        /* width: 20em; */
     }
 }
 

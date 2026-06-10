@@ -55,6 +55,26 @@ const TRANSLATIONS = {
             secure_parking: "Secure parking",
             hob: "Gas cooktop"
         },
+        calendar: {
+            checkIn: "Check-in",
+            checkOut: "Check-out",
+            checkInPlaceholder: "Select date",
+            checkOutPlaceholder: "Select date",
+            clearDates: "Clear dates",
+            previousMonth: "Previous month",
+            nextMonth: "Next month",
+            available: "Available",
+            selected: "Selected stay",
+            booked: "Booked",
+            selectDates: "Select dates to sort apartments",
+            checkOutPending: "Choose a check-out date to continue",
+            selectedRange: "{{start}} - {{end}}",
+            bookedRange: "Booked from {{start}} to {{end}}",
+            availableNow: "This apartment is available for new dates",
+            dateUnknown: "Date not set",
+            nights_one: "{{count}} night",
+            nights_other: "{{count}} nights"
+        },
         pages: {
             main: {
                 title: "Daily Apartments in Uzhhorod",
@@ -75,7 +95,16 @@ const TRANSLATIONS = {
                 from: "From",
                 to: "To",
                 empty: "No apartments match your filter.",
-                featuredApartmentAlt: "Featured apartment"
+                featuredApartmentAlt: "Featured apartment",
+                availabilityEyebrow: "Stay dates",
+                availabilityTitle: "Choose dates first and see what is free",
+                availabilityLead: "Select check-in and check-out like on Booking. We keep available apartments at the top and move booked ones below in a separate row.",
+                availableHeading: "Available for these dates",
+                availableLead: "These apartments match your stay and stay at the top of the catalog.",
+                availableOnlyLead: "All matching apartments are free for the selected stay.",
+                bookedHeading: "Booked for these dates",
+                bookedLead: "These options remain visible below so you can compare the whole catalog.",
+                bookedBadge: "Booked"
             },
             apartment: {
                 title: "Apartment Details",
@@ -87,7 +116,12 @@ const TRANSLATIONS = {
                 amenities: "Amenities",
                 description: "Description",
                 location: "Location",
-                loading: "Apartment information is loading."
+                loading: "Apartment information is loading.",
+                bookingEyebrow: "Booked dates",
+                bookingCalendar: "Availability calendar",
+                bookingLead: "Check which dates are already occupied before you book this apartment.",
+                bookingRangeText: "This apartment is booked from {{start}} to {{end}}.",
+                bookingOpen: "This apartment is currently open for new dates."
             },
             booking: {
                 title: "Booking",
@@ -349,9 +383,105 @@ const normalizeTranslationTree = (value) => {
 
 TRANSLATIONS.en.pages.contacts.quickLinks = "Quick links";
 TRANSLATIONS.en.pages.contacts.aboutUs = "About us";
+TRANSLATIONS.en.pages.about = {
+    title: "About Us",
+    lead: "G.I.L Apartments is a company founded by the Bryanyk family that specializes in daily apartment rentals in Uzhhorod. We help city guests quickly find comfortable accommodation with clear terms, transparent prices, and convenient booking.",
+    highlightTitle: "Comfortable stays in Uzhhorod without extra hassle",
+    highlightText: "Our focus is daily apartment rental in Uzhhorod for tourists, city guests, and people traveling for work. We offer current accommodation options with honest descriptions so the path from choosing an apartment to check-in stays simple.",
+    storyTag: "Story",
+    storyTitle: "What G.I.L Apartments does",
+    storyText1: "G.I.L Apartments was founded by the Bryanyk family and has grown as a service focused on quality daily apartment rentals in Uzhhorod. We gathered accommodation options in one place for city guests, tourists, and people visiting for work.",
+    storyText2: "It matters to us that a guest receives not just a list of apartments, but a clear and reliable service: from viewing photos and key details to quick contact and a smooth move toward booking.",
+    approachTag: "Approach",
+    approachTitle: "What matters to us",
+    quote: "Good service begins with honest information, a clean space, and respect for the guest's time.",
+    valuesTag: "Values",
+    valuesTitle: "Three principles behind our approach",
+    value1Title: "Comfort",
+    value1Text: "We care that every apartment is clean, prepared for check-in, and convenient for everyday living.",
+    value2Title: "Simplicity",
+    value2Text: "A clear catalog, current photos, transparent prices, and quick booking access help guests avoid wasting time.",
+    value3Title: "Trust",
+    value3Text: "Open communication, honest apartment descriptions, and dependable service are important to us during every stay.",
+    ctaTag: "Next step",
+    ctaTitle: "Choose an apartment and move to booking",
+    ctaText: "Browse available options, open apartment details, and contact us through a convenient channel for a fast booking process.",
+    ctaPrimary: "Go to booking",
+    ctaSecondary: "Contacts"
+};
 
 TRANSLATIONS.uk.pages.contacts.quickLinks = "Швидкі посилання";
 TRANSLATIONS.uk.pages.contacts.aboutUs = "Про нас";
+
+TRANSLATIONS.uk.pages.about = {
+    title: "Про нас",
+    lead: "G.I.L Apartments - це компанія, заснована сім'єю Бряників, яка займається подобовою орендою квартир в Ужгороді. Ми допомагаємо гостям міста швидко знайти комфортне житло з прозорими умовами, зрозумілими цінами та зручним бронюванням.",
+    highlightTitle: "Комфортне житло в Ужгороді без зайвих складнощів",
+    highlightText: "Наша спеціалізація - подобова оренда квартир в Ужгороді для туристів, гостей міста та людей, які приїжджають у справах. Ми пропонуємо актуальні варіанти житла з чесним описом, щоб шлях від вибору квартири до заселення був максимально простим.",
+    storyTag: "Історія",
+    storyTitle: "Чим займається G.I.L Apartments",
+    storyText1: "G.I.L Apartments заснована сім'єю Бряників і розвивається як сервіс, орієнтований на якісну подобову оренду квартир в Ужгороді. Ми зібрали в одному місці варіанти житла для гостей міста, туристів і тих, хто приїжджає у справах.",
+    storyText2: "Для нас важливо, щоб гість отримував не просто список квартир, а зрозумілий і надійний сервіс: від перегляду фотографій і параметрів до швидкого контакту та переходу до оформлення бронювання.",
+    approachTag: "Підхід",
+    approachTitle: "Що для нас важливо",
+    quote: "Хороший сервіс починається з чесної інформації, охайного простору та поваги до часу гостя.",
+    valuesTag: "Цінності",
+    valuesTitle: "Три принципи, на яких будується наш підхід",
+    value1Title: "Комфорт",
+    value1Text: "Ми дбаємо про те, щоб квартира була охайною, підготовленою до заселення та зручною для щоденного проживання.",
+    value2Title: "Простота",
+    value2Text: "Зрозумілий каталог, актуальні фото, прозорі ціни та швидкий перехід до бронювання допомагають не витрачати час даремно.",
+    value3Title: "Довіра",
+    value3Text: "Для нас важливі відкрита комунікація, чесний опис кожної квартири та сервіс, на який можна покластися під час поїздки.",
+    ctaTag: "Наступний крок",
+    ctaTitle: "Оберіть квартиру та переходьте до бронювання",
+    ctaText: "Перегляньте доступні варіанти, відкрийте деталі квартири та зв'яжіться з нами через зручний канал для швидкого оформлення бронювання.",
+    ctaPrimary: "Перейти до бронювання",
+    ctaSecondary: "Контакти"
+};
+
+TRANSLATIONS.uk.calendar = {
+    checkIn: "Заїзд",
+    checkOut: "Виїзд",
+    checkInPlaceholder: "Оберіть дату",
+    checkOutPlaceholder: "Оберіть дату",
+    clearDates: "Очистити дати",
+    previousMonth: "Попередній місяць",
+    nextMonth: "Наступний місяць",
+    available: "Вільно",
+    selected: "Обране проживання",
+    booked: "Заброньовано",
+    selectDates: "Оберіть дати, щоб відсортувати квартири",
+    checkOutPending: "Оберіть дату виїзду, щоб продовжити",
+    selectedRange: "{{start}} - {{end}}",
+    bookedRange: "Заброньовано з {{start}} до {{end}}",
+    availableNow: "Ця квартира зараз доступна для нових дат",
+    dateUnknown: "Дата не вказана",
+    nights_one: "{{count}} ніч",
+    nights_few: "{{count}} ночі",
+    nights_many: "{{count}} ночей",
+    nights_other: "{{count}} ночі"
+};
+
+Object.assign(TRANSLATIONS.uk.pages.main, {
+    availabilityEyebrow: "Дати проживання",
+    availabilityTitle: "Оберіть дати та одразу побачте, що вільно",
+    availabilityLead: "Позначте заїзд і виїзд, а ми піднімемо доступні квартири вгору, а зайняті залишимо нижче окремим блоком.",
+    availableHeading: "Вільно на ці дати",
+    availableLead: "Ці квартири підходять під ваші дати та залишаються зверху каталогу.",
+    availableOnlyLead: "Усі квартири за поточним фільтром вільні на обраний період.",
+    bookedHeading: "Заброньовано на ці дати",
+    bookedLead: "Ці варіанти ми теж показуємо нижче, щоб ви могли порівняти весь каталог.",
+    bookedBadge: "Зайнято"
+});
+
+Object.assign(TRANSLATIONS.uk.pages.apartment, {
+    bookingEyebrow: "Заброньовані дати",
+    bookingCalendar: "Календар доступності",
+    bookingLead: "Перевірте, які дати вже зайняті, перед бронюванням цієї квартири.",
+    bookingRangeText: "Ця квартира заброньована з {{start}} до {{end}}.",
+    bookingOpen: "Ця квартира зараз відкрита для нових дат."
+});
 
 const NORMALIZED_TRANSLATIONS = normalizeTranslationTree(TRANSLATIONS);
 
