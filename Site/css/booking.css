@@ -332,3 +332,116 @@
     }
 
 }
+
+/* New Booking Form Styles */
+.booking_form_container {
+    padding: 2rem;
+    background: var(--surface);
+    border: 1px solid var(--border-soft);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-1);
+}
+
+.booking_form_container h2 {
+    margin-bottom: 1.5rem;
+    font-size: 1.5rem;
+    font-weight: 600;
+}
+
+.booking_form {
+    display: grid;
+    gap: 1.25rem;
+}
+
+.form_group {
+    display: grid;
+    gap: 0.5rem;
+}
+
+.form_group label {
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: var(--text-muted);
+}
+
+.form_group input, .form_group textarea {
+    padding: 0.75rem 1rem;
+    border: 1px solid var(--border-soft);
+    border-radius: var(--radius-md);
+    background: var(--surface-muted);
+    font-family: inherit;
+    font-size: 1rem;
+    transition: border-color 0.2s;
+}
+
+.form_group input:focus, .form_group textarea:focus {
+    outline: none;
+    border-color: var(--accent);
+}
+
+.booking_summary_box {
+    padding: 1.25rem;
+    background: var(--surface-muted-2);
+    border-radius: var(--radius-md);
+    border: 1px dashed var(--border-soft);
+}
+
+.booking_summary_box p {
+    margin-bottom: 0.5rem;
+    line-height: 1.4;
+}
+
+.prepayment_note {
+    font-size: 0.85rem;
+    color: var(--accent);
+    margin-top: 0.5rem;
+}
+
+.booking_submit_btn {
+    padding: 1rem;
+    background: var(--accent);
+    color: var(--text-on-dark);
+    border: none;
+    border-radius: var(--radius-md);
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: transform 0.2s, background 0.2s;
+}
+
+.booking_submit_btn:hover {
+    background: var(--accent-dark);
+    transform: translateY(-2px);
+}
+
+.booking_submit_btn:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    transform: none;
+}
+
+.form_message {
+    padding: 0.75rem;
+    border-radius: var(--radius-md);
+    font-size: 0.9rem;
+    display: none;
+}
+
+.form_message.error {
+    display: block;
+    background: #fee2e2;
+    color: #991b1b;
+    border: 1px solid #fecaca;
+}
+
+.form_message.success {
+    display: block;
+    background: #dcfce7;
+    color: #166534;
+    border: 1px solid #bbf7d0;
+}
+
+#selectedDatesDisplay {
+    font-weight: 600;
+    color: var(--text-main);
+}

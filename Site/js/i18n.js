@@ -161,7 +161,18 @@ const TRANSLATIONS = {
                 info1Title: "Simple for the guest",
                 info1Text: "There is no need to search for separate contacts or fill in a long form. The booking start is collected in one place.",
                 info2Title: "Quick access",
-                info2Text: "One click opens the Telegram bot, where the guest can immediately continue with the booking flow."
+                info2Text: "One click opens the Telegram bot, where the guest can immediately continue with the booking flow.",
+                formTitle: "Booking details",
+                formName: "Full name",
+                formPhone: "Phone number",
+                formWishes: "Special wishes (optional)",
+                formSubmit: "Book and pay prepayment",
+                formSuccess: "Booking created! Redirecting to payment...",
+                formError: "Error creating booking. Please try again.",
+                formDates: "Selected dates",
+                prepaymentNotice: "To confirm your booking, a 50% prepayment is required via LiqPay.",
+                alreadyBooked: "Selected dates are already booked.",
+                selectApartment: "Please select an apartment first."
             },
             contacts: {
                 title: "Contacts",
@@ -313,7 +324,18 @@ const TRANSLATIONS = {
                 info1Title: "Просто для гостя",
                 info1Text: "Не потрібно шукати окремі контакти чи заповнювати довгу форму. Весь старт бронювання зібраний в одному місці.",
                 info2Title: "Швидкий перехід",
-                info2Text: "Один клік відкриває Telegram-бота, де можна одразу почати оформлення без зайвих проміжних кроків."
+                info2Text: "Один клік відкриває Telegram-бота, де можна одразу почати оформлення без зайвих проміжних кроків.",
+                formTitle: "Деталі бронювання",
+                formName: "Повне ім'я",
+                formPhone: "Номер телефону",
+                formWishes: "Особливі побажання (необов'язково)",
+                formSubmit: "Забронювати та сплатити передплату",
+                formSuccess: "Бронювання створено! Перенаправлення на оплату...",
+                formError: "Помилка при створенні бронювання. Спробуйте ще раз.",
+                formDates: "Обрані дати",
+                prepaymentNotice: "Для підтвердження бронювання необхідно сплатити передплату 50% через LiqPay.",
+                alreadyBooked: "Обрані дати вже заброньовані.",
+                selectApartment: "Будь ласка, спочатку оберіть квартиру."
             },
             contacts: {
                 title: "Контакти",

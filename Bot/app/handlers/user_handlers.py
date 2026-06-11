@@ -358,6 +358,12 @@ async def back_main_handler(message: Message, state: FSMContext):
 @router.message(F.text.in_(BTNS_PROFILE), StateFilter("*"))
 @router.callback_query(F.data == "to_profile", StateFilter("*"))
 async def profile_h(event: Message | CallbackQuery, state: FSMContext):
+    uid = event.from_user.id
+    u = await get_user(uid)
+    if not u or u.get('role') not in ['admin', 'boss']:
+        if isinstance(event, Message): return await start_cmd(event, state)
+        else: return await start_cmd(event.message, state)
+
     await state.clear()
     u = await ensure_profile_user(event)
     await add_log("user", "open_profile", "User opened profile", user_id=event.from_user.id)
@@ -405,24 +411,41 @@ async def start_cmd(message: Message, state: FSMContext):
         await upsert_user(uid, message.from_user.username, role=r, name=message.from_user.full_name, language=l)
         u = await get_user(uid)
         await add_log("user", "first_start", "New user started bot", user_id=uid, extra={"payload": payload})
-    await add_log("user", "start", "User triggered /start", user_id=uid, extra={"payload": payload})
     
     l = u.get('language', 'uk')
+    is_staff = u.get('role') in ['admin', 'boss']
+    
+    if not is_staff:
+        # Regular users are redirected to the website
+        website_url = "https://gil-apartments.com.ua"
+        welcome_text = (
+            f"👋 <b>Вітаємо в G.I.L Apartments!</b>\n\n"
+            f"Тепер усі бронювання здійснюються безпосередньо на нашому сайті.\n"
+            f"Там ви знайдете актуальні ціни, календар доступності та зможете швидко оформити бронь.\n\n"
+            f"🔗 <a href='{website_url}'>Перейти на сайт</a>"
+            if l == "uk" else
+            f"👋 <b>Welcome to G.I.L Apartments!</b>\n\n"
+            f"All bookings are now made directly on our website.\n"
+            f"There you will find current prices, availability calendar and can quickly book your stay.\n\n"
+            f"🔗 <a href='{website_url}'>Visit our website</a>"
+        )
+        await message.answer(welcome_text, parse_mode="HTML", reply_markup=None)
+        return
+
     if not u.get('currency'):
         if payload:
             await state.update_data(pending_start_payload=payload)
         await message.answer(get_text('msg_choose_currency', l), reply_markup=currency_kb())
         await state.set_state(SetupStates.choosing_currency)
         return
-    if payload.startswith("book_"):
-        await start_booking_for_apartment(message, state, payload[5:], l)
-        return
+    
     await message.answer(get_text('msg_welcome', l), reply_markup=main_menu_kb(u.get('role', 'user'), l), parse_mode="HTML")
 
 @router.message(F.text.in_(BTNS_BOOKING), StateFilter("*"))
 async def book_h(message: Message, state: FSMContext):
-    await state.clear()
     u = await get_user(message.from_user.id)
+    if u.get('role') not in ['admin', 'boss']: return await start_cmd(message, state)
+    await state.clear()
     l = u.get('language', 'uk') if u else 'uk'
     aps = await get_apartments(only_available=True)
     await add_log("user", "open_booking", f"Opened booking list with {len(aps)} apartments", user_id=message.from_user.id)
@@ -431,8 +454,9 @@ async def book_h(message: Message, state: FSMContext):
 
 @router.message(F.text.in_(BTNS_APS), StateFilter("*"))
 async def list_h(message: Message, state: FSMContext):
-    await state.clear()
     u = await get_user(message.from_user.id)
+    if u.get('role') not in ['admin', 'boss']: return await start_cmd(message, state)
+    await state.clear()
     l = u.get('language', 'uk') if u else 'uk'
     aps = await get_apartments(only_available=True)
     await add_log("user", "open_apartments", f"Opened apartments list with {len(aps)} apartments", user_id=message.from_user.id)
@@ -440,8 +464,9 @@ async def list_h(message: Message, state: FSMContext):
 
 @router.message(F.text.in_(BTNS_CONTACTS), StateFilter("*"))
 async def contacts_h(message: Message, state: FSMContext):
-    await state.clear()
     u = await get_user(message.from_user.id)
+    if u.get('role') not in ['admin', 'boss']: return await start_cmd(message, state)
+    await state.clear()
     l = u.get('language', 'uk') if u else 'uk'
     await add_log("user", "open_contacts", "Opened contacts", user_id=message.from_user.id)
     await message.answer(get_text('msg_contacts', l), reply_markup=contacts_inline_kb(l), parse_mode="HTML")

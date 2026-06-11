@@ -28,4 +28,7 @@ BOSS_IDS = sorted(
 
 USD_RATE = float(os.getenv("USD_RATE", 42.0))
 
+LIQPAY_PUBLIC_KEY = os.getenv("LIQPAY_PUBLIC_KEY", "sandbox_i96717270086")
+LIQPAY_PRIVATE_KEY = os.getenv("LIQPAY_PRIVATE_KEY", "sandbox_p5St5vAd0nvxPniHWJXEgnP1nXcOsfUSTMu1xXHV")
+
 PORTMONE_LIMIT = 25000

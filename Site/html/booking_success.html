@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+    <title>Бронювання підтверджено | G.I.L Apartments Ужгород</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reset-css@5.0.2/reset.min.css">
+    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="../css/booking.css">
+    <style>
+        .success_container {
+            text-align: center;
+            padding: 4rem 2rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        .success_icon {
+            font-size: 5rem;
+            color: #166534;
+            margin-bottom: 2rem;
+        }
+        .success_title {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+        .success_text {
+            font-size: 1.1rem;
+            color: var(--text-muted);
+            line-height: 1.6;
+            margin-bottom: 2.5rem;
+        }
+        .success_actions {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+        }
+        .btn_primary {
+            padding: 1rem 2rem;
+            background: var(--accent);
+            color: var(--text-on-dark);
+            text-decoration: none;
+            border-radius: var(--radius-md);
+            font-weight: 600;
+        }
+        .btn_secondary {
+            padding: 1rem 2rem;
+            background: var(--surface-muted-2);
+            color: var(--text-main);
+            text-decoration: none;
+            border-radius: var(--radius-md);
+            border: 1px solid var(--border-soft);
+            font-weight: 600;
+        }
+    </style>
+</head>
+<body data-page="booking_success">
+    <div data-site-header></div>
+
+    <main class="page_shell">
+        <section class="success_container page_card">
+            <div class="success_icon">✅</div>
+            <h1 class="success_title">Бронювання прийнято!</h1>
+            <p class="success_text">
+                Ми отримали вашу передплату. Бронювання зафіксовано в нашій системі. 
+                Найближчим часом ми можемо зв'язатися з вами для уточнення деталей. 
+                Дякуємо, що обрали G.I.L Apartments!
+            </p>
+            <div class="success_actions">
+                <a href="../index.html" class="btn_primary">На головну</a>
+                <a href="contacts.html" class="btn_secondary">Контакти</a>
+            </div>
+        </section>
+    </main>
+
+    <div data-site-footer></div>
+
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://unpkg.com/i18next@24.2.3/i18next.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery-i18next@1.2.1/jquery-i18next.min.js"></script>
+    <script src="../js/i18n.js"></script>
+    <script src="../js/site.js"></script>
+</body>
+</html>

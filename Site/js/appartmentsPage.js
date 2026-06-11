@@ -305,8 +305,8 @@ const initApartmentPage = () => {
         }
 
         if (rentButton) {
-            const botUsername = "GIL_Apartments_Bot";
-            window.attachTelegramOpenBehavior?.(rentButton, botUsername, `book_${apartment.id || apartment._id}`);
+            const bookingUrl = `${window.getPageUrl("html/booking.html")}?id=${encodeURIComponent(apartment.id || apartment._id)}`;
+            rentButton.href = bookingUrl;
             rentButton.textContent = window.t("common.actions.rent", { lng: pageLang });
         }
 
