@@ -5,11 +5,12 @@ window.openBookingModal = (apartmentId) => {
     if (!apartment) return;
 
     let modalContainer = document.getElementById('checkout-modal-container');
-    if (!modalContainer) {
-        modalContainer = document.createElement('div');
-        modalContainer.id = 'checkout-modal-container';
-        document.body.appendChild(modalContainer);
+    if (modalContainer) {
+        modalContainer.remove();
     }
+    modalContainer = document.createElement('div');
+    modalContainer.id = 'checkout-modal-container';
+    document.body.appendChild(modalContainer);
 
     const apartmentTitle = window.getApartmentTitle ? window.getApartmentTitle(apartment, pageLang) : "Apartment";
 

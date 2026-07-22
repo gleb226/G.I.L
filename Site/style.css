@@ -413,6 +413,8 @@ a:focus-visible{
 
 .feature_inline_icon{
     flex: 0 0 auto;
+    width: 1.1rem;
+    text-align: center;
 }
 
 .feature_inline_label{

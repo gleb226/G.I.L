@@ -232,7 +232,6 @@ const initApartmentPage = () => {
         const image = document.getElementById("image");
         const address = document.getElementById("address");
         const description = document.getElementById("description");
-        const rentButton = document.querySelector(".rent_btn");
         const apartmentFeatures = document.getElementById("apartmentFeatures");
         const apartmentFeaturesBox = document.getElementById("apartmentFeaturesBox");
         const bookingSummary = document.getElementById("bookingRangeSummary");
@@ -304,8 +303,9 @@ const initApartmentPage = () => {
                 : (apartment.address || "");
         }
 
+        const rentButton = document.getElementById("rentBtn") || document.querySelector(".rent_btn");
+
         if (rentButton) {
-            rentButton.href = "#";
             rentButton.textContent = window.t("common.actions.rent", { lng: pageLang });
             rentButton.addEventListener("click", (e) => {
                 e.preventDefault();

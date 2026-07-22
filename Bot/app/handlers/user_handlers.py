@@ -429,7 +429,8 @@ async def start_cmd(message: Message, state: FSMContext):
             f"There you will find current prices, availability calendar and can quickly book your stay.\n\n"
             f"🔗 <a href='{website_url}'>Visit our website</a>"
         )
-        await message.answer(welcome_text, parse_mode="HTML", reply_markup=None)
+        from aiogram.types import ReplyKeyboardRemove
+        await message.answer(welcome_text, parse_mode="HTML", reply_markup=ReplyKeyboardRemove())
         return
 
     if not u.get('currency'):
@@ -1114,3 +1115,14 @@ async def main_menu_fallback_h(message: Message, state: FSMContext, bot: Bot):
             
     if detect_menu_intent(message.text):
         return await menu_redirect(message, state, bot)
+
+    if u and u.get('role') not in ['admin', 'boss']:
+        return await start_cmd(message, state)
+
+@router.callback_query(StateFilter("*"))
+async def fallback_callback_h(callback: CallbackQuery, state: FSMContext):
+    u = await get_user(callback.from_user.id)
+    if u and u.get('role') not in ['admin', 'boss']:
+        await callback.answer("Будь ласка, використовуйте сайт для бронювання.", show_alert=True)
+    else:
+        await callback.answer()

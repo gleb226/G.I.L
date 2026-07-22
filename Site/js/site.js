@@ -784,8 +784,8 @@ const createApartmentMarkerIcon = () => {
         className: "apartment-marker",
         html: "<span aria-hidden=\"true\">&#127970;</span>",
         iconSize: [32, 32],
-        iconAnchor: [16, 16],
-        popupAnchor: [0, -14]
+        iconAnchor: [16, 32],
+        popupAnchor: [0, -32]
     });
 };
 

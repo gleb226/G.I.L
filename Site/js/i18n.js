@@ -18,6 +18,7 @@ const TRANSLATIONS = {
                 reset: "Reset",
                 details: "Details",
                 send: "Send",
+                route: "Build route",
                 back: "Back",
                 openTelegram: "Open in Telegram"
             }
@@ -147,7 +148,7 @@ const TRANSLATIONS = {
                 botText: "Tap to open <strong>@GIL_Apartments_Bot</strong> in Telegram. There you can quickly begin the booking flow, choose an apartment, and continue without filling in a website form.",
                 botAria: "Open the GIL Apartments Telegram bot",
                 botPortalText: "Open the chat and continue to booking",
-                botPortalArrow: "Відкрити",
+                botPortalArrow: "Open",
                 statApartments: "Apartments",
                 statApartmentsText: "choose the right option",
                 statDates: "Dates",
