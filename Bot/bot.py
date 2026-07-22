@@ -293,6 +293,10 @@ async def start_web_server(bot: Bot):
     app.router.add_get('/api/availability', get_availability_api)
     app.router.add_post('/api/book', create_booking_api)
     app.router.add_post('/api/liqpay/callback', liqpay_callback_api)
+    
+    from app.api.admin_api import setup_admin_routes
+    setup_admin_routes(app)
+    
     async def root_redirect(request):
         raise web.HTTPFound('/index.html')
     app.router.add_get('/', root_redirect)

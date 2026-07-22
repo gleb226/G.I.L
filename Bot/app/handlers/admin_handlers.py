@@ -7,7 +7,7 @@ from app.databases.mongodb import (
     get_user, get_apartments, add_apartment, delete_apartment, get_apartment, 
     get_booking, update_booking_status, get_active_bookings, 
     update_user_pref, update_apartment, upsert_user, db, remove_staff, search_user,
-    get_apartment_bookings, log_error, add_log
+    get_apartment_bookings, log_error, add_log, admin_sessions
 )
 from app.keyboards.user_keyboards import user_reply_inline_kb, main_menu_kb, apartments_inline_kb
 from app.keyboards.admin_keyboards import (
@@ -569,3 +569,23 @@ async def back_staff_h(callback: CallbackQuery, state: FSMContext):
     await team_mgmt_h(callback.message, state)
     try: await callback.message.delete()
     except: pass
+
+@router.callback_query(F.data.startswith("auth_approve_"), is_admin_filter)
+async def auth_approve_h(callback: CallbackQuery):
+    session_id = callback.data.replace("auth_approve_", "")
+    if session_id in admin_sessions:
+        admin_sessions[session_id]["is_verified"] = True
+        await callback.message.edit_text("✅ Вхід в Адмін-Панель підтверджено.")
+    else:
+        await callback.message.edit_text("❌ Сесія не знайдена або застаріла.")
+    await callback.answer()
+
+@router.callback_query(F.data.startswith("auth_reject_"), is_admin_filter)
+async def auth_reject_h(callback: CallbackQuery):
+    session_id = callback.data.replace("auth_reject_", "")
+    if session_id in admin_sessions:
+        del admin_sessions[session_id]
+        await callback.message.edit_text("❌ Вхід в Адмін-Панель відхилено.")
+    else:
+        await callback.message.edit_text("❌ Сесія не знайдена або застаріла.")
+    await callback.answer()

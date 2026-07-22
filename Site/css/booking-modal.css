@@ -1,0 +1,56 @@
+#checkout-modal-container {
+    position: fixed;
+    z-index: 9999;
+}
+.booking-modal-overlay {
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(0,0,0,0.6);
+    backdrop-filter: blur(4px);
+    z-index: 9999;
+}
+.booking-modal-content {
+    position: fixed;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    background: var(--surface);
+    width: 90%;
+    max-width: 900px;
+    max-height: 90vh;
+    overflow-y: auto;
+    border-radius: var(--radius-lg);
+    box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+    z-index: 10000;
+    padding: 2rem;
+}
+.booking-modal-close {
+    position: absolute;
+    top: 1rem; right: 1rem;
+    background: transparent;
+    border: none;
+    font-size: 2rem;
+    color: var(--text-main);
+    cursor: pointer;
+    line-height: 1;
+}
+.booking-modal-title {
+    font-size: 1.8rem;
+    margin-bottom: 0.5rem;
+}
+.booking-modal-subtitle {
+    color: var(--text-muted);
+    margin-bottom: 1.5rem;
+}
+.booking-modal-layout {
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    gap: 2rem;
+}
+@media (max-width: 768px) {
+    .booking-modal-layout {
+        grid-template-columns: 1fr;
+    }
+}
+body.modal-open {
+    overflow: hidden;
+}

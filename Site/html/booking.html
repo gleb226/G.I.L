@@ -71,50 +71,40 @@
         <h1 class="page_title" data-i18n="pages.booking.heading">Бронювання</h1>
         <p class="page_lead" id="apartmentTitleDisplay"></p>
 
-        <section class="booking_layout">
-            <section class="booking_form_container page_card">
-                <h2 data-i18n="pages.booking.formTitle">Деталі бронювання</h2>
-                <form id="bookingForm" class="booking_form">
-                    <div class="form_group">
-                        <label for="guestName" data-i18n="pages.booking.formName">Повне ім'я</label>
-                        <input type="text" id="guestName" name="name" required placeholder="Іван Іванов">
-                    </div>
-                    <div class="form_group">
-                        <label for="guestPhone" data-i18n="pages.booking.formPhone">Номер телефону</label>
-                        <input type="tel" id="guestPhone" name="phone" required placeholder="+380991234567">
-                    </div>
-                    <div class="form_group">
-                        <label for="guestWishes" data-i18n="pages.booking.formWishes">Особливі побажання</label>
-                        <textarea id="guestWishes" name="wishes" rows="3"></textarea>
+        <section class="booking_layout" style="grid-template-columns: 1fr;">
+            <div class="booking_story">
+                <div class="booking_story_intro">
+                    <p class="booking_story_eyebrow" data-i18n="pages.booking.infoEyebrow">Правила та умови</p>
+                    <h2 data-i18n="pages.booking.infoTitle">Як відбувається бронювання</h2>
+                    <p data-i18n="pages.booking.infoSubtitle">Кілька простих кроків для вашого комфортного перебування.</p>
+                </div>
+                
+                <div class="booking_story_grid">
+                    <div class="booking_step_card">
+                        <span class="booking_step_index">1</span>
+                        <h3 data-i18n="pages.booking.step1Title">Оберіть квартиру та дати</h3>
+                        <p data-i18n="pages.booking.step1Desc">Оберіть квартиру на головній сторінці або в каталозі. Вкажіть дати заїзду та виїзду, щоб перевірити доступність.</p>
                     </div>
                     
-                    <div class="booking_summary_box">
-                        <p><strong data-i18n="pages.booking.formDates">Обрані дати:</strong> <span id="selectedDatesDisplay">-</span></p>
-                        <p class="prepayment_note" data-i18n="pages.booking.prepaymentNotice">Для підтвердження бронювання необхідно сплатити передплату 50% через LiqPay.</p>
+                    <div class="booking_step_card">
+                        <span class="booking_step_index">2</span>
+                        <h3 data-i18n="pages.booking.step2Title">Заповніть форму</h3>
+                        <p data-i18n="pages.booking.step2Desc">Вкажіть своє ім'я, номер телефону та особливі побажання. Це займе менше хвилини.</p>
                     </div>
-
-                    <div id="formMessage" class="form_message"></div>
-
-                    <button type="submit" class="booking_submit_btn" id="submitBtn">
-                        <span data-i18n="pages.booking.formSubmit">Забронювати та сплатити</span>
-                    </button>
-                </form>
-                
-                <!-- Hidden LiqPay Form -->
-                <form id="liqpayForm" method="POST" action="https://www.liqpay.ua/api/3/checkout" accept-charset="utf-8">
-                    <input type="hidden" name="data" value="" />
-                    <input type="hidden" name="signature" value="" />
-                </form>
-            </section>
-
-            <aside class="booking_side">
-                <section class="availability_detail_panel" id="apartmentAvailabilityPanel">
-                    <div class="availability_panel_intro">
-                        <h2 data-i18n="pages.apartment.bookingCalendar">Календар доступності</h2>
+                    
+                    <div class="booking_step_card">
+                        <span class="booking_step_index">3</span>
+                        <h3 data-i18n="pages.booking.step3Title">Оплатіть передплату</h3>
+                        <p data-i18n="pages.booking.step3Desc">Для підтвердження бронювання необхідно внести 50% від загальної вартості через безпечну систему LiqPay.</p>
                     </div>
-                    <div id="apartmentAvailabilityCalendar"></div>
-                </section>
-            </aside>
+                    
+                    <div class="booking_step_card">
+                        <span class="booking_step_index">4</span>
+                        <h3 data-i18n="pages.booking.step4Title">Заїзд та документи</h3>
+                        <p data-i18n="pages.booking.step4Desc">Під час поселення необхідно мати при собі паспорт або ID-картку. Решта суми сплачується при заїзді.</p>
+                    </div>
+                </div>
+            </div>
         </section>
     </main>
 

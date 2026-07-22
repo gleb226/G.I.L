@@ -305,9 +305,14 @@ const initApartmentPage = () => {
         }
 
         if (rentButton) {
-            const bookingUrl = `${window.getPageUrl("html/booking.html")}?id=${encodeURIComponent(apartment.id || apartment._id)}`;
-            rentButton.href = bookingUrl;
+            rentButton.href = "#";
             rentButton.textContent = window.t("common.actions.rent", { lng: pageLang });
+            rentButton.addEventListener("click", (e) => {
+                e.preventDefault();
+                if (window.openBookingModal) {
+                    window.openBookingModal(apartment.id || apartment._id);
+                }
+            });
         }
 
         if (apartmentFeatures && apartmentFeaturesBox) {

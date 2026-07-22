@@ -19,6 +19,8 @@ errors_col = db.errors
 logs_col = db.logs
 
 _apartments_cache = []
+admin_sessions = {}
+
 
 def _resolve_local_apartment_images(apartment: dict | None):
     if not apartment:
