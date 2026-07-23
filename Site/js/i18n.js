@@ -98,9 +98,14 @@ const TRANSLATIONS = {
                 empty: "No apartments match your filter.",
                 featuredApartmentAlt: "Featured apartment",
                 availabilityEyebrow: "Stay dates",
-                availabilityTitle: "Choose dates first and see what is free",
-                availabilityLead: "Select check-in and check-out like on Booking. We keep available apartments at the top and move booked ones below in a separate row.",
-                availableHeading: "Available for these dates",
+                availabilityTitle: "Choose your stay dates",
+                availabilityLead: "Select check-in and check-out dates. Available apartments stay at the top, and booked options move below.",
+                guestsTitle: "Guests and pets",
+                guestsAdults: "Adults",
+                guestsChildren: "Children (count & age)",
+                guestsChildrenPlaceholder: "Example: 1 child, age 5",
+                guestsPets: "With pets",
+                availableHeading: "Available apartments",
                 availableLead: "These apartments match your stay and stay at the top of the catalog.",
                 availableOnlyLead: "All matching apartments are free for the selected stay.",
                 bookedHeading: "Booked for these dates",
@@ -256,9 +261,31 @@ const TRANSLATIONS = {
             secure_parking: "Парковка під охороною",
             hob: "Варильна поверхня"
         },
+        calendar: {
+            checkIn: "Заїзд",
+            checkOut: "Виїзд",
+            checkInPlaceholder: "Оберіть дату",
+            checkOutPlaceholder: "Оберіть дату",
+            clearDates: "Очистити дати",
+            previousMonth: "Попередній місяць",
+            nextMonth: "Наступний місяць",
+            available: "Вільно",
+            selected: "Обране проживання",
+            booked: "Заброньовано",
+            selectDates: "Оберіть дати",
+            checkOutPending: "Оберіть дату виїзду",
+            selectedRange: "{{start}} - {{end}}",
+            bookedRange: "Заброньовано з {{start}} до {{end}}",
+            availableNow: "Ця квартира зараз доступна для нових дат",
+            dateUnknown: "Дата не вказана",
+            nights_one: "{{count}} ніч",
+            nights_few: "{{count}} ночі",
+            nights_many: "{{count}} ночей",
+            nights_other: "{{count}} ночі"
+        },
         pages: {
             main: {
-                title: "Подобова оренда квартир в Ужгороді",
+                title: "G.I.L Apartments | Подобова оренда квартир в Ужгороді",
                 filterBarAria: "Фільтр",
                 filterToggle: "Фільтр",
                 filterPanelAria: "Панель фільтра",
@@ -276,7 +303,21 @@ const TRANSLATIONS = {
                 from: "Від",
                 to: "До",
                 empty: "За вашим фільтром квартири не знайдені.",
-                featuredApartmentAlt: "Рекомендована квартира"
+                featuredApartmentAlt: "Рекомендована квартира",
+                availabilityEyebrow: "Дати проживання",
+                availabilityTitle: "Оберіть дати та одразу побачте, що вільно",
+                availabilityLead: "Позначте заїзд і виїзд, а ми піднімемо доступні квартири вгору, а зайняті залишимо нижче окремим блоком.",
+                guestsTitle: "Гості та тварини",
+                guestsAdults: "Дорослі",
+                guestsChildren: "Діти (к-ть та вік)",
+                guestsChildrenPlaceholder: "Напр. 1 (5 років)",
+                guestsPets: "З тваринами",
+                availableHeading: "Доступні квартири",
+                availableLead: "Ці квартири підходять під ваші дати та залишаються зверху каталогу.",
+                availableOnlyLead: "Усі квартири за поточним фільтром вільні на обраний період.",
+                bookedHeading: "Заброньовано на ці дати",
+                bookedLead: "Ці варіанти ми теж показуємо нижче, щоб ви могли порівняти весь каталог.",
+                bookedBadge: "Зайнято"
             },
             apartment: {
                 title: "Деталі апартамента",
@@ -288,7 +329,12 @@ const TRANSLATIONS = {
                 amenities: "Зручності",
                 description: "Опис",
                 location: "Розташування",
-                loading: "Інформація про квартиру завантажується."
+                loading: "Інформація про квартиру завантажується.",
+                bookingEyebrow: "Заброньовані дати",
+                bookingCalendar: "Календар доступності",
+                bookingLead: "Перевірте, які дати вже зайняті, перед бронюванням цієї квартири.",
+                bookingRangeText: "Ця квартира заброньована з {{start}} до {{end}}.",
+                bookingOpen: "Ця квартира зараз відкрита для нових дат."
             },
             booking: {
                 title: "Бронювання в Telegram",
@@ -469,40 +515,6 @@ TRANSLATIONS.uk.pages.about = {
     ctaSecondary: "Контакти"
 };
 
-TRANSLATIONS.uk.calendar = {
-    checkIn: "Заїзд",
-    checkOut: "Виїзд",
-    checkInPlaceholder: "Оберіть дату",
-    checkOutPlaceholder: "Оберіть дату",
-    clearDates: "Очистити дати",
-    previousMonth: "Попередній місяць",
-    nextMonth: "Наступний місяць",
-    available: "Вільно",
-    selected: "Обране проживання",
-    booked: "Заброньовано",
-    selectDates: "Оберіть дати, щоб відсортувати квартири",
-    checkOutPending: "Оберіть дату виїзду, щоб продовжити",
-    selectedRange: "{{start}} - {{end}}",
-    bookedRange: "Заброньовано з {{start}} до {{end}}",
-    availableNow: "Ця квартира зараз доступна для нових дат",
-    dateUnknown: "Дата не вказана",
-    nights_one: "{{count}} ніч",
-    nights_few: "{{count}} ночі",
-    nights_many: "{{count}} ночей",
-    nights_other: "{{count}} ночі"
-};
-
-Object.assign(TRANSLATIONS.uk.pages.main, {
-    availabilityEyebrow: "Дати проживання",
-    availabilityTitle: "Оберіть дати та одразу побачте, що вільно",
-    availabilityLead: "Позначте заїзд і виїзд, а ми піднімемо доступні квартири вгору, а зайняті залишимо нижче окремим блоком.",
-    availableHeading: "Вільно на ці дати",
-    availableLead: "Ці квартири підходять під ваші дати та залишаються зверху каталогу.",
-    availableOnlyLead: "Усі квартири за поточним фільтром вільні на обраний період.",
-    bookedHeading: "Заброньовано на ці дати",
-    bookedLead: "Ці варіанти ми теж показуємо нижче, щоб ви могли порівняти весь каталог.",
-    bookedBadge: "Зайнято"
-});
 
 Object.assign(TRANSLATIONS.uk.pages.apartment, {
     bookingEyebrow: "Заброньовані дати",

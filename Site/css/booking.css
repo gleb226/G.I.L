@@ -398,28 +398,51 @@
 }
 
 .booking_submit_btn {
-    padding: 1.2rem;
-    background: var(--accent);
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.55rem;
+    min-height: 3.35rem;
+    padding: 0.9rem 1.25rem;
+    overflow: hidden;
+    background: linear-gradient(135deg, var(--accent), var(--surface-muted-3, #4a2f23));
     color: var(--text-on-dark);
-    border: none;
-    border-radius: var(--radius-md);
-    font-size: 1.1rem;
-    font-weight: 600;
+    border: 1px solid rgba(var(--ink-rgb), 0.12);
+    border-radius: 0.9rem;
+    font-family: inherit;
+    font-size: 1rem;
+    font-weight: 800;
+    line-height: 1.2;
     cursor: pointer;
-    transition: transform 0.2s, background 0.2s, box-shadow 0.2s;
-    box-shadow: 0 4px 12px rgba(140, 90, 60, 0.2);
+    transition: transform 180ms ease, filter 180ms ease, box-shadow 180ms ease;
+    box-shadow: 0 0.85rem 1.5rem rgba(var(--ink-rgb), 0.16);
+}
+
+.booking_submit_btn::after {
+    content: "\2192";
+    display: inline-grid;
+    place-items: center;
+    width: 1.65rem;
+    height: 1.65rem;
+    flex: 0 0 auto;
+    border-radius: 50%;
+    background: rgba(var(--text-on-dark-rgb), 0.14);
+    font-size: 1rem;
+    line-height: 1;
 }
 
 .booking_submit_btn:hover {
-    background: var(--accent-hover);
     transform: translateY(-2px);
-    box-shadow: 0 6px 16px rgba(140, 90, 60, 0.3);
+    filter: brightness(1.04);
+    box-shadow: 0 1rem 1.85rem rgba(var(--ink-rgb), 0.22);
 }
 
 .booking_submit_btn:disabled {
     opacity: 0.6;
     cursor: not-allowed;
     transform: none;
+    filter: none;
 }
 
 .form_message {

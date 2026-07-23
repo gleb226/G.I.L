@@ -133,18 +133,18 @@
                 <h2 data-i18n="pages.main.availabilityTitle">Оберіть дати та одразу побачте, що вільно</h2>
                 <p data-i18n="pages.main.availabilityLead">Позначте заїзд і виїзд, а ми піднімемо доступні квартири вгору, а зайняті залишимо нижче окремим блоком.</p>
                 <div class="guest_selector" style="margin-top: 1rem; padding: 1rem; border: 1px solid var(--border-soft); border-radius: var(--radius-md); background: var(--surface);">
-                    <h3 style="margin-bottom: 0.8rem; font-weight: 600; font-size: 1.1rem;">Гості та тварини</h3>
+                    <h3 data-i18n="pages.main.guestsTitle" style="margin-bottom: 0.8rem; font-weight: 600; font-size: 1.1rem;">Гості та тварини</h3>
                     <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); gap: 1rem;">
                         <div>
-                            <label for="guestAdults" style="font-size: 0.9rem; color: var(--text-muted); display: block; margin-bottom: 0.3rem;">Дорослі</label>
+                            <label for="guestAdults" data-i18n="pages.main.guestsAdults" style="font-size: 0.9rem; color: var(--text-muted); display: block; margin-bottom: 0.3rem;">Дорослі</label>
                             <input type="number" id="guestAdults" min="1" value="1" style="width: 100%; padding: 0.5rem; border: 1px solid var(--border-soft); border-radius: var(--radius-sm);">
                         </div>
                         <div>
-                            <label for="guestChildren" style="font-size: 0.9rem; color: var(--text-muted); display: block; margin-bottom: 0.3rem;">Діти (к-ть та вік)</label>
-                            <input type="text" id="guestChildren" placeholder="Напр. 1 (5 років)" style="width: 100%; padding: 0.5rem; border: 1px solid var(--border-soft); border-radius: var(--radius-sm);">
+                            <label for="guestChildren" data-i18n="pages.main.guestsChildren" style="font-size: 0.9rem; color: var(--text-muted); display: block; margin-bottom: 0.3rem;">Діти (к-ть та вік)</label>
+                            <input type="text" id="guestChildren" data-i18n="[placeholder]pages.main.guestsChildrenPlaceholder" placeholder="Напр. 1 (5 років)" style="width: 100%; padding: 0.5rem; border: 1px solid var(--border-soft); border-radius: var(--radius-sm);">
                         </div>
                         <div>
-                            <label for="guestPets" style="font-size: 0.9rem; color: var(--text-muted); display: block; margin-bottom: 0.3rem;">З тваринами</label>
+                            <label for="guestPets" data-i18n="pages.main.guestsPets" style="font-size: 0.9rem; color: var(--text-muted); display: block; margin-bottom: 0.3rem;">З тваринами</label>
                             <input type="checkbox" id="guestPets" style="width: 1.5rem; height: 1.5rem; margin-top: 0.3rem; accent-color: var(--accent);">
                         </div>
                     </div>
