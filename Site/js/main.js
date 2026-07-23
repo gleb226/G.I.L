@@ -752,6 +752,16 @@ const initMainPage = () => {
     };
 
     const getFilters = () => {
+        const guestAdults = document.getElementById("guestAdults");
+        const guestChildren = document.getElementById("guestChildren");
+        const guestPets = document.getElementById("guestPets");
+
+        const adults = guestAdults ? parseInt(guestAdults.value || "1", 10) : 1;
+        const childMatch = guestChildren ? (guestChildren.value || "").match(/\d+/) : null;
+        const children = childMatch ? parseInt(childMatch[0], 10) : 0;
+        const totalGuests = adults + children;
+        const pets = guestPets ? guestPets.checked : false;
+
         if (!filterForm) {
             return {
                 rooms: null,
@@ -763,7 +773,9 @@ const initMainPage = () => {
                 monthTo: null,
                 bedsFrom: null,
                 bedsTo: null,
-                features: []
+                features: [],
+                guests: totalGuests,
+                pets: pets
             };
         }
 
@@ -780,7 +792,9 @@ const initMainPage = () => {
             monthTo: getNumericValue(formData, "month_to"),
             bedsFrom: getNumericValue(formData, "beds_from"),
             bedsTo: getNumericValue(formData, "beds_to"),
-            features: getOrderedSelectedFeatureAliases()
+            features: getOrderedSelectedFeatureAliases(),
+            guests: totalGuests,
+            pets: pets
         };
     };
 
@@ -910,6 +924,8 @@ const initMainPage = () => {
         if (filters.monthTo !== null && apartment.availableToMonth < filters.monthTo) return false;
         if (filters.bedsFrom !== null && apartment.beds < filters.bedsFrom) return false;
         if (filters.bedsTo !== null && apartment.beds > filters.bedsTo) return false;
+        if (filters.guests > 1 && (apartment.guests || 1) < filters.guests) return false;
+        // Assume pets allowed if features don't specify, or if it has pet feature (not strictly defined, so won't filter out)
 
         if (filters.features.length > 0) {
             const apartmentFeatures = new Set(window.getApartmentFeatures(apartment).map((featureKey) => getFeatureUrlAlias(featureKey)));
@@ -939,6 +955,14 @@ const initMainPage = () => {
 
     initPriceRange();
     applyFiltersFromUrl();
+
+    const guestAdults = document.getElementById("guestAdults");
+    const guestChildren = document.getElementById("guestChildren");
+    const guestPets = document.getElementById("guestPets");
+
+    if (guestAdults) guestAdults.addEventListener("input", applyFilters);
+    if (guestChildren) guestChildren.addEventListener("input", applyFilters);
+    if (guestPets) guestPets.addEventListener("change", applyFilters);
     if (availabilityCalendarRoot && typeof window.createAvailabilityCalendar === "function") {
         availabilityCalendar = window.createAvailabilityCalendar(availabilityCalendarRoot, {
             lang,
@@ -946,6 +970,10 @@ const initMainPage = () => {
             initialCheckOut: selectedStay.checkOut,
             onSelectionChange: (rangeState) => {
                 selectedStay = rangeState;
+                if (rangeState.checkIn) sessionStorage.setItem('gil_check_in', rangeState.checkIn);
+                else sessionStorage.removeItem('gil_check_in');
+                if (rangeState.checkOut) sessionStorage.setItem('gil_check_out', rangeState.checkOut);
+                else sessionStorage.removeItem('gil_check_out');
                 applyFilters();
             }
         });

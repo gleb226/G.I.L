@@ -80,21 +80,39 @@ window.openBookingModal = (apartmentId) => {
             ? [{ start: apartment.checkInDate, end: apartment.checkOutDate }]
             : [];
 
-        window.createAvailabilityCalendar(calendarRoot, {
+        const savedCheckIn = localStorage.getItem('booking_checkIn') || undefined;
+        const savedCheckOut = localStorage.getItem('booking_checkOut') || undefined;
+
+        const cal = window.createAvailabilityCalendar(calendarRoot, {
             lang: pageLang,
             allowSelection: true,
             bookedRanges: bookingRanges,
+            initialCheckIn: savedCheckIn,
+            initialCheckOut: savedCheckOut,
+            initialFocusDate: savedCheckIn || undefined,
             onSelectionChange: (state) => {
                 currentSelection = state;
                 if (state.checkIn && state.checkOut) {
                     selectedDatesDisplay.textContent = `${state.checkIn} - ${state.checkOut} (${state.nights} ${window.t("calendar.nights", { count: state.nights, lng: pageLang })})`;
+                    localStorage.setItem('booking_checkIn', state.checkIn);
+                    localStorage.setItem('booking_checkOut', state.checkOut);
                 } else if (state.checkIn) {
                     selectedDatesDisplay.textContent = `${state.checkIn} - ...`;
+                    localStorage.setItem('booking_checkIn', state.checkIn);
+                    localStorage.removeItem('booking_checkOut');
                 } else {
                     selectedDatesDisplay.textContent = "-";
+                    localStorage.removeItem('booking_checkIn');
+                    localStorage.removeItem('booking_checkOut');
                 }
             }
         });
+        
+        if (savedCheckIn && savedCheckOut) {
+            currentSelection = { checkIn: savedCheckIn, checkOut: savedCheckOut };
+            const n = window.AvailabilityCalendarUtils ? window.AvailabilityCalendarUtils.diffInDays(savedCheckIn, savedCheckOut) : 0;
+            selectedDatesDisplay.textContent = `${savedCheckIn} - ${savedCheckOut} (${n} ${window.t("calendar.nights", { count: n, lng: pageLang })})`;
+        }
     }
 
     const bookingForm = document.getElementById('modalBookingForm');

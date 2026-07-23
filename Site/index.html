@@ -129,9 +129,26 @@
 
         <section class="availability_panel home_availability_panel" id="mainAvailabilityPanel">
             <div class="availability_panel_intro">
-                <span class="availability_eyebrow" data-i18n="pages.main.availabilityEyebrow">Р”Р°С‚Рё РїСЂРѕР¶РёРІР°РЅРЅСЏ</span>
-                <h2 data-i18n="pages.main.availabilityTitle">РћР±РµСЂС–С‚СЊ РґР°С‚Рё С‚Р° РѕРґСЂР°Р·Сѓ РїРѕР±Р°С‡С‚Рµ, С‰Рѕ РІС–Р»СЊРЅРѕ</h2>
-                <p data-i18n="pages.main.availabilityLead">РџРѕР·РЅР°С‡С‚Рµ Р·Р°С—Р·Рґ С– РІРёС—Р·Рґ, Р° РјРё РїС–РґРЅС–РјРµРјРѕ РґРѕСЃС‚СѓРїРЅС– РєРІР°СЂС‚РёСЂРё РІРіРѕСЂСѓ, Р° Р·Р°Р№РЅСЏС‚С– Р·Р°Р»РёС€РёРјРѕ РЅРёР¶С‡Рµ РѕРєСЂРµРјРёРј Р±Р»РѕРєРѕРј.</p>
+                <span class="availability_eyebrow" data-i18n="pages.main.availabilityEyebrow">Дати проживання</span>
+                <h2 data-i18n="pages.main.availabilityTitle">Оберіть дати та одразу побачте, що вільно</h2>
+                <p data-i18n="pages.main.availabilityLead">Позначте заїзд і виїзд, а ми піднімемо доступні квартири вгору, а зайняті залишимо нижче окремим блоком.</p>
+                <div class="guest_selector" style="margin-top: 1rem; padding: 1rem; border: 1px solid var(--border-soft); border-radius: var(--radius-md); background: var(--surface);">
+                    <h3 style="margin-bottom: 0.8rem; font-weight: 600; font-size: 1.1rem;">Гості та тварини</h3>
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); gap: 1rem;">
+                        <div>
+                            <label for="guestAdults" style="font-size: 0.9rem; color: var(--text-muted); display: block; margin-bottom: 0.3rem;">Дорослі</label>
+                            <input type="number" id="guestAdults" min="1" value="1" style="width: 100%; padding: 0.5rem; border: 1px solid var(--border-soft); border-radius: var(--radius-sm);">
+                        </div>
+                        <div>
+                            <label for="guestChildren" style="font-size: 0.9rem; color: var(--text-muted); display: block; margin-bottom: 0.3rem;">Діти (к-ть та вік)</label>
+                            <input type="text" id="guestChildren" placeholder="Напр. 1 (5 років)" style="width: 100%; padding: 0.5rem; border: 1px solid var(--border-soft); border-radius: var(--radius-sm);">
+                        </div>
+                        <div>
+                            <label for="guestPets" style="font-size: 0.9rem; color: var(--text-muted); display: block; margin-bottom: 0.3rem;">З тваринами</label>
+                            <input type="checkbox" id="guestPets" style="width: 1.5rem; height: 1.5rem; margin-top: 0.3rem; accent-color: var(--accent);">
+                        </div>
+                    </div>
+                </div>
             </div>
             <div id="mainAvailabilityCalendar"></div>
         </section>

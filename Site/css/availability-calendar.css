@@ -195,7 +195,7 @@
     place-items: center;
     aspect-ratio: 1;
     border: 1px solid transparent;
-    border-radius: 0.95rem;
+    border-radius: 50%;
     background: transparent;
     color: var(--text-main);
     font: inherit;
@@ -273,7 +273,7 @@
 .availability_legend_dot{
     width: 0.8rem;
     height: 0.8rem;
-    border-radius: 999px;
+    border-radius: 50%;
     background: rgba(var(--surface-muted-rgb), 0.12);
     border: 1px solid rgba(var(--surface-muted-rgb), 0.14);
 }

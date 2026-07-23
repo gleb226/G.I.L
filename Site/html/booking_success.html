@@ -15,9 +15,19 @@
             margin: 0 auto;
         }
         .success_icon {
-            font-size: 5rem;
-            color: #166534;
-            margin-bottom: 2rem;
+            color: var(--success);
+            margin-bottom: 1.5rem;
+            display: flex;
+            justify-content: center;
+        }
+        .success_icon svg {
+            width: 80px;
+            height: 80px;
+            fill: none;
+            stroke: currentColor;
+            stroke-width: 2;
+            stroke-linecap: round;
+            stroke-linejoin: round;
         }
         .success_title {
             font-size: 2rem;
@@ -59,7 +69,12 @@
 
     <main class="page_shell">
         <section class="success_container page_card">
-            <div class="success_icon">✅</div>
+            <div class="success_icon">
+                <svg viewBox="0 0 24 24">
+                    <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                    <polyline points="22 4 12 14.01 9 11.01"></polyline>
+                </svg>
+            </div>
             <h1 class="success_title">Бронювання прийнято!</h1>
             <p class="success_text">
                 Ми отримали вашу передплату. Бронювання зафіксовано в нашій системі. 

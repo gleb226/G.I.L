@@ -398,7 +398,7 @@
 }
 
 .booking_submit_btn {
-    padding: 1rem;
+    padding: 1.2rem;
     background: var(--accent);
     color: var(--text-on-dark);
     border: none;
@@ -406,12 +406,14 @@
     font-size: 1.1rem;
     font-weight: 600;
     cursor: pointer;
-    transition: transform 0.2s, background 0.2s;
+    transition: transform 0.2s, background 0.2s, box-shadow 0.2s;
+    box-shadow: 0 4px 12px rgba(140, 90, 60, 0.2);
 }
 
 .booking_submit_btn:hover {
-    background: var(--accent-dark);
+    background: var(--accent-hover);
     transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(140, 90, 60, 0.3);
 }
 
 .booking_submit_btn:disabled {
