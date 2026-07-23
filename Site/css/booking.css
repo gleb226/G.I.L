@@ -366,9 +366,9 @@
 
 .form_group input, .form_group textarea {
     padding: 0.75rem 1rem;
-    border: 1px solid var(--border-soft);
+    border: 1px solid rgba(185, 135, 101, 0.22);
     border-radius: var(--radius-md);
-    background: var(--surface-muted);
+    background: rgba(255, 252, 247, 0.96);
     font-family: inherit;
     font-size: 1rem;
     transition: border-color 0.2s;
@@ -377,13 +377,15 @@
 .form_group input:focus, .form_group textarea:focus {
     outline: none;
     border-color: var(--accent);
+    background: #fff;
+    box-shadow: 0 0 0 0.2rem rgba(185, 135, 101, 0.12);
 }
 
 .booking_summary_box {
     padding: 1.25rem;
-    background: var(--surface-muted-2);
+    background: rgba(255, 248, 239, 0.72);
     border-radius: var(--radius-md);
-    border: 1px dashed var(--border-soft);
+    border: 1px dashed rgba(185, 135, 101, 0.28);
 }
 
 .booking_summary_box p {
@@ -406,9 +408,9 @@
     min-height: 3.35rem;
     padding: 0.9rem 1.25rem;
     overflow: hidden;
-    background: linear-gradient(135deg, var(--accent), var(--surface-muted-3, #4a2f23));
+    background: linear-gradient(135deg, #b98765, #8f6247);
     color: var(--text-on-dark);
-    border: 1px solid rgba(var(--ink-rgb), 0.12);
+    border: 1px solid rgba(255, 255, 255, 0.22);
     border-radius: 0.9rem;
     font-family: inherit;
     font-size: 1rem;
@@ -416,7 +418,7 @@
     line-height: 1.2;
     cursor: pointer;
     transition: transform 180ms ease, filter 180ms ease, box-shadow 180ms ease;
-    box-shadow: 0 0.85rem 1.5rem rgba(var(--ink-rgb), 0.16);
+    box-shadow: 0 0.85rem 1.5rem rgba(143, 98, 71, 0.2);
 }
 
 .booking_submit_btn::after {
@@ -435,7 +437,7 @@
 .booking_submit_btn:hover {
     transform: translateY(-2px);
     filter: brightness(1.04);
-    box-shadow: 0 1rem 1.85rem rgba(var(--ink-rgb), 0.22);
+    box-shadow: 0 1rem 1.85rem rgba(143, 98, 71, 0.26);
 }
 
 .booking_submit_btn:disabled {

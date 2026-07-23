@@ -192,12 +192,8 @@
             baseMonth: startOfMonth(initialFocusDate)
         };
 
-        root.innerHTML = `
-            <div class="availability_calendar${allowSelection ? "" : " availability_calendar--view"}">
-                <div class="availability_toolbar">
-                    <button type="button" class="availability_nav" data-calendar-nav="prev" aria-label="${getText("calendar.previousMonth", "Previous month", { lng: lang })}">
-                        <span aria-hidden="true">&#10094;</span>
-                    </button>
+        const selectionSummaryMarkup = allowSelection
+            ? `
                     <div class="availability_summary">
                         <div class="availability_summary_card">
                             <span class="availability_summary_label">${getText("calendar.checkIn", "Check-in", { lng: lang })}</span>
@@ -208,6 +204,16 @@
                             <strong class="availability_summary_value" data-calendar-checkout></strong>
                         </div>
                     </div>
+            `
+            : `<strong class="availability_view_label">${getText("calendar.bookedDates", "Booked dates", { lng: lang })}</strong>`;
+
+        root.innerHTML = `
+            <div class="availability_calendar${allowSelection ? "" : " availability_calendar--view"}">
+                <div class="availability_toolbar${allowSelection ? "" : " availability_toolbar--view"}">
+                    <button type="button" class="availability_nav" data-calendar-nav="prev" aria-label="${getText("calendar.previousMonth", "Previous month", { lng: lang })}">
+                        <span aria-hidden="true">&#10094;</span>
+                    </button>
+                    ${selectionSummaryMarkup}
                     <button type="button" class="availability_nav" data-calendar-nav="next" aria-label="${getText("calendar.nextMonth", "Next month", { lng: lang })}">
                         <span aria-hidden="true">&#10095;</span>
                     </button>
@@ -222,10 +228,10 @@
                         <span class="availability_legend_dot"></span>
                         <span>${getText("calendar.available", "Available", { lng: lang })}</span>
                     </span>
-                    <span class="availability_legend_item">
+                    ${allowSelection ? `<span class="availability_legend_item">
                         <span class="availability_legend_dot is-selected"></span>
                         <span>${getText("calendar.selected", "Selected stay", { lng: lang })}</span>
-                    </span>
+                    </span>` : ""}
                     <span class="availability_legend_item">
                         <span class="availability_legend_dot is-booked"></span>
                         <span>${getText("calendar.booked", "Booked", { lng: lang })}</span>
@@ -360,12 +366,16 @@
         };
 
         const render = () => {
-            checkInValue.textContent = state.checkIn
-                ? formatDisplayDate(state.checkIn, lang)
-                : getText("calendar.checkInPlaceholder", "Select date", { lng: lang });
-            checkOutValue.textContent = state.checkOut
-                ? formatDisplayDate(state.checkOut, lang)
-                : getText("calendar.checkOutPlaceholder", "Select date", { lng: lang });
+            if (checkInValue) {
+                checkInValue.textContent = state.checkIn
+                    ? formatDisplayDate(state.checkIn, lang)
+                    : getText("calendar.checkInPlaceholder", "Select date", { lng: lang });
+            }
+            if (checkOutValue) {
+                checkOutValue.textContent = state.checkOut
+                    ? formatDisplayDate(state.checkOut, lang)
+                    : getText("calendar.checkOutPlaceholder", "Select date", { lng: lang });
+            }
             statusNode.textContent = renderStatusText();
             monthsRoot.innerHTML = `${renderMonth(0)}${renderMonth(1)}`;
 

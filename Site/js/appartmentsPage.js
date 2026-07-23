@@ -403,24 +403,11 @@ const initApartmentPage = () => {
         }
 
         if (availabilityCalendarRoot && typeof window.createAvailabilityCalendar === "function") {
-            const urlParams = new URLSearchParams(window.location.search);
-            const urlCheckIn = urlParams.get('check_in') || localStorage.getItem('booking_checkIn') || undefined;
-            const urlCheckOut = urlParams.get('check_out') || localStorage.getItem('booking_checkOut') || undefined;
-
             window.createAvailabilityCalendar(availabilityCalendarRoot, {
                 lang: pageLang,
-                allowSelection: true,
+                allowSelection: false,
                 bookedRanges: bookingRanges,
-                initialCheckIn: urlCheckIn,
-                initialCheckOut: urlCheckOut,
-                initialFocusDate: urlCheckIn || apartment.checkInDate || undefined,
-                onSelectionChange: (state) => {
-                    if (state.checkIn) localStorage.setItem('booking_checkIn', state.checkIn);
-                    else localStorage.removeItem('booking_checkIn');
-                    
-                    if (state.checkOut) localStorage.setItem('booking_checkOut', state.checkOut);
-                    else localStorage.removeItem('booking_checkOut');
-                }
+                initialFocusDate: apartment.checkInDate || undefined
             });
         }
 
