@@ -419,14 +419,14 @@ async def start_cmd(message: Message, state: FSMContext):
         # Regular users are redirected to the website
         website_url = "https://gil-apartments.com.ua"
         welcome_text = (
-            f"👋 <b>Вітаємо в G.I.L Apartments!</b>\n\n"
-            f"Тепер усі бронювання здійснюються безпосередньо на нашому сайті.\n"
-            f"Там ви знайдете актуальні ціни, календар доступності та зможете швидко оформити бронь.\n\n"
+            f"⛔ <b>Доступ заборонено</b>\n\n"
+            f"Цей бот призначений виключно для персоналу та адміністраторів G.I.L Apartments.\n"
+            f"Для бронювання апартаментів, будь ласка, скористайтеся нашим офіційним сайтом.\n\n"
             f"🔗 <a href='{website_url}'>Перейти на сайт</a>"
             if l == "uk" else
-            f"👋 <b>Welcome to G.I.L Apartments!</b>\n\n"
-            f"All bookings are now made directly on our website.\n"
-            f"There you will find current prices, availability calendar and can quickly book your stay.\n\n"
+            f"⛔ <b>Access Denied</b>\n\n"
+            f"This bot is intended strictly for G.I.L Apartments staff and administrators.\n"
+            f"To book an apartment, please use our official website.\n\n"
             f"🔗 <a href='{website_url}'>Visit our website</a>"
         )
         from aiogram.types import ReplyKeyboardRemove

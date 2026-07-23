@@ -477,7 +477,10 @@ a:focus-visible{
 
 .site_form input,
 .site_form textarea,
-.site_form select{
+.site_form select,
+.booking_form input,
+.booking_form textarea,
+.booking_form select {
     width: 100%;
     box-sizing: border-box;
     min-height: 3rem;
@@ -491,12 +494,17 @@ a:focus-visible{
 
 .site_form input:focus-visible,
 .site_form textarea:focus-visible,
-.site_form select:focus-visible{
-    border-color: rgba(140, 90, 60, 0.55);
-    box-shadow: var(--focus-ring);
+.site_form select:focus-visible,
+.booking_form input:focus-visible,
+.booking_form textarea:focus-visible,
+.booking_form select:focus-visible {
+    outline: none;
+    border-color: var(--accent);
+    box-shadow: 0 0 0 3px rgba(140, 90, 60, 0.15);
 }
 
-.site_form textarea{
+.site_form textarea,
+.booking_form textarea {
     min-height: 8rem;
     resize: none;
 }
