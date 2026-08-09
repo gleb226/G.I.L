@@ -37,10 +37,8 @@ const initMainPage = () => {
     const priceMinLimit = apartmentPrices.length > 0 ? Math.floor(Math.min(...apartmentPrices) / priceStep) * priceStep : 0;
     const priceMaxLimit = apartmentPrices.length > 0 ? Math.ceil(Math.max(...apartmentPrices) / priceStep) * priceStep : priceStep;
     const featureUrlAliasByKey = {
-        microwave: "microwave",
         air_conditioner: "ac",
         near_supermarket: "store",
-        smart_tv: "smart-tv",
         balcony: "balcony",
         gas_hob: "gas",
         electro_hob: "electric",
@@ -48,7 +46,6 @@ const initMainPage = () => {
         intercom: "intercom",
         washing_machine: "washer",
         refrigerator: "ref",
-        hot_water: "hot-water",
         internet: "ethernet",
         wifi: "wifi",
         coded_entry: "coded-entry",
@@ -471,6 +468,33 @@ const initMainPage = () => {
 
         const apartmentTitle = window.getApartmentTitle(apartment, lang);
         const apartmentUrl = buildApartmentDetailUrl(apartment.id);
+        const distances = window.getApartmentDistances ? window.getApartmentDistances(apartment, lang) : null;
+        const rawDescription = window.getApartmentDescription ? window.getApartmentDescription(apartment, lang) : "";
+
+        const gallery = (Array.isArray(apartment.gallery) && apartment.gallery.length > 0)
+            ? apartment.gallery
+            : [apartment.img];
+
+        let currentSlide = 0;
+
+        const distanceMarkup = distances ? `
+            <div class="flat_distances">
+                <span class="flat_distance_item"><i class="fas fa-map-marker-alt" aria-hidden="true"></i> ${distances.center}</span>
+                <span class="flat_distance_dot">•</span>
+                <span class="flat_distance_item"><i class="fas fa-train" aria-hidden="true"></i> ${distances.station}</span>
+            </div>
+        ` : "";
+
+        const areaMarkup = apartment.area && apartment.area !== "-"
+            ? `<span class="flat_spec_tag flat_area_tag"><i class="fas fa-ruler-combined" aria-hidden="true"></i> ${apartment.area}</span>`
+            : "";
+
+        const bedsMarkup = window.formatBedsDetail
+            ? window.formatBedsDetail(apartment, lang)
+            : (window.formatBeds ? `<span class="bed_badge"><i class="fas fa-bed"></i> ${window.formatBeds(apartment.beds, lang)}</span>` : "");
+
+        const descriptionMarkup = rawDescription ? `<p class="flat_description">${rawDescription}</p>` : "";
+
         const apartmentDetails = window
             .getApartmentFeatures(apartment)
             .slice(0, 5)
@@ -483,24 +507,93 @@ const initMainPage = () => {
             ? `<span class="flat_state_badge">${getText("pages.main.bookedBadge")}</span>`
             : "";
 
+        const sliderControlsMarkup = gallery.length > 1 ? `
+            <button type="button" class="card_slider_nav card_slider_prev" aria-label="Previous photo"><i class="fas fa-chevron-left" aria-hidden="true"></i></button>
+            <button type="button" class="card_slider_nav card_slider_next" aria-label="Next photo"><i class="fas fa-chevron-right" aria-hidden="true"></i></button>
+            <div class="card_slider_dots">
+                ${gallery.map((_, i) => `<span class="card_slider_dot${i === 0 ? " is-active" : ""}" data-slide="${i}"></span>`).join("")}
+            </div>
+        ` : "";
+
         article.innerHTML = `
             <a href="${apartmentUrl}" class="flat_card_link" aria-label="${getText("common.actions.open")} ${apartmentTitle}">
                 <div class="flat_card_media">
-                    <img src="${window.getAssetUrl(apartment.img)}" alt="${apartmentTitle}" class="flat_card_image" loading="lazy" decoding="async">
+                    <img src="${window.getAssetUrl(gallery[0])}" alt="${apartmentTitle}" class="flat_card_image" loading="lazy" decoding="async">
                     ${bookingBadge}
+                    ${sliderControlsMarkup}
                 </div>
                 <div class="flat_card_body">
-                    <p class="flat_location">${apartmentTitle}</p>
+                    <div class="flat_card_header">
+                        <p class="flat_location">${apartmentTitle}</p>
+                        ${distanceMarkup}
+                    </div>
+                    <div class="flat_specs_row">
+                        ${areaMarkup}
+                        ${bedsMarkup}
+                    </div>
+                    ${descriptionMarkup}
                     <div class="flat_card_details">
                         ${visibleDetails.map((detail) => `<span class="flat_detail">${detail}</span>`).join("")}
                     </div>
                     <div class="flat_meta">
-                        <span class="flat_price">${window.formatPrice(apartment.price, lang)}</span>
-                        <span class="flat_button">${getText("common.actions.rent")}</span>
+                        <div class="flat_price_wrapper">
+                            <span class="flat_price">${window.formatPrice(apartment.price, lang)}</span>
+                        </div>
+                        <span class="flat_button">${getText("common.actions.view") || getText("common.actions.rent") || "Переглянути"}</span>
                     </div>
                 </div>
             </a>
         `;
+
+        if (gallery.length > 1) {
+            const cardImg = article.querySelector(".flat_card_image");
+            const prevBtn = article.querySelector(".card_slider_prev");
+            const nextBtn = article.querySelector(".card_slider_next");
+            const dots = article.querySelectorAll(".card_slider_dot");
+
+            const updateSlide = (newIndex) => {
+                const isNext = newIndex > currentSlide;
+                currentSlide = (newIndex + gallery.length) % gallery.length;
+                cardImg.className = `flat_card_image ${isNext ? "slide-out-left" : "slide-out-right"}`;
+                setTimeout(() => {
+                    cardImg.src = window.getAssetUrl(gallery[currentSlide]);
+                    cardImg.className = `flat_card_image ${isNext ? "slide-in-right" : "slide-in-left"}`;
+                    setTimeout(() => {
+                        cardImg.className = "flat_card_image";
+                    }, 200);
+                }, 100);
+                dots.forEach((dot, idx) => {
+                    dot.classList.toggle("is-active", idx === currentSlide);
+                });
+            };
+
+            if (prevBtn) {
+                prevBtn.addEventListener("click", (e) => {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    updateSlide(currentSlide - 1);
+                });
+            }
+
+            if (nextBtn) {
+                nextBtn.addEventListener("click", (e) => {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    updateSlide(currentSlide + 1);
+                });
+            }
+
+            dots.forEach((dot) => {
+                dot.addEventListener("click", (e) => {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    const slideIdx = parseInt(dot.dataset.slide, 10);
+                    if (!isNaN(slideIdx)) {
+                        updateSlide(slideIdx);
+                    }
+                });
+            });
+        }
 
         return article;
     };
@@ -533,25 +626,83 @@ const initMainPage = () => {
         return group;
     };
 
+    const ITEMS_PER_PAGE = Math.ceil(apartmentsData.length / 2) || 6;
+
+    const getCurrentPage = () => {
+        const p = parseInt(new URLSearchParams(window.location.search).get("page") || "1", 10);
+        return isFinite(p) && p >= 1 ? p : 1;
+    };
+
+    const setCurrentPage = (page) => {
+        const url = new URL(window.location.href);
+        if (page <= 1) {
+            url.searchParams.delete("page");
+        } else {
+            url.searchParams.set("page", String(page));
+        }
+        window.history.pushState(null, "", `${url.pathname}${url.search}${url.hash}`);
+    };
+
+    const renderPagination = (totalItems, currentPage) => {
+        const totalPages = Math.ceil(totalItems / ITEMS_PER_PAGE);
+        if (totalPages <= 1) return null;
+
+        const nav = document.createElement("nav");
+        nav.className = "catalog_pagination";
+        nav.setAttribute("aria-label", "Сторінки каталогу");
+
+        for (let i = 1; i <= totalPages; i++) {
+            const btn = document.createElement("a");
+            btn.className = "catalog_page_btn" + (i === currentPage ? " is-active" : "");
+            btn.textContent = String(i);
+            btn.href = "#";
+            btn.setAttribute("aria-label", `Сторінка ${i}`);
+            if (i === currentPage) {
+                btn.setAttribute("aria-current", "page");
+            }
+            btn.addEventListener("click", (e) => {
+                e.preventDefault();
+                setCurrentPage(i);
+                const updatedFilters = getFilters();
+                const filtered = apartmentsData.filter((a) => apartmentMatchesFilters(a, updatedFilters));
+                renderCatalog(filtered, updatedFilters);
+                flatsCatalog.scrollIntoView({ behavior: "smooth", block: "start" });
+            });
+            nav.appendChild(btn);
+        }
+        return nav;
+    };
+
     const renderCatalog = (catalogApartments, filters) => {
-        if (!flatsCatalog || !catalogEmpty) {
+        if (!flatsCatalog) {
             return;
         }
 
         flatsCatalog.innerHTML = "";
-        catalogEmpty.textContent = getText("pages.main.empty");
 
         if (catalogApartments.length === 0) {
-            catalogEmpty.hidden = false;
+            if (catalogEmpty) catalogEmpty.hidden = true;
+            const emptyMsg = document.createElement("p");
+            emptyMsg.className = "catalog_empty";
+            emptyMsg.textContent = getText("pages.main.empty");
+            flatsCatalog.appendChild(emptyMsg);
             return;
         }
 
-        catalogEmpty.hidden = true;
+        if (catalogEmpty) catalogEmpty.hidden = true;
+
+        const currentPage = getCurrentPage();
 
         if (!hasCompleteSelectedDates()) {
+            const totalPages = Math.ceil(catalogApartments.length / ITEMS_PER_PAGE);
+            const safePage = Math.min(currentPage, totalPages);
+            const startIdx = (safePage - 1) * ITEMS_PER_PAGE;
+            const pageApartments = catalogApartments.slice(startIdx, startIdx + ITEMS_PER_PAGE);
             flatsCatalog.appendChild(renderCatalogGroup({
-                apartments: catalogApartments
+                apartments: pageApartments
             }));
+            const pagination = renderPagination(catalogApartments.length, safePage);
+            if (pagination) flatsCatalog.appendChild(pagination);
             return;
         }
 
@@ -566,24 +717,35 @@ const initMainPage = () => {
             }
         });
 
-        if (availableApartments.length > 0) {
+        const totalPages = Math.ceil(catalogApartments.length / ITEMS_PER_PAGE);
+        const safePage = Math.min(currentPage, totalPages);
+        const startIdx = (safePage - 1) * ITEMS_PER_PAGE;
+        const pageApartments = catalogApartments.slice(startIdx, startIdx + ITEMS_PER_PAGE);
+
+        const pageAvailable = pageApartments.filter((a) => !isApartmentBookedForSelectedDates(a));
+        const pageBooked = pageApartments.filter((a) => isApartmentBookedForSelectedDates(a));
+
+        if (pageAvailable.length > 0) {
             flatsCatalog.appendChild(renderCatalogGroup({
                 title: getText("pages.main.availableHeading"),
                 description: bookedApartments.length > 0
                     ? getText("pages.main.availableLead")
                     : getText("pages.main.availableOnlyLead"),
-                apartments: availableApartments
+                apartments: pageAvailable
             }));
         }
 
-        if (bookedApartments.length > 0) {
+        if (pageBooked.length > 0) {
             flatsCatalog.appendChild(renderCatalogGroup({
                 title: getText("pages.main.bookedHeading"),
                 description: getText("pages.main.bookedLead"),
-                apartments: bookedApartments,
+                apartments: pageBooked,
                 isBookedGroup: true
             }));
         }
+
+        const pagination = renderPagination(catalogApartments.length, safePage);
+        if (pagination) flatsCatalog.appendChild(pagination);
     };
 
     const updateHero = (apartment) => {
@@ -760,7 +922,7 @@ const initMainPage = () => {
         const childMatch = guestChildren ? (guestChildren.value || "").match(/\d+/) : null;
         const children = childMatch ? parseInt(childMatch[0], 10) : 0;
         const totalGuests = adults + children;
-        const pets = guestPets ? guestPets.checked : false;
+        const pets = guestPets ? parseInt(guestPets.value || "0", 10) > 0 : false;
 
         if (!filterForm) {
             return {
@@ -956,13 +1118,31 @@ const initMainPage = () => {
     initPriceRange();
     applyFiltersFromUrl();
 
-    const guestAdults = document.getElementById("guestAdults");
-    const guestChildren = document.getElementById("guestChildren");
-    const guestPets = document.getElementById("guestPets");
+    // Guest stepper setup
+    const setupGuestStepper = (decId, incId, valId, hiddenId, min, max) => {
+        const decBtn = document.getElementById(decId);
+        const incBtn = document.getElementById(incId);
+        const valEl = document.getElementById(valId);
+        const hidden = document.getElementById(hiddenId);
+        if (!decBtn || !incBtn || !valEl || !hidden) return;
 
-    if (guestAdults) guestAdults.addEventListener("input", applyFilters);
-    if (guestChildren) guestChildren.addEventListener("input", applyFilters);
-    if (guestPets) guestPets.addEventListener("change", applyFilters);
+        const getVal = () => parseInt(hidden.value, 10) || 0;
+        const setVal = (v) => {
+            const clamped = Math.max(min, max !== null ? Math.min(max, v) : v);
+            hidden.value = String(clamped);
+            valEl.textContent = String(clamped);
+            decBtn.disabled = clamped <= min;
+            applyFilters();
+        };
+
+        setVal(getVal()); // init state
+        decBtn.addEventListener("click", () => setVal(getVal() - 1));
+        incBtn.addEventListener("click", () => setVal(getVal() + 1));
+    };
+
+    setupGuestStepper("guestAdultsDec", "guestAdultsInc", "guestAdultsVal", "guestAdults", 1, null);
+    setupGuestStepper("guestChildrenDec", "guestChildrenInc", "guestChildrenVal", "guestChildren", 0, null);
+    setupGuestStepper("guestPetsDec", "guestPetsInc", "guestPetsVal", "guestPets", 0, null);
     if (availabilityCalendarRoot && typeof window.createAvailabilityCalendar === "function") {
         availabilityCalendar = window.createAvailabilityCalendar(availabilityCalendarRoot, {
             lang,
@@ -999,28 +1179,52 @@ const initMainPage = () => {
         });
     }
 
-    if (filterReset && filterForm) {
-        filterReset.addEventListener("click", () => {
-            filterForm.reset();
-            if (priceFromInput && priceToInput) {
-                priceFromInput.value = String(priceMinLimit);
-                priceToInput.value = String(priceMaxLimit);
-                syncPriceControls({ apply: false });
-            }
-            selectedFeatureAliases.clear();
-            renderFeatureFilters();
-            if (availabilityCalendar) {
-                availabilityCalendar.setSelection(null, null);
-            } else {
-                selectedStay = {
-                    checkIn: null,
-                    checkOut: null,
-                    isComplete: false,
-                    nights: 0
-                };
-                applyFilters();
-            }
-        });
+    window.resetMainFilters = () => {
+        sessionStorage.removeItem('gil_check_in');
+        sessionStorage.removeItem('gil_check_out');
+        if (filterForm) filterForm.reset();
+        if (priceFromInput && priceToInput) {
+            priceFromInput.value = String(priceMinLimit);
+            priceToInput.value = String(priceMaxLimit);
+            syncPriceControls({ apply: false });
+        }
+        selectedFeatureAliases.clear();
+        renderFeatureFilters();
+
+        const adultsHidden = document.getElementById("guestAdults");
+        const childrenHidden = document.getElementById("guestChildren");
+        const petsHidden = document.getElementById("guestPets");
+        const adultsVal = document.getElementById("guestAdultsVal");
+        const childrenVal = document.getElementById("guestChildrenVal");
+        const petsVal = document.getElementById("guestPetsVal");
+
+        if (adultsHidden) adultsHidden.value = "1";
+        if (childrenHidden) childrenHidden.value = "0";
+        if (petsHidden) petsHidden.value = "0";
+        if (adultsVal) adultsVal.textContent = "1";
+        if (childrenVal) childrenVal.textContent = "0";
+        if (petsVal) petsVal.textContent = "0";
+
+        const adultsDec = document.getElementById("guestAdultsDec");
+        if (adultsDec) adultsDec.disabled = true;
+
+        if (availabilityCalendar) {
+            availabilityCalendar.setSelection(null, null);
+        } else {
+            selectedStay = {
+                checkIn: null,
+                checkOut: null,
+                isComplete: false,
+                nights: 0
+            };
+        }
+
+        window.history.replaceState(null, "", window.location.pathname);
+        applyFilters();
+    };
+
+    if (filterReset) {
+        filterReset.addEventListener("click", window.resetMainFilters);
     }
 };
 

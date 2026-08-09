@@ -279,6 +279,49 @@ const getApartmentDescription = (apartment, lang = getCurrentLang()) => {
     return apartment.description[lang] || apartment.description.uk || apartment.description.en || "";
 };
 
+const calculateKmDistance = (lat1, lng1, lat2, lng2) => {
+    if (!lat1 || !lng1 || !lat2 || !lng2) return null;
+    const R = 6371;
+    const dLat = (lat2 - lat1) * Math.PI / 180;
+    const dLng = (lng2 - lng1) * Math.PI / 180;
+    const a =
+        Math.sin(dLat / 2) * Math.sin(dLat / 2) +
+        Math.cos(lat1 * Math.PI / 180) * Math.cos(lat2 * Math.PI / 180) *
+        Math.sin(dLng / 2) * Math.sin(dLng / 2);
+    const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+    return (R * c).toFixed(1);
+};
+
+const getApartmentDistances = (apartment, lang = getCurrentLang()) => {
+    const centerLat = 48.6238;
+    const centerLng = 22.2978;
+    const stationLat = 48.6092;
+    const stationLng = 22.3006;
+
+    const lat = Number(apartment?.lat);
+    const lng = Number(apartment?.lng);
+
+    const distCenter = calculateKmDistance(lat, lng, centerLat, centerLng) || "1.0";
+    const distStation = calculateKmDistance(lat, lng, stationLat, stationLng) || "0.8";
+
+    if (lang === "uk") {
+        return {
+            center: `${distCenter} км до центру`,
+            station: `${distStation} км до ж/д вокзалу`,
+            distCenter,
+            distStation
+        };
+    }
+
+    return {
+        center: `${distCenter} km to center`,
+        station: `${distStation} km to station`,
+        distCenter,
+        distStation
+    };
+};
+
+
 
 const getApartmentUrl = (id, lang = getCurrentLang()) =>
     `${getPageUrl(SITE_CONFIG[lang].paths.apartment)}?id=${encodeURIComponent(id)}`;
@@ -302,10 +345,8 @@ const formatBeds = (beds, lang = getCurrentLang()) =>
     translateKey("common.beds", { lng: lang, count: beds });
 
 const APARTMENT_FEATURE_DEFINITIONS = [
-    { key: "microwave", iconClass: "fas fa-utensils" },
     { key: "air_conditioner", iconClass: "fas fa-snowflake" },
     { key: "near_supermarket", iconClass: "fas fa-store" },
-    { key: "smart_tv", iconClass: "fas fa-tv" },
     { key: "balcony", iconClass: "fas fa-door-open" },
     { key: "gas_hob", iconClass: "fas fa-fire" },
     { key: "electro_hob", iconClass: "fas fa-bolt" },
@@ -313,7 +354,6 @@ const APARTMENT_FEATURE_DEFINITIONS = [
     { key: "intercom", iconClass: "fas fa-bell" },
     { key: "washing_machine", iconClass: "fas fa-tshirt" },
     { key: "refrigerator", iconClass: "fas fa-snowflake" },
-    { key: "hot_water", iconClass: "fas fa-tint" },
     { key: "internet", iconClass: "fas fa-wifi" },
     { key: "wifi", iconClass: "fas fa-wifi" },
     { key: "coded_entry", iconClass: "fas fa-bell" },
@@ -326,6 +366,72 @@ const APARTMENT_FEATURE_DEFINITIONS = [
     { key: "secure_parking", iconClass: "fas fa-parking" },
     { key: "hob", iconClass: "fas fa-fire" }
 ];
+
+const getBedsDetail = (apartment) => {
+    let doubleBeds = apartment?.double_beds;
+    let singleBeds = apartment?.single_beds;
+
+    if (doubleBeds === undefined || singleBeds === undefined) {
+        const totalBeds = Number(apartment?.beds) || 1;
+        if (totalBeds === 1) {
+            doubleBeds = 1;
+            singleBeds = 0;
+        } else if (totalBeds === 2) {
+            doubleBeds = 1;
+            singleBeds = 0;
+        } else if (totalBeds === 3) {
+            doubleBeds = 1;
+            singleBeds = 1;
+        } else if (totalBeds >= 4) {
+            doubleBeds = Math.floor(totalBeds / 2);
+            singleBeds = totalBeds % 2;
+        } else {
+            doubleBeds = 1;
+            singleBeds = 0;
+        }
+    }
+
+    return { doubleBeds, singleBeds };
+};
+
+const DOUBLE_BED_SVG = `<svg class="bed_svg_icon double_bed_svg" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 19v-7a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v7"/><path d="M2 19h20"/><path d="M4 19v2"/><path d="M20 19v2"/><rect x="4" y="6" width="7" height="4" rx="1" fill="currentColor" fill-opacity="0.35"/><rect x="13" y="6" width="7" height="4" rx="1" fill="currentColor" fill-opacity="0.35"/><path d="M3 13h18v6H3z" fill="currentColor" fill-opacity="0.12"/></svg>`;
+
+const SINGLE_BED_SVG = `<svg class="bed_svg_icon single_bed_svg" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 19v-7a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v7"/><path d="M4 19h16"/><path d="M6 19v2"/><path d="M18 19v2"/><rect x="7" y="6" width="10" height="4" rx="1" fill="currentColor" fill-opacity="0.35"/><path d="M5 13h14v6H5z" fill="currentColor" fill-opacity="0.12"/></svg>`;
+
+const formatBedsDetail = (apartment, lang = getCurrentLang()) => {
+    const { doubleBeds, singleBeds } = getBedsDetail(apartment);
+    const parts = [];
+
+    if (doubleBeds > 0) {
+        const label = lang === "uk"
+            ? `${doubleBeds} двоспальне${doubleBeds > 1 ? "х" : ""} ліжко`
+            : `${doubleBeds} double bed${doubleBeds > 1 ? "s" : ""}`;
+        parts.push(`<span class="bed_badge double_bed_badge" title="${label}">${DOUBLE_BED_SVG} <span>${label}</span></span>`);
+    }
+
+    if (singleBeds > 0) {
+        const label = lang === "uk"
+            ? `${singleBeds} односпальне${singleBeds > 1 ? "х" : ""} ліжко`
+            : `${singleBeds} single bed${singleBeds > 1 ? "s" : ""}`;
+        parts.push(`<span class="bed_badge single_bed_badge" title="${label}">${SINGLE_BED_SVG} <span>${label}</span></span>`);
+    }
+
+    if (parts.length === 0) {
+        const total = apartment?.beds || 1;
+        return `<span class="bed_badge">${DOUBLE_BED_SVG} <span>${formatBeds(total, lang)}</span></span>`;
+    }
+
+    return parts.join(" ");
+};
+
+const formatArea = (area, lang = getCurrentLang()) => {
+    if (!area || area === "-") {
+        return "";
+    }
+    const numericArea = String(area).replace(/[^\d.]/g, "");
+    if (!numericArea) return "";
+    return `${numericArea} м²`;
+};
 
 const getFeatureDefinition = (featureKey) =>
     APARTMENT_FEATURE_DEFINITIONS.find((feature) => feature.key === featureKey) || null;
@@ -397,8 +503,8 @@ const buildHeaderMarkup = (page) => {
             const className = key === page ? "navigation_current" : "navigation";
             const href =
                 key === page
-                    ? "#"
-                    : getPageUrlWithCurrentParams(currentPaths[key], preservedParams);
+                    ? (key === "main" ? getPageUrl(currentPaths.main) : "#")
+                    : (key === "main" ? getPageUrl(currentPaths.main) : getPageUrlWithCurrentParams(currentPaths[key], preservedParams));
 
             return `
                 <div class="${className}">
@@ -412,9 +518,11 @@ const buildHeaderMarkup = (page) => {
         .map((key) => {
             const isActive = key === page;
             const href =
-                isActive
-                    ? "#"
-                    : getPageUrlWithCurrentParams(currentPaths[key] || currentPaths.main, preservedParams);
+                key === "main"
+                    ? getPageUrl(currentPaths.main)
+                    : (isActive
+                        ? "#"
+                        : getPageUrlWithCurrentParams(currentPaths[key] || currentPaths.main, preservedParams));
 
             return `<a class="mobile_menu_link${isActive ? " is-active" : ""}" href="${href}" data-i18n="nav.${key}"></a>`;
         })
@@ -422,7 +530,7 @@ const buildHeaderMarkup = (page) => {
 
     return `
         <header class="header">
-            <a href="${getPageUrlWithCurrentParams(currentPaths.main, preservedParams)}" class="logo_link" data-i18n="[aria-label]common.siteName">
+            <a href="${getPageUrl(currentPaths.main)}" class="logo_link" data-i18n="[aria-label]common.siteName">
                 <img src="${getAssetUrl("images/logo.png")}" alt="${translateKey("common.siteName", { lng: lang })}" id="logo">
             </a>
             <div class="header_nav">${items}</div>
@@ -553,7 +661,7 @@ const buildFooterMarkup = () => {
                     <a href="${getPageUrl(currentPaths.map)}" class="footer__link" data-i18n="nav.map"></a>
                     <a href="${getPageUrl(currentPaths.booking)}" class="footer__link" data-i18n="nav.booking"></a>
                     <a href="${getPageUrl(currentPaths.contacts)}" class="footer__link" data-i18n="nav.contacts"></a>
-                    <a href="${getPageUrl(currentPaths.about)}" class="footer__link">${buildInfoMarkup(copy.AboutUs, "fas fa-info-circle", { iconClassName: "footer__icon" })}</a>
+                    <a href="${getPageUrl(currentPaths.about)}" class="footer__link">${copy.AboutUs}</a>
                 </div>
                 <div class="footer__section">
                     <h3 class="footer__title">${copy.socialTitle}</h3>
@@ -584,6 +692,17 @@ const mountSiteHeader = () => {
     headerRoot.querySelectorAll("[data-lang-choice]").forEach((link) => {
         link.addEventListener("click", () => {
             window.localStorage.setItem("siteLanguage", link.dataset.langChoice);
+        });
+    });
+
+    headerRoot.querySelectorAll('a[data-i18n="nav.main"], a.logo_link, .mobile_menu_link[data-i18n="nav.main"]').forEach((link) => {
+        link.addEventListener("click", (e) => {
+            sessionStorage.removeItem('gil_check_in');
+            sessionStorage.removeItem('gil_check_out');
+            if (page === "main" && typeof window.resetMainFilters === "function") {
+                e.preventDefault();
+                window.resetMainFilters();
+            }
         });
     });
 };
@@ -769,25 +888,44 @@ const createLeafletMap = (elementId, center, zoom = 16) => {
     const map = L.map(elementId).setView(center, zoom);
 
     L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {
-        maxZoom: 20
+        maxZoom: 19,
+        maxNativeZoom: 19,
+        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
     }).addTo(map);
 
     return map;
 };
 
-const createApartmentMarkerIcon = () => {
+const createApartmentMarkerIcon = (apartmentOrGroup, lang = getCurrentLang()) => {
     if (typeof L === "undefined") {
         return null;
     }
 
+    if (Array.isArray(apartmentOrGroup) && apartmentOrGroup.length > 1) {
+        const count = apartmentOrGroup.length;
+        const prices = apartmentOrGroup.map((ap) => Number(ap.price)).filter((p) => p > 0);
+        const minPrice = prices.length ? Math.min(...prices) : 0;
+        const priceText = minPrice ? `від ${minPrice.toLocaleString("uk-UA")} ₴` : `${count} об'єкти`;
+
+        return L.divIcon({
+            className: "apartment-price-marker-wrapper",
+            html: `<div class="map-price-badge map-multi-badge"><span class="multi-count">${count}</span><span class="multi-price">${priceText}</span></div>`,
+            iconSize: [125, 36],
+            iconAnchor: [62, 18],
+            popupAnchor: [0, -18]
+        });
+    }
+
+    const apartment = Array.isArray(apartmentOrGroup) ? apartmentOrGroup[0] : apartmentOrGroup;
+    const priceVal = apartment?.price;
+    const priceText = priceVal ? `${Number(priceVal).toLocaleString("uk-UA")} ₴` : "1 300 ₴";
+
     return L.divIcon({
-        className: "apartment-marker",
-        html: `<svg width="32" height="32" viewBox="0 0 24 24" fill="#8C5A3C" xmlns="http://www.w3.org/2000/svg">
-            <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z" stroke="white" stroke-width="1.5" stroke-linejoin="round"/>
-        </svg>`,
-        iconSize: [32, 32],
-        iconAnchor: [16, 32],
-        popupAnchor: [0, -32]
+        className: "apartment-price-marker-wrapper",
+        html: `<div class="map-price-badge">${priceText}</div>`,
+        iconSize: [88, 34],
+        iconAnchor: [44, 17],
+        popupAnchor: [0, -18]
     });
 };
 
@@ -902,10 +1040,14 @@ Object.assign(window, {
     getApartmentTitle,
     getApartmentAddress,
     getApartmentDescription,
+    getApartmentDistances,
     getApartmentUrl,
     formatPrice,
     formatRooms,
     formatBeds,
+    getBedsDetail,
+    formatBedsDetail,
+    formatArea,
     APARTMENT_FEATURE_DEFINITIONS,
     getFeatureDefinition,
     getFeatureLabel,

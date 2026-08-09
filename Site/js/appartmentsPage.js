@@ -1,4 +1,4 @@
-const createGalleryViewer = (gallery, apartmentTitle, imageElement) => {
+const createGalleryViewer = (gallery, apartmentTitle) => {
     const overlay = document.createElement("div");
     overlay.className = "gallery_viewer";
     overlay.hidden = true;
@@ -19,15 +19,11 @@ const createGalleryViewer = (gallery, apartmentTitle, imageElement) => {
     let currentIndex = 0;
 
     const render = () => {
-        const src = window.getAssetUrl(gallery[currentIndex]);
-        viewerImage.src = src;
-        if (imageElement) {
-            imageElement.src = src;
-        }
+        viewerImage.src = window.getAssetUrl(gallery[currentIndex]);
     };
 
     const open = (index = 0) => {
-        currentIndex = index;
+        currentIndex = (index + gallery.length) % gallery.length;
         render();
         overlay.hidden = false;
         document.body.classList.add("viewer_open");
@@ -288,12 +284,28 @@ const initApartmentPage = () => {
             });
         }
 
+        const areaEl = document.getElementById("area");
+        if (areaEl) {
+            const formattedArea = window.formatArea ? window.formatArea(apartment.area, pageLang) : (apartment.area || "");
+            if (formattedArea) {
+                areaEl.innerHTML = window.buildInfoMarkup(formattedArea, "fas fa-ruler-combined", {
+                    iconClassName: "apartment_meta_icon",
+                    labelClassName: "apartment_meta_label"
+                });
+                areaEl.style.display = "";
+            } else {
+                areaEl.style.display = "none";
+            }
+        }
+
         const bedsEl = document.getElementById("beds");
         if (bedsEl) {
-            bedsEl.innerHTML = window.buildInfoMarkup(window.formatBeds(apartment.beds, pageLang), "fas fa-bed", {
-                iconClassName: "apartment_meta_icon",
-                labelClassName: "apartment_meta_label"
-            });
+            bedsEl.innerHTML = window.formatBedsDetail
+                ? window.formatBedsDetail(apartment, pageLang)
+                : window.buildInfoMarkup(window.formatBeds(apartment.beds, pageLang), "fas fa-bed", {
+                    iconClassName: "apartment_meta_icon",
+                    labelClassName: "apartment_meta_label"
+                });
         }
 
 
@@ -334,19 +346,48 @@ const initApartmentPage = () => {
             }
         }
 
-        if (image) {
-            image.src = mainImageSrc;
-            image.alt = apartmentTitle;
-            image.onerror = () => {
-                image.src = window.getAssetUrl("images/logo.png");
-                image.classList.add("is-fallback");
-            };
-            image.addEventListener("click", () => galleryViewer.open(0));
-        }
+        let mainPhotoIndex = 0;
+        const mainPhotoStage = document.querySelector(".main_photo");
+
+        const updateMainStage = (index) => {
+            mainPhotoIndex = (index + gallery.length) % gallery.length;
+            const src = window.getAssetUrl(gallery[mainPhotoIndex]);
+            if (mainPhotoStage) {
+                mainPhotoStage.innerHTML = `
+                    <button type="button" class="gallery_main_nav gallery_main_prev" aria-label="Previous photo"><i class="fas fa-chevron-left" aria-hidden="true"></i></button>
+                    <img id="image" src="${src}" alt="${apartmentTitle}">
+                    <button type="button" class="gallery_main_nav gallery_main_next" aria-label="Next photo"><i class="fas fa-chevron-right" aria-hidden="true"></i></button>
+                `;
+
+                const imgNode = mainPhotoStage.querySelector("img");
+                if (imgNode) {
+                    imgNode.addEventListener("click", () => galleryViewer.open(mainPhotoIndex));
+                }
+
+                const prevNav = mainPhotoStage.querySelector(".gallery_main_prev");
+                const nextNav = mainPhotoStage.querySelector(".gallery_main_next");
+
+                if (prevNav) {
+                    prevNav.addEventListener("click", (e) => {
+                        e.stopPropagation();
+                        updateMainStage(mainPhotoIndex - 1);
+                    });
+                }
+                if (nextNav) {
+                    nextNav.addEventListener("click", (e) => {
+                        e.stopPropagation();
+                        updateMainStage(mainPhotoIndex + 1);
+                    });
+                }
+            }
+        };
+
+        updateMainStage(0);
 
         const thumbsContainer = document.querySelector(".thumbs");
         if (thumbsContainer) {
             thumbsContainer.innerHTML = "";
+
             const visibleGallery = gallery.length > 5 ? gallery.slice(0, 4) : gallery;
 
             visibleGallery.forEach((galleryImage, index) => {
@@ -360,10 +401,7 @@ const initApartmentPage = () => {
                     img.src = window.getAssetUrl("images/logo.png");
                 };
                 img.addEventListener("click", () => {
-                    if (image) {
-                        image.src = src;
-                    }
-                    galleryViewer.open(index);
+                    updateMainStage(index);
                 });
                 thumbsContainer.appendChild(img);
             });

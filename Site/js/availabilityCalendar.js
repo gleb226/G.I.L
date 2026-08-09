@@ -194,7 +194,7 @@
 
         const selectionSummaryMarkup = allowSelection
             ? `
-                    <div class="availability_summary">
+                    <div class="availability_summary" data-calendar-summary>
                         <div class="availability_summary_card">
                             <span class="availability_summary_label">${getText("calendar.checkIn", "Check-in", { lng: lang })}</span>
                             <strong class="availability_summary_value" data-calendar-checkin></strong>
@@ -208,37 +208,72 @@
             : `<strong class="availability_view_label">${getText("calendar.bookedDates", "Booked dates", { lng: lang })}</strong>`;
 
         root.innerHTML = `
-            <div class="availability_calendar${allowSelection ? "" : " availability_calendar--view"}">
-                <div class="availability_toolbar${allowSelection ? "" : " availability_toolbar--view"}">
-                    <button type="button" class="availability_nav" data-calendar-nav="prev" aria-label="${getText("calendar.previousMonth", "Previous month", { lng: lang })}">
-                        <span aria-hidden="true">&#10094;</span>
-                    </button>
-                    ${selectionSummaryMarkup}
-                    <button type="button" class="availability_nav" data-calendar-nav="next" aria-label="${getText("calendar.nextMonth", "Next month", { lng: lang })}">
-                        <span aria-hidden="true">&#10095;</span>
-                    </button>
-                </div>
-                <div class="availability_status_row">
-                    <p class="availability_status" data-calendar-status></p>
-                    ${allowSelection ? `<button type="button" class="availability_clear" data-calendar-clear>${getText("calendar.clearDates", "Clear dates", { lng: lang })}</button>` : ""}
-                </div>
-                <div class="availability_months" data-calendar-months></div>
-                <div class="availability_legend">
-                    <span class="availability_legend_item">
-                        <span class="availability_legend_dot"></span>
-                        <span>${getText("calendar.available", "Available", { lng: lang })}</span>
-                    </span>
-                    ${allowSelection ? `<span class="availability_legend_item">
-                        <span class="availability_legend_dot is-selected"></span>
-                        <span>${getText("calendar.selected", "Selected stay", { lng: lang })}</span>
-                    </span>` : ""}
-                    <span class="availability_legend_item">
-                        <span class="availability_legend_dot is-booked"></span>
-                        <span>${getText("calendar.booked", "Booked", { lng: lang })}</span>
-                    </span>
+            <div class="availability_calendar${allowSelection ? " is-compact-mode" : ""}${allowSelection ? "" : " availability_calendar--view"}">
+                ${allowSelection ? `
+                    <div class="availability_compact_bar" data-calendar-toggle role="button" tabindex="0">
+                        <div class="availability_compact_info">
+                            <i class="fas fa-calendar-alt availability_compact_icon"></i>
+                            <span class="availability_compact_text" data-calendar-compact-text>${getText("calendar.selectDates", "Оберіть дати проживання", { lng: lang })}</span>
+                        </div>
+                        <div class="availability_compact_action">
+                            <span class="compact_action_label">${lang === "uk" ? "Вибрати дати" : "Select dates"}</span>
+                            <i class="fas fa-chevron-down compact_chevron"></i>
+                        </div>
+                    </div>
+                ` : ""}
+                <div class="availability_expandable_body">
+                    <div class="availability_toolbar${allowSelection ? "" : " availability_toolbar--view"}">
+                        <button type="button" class="availability_nav" data-calendar-nav="prev" aria-label="${getText("calendar.previousMonth", "Previous month", { lng: lang })}">
+                            <span aria-hidden="true">&#10094;</span>
+                        </button>
+                        ${selectionSummaryMarkup}
+                        <button type="button" class="availability_nav" data-calendar-nav="next" aria-label="${getText("calendar.nextMonth", "Next month", { lng: lang })}">
+                            <span aria-hidden="true">&#10095;</span>
+                        </button>
+                    </div>
+                    <div class="availability_status_row">
+                        <p class="availability_status" data-calendar-status></p>
+                        ${allowSelection ? `<button type="button" class="availability_clear" data-calendar-clear>${getText("calendar.clearDates", "Clear dates", { lng: lang })}</button>` : ""}
+                    </div>
+                    <div class="availability_months" data-calendar-months></div>
+                    <div class="availability_legend">
+                        <span class="availability_legend_item">
+                            <span class="availability_legend_dot"></span>
+                            <span>${getText("calendar.available", "Available", { lng: lang })}</span>
+                        </span>
+                        ${allowSelection ? `<span class="availability_legend_item">
+                            <span class="availability_legend_dot is-selected"></span>
+                            <span>${getText("calendar.selected", "Selected stay", { lng: lang })}</span>
+                        </span>` : ""}
+                        <span class="availability_legend_item">
+                            <span class="availability_legend_dot is-booked"></span>
+                            <span>${getText("calendar.booked", "Booked", { lng: lang })}</span>
+                        </span>
+                    </div>
                 </div>
             </div>
         `;
+
+        const calendarWrapper = root.querySelector(".availability_calendar");
+        const compactBar = root.querySelector("[data-calendar-toggle]");
+        const compactText = root.querySelector("[data-calendar-compact-text]");
+
+        if (compactBar && calendarWrapper) {
+            const toggleExpand = () => {
+                calendarWrapper.classList.toggle("is-expanded");
+                const parentPanel = root.closest(".home_availability_panel");
+                if (parentPanel) {
+                    parentPanel.classList.toggle("is-expanded");
+                }
+            };
+            compactBar.addEventListener("click", toggleExpand);
+            compactBar.addEventListener("keydown", (e) => {
+                if (e.key === "Enter" || e.key === " ") {
+                    e.preventDefault();
+                    toggleExpand();
+                }
+            });
+        }
 
         const monthsRoot = root.querySelector("[data-calendar-months]");
         const checkInValue = root.querySelector("[data-calendar-checkin]");

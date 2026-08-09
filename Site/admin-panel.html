@@ -602,6 +602,7 @@
                                     <p><i class="fas fa-clock js-inline-style-151" ></i> <b>Графік:</b> ${l.schedule || '—'}</p>
                                     <p><i class="fas fa-star js-inline-style-152" ></i> <b>Зручності:</b> ${Array.isArray(l.amenities) ? l.amenities.join(', ') : (l.amenities || '—')}</p>
                                     <p><i class="fas fa-align-left js-inline-style-153" ></i> <b>Опис:</b> ${l.description || l.atmosphere || '—'}</p>
+                                    ${l.video ? `<p><i class="fas fa-video js-inline-style-153" ></i> <b>Відео ролик:</b> <a href="${l.video}" target="_blank">Переглянути відео</a></p>` : ''}
                                     ${l.google_maps_url ? `<a href="${l.google_maps_url}" target="_blank" class="btn btn--outline btn--sm js-inline-style-154" >ВІДКРИТИ НА КАРТАХ <i class="fas fa-external-link-alt"></i></a>` : ''}
                                 </div>
                             </div>
@@ -620,15 +621,16 @@
                 const modal = document.getElementById('admin-modal');
                 modal.innerHTML = `
                     <div class="admin-modal__panel admin-modal__panel--large">
-                        <div class="admin-modal__header"><h3>${l ? 'Редагувати' : 'Додати'} локацію</h3><button class="btn btn--outline btn--sm" onclick="closeAdminModal()">X</button></div>
+                        <div class="admin-modal__header"><h3>${l ? 'Редагувати' : 'Додати'} локацію / апартаменти</h3><button class="btn btn--outline btn--sm" onclick="closeAdminModal()">X</button></div>
                         <form id="loc-form" onkeyup="if(event.key==='Enter') saveLocation('${l?.id || ''}')">
                             <div class="admin-grid js-inline-style-156" >
-                                <div class="admin-field"><label>Назва</label><input name="name" value="${l?.name || ''}" placeholder="Меделін Центр" required></div>
-                                <div class="admin-field"><label>Адреса</label><textarea name="address" placeholder="вул. Корятовича, 1" required class="js-inline-style-157">${l?.address || ''}</textarea></div>
-                                <div class="admin-field"><label>Графік</label><textarea name="schedule" placeholder="Пн-Пт: 08:00-20:00" class="js-inline-style-158">${l?.schedule || ''}</textarea></div>
-                                <div class="admin-field"><label>Зручності (через кому)</label><textarea name="amenities" placeholder="Wi-Fi, Тераса, Pets friendly" class="js-inline-style-159">${l?.amenities || ''}</textarea></div>
+                                <div class="admin-field"><label>Назва</label><input name="name" value="${l?.name || ''}" placeholder="Мукачівська 77/42" required></div>
+                                <div class="admin-field"><label>Адреса</label><textarea name="address" placeholder="вул. Мукачівська 77/42" required class="js-inline-style-157">${l?.address || ''}</textarea></div>
+                                <div class="admin-field"><label>Графік / Заїзд-Виїзд</label><textarea name="schedule" placeholder="Заїзд з 14:00, виїзд до 12:00" class="js-inline-style-158">${l?.schedule || ''}</textarea></div>
+                                <div class="admin-field"><label>Зручності (через кому)</label><textarea name="amenities" placeholder="Кондиціонер, Парковка, Wi-Fi" class="js-inline-style-159">${l?.amenities || ''}</textarea></div>
                                 <div class="admin-field"><label>Maps URL</label><input name="google_maps_url" value="${l?.google_maps_url || ''}" placeholder="https://maps.app.goo.gl/..."></div>
-                                <div class="admin-field"><label>Атмосфера / Опис</label><textarea name="description" rows="4" placeholder="Короткий опис закладу..." class="js-inline-style-160">${l?.description || l?.atmosphere || ''}</textarea></div>
+                                <div class="admin-field"><label>Відео ролик (URL)</label><input name="video" value="${l?.video || ''}" placeholder="https://example.com/video.mp4"></div>
+                                <div class="admin-field"><label>Атмосфера / Опис</label><textarea name="description" rows="4" placeholder="Короткий опис закладу/апартаментів..." class="js-inline-style-160">${l?.description || l?.atmosphere || ''}</textarea></div>
                                 <div class="admin-field"><label>Фото</label>
                                     <div class="js-inline-style-161">
                                         <img id="loc-img-preview" src="${window.fixImageUrl(l?.image_url || 'https://images.unsplash.com/photo-1567880905822-56f8e06fe630?q=80&w=735&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')}" class="js-inline-style-162">

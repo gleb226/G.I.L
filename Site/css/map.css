@@ -1,12 +1,19 @@
+body[data-page="map"] .page_shell{
+    width: 100% !important;
+    max-width: 100% !important;
+    padding-left: clamp(1rem, 3vw, 2.5rem) !important;
+    padding-right: clamp(1rem, 3vw, 2.5rem) !important;
+    box-sizing: border-box;
+}
+
 #map{
-    width: 100%;
-    height: 36rem;
+    width: 100% !important;
+    height: clamp(28rem, 65vh, 45rem);
     border-radius: var(--radius-lg);
     box-shadow: var(--shadow-1);
-    position: sticky;
-    top: 10rem;
+    position: relative;
     z-index: 1;
-    margin-top: 2em;
+    margin-top: 1.5em;
 }
 
 .leaflet-popup-content .popup{
@@ -217,3 +224,208 @@
     font-size: 0.8rem;
     color: #8C5A3C;
 }
+
+/* Custom Price Marker Pin Badges for Leaflet Map */
+.apartment-price-marker-wrapper {
+    background: none !important;
+    border: none !important;
+}
+
+.map-price-badge {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.35rem;
+    padding: 0.4rem 0.75rem;
+    background: #3E281D;
+    color: #ffffff;
+    font-size: 0.82rem;
+    font-weight: 800;
+    border-radius: 999px;
+    border: 2px solid #ffffff;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.32);
+    white-space: nowrap;
+    cursor: pointer;
+    transition: transform 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
+}
+
+.map-price-badge i {
+    color: #D9C0AC;
+    font-size: 0.75rem;
+}
+
+.map-price-badge:hover,
+.leaflet-marker-icon:hover .map-price-badge {
+    transform: scale(1.08);
+    background: #8C5A3C;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.42);
+}
+
+/* Multi-location marker badge icon */
+.map-multi-badge {
+    background: linear-gradient(135deg, #3E281D, #5C3D2E) !important;
+    border: 2px solid #ffffff !important;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.35) !important;
+    padding: 0.35rem 0.65rem !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: 0.45rem !important;
+}
+
+.map-multi-badge .multi-count {
+    background: #ffffff;
+    color: #3E281D;
+    font-size: 0.75rem;
+    font-weight: 900;
+    width: 1.35rem;
+    height: 1.35rem;
+    border-radius: 50%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+}
+
+.map-multi-badge .multi-price {
+    font-weight: 800;
+    color: #ffffff;
+}
+
+/* Multi-apartment popup list container */
+.map-multi-popup-container {
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+    max-height: 360px;
+    overflow-y: auto;
+    padding: 0.1rem;
+}
+
+.multi_popup_header {
+    font-size: 0.85rem;
+    font-weight: 800;
+    color: var(--text-main);
+    display: flex;
+    align-items: center;
+    gap: 0.45rem;
+    padding-bottom: 0.45rem;
+    border-bottom: 1px solid rgba(var(--surface-muted-rgb), 0.2);
+}
+
+.multi_popup_header i {
+    color: var(--accent);
+}
+
+.map-multi-popup-rows {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.map_multi_row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.75rem;
+    padding: 0.55rem 0.75rem;
+    background: #ffffff;
+    border: 1px solid rgba(var(--surface-muted-rgb), 0.18);
+    border-radius: 0.65rem;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.05);
+}
+
+.map_multi_row_info {
+    display: flex;
+    flex-direction: column;
+    gap: 0.15rem;
+    min-width: 0;
+    flex: 1;
+}
+
+.map_multi_row_title {
+    font-weight: 700;
+    font-size: 0.85rem;
+    color: var(--text-main);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.map_multi_row_price {
+    font-size: 0.8rem;
+    font-weight: 800;
+    color: var(--accent);
+}
+
+.map_multi_row_actions {
+    display: flex;
+    align-items: center;
+    gap: 0.35rem;
+    flex-shrink: 0;
+}
+
+.popup-btn-sm {
+    min-height: 2.2rem !important;
+    padding: 0.25rem 0.6rem !important;
+    font-size: 0.72rem !important;
+    white-space: nowrap;
+}
+
+/* Multi-apartment popup card slider */
+.map_multi_slider {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.map_multi_header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-bottom: 0.4rem;
+    margin-bottom: 0.4rem;
+    border-bottom: 1px solid rgba(var(--surface-muted-rgb, 107, 87, 73), 0.15);
+}
+
+.map_multi_counter {
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: var(--text-muted, #6B5749);
+}
+
+.map_multi_controls {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+}
+
+.multi_nav_btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 1.6rem;
+    height: 1.6rem;
+    border-radius: 50%;
+    border: 1px solid rgba(62, 40, 29, 0.25);
+    background: transparent;
+    color: var(--text-main, #3E281D);
+    font-size: 1.1rem;
+    line-height: 1;
+    cursor: pointer;
+    transition: background 0.15s ease, border-color 0.15s ease;
+    user-select: none;
+}
+
+.multi_nav_btn:hover {
+    background: rgba(62, 40, 29, 0.1);
+    border-color: var(--accent, #3E281D);
+}
+
+.popup_card_slide {
+    display: none;
+}
+
+.popup_card_slide.is-active {
+    display: block;
+}
+

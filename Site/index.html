@@ -39,10 +39,10 @@
     <link rel="shortcut icon" type="image/png" href="images/logo.png">
     <link rel="apple-touch-icon" href="images/logo.png">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reset-css@5.0.2/reset.min.css">
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="css/availability-calendar.css">
-    <link rel="stylesheet" href="css/booking-modal.css">
-    <link rel="stylesheet" href="css/main.css?v=20260518-1">
+    <link rel="stylesheet" href="style.css?v=20260723-V3">
+    <link rel="stylesheet" href="css/availability-calendar.css?v=20260723-V3">
+    <link rel="stylesheet" href="css/booking-modal.css?v=20260723-V3">
+    <link rel="stylesheet" href="css/main.css?v=20260723-V3">
     <script type="application/ld+json">
     {
         "@context": "https://schema.org",
@@ -132,21 +132,41 @@
                 <span class="availability_eyebrow" data-i18n="pages.main.availabilityEyebrow">Дати проживання</span>
                 <h2 data-i18n="pages.main.availabilityTitle">Оберіть дати та одразу побачте, що вільно</h2>
                 <p data-i18n="pages.main.availabilityLead">Позначте заїзд і виїзд, а ми піднімемо доступні квартири вгору, а зайняті залишимо нижче окремим блоком.</p>
-                <div class="guest_selector" style="margin-top: 1rem; padding: 1rem; border: 1px solid var(--border-soft); border-radius: var(--radius-md); background: var(--surface);">
-                    <h3 data-i18n="pages.main.guestsTitle" style="margin-bottom: 0.8rem; font-weight: 600; font-size: 1.1rem;">Гості та тварини</h3>
-                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); gap: 1rem;">
-                        <div>
-                            <label for="guestAdults" data-i18n="pages.main.guestsAdults" style="font-size: 0.9rem; color: var(--text-muted); display: block; margin-bottom: 0.3rem;">Дорослі</label>
-                            <input type="number" id="guestAdults" min="1" value="1" style="width: 100%; padding: 0.5rem; border: 1px solid var(--border-soft); border-radius: var(--radius-sm);">
+                <div class="guest_selector">
+                    <div class="guest_selector_row">
+                        <div class="guest_selector_info">
+                            <span class="guest_selector_label" data-i18n="pages.main.guestsAdults">Дорослі</span>
+                            <span class="guest_selector_sub">від 13 років</span>
                         </div>
-                        <div>
-                            <label for="guestChildren" data-i18n="pages.main.guestsChildren" style="font-size: 0.9rem; color: var(--text-muted); display: block; margin-bottom: 0.3rem;">Діти (к-ть та вік)</label>
-                            <input type="text" id="guestChildren" data-i18n="[placeholder]pages.main.guestsChildrenPlaceholder" placeholder="Напр. 1 (5 років)" style="width: 100%; padding: 0.5rem; border: 1px solid var(--border-soft); border-radius: var(--radius-sm);">
+                        <div class="guest_stepper">
+                            <button type="button" class="guest_stepper_btn" id="guestAdultsDec" aria-label="Зменшити дорослих">−</button>
+                            <span class="guest_stepper_val" id="guestAdultsVal">1</span>
+                            <button type="button" class="guest_stepper_btn" id="guestAdultsInc" aria-label="Збільшити дорослих">+</button>
                         </div>
-                        <div>
-                            <label for="guestPets" data-i18n="pages.main.guestsPets" style="font-size: 0.9rem; color: var(--text-muted); display: block; margin-bottom: 0.3rem;">З тваринами</label>
-                            <input type="checkbox" id="guestPets" style="width: 1.5rem; height: 1.5rem; margin-top: 0.3rem; accent-color: var(--accent);">
+                        <input type="hidden" id="guestAdults" value="1">
+                    </div>
+                    <div class="guest_selector_row">
+                        <div class="guest_selector_info">
+                            <span class="guest_selector_label" data-i18n="pages.main.guestsChildren">Діти</span>
+                            <span class="guest_selector_sub">2–12 років</span>
                         </div>
+                        <div class="guest_stepper">
+                            <button type="button" class="guest_stepper_btn" id="guestChildrenDec" aria-label="Зменшити дітей">−</button>
+                            <span class="guest_stepper_val" id="guestChildrenVal">0</span>
+                            <button type="button" class="guest_stepper_btn" id="guestChildrenInc" aria-label="Збільшити дітей">+</button>
+                        </div>
+                        <input type="hidden" id="guestChildren" value="0">
+                    </div>
+                    <div class="guest_selector_row">
+                        <div class="guest_selector_info">
+                            <span class="guest_selector_label" data-i18n="pages.main.guestsPets">З домашніми улюбленцями</span>
+                        </div>
+                        <div class="guest_stepper">
+                            <button type="button" class="guest_stepper_btn" id="guestPetsDec" aria-label="Зменшити улюбленців">−</button>
+                            <span class="guest_stepper_val" id="guestPetsVal">0</span>
+                            <button type="button" class="guest_stepper_btn" id="guestPetsInc" aria-label="Збільшити улюбленців">+</button>
+                        </div>
+                        <input type="hidden" id="guestPets" value="0">
                     </div>
                 </div>
             </div>
@@ -162,12 +182,12 @@
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
     <script src="https://unpkg.com/i18next@24.2.3/i18next.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/jquery-i18next@1.2.1/jquery-i18next.min.js"></script>
-    <script src="js/i18n.js"></script>
-    <script src="api/apartments-data.js?v=20260517-01"></script>
-    <script src="js/site.js"></script>
-    <script src="js/availabilityCalendar.js"></script>
-    <script src="js/booking.js"></script>
-    <script src="js/appartments.js?v=20260516-10"></script>
-    <script src="js/main.js?v=20260518-3"></script>
+    <script src="js/i18n.js?v=20260723-V3"></script>
+    <script src="api/apartments-data.js?v=20260723-V3"></script>
+    <script src="js/site.js?v=20260723-V3"></script>
+    <script src="js/availabilityCalendar.js?v=20260723-V3"></script>
+    <script src="js/booking.js?v=20260723-V3"></script>
+    <script src="js/appartments.js?v=20260723-V3"></script>
+    <script src="js/main.js?v=20260723-V3"></script>
 </body>
 </html>

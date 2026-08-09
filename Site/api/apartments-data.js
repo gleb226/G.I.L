@@ -1,4 +1,4 @@
-﻿window.APARTMENTS_DATA = [
+window.APARTMENTS_DATA = [
   {
     "_id": "69d49d5bd8810233ba1da2c1",
     "external_id": 180,
@@ -10,13 +10,13 @@
       "en": "Apartment at the address st. Mukachivska 77/42. Number of rooms: 1. Number of guests: 2. Located on the 4th floor. Amenities: TV, refrigerator, microwave oven, hot water, air conditioner, nearby supermarket, convenient transport interchange, Smart TV."
     },
     "features": [
-      
-      
+
+
       "microwave",
-      
+
       "air_conditioner",
       "near_supermarket",
-      
+
       "smart_tv"
     ],
     "floor": 4,
@@ -30,8 +30,8 @@
     "guests": 2,
     "img": "images/180.jpg",
     "is_available": true,
-    "lat": 48.613578,
-    "lng": 22.302807,
+    "lat": 48.613577977753806,
+    "lng": 22.302576864687648,
     "price": 1300,
     "rooms": 1,
     "source_url": "https://rooms.net.ua/apartments/180/",
@@ -54,15 +54,15 @@
       "en": "Apartment at the address st. Mukachivska 77/43. Number of rooms: 1. Number of guests: 2. Located on the 4th floor. Amenities: TV, refrigerator, microwave oven, hot water, air conditioner, supermarket nearby, convenient transport interchange, Smart TV, cooking surface."
     },
     "features": [
-      
-      
+
+
       "microwave",
-      
+
       "air_conditioner",
       "near_supermarket",
-      
+
       "smart_tv"
-      
+
     ],
     "floor": 4,
     "gallery": [
@@ -102,13 +102,13 @@
       "en": "Apartment at the address Sh. Petefi 8a5a. Number of rooms: 1. Number of guests: 2. Located on the 2nd floor. Amenities: TV, refrigerator, microwave oven, hot water, air conditioner, nearby supermarket, convenient transport interchange, Smart TV."
     },
     "features": [
-      
-      
+
+
       "microwave",
-      
+
       "air_conditioner",
       "near_supermarket",
-      
+
       "smart_tv"
     ],
     "floor": 2,
@@ -150,16 +150,16 @@
       "en": "Apartment at 20 Svobody Avenue. Number of rooms: 1. Number of guests: 2. Located on the 2nd floor. Amenities: TV, refrigerator, microwave oven, hot water, supermarket nearby, convenient transport interchange, internet, coded entrance, washing machine, satellite TV."
     },
     "features": [
-      
-      
+
+
       "microwave",
-      
+
       "near_supermarket",
-      
-      
+
+
       "intercom"
-      
-      
+
+
     ],
     "floor": 2,
     "gallery": [
@@ -199,17 +199,17 @@
       "en": "Apartment at the address st. Lermontova 1. Number of rooms: 1. Number of guests: 2. Located on the 3rd floor. Amenities: TV, refrigerator, microwave oven, hot water, supermarket nearby, convenient transport interchange, balcony, internet, cable TV, coded entrance, washing machine."
     },
     "features": [
-      
-      
+
+
       "microwave",
-      
+
       "near_supermarket",
-      
+
       "balcony",
-      
-      
+
+
       "intercom"
-      
+
     ],
     "floor": 3,
     "gallery": [
@@ -250,18 +250,18 @@
       "en": "Apartment at the address st. Corso 7. Number of rooms: 1. Number of guests: 3. Located on the 2nd floor. Amenities: TV, refrigerator, microwave oven, hot water, air conditioner, supermarket nearby, convenient transport interchange, balcony, internet, coded entrance, washing machine, satellite TV."
     },
     "features": [
-      
-      
+
+
       "microwave",
-      
+
       "air_conditioner",
       "near_supermarket",
-      
+
       "balcony",
-      
+
       "intercom"
-      
-      
+
+
     ],
     "floor": 2,
     "gallery": [
@@ -303,18 +303,18 @@
       "en": "Apartment at the address st. Corso 7. Number of rooms: 1. Number of guests: 4. Located on the 2nd floor. Amenities: TV, refrigerator, microwave oven, hot water, air conditioner, supermarket nearby, convenient transport interchange, balcony, internet, coded entrance, washing machine, satellite TV."
     },
     "features": [
-      
-      
+
+
       "microwave",
-      
+
       "air_conditioner",
       "near_supermarket",
-      
+
       "balcony",
-      
+
       "intercom"
-      
-      
+
+
     ],
     "floor": 2,
     "gallery": [
@@ -354,18 +354,18 @@
       "en": "Apartment at the address st. Corso 7. Number of rooms: 1. Number of guests: 3. Located on the 2nd floor. Amenities: TV, refrigerator, microwave oven, hot water, air conditioner, supermarket nearby, convenient transport interchange, balcony, internet, coded entrance, washing machine, satellite TV."
     },
     "features": [
-      
-      
+
+
       "microwave",
-      
+
       "air_conditioner",
       "near_supermarket",
-      
+
       "balcony",
-      
+
       "intercom"
-      
-      
+
+
     ],
     "floor": 2,
     "gallery": [
@@ -403,16 +403,16 @@
       "en": "Apartment at the address of the square Bohdan Khmelnytskyi. Number of rooms: 1. Number of guests: 2. Located on the 5th floor. Amenities: TV, refrigerator, microwave oven, hot water, air conditioner, convenient transport interchange, balcony, cooking surface, washing machine, TV T2."
     },
     "features": [
-      
-      
+
+
       "microwave",
-      
+
       "air_conditioner",
-      
+
       "balcony"
-    
-      
-      
+
+
+
     ],
     "floor": 5,
     "gallery": [
@@ -450,15 +450,15 @@
       "en": "Apartment at the address st. Mukachivska 77/41. Number of rooms: 1. Number of guests: 2. Located on the 4th floor. Amenities: TV, refrigerator, microwave oven, hot water, air conditioner, supermarket nearby, convenient transport interchange, Smart TV, cooking surface."
     },
     "features": [
-      
-      
+
+
       "microwave",
-      
+
       "air_conditioner",
       "near_supermarket",
-      
+
       "smart_tv"
-      
+
     ],
     "floor": 4,
     "gallery": [
@@ -496,19 +496,19 @@
       "en": "Apartment at the address st. Minayska 18 Number of rooms: 1. Number of guests: 2. Located on the 1st floor. Amenities: TV, refrigerator, microwave oven, hot water, air conditioner, nearby supermarket, convenient transport interchange, balcony, internet, cable TV, guarded parking, coded entrance, washing machine."
     },
     "features": [
-      
-      
+
+
       "microwave",
-      
+
       "air_conditioner",
       "near_supermarket",
-      
+
       "balcony",
-      
-      
+
+
       "parking",
       "intercom"
-      
+
     ],
     "floor": 1,
     "gallery": [
@@ -550,15 +550,15 @@
       "en": "Apartment at the address st. Mukachivska 77/22. Number of rooms: 1. Number of guests: 2. Located on the 2nd floor. Amenities: TV, refrigerator, microwave oven, hot water, air conditioner, convenient transport interchange, Smart TV, cooking surface, Internet."
     },
     "features": [
-      
-      
+
+
       "microwave",
-      
+
       "air_conditioner",
-      
+
       "smart_tv"
-      
-      
+
+
     ],
     "floor": 2,
     "gallery": [
@@ -605,14 +605,14 @@
       "en": "Apartment at the address st. Mukachivska 77/01. Number of rooms: 1. Number of guests: 2. Located on the 1st floor. Amenities: TV, refrigerator, microwave oven, hot water, convenient transport interchange, Smart TV, cooking surface."
     },
     "features": [
-      
-      
+
+
       "microwave",
-      
-      
+
+
       "smart_tv",
       "electro_hob"
-      
+
     ],
     "floor": 1,
     "gallery": [
@@ -655,13 +655,13 @@
       "en": "Apartment at the address st. Mukachivska 77/02. Number of rooms: 1. Number of guests: 2. Located on the 1st floor. Amenities: TV, refrigerator, microwave oven, hot water, convenient transport interchange, Smart TV, cooking surface, secure parking."
     },
     "features": [
-      
-      
+
+
       "microwave",
-      
-      
+
+
       "smart_tv",
-      
+
       "parking"
     ],
     "floor": 1,
@@ -701,13 +701,13 @@
       "en": "Apartment at the address st. Mukachivska 77/44. Number of rooms: 1. Number of guests: 2. Located on the 4th floor. Amenities: TV, refrigerator, microwave oven, hot water, air conditioner, supermarket nearby, convenient transport interchange, Smart TV, cooking surface."
     },
     "features": [
-      
-      
+
+
       "microwave",
-      
+
       "air_conditioner",
       "near_supermarket",
-      
+
       "smart_tv",
       "electro_hob"
     ],
@@ -749,19 +749,19 @@
       "en": "Apartment at the address st. Tlejasa 14. Number of rooms: 1. Number of guests: 3. Located on the 1st floor. Amenities: TV, refrigerator, microwave oven, hot water, air conditioner, supermarket nearby, convenient transport interchange, Smart TV, balcony, internet, cable TV, coded entrance, washing machine."
     },
     "features": [
-      
-      
+
+
       "microwave",
-      
+
       "air_conditioner",
       "near_supermarket",
-      
+
       "smart_tv",
       "balcony",
-      
-      
+
+
       "intercom"
-      
+
     ],
     "floor": 1,
     "gallery": [
@@ -803,16 +803,16 @@
       "en": "Apartment at the address st. Tlejasa 14. Number of rooms: 1. Number of guests: 3. Located on the 1st floor. Amenities: TV, refrigerator, microwave oven, hot water, air conditioning, supermarket nearby, convenient transport interchange, balcony, internet, cable TV, coded entrance."
     },
     "features": [
-      
-      
+
+
       "microwave",
-      
+
       "air_conditioner",
       "near_supermarket",
-      
+
       "balcony",
-      
-      
+
+
       "intercom"
     ],
     "floor": 1,
@@ -862,18 +862,18 @@
       "en": "Apartment at ul. Tlejasa 14. Number of rooms: 1. Number of guests: 3. Located on the 3rd floor. Amenities: TV, refrigerator, microwave oven, hot water, air conditioning, supermarket nearby, convenient transport interchange, balcony, internet, cable TV, coded entrance, washing machine."
     },
     "features": [
-      
-      
+
+
       "microwave",
-      
+
       "air_conditioner",
       "near_supermarket",
-      
+
       "balcony",
-      
-      
+
+
       "intercom"
-      
+
     ],
     "floor": 3,
     "gallery": [
@@ -922,18 +922,18 @@
       "en": "Apartment at ul. Tlejasa 14. Number of rooms: 1. Number of guests: 2. Located on the 1st floor. Amenities: TV, refrigerator, microwave oven, hot water, air conditioning, supermarket nearby, convenient transport interchange, balcony, internet, cable TV, coded entrance, washing machine."
     },
     "features": [
-      
-      
+
+
       "microwave",
-      
+
       "air_conditioner",
       "near_supermarket",
-      
+
       "balcony",
-      
-      
+
+
       "intercom"
-      
+
     ],
     "floor": 1,
     "gallery": [
@@ -977,15 +977,15 @@
       "en": "Apartment at 90 Volodymyrska St. Number of rooms: 1. Number of guests: 2. Located on the 2nd floor. Amenities: TV, refrigerator, microwave oven, hot water, supermarket nearby, convenient transport interchange, internet, coded entrance, washing machine."
     },
     "features": [
-      
-      
+
+
       "microwave",
-      
+
       "near_supermarket",
-      
-      
+
+
       "intercom"
-      
+
     ],
     "floor": 2,
     "gallery": [
@@ -1006,8 +1006,8 @@
     "guests": 2,
     "img": "images/160.jpg",
     "is_available": true,
-    "lat": 48.621,
-    "lng": 22.288,
+    "lat": 48.614097,
+    "lng": 22.264416,
     "price": 1700,
     "rooms": 1,
     "source_url": "https://rooms.net.ua/apartments/160/",
@@ -1030,18 +1030,18 @@
       "en": "Apartment at the address st. Mukachivska 77/21 with a balcony. Number of rooms: 1. Number of guests: 2. Located on the 2nd floor. Amenities: TV, refrigerator, microwave oven, hot water, air conditioning, supermarket nearby, convenient transport interchange, Smart TV, balcony, cooking surface, internet, washing machine."
     },
     "features": [
-      
-      
+
+
       "microwave",
-      
+
       "air_conditioner",
       "near_supermarket",
-      
+
       "smart_tv",
       "balcony"
-      
-      
-      
+
+
+
     ],
     "floor": 2,
     "gallery": [
@@ -1086,16 +1086,16 @@
       "en": "Apartment at the address st. Tobilevicha 13. Number of rooms: 1. Number of guests: 2. Located on the 1st floor. Amenities: TV, refrigerator, microwave oven, hot water, supermarket nearby, convenient transport interchange, Smart TV, balcony, coded entrance, washing machine."
     },
     "features": [
-      
-      
+
+
       "microwave",
-      
+
       "near_supermarket",
-      
+
       "smart_tv",
       "balcony",
       "intercom"
-      
+
     ],
     "floor": 1,
     "gallery": [
@@ -1138,17 +1138,17 @@
       "en": "Apartment at the address st. Tlejasa, 14. Number of rooms: 1. Number of guests: 2. Located on the 1st floor. Amenities: TV, refrigerator, microwave oven, hot water, air conditioning, supermarket nearby, convenient transport interchange, balcony, cable TV, coded entrance, washing machine."
     },
     "features": [
-      
-      
+
+
       "microwave",
-      
+
       "air_conditioner",
       "near_supermarket",
-      
+
       "balcony",
-      
+
       "intercom"
-      
+
     ],
     "floor": 1,
     "gallery": [
@@ -1191,15 +1191,15 @@
       "en": "Apartment at the address st. Mukachivska 77/23 with a balcony. Number of rooms: 1. Number of guests: 2. Located on the 2nd floor. Amenities: TV, refrigerator, microwave oven, hot water, air conditioner, convenient transport interchange, Smart TV, balcony, cooking surface."
     },
     "features": [
-      
-      
+
+
       "microwave",
-      
+
       "air_conditioner",
-      
+
       "smart_tv",
       "balcony"
-      
+
     ],
     "floor": 2,
     "gallery": [
@@ -1240,15 +1240,15 @@
       "en": "Apartment at the address st. Tlejasa 18. Number of rooms: 1. Number of guests: 4. Located on the 1st floor. Amenities: TV, refrigerator, microwave oven, hot water, air conditioning, supermarket nearby, convenient transportation interchange, cooking surface, cable TV, coded entrance."
     },
     "features": [
-      
-      
+
+
       "microwave",
-      
+
       "air_conditioner",
       "near_supermarket",
-      
-      
-      
+
+
+
       "intercom"
     ],
     "floor": 1,
@@ -1267,8 +1267,8 @@
     "guests": 4,
     "img": "images/181.jpg",
     "is_available": true,
-    "lat": 48.608106,
-    "lng": 22.264019,
+    "lat": 48.608750,
+    "lng": 22.264350,
     "price": 1700,
     "rooms": 1,
     "source_url": "https://rooms.net.ua/apartments/181/",
@@ -1291,15 +1291,15 @@
       "en": "Apartment at the address of the square Sh. Petefi 8a/5. Number of rooms: 2. Number of guests: 4. Located on the 2nd floor. Amenities: TV, refrigerator, microwave oven, hot water, air conditioner, supermarket nearby, convenient transport interchange, Smart TV, Internet."
     },
     "features": [
-      
-      
+
+
       "microwave",
-      
+
       "air_conditioner",
       "near_supermarket",
-      
+
       "smart_tv"
-      
+
     ],
     "floor": 2,
     "gallery": [
@@ -1339,16 +1339,16 @@
       "en": "Apartment at the address st. Tobilevicha 13. Number of rooms: 1. Number of guests: 2. Located on the 3rd floor. Amenities: TV, refrigerator, microwave oven, hot water, supermarket nearby, convenient transport interchange, Smart TV, balcony, coded entrance, washing machine."
     },
     "features": [
-      
-      
+
+
       "microwave",
-      
+
       "near_supermarket",
-      
+
       "smart_tv",
       "balcony",
       "intercom"
-      
+
     ],
     "floor": 3,
     "gallery": [
@@ -1396,15 +1396,15 @@
       "en": "Apartment at the address st. Sobranetska 160/120. Number of rooms: 1. Number of guests: 2. Located on the 5th floor. Amenities: TV, refrigerator, hot water, nearby supermarket, convenient transport interchange, cooking surface, washing machine, TV T2."
     },
     "features": [
-      
-      
-      
+
+
+
       "near_supermarket",
       "electro_hob"
-      
-      
-      
-      
+
+
+
+
     ],
     "floor": 5,
     "gallery": [
@@ -1449,15 +1449,15 @@
       "en": "Apartment at the address st. Mukachivska 77/33 with a skylight and a balcony. Number of rooms: 1. Number of guests: 2. Located on the 3rd floor. Amenities: TV, refrigerator, microwave oven, hot water, air conditioner, convenient transport interchange, Smart TV, balcony, cooking surface."
     },
     "features": [
-      
-      
+
+
       "microwave",
-      
+
       "air_conditioner",
-      
+
       "smart_tv",
       "balcony"
-      
+
     ],
     "floor": 3,
     "gallery": [
@@ -1496,16 +1496,16 @@
       "en": "Apartment at the address st. Sobranetska 160/155. Number of rooms: 1. Number of guests: 2. Located on the 4th floor. Amenities: TV, refrigerator, microwave oven, hot water, nearby supermarket, convenient transport interchange, Smart TV, cooking surface, coded entrance, washing machine."
     },
     "features": [
-      
-      
+
+
       "microwave",
-      
+
       "near_supermarket",
-      
+
       "smart_tv",
-      
+
       "intercom"
-      
+
     ],
     "floor": 4,
     "gallery": [
@@ -1545,18 +1545,18 @@
       "en": "Apartment at 5/17 Odeska St. Number of rooms: 1. Number of guests: 4. Located on the 4th floor. Amenities: TV, refrigerator, microwave oven, hot water, air conditioning, supermarket nearby, convenient transport interchange, Smart TV, balcony, cooking surface, coded entrance, washing machine."
     },
     "features": [
-      
-      
+
+
       "microwave",
-      
+
       "air_conditioner",
       "near_supermarket",
-      
+
       "smart_tv",
       "balcony",
-      
+
       "intercom"
-      
+
     ],
     "floor": 4,
     "gallery": [
@@ -1598,14 +1598,14 @@
       "en": "Apartment at 5 Freedom Avenue. Number of rooms: 1. Number of guests: 2. Located on the 6th floor. Amenities: refrigerator, hot water, nearby supermarket, convenient transport interchange, cooking surface, coded entrance, washing machine."
     },
     "features": [
-      
-      
+
+
       "near_supermarket",
-      
-      
+
+
       "intercom",
       "electro_hob"
-      
+
     ],
     "floor": 6,
     "gallery": [
@@ -1630,8 +1630,8 @@
     "guests": 2,
     "img": "images/177.jpg",
     "is_available": true,
-    "lat": 48.621,
-    "lng": 22.288,
+    "lat": 48.620800,
+    "lng": 22.292500,
     "price": 2000,
     "rooms": 1,
     "source_url": "https://rooms.net.ua/apartments/177/",
@@ -1654,16 +1654,16 @@
       "en": "Apartment at the address st. Sobranetska 160/163. Number of rooms: 1. Number of guests: 4. Located on the 5th floor. Amenities: TV, refrigerator, microwave oven, hot water, nearby supermarket, convenient transport interchange, Smart TV, cooking surface, coded entrance, washing machine."
     },
     "features": [
-      
-      
+
+
       "microwave",
-      
+
       "near_supermarket",
-      
+
       "smart_tv",
-      
+
       "intercom"
-      
+
     ],
     "floor": 5,
     "gallery": [
@@ -1709,16 +1709,16 @@
       "en": "Apartment at 3 Minayska St. Number of rooms: 2. Number of guests: 5. Located on the 3rd floor. Amenities: TV, refrigerator, microwave oven, hot water, supermarket nearby, convenient transport interchange, balcony, internet, washing machine, satellite TV."
     },
     "features": [
-      
-      
+
+
       "microwave",
-      
+
       "near_supermarket",
-      
+
       "balcony"
-      
-      
-      
+
+
+
     ],
     "floor": 3,
     "gallery": [
@@ -1766,16 +1766,16 @@
       "en": "Apartment at Volodymyrska 90. Number of rooms: 1. Number of guests: 5. Located on the 5th floor. Amenities: TV, refrigerator, hot water, air conditioner, supermarket nearby, convenient transport interchange, guarded parking, coded entrance, washing machine, TV T2."
     },
     "features": [
-      
-      
-      
+
+
+
       "air_conditioner",
       "near_supermarket",
-      
+
       "parking",
       "intercom"
-      
-      
+
+
     ],
     "floor": 5,
     "gallery": [
@@ -1792,8 +1792,8 @@
     "guests": 5,
     "img": "images/168.jpg",
     "is_available": true,
-        "lat": 48.614097,
-        "lng": 22.264416,
+    "lat": 48.614097,
+    "lng": 22.264416,
     "price": 2100,
     "rooms": 1,
     "source_url": "https://rooms.net.ua/apartments/168/",
@@ -1816,18 +1816,18 @@
       "en": "Apartment at the address st. Corso 7. Number of rooms: 1. Number of guests: 4. Located on the 2nd floor. Amenities: TV, refrigerator, microwave oven, hot water, air conditioner, supermarket nearby, convenient transport interchange, balcony, internet, coded entrance, washing machine, satellite TV."
     },
     "features": [
-      
-      
+
+
       "microwave",
-      
+
       "air_conditioner",
       "near_supermarket",
-      
+
       "balcony",
-      
+
       "intercom"
-      
-      
+
+
     ],
     "floor": 2,
     "gallery": [
@@ -1868,20 +1868,20 @@
       "en": "Apartment at the address st. Minayska 18 Number of rooms: 2. Number of guests: 4. Located on the 3rd floor. Amenities: TV, refrigerator, microwave oven, hot water, air conditioner, nearby supermarket, convenient transport interchange, balcony, cooking surface, internet, cable TV, secure parking, coded entrance, washing machine."
     },
     "features": [
-      
-      
+
+
       "microwave",
-      
+
       "air_conditioner",
       "near_supermarket",
-      
+
       "balcony",
-      
-      
-      
+
+
+
       "parking",
       "intercom"
-      
+
     ],
     "floor": 3,
     "gallery": [
@@ -1921,20 +1921,20 @@
       "en": "Apartment at the address st. Minayska 18 Number of rooms: 2. Number of guests: 4. Located on the 3rd floor. Amenities: TV, refrigerator, microwave oven, hot water, air conditioner, supermarket nearby, convenient transport interchange, balcony, internet, cable TV, guarded parking, coded entrance, washing machine, TV T2."
     },
     "features": [
-      
-      
+
+
       "microwave",
-      
+
       "air_conditioner",
       "near_supermarket",
-      
+
       "balcony",
-      
-      
+
+
       "parking",
       "intercom"
-      
-      
+
+
     ],
     "floor": 3,
     "gallery": [
@@ -1968,15 +1968,15 @@
       "en": "Apartment at the address st. Dobryanskoho 4. Number of rooms: 2. Number of guests: 5. Located on the 4th floor. Amenities: TV, refrigerator, microwave oven, hot water, supermarket nearby, convenient transport interchange, balcony, cable TV, washing machine."
     },
     "features": [
-      
-      
+
+
       "microwave",
-      
+
       "near_supermarket",
-      
+
       "balcony"
-      
-      
+
+
     ],
     "floor": 4,
     "gallery": [
@@ -2000,8 +2000,8 @@
     "guests": 5,
     "img": "images/125.jpg",
     "is_available": true,
-    "lat": 48.624318,
-    "lng": 22.306238,
+    "lat": 48.62423966107582,
+    "lng": 22.306329083244933,
     "price": 2400,
     "rooms": 2,
     "source_url": "https://rooms.net.ua/apartments/125/",
@@ -2024,17 +2024,17 @@
       "en": "Apartment at 90/246 Volodymyrska St. Number of rooms: 2. Number of guests: 4. Located on the 2nd floor. Amenities: TV, refrigerator, microwave oven, hot water, supermarket nearby, convenient transport interchange, balcony, internet, coded entrance, washing machine, satellite TV."
     },
     "features": [
-      
-      
+
+
       "microwave",
-      
+
       "near_supermarket",
-      
+
       "balcony",
-      
+
       "intercom"
-      
-      
+
+
     ],
     "floor": 2,
     "gallery": [
@@ -2055,8 +2055,8 @@
     "guests": 4,
     "img": "images/157.jpg",
     "is_available": true,
-    "lat": 22.264416,
-    "lng": 48.614097,
+    "lat": 48.61367431934502,
+    "lng": 22.26448940619882,
     "price": 2500,
     "rooms": 2,
     "source_url": "https://rooms.net.ua/apartments/157/",
@@ -2079,16 +2079,16 @@
       "en": "Apartment at the address st. Mukachivska 77/112. Number of rooms: 1. Number of guests: 2. Located on the 1st floor. Amenities: TV, refrigerator, microwave oven, hot water, supermarket nearby, convenient transport interchange, Smart TV, balcony, cooking surface, washing machine."
     },
     "features": [
-      
-      
+
+
       "microwave",
-      
+
       "near_supermarket",
-      
+
       "smart_tv",
       "balcony"
-      
-      
+
+
     ],
     "floor": 1,
     "gallery": [
@@ -2112,8 +2112,8 @@
     "guests": 2,
     "img": "images/187.jpg",
     "is_available": true,
-    "lat": 48.613578,
-    "lng": 22.302807,
+    "lat": 48.613713303601656,
+    "lng": 22.302656930688492,
     "price": 2500,
     "rooms": 1,
     "source_url": "https://rooms.net.ua/apartments/187/",
@@ -2136,16 +2136,16 @@
       "en": "Apartment at the address st. Mukachivska 77/111. Number of rooms: 1. Number of guests: 4. Located on the 1st floor. Amenities: TV, refrigerator, microwave oven, hot water, supermarket nearby, convenient transport interchange, Smart TV, balcony, cooking surface, washing machine."
     },
     "features": [
-      
-      
+
+
       "microwave",
-      
+
       "near_supermarket",
-      
+
       "smart_tv",
       "balcony"
-      
-      
+
+
     ],
     "floor": 1,
     "gallery": [
@@ -2170,8 +2170,8 @@
     "guests": 4,
     "img": "images/188.jpg",
     "is_available": true,
-    "lat": 48.613578,
-    "lng": 22.302807,
+    "lat": 48.613692024057,
+    "lng": 22.30258182883606,
     "price": 2700,
     "rooms": 1,
     "source_url": "https://rooms.net.ua/apartments/188/",
@@ -2194,15 +2194,15 @@
       "en": "Apartment at the address st. Minayska 12. Number of rooms: 3. Number of guests: 7. Located on the 4th floor. Amenities: TV, refrigerator, microwave oven, hot water, nearby supermarket, convenient transport interchange, Smart TV, balcony, Internet, guarded parking, coded entrance."
     },
     "features": [
-      
-      
+
+
       "microwave",
-      
+
       "near_supermarket",
-      
+
       "smart_tv",
       "balcony",
-      
+
       "parking",
       "intercom"
     ],
@@ -2227,8 +2227,8 @@
     "guests": 7,
     "img": "images/92.jpg",
     "is_available": true,
-    "lat": 48.610196,
-    "lng": 22.290083,
+    "lat": 48.61035194539845,
+    "lng": 22.29018666931237,
     "price": 3000,
     "rooms": 3,
     "source_url": "https://rooms.net.ua/apartments/92/",
@@ -2251,19 +2251,19 @@
       "en": "Apartment at the address st. Minayska 18G. Number of rooms: 3. Number of guests: 7. Located on the 3rd floor. Amenities: TV, refrigerator, microwave oven, hot water, air conditioner, nearby supermarket, convenient transport interchange, balcony, internet, cable TV, guarded parking, coded entrance, washing machine."
     },
     "features": [
-      
-      
+
+
       "microwave",
-      
+
       "air_conditioner",
       "near_supermarket",
-      
+
       "balcony",
-      
-      
+
+
       "parking",
       "intercom"
-      
+
     ],
     "floor": 3,
     "gallery": [
@@ -2278,8 +2278,8 @@
     "guests": 7,
     "img": "images/81.jpg",
     "is_available": true,
-    "lat": 48.606925,
-    "lng": 22.288788,
+    "lat": 48.607405282206564,
+    "lng": 22.28850410000166,
     "price": 3300,
     "rooms": 3,
     "source_url": "https://rooms.net.ua/apartments/81/",
@@ -2292,5 +2292,5 @@
     "checkOutDate": "2026-05-24"
   }
 ]
-;
+  ;
 
