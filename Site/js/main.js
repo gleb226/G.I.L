@@ -1118,8 +1118,79 @@ const initMainPage = () => {
     initPriceRange();
     applyFiltersFromUrl();
 
+    // Dynamic Children Ages Selector
+    const updateChildrenAges = (count) => {
+        const container = document.getElementById("guestChildrenAgesContainer");
+        const grid = document.getElementById("guestChildrenAgesGrid");
+        if (!container || !grid) return;
+
+        if (count === 0) {
+            container.style.display = "none";
+            grid.innerHTML = "";
+            return;
+        }
+
+        container.style.display = "block";
+        const currentSelects = grid.querySelectorAll(".child-age-select");
+        const currentCount = currentSelects.length;
+
+        if (count > currentCount) {
+            // Add more selects
+            for (let i = currentCount; i < count; i++) {
+                const selectWrapper = document.createElement("div");
+                selectWrapper.className = "child-age-selector-wrapper";
+                selectWrapper.style.display = "flex";
+                selectWrapper.style.flexDirection = "column";
+                selectWrapper.style.gap = "0.3rem";
+
+                const label = document.createElement("label");
+                label.style.fontSize = "0.78rem";
+                label.style.fontWeight = "600";
+                label.style.color = "var(--text-muted)";
+                label.textContent = lang === "uk" ? `${i + 1} дитина` : `Child ${i + 1}`;
+
+                const select = document.createElement("select");
+                select.className = "child-age-select";
+                select.style.padding = "0.45rem 0.6rem";
+                select.style.borderRadius = "0.55rem";
+                select.style.border = "1px solid rgba(var(--surface-muted-rgb), 0.22)";
+                select.style.background = "#fff";
+                select.style.color = "var(--text-main)";
+                select.style.font = "inherit";
+                select.style.fontSize = "0.85rem";
+                select.style.cursor = "pointer";
+                select.style.boxShadow = "inset 0 1px 2px rgba(0,0,0,0.04)";
+                
+                for (let age = 1; age <= 17; age++) {
+                    const opt = document.createElement("option");
+                    opt.value = String(age);
+                    if (lang === "uk") {
+                        opt.textContent = `${age} ${age === 1 ? 'рік' : (age >= 2 && age <= 4) ? 'роки' : 'років'}`;
+                    } else {
+                        opt.textContent = `${age} ${age === 1 ? 'year old' : 'years old'}`;
+                    }
+                    select.appendChild(opt);
+                }
+
+                select.addEventListener("change", applyFilters);
+
+                selectWrapper.appendChild(label);
+                selectWrapper.appendChild(select);
+                grid.appendChild(selectWrapper);
+            }
+        } else if (count < currentCount) {
+            // Remove extra selects
+            const wrappers = grid.querySelectorAll(".child-age-selector-wrapper");
+            for (let i = currentCount - 1; i >= count; i--) {
+                if (wrappers[i]) {
+                    grid.removeChild(wrappers[i]);
+                }
+            }
+        }
+    };
+
     // Guest stepper setup
-    const setupGuestStepper = (decId, incId, valId, hiddenId, min, max) => {
+    const setupGuestStepper = (decId, incId, valId, hiddenId, min, max, onChange) => {
         const decBtn = document.getElementById(decId);
         const incBtn = document.getElementById(incId);
         const valEl = document.getElementById(valId);
@@ -1132,6 +1203,7 @@ const initMainPage = () => {
             hidden.value = String(clamped);
             valEl.textContent = String(clamped);
             decBtn.disabled = clamped <= min;
+            if (onChange) onChange(clamped);
             applyFilters();
         };
 
@@ -1141,7 +1213,7 @@ const initMainPage = () => {
     };
 
     setupGuestStepper("guestAdultsDec", "guestAdultsInc", "guestAdultsVal", "guestAdults", 1, null);
-    setupGuestStepper("guestChildrenDec", "guestChildrenInc", "guestChildrenVal", "guestChildren", 0, null);
+    setupGuestStepper("guestChildrenDec", "guestChildrenInc", "guestChildrenVal", "guestChildren", 0, null, updateChildrenAges);
     setupGuestStepper("guestPetsDec", "guestPetsInc", "guestPetsVal", "guestPets", 0, null);
     if (availabilityCalendarRoot && typeof window.createAvailabilityCalendar === "function") {
         availabilityCalendar = window.createAvailabilityCalendar(availabilityCalendarRoot, {
@@ -1204,6 +1276,8 @@ const initMainPage = () => {
         if (adultsVal) adultsVal.textContent = "1";
         if (childrenVal) childrenVal.textContent = "0";
         if (petsVal) petsVal.textContent = "0";
+
+        updateChildrenAges(0);
 
         const adultsDec = document.getElementById("guestAdultsDec");
         if (adultsDec) adultsDec.disabled = true;

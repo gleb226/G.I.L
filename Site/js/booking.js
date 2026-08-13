@@ -93,7 +93,7 @@ window.openBookingModal = (apartmentId) => {
             onSelectionChange: (state) => {
                 currentSelection = state;
                 if (state.checkIn && state.checkOut) {
-                    selectedDatesDisplay.textContent = `${state.checkIn} - ${state.checkOut} (${state.nights} ${window.t("calendar.nights", { count: state.nights, lng: pageLang })})`;
+                    selectedDatesDisplay.textContent = `${state.checkIn} - ${state.checkOut} (${window.t("calendar.nights", { count: state.nights, lng: pageLang })})`;
                     localStorage.setItem('booking_checkIn', state.checkIn);
                     localStorage.setItem('booking_checkOut', state.checkOut);
                 } else if (state.checkIn) {
@@ -111,7 +111,7 @@ window.openBookingModal = (apartmentId) => {
         if (savedCheckIn && savedCheckOut) {
             currentSelection = { checkIn: savedCheckIn, checkOut: savedCheckOut };
             const n = window.AvailabilityCalendarUtils ? window.AvailabilityCalendarUtils.diffInDays(savedCheckIn, savedCheckOut) : 0;
-            selectedDatesDisplay.textContent = `${savedCheckIn} - ${savedCheckOut} (${n} ${window.t("calendar.nights", { count: n, lng: pageLang })})`;
+            selectedDatesDisplay.textContent = `${savedCheckIn} - ${savedCheckOut} (${window.t("calendar.nights", { count: n, lng: pageLang })})`;
         }
     }
 

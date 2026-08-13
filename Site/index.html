@@ -111,7 +111,6 @@
 
                 <div class="filter_actions">
                     <button type="button" class="filter_action_button filter_action_clear" id="filterReset" data-i18n="common.actions.reset">Скинути</button>
-                    <button type="submit" class="filter_action_button" data-i18n="common.actions.apply">Застосувати</button>
                 </div>
             </form>
         </section>
@@ -148,7 +147,7 @@
                     <div class="guest_selector_row">
                         <div class="guest_selector_info">
                             <span class="guest_selector_label" data-i18n="pages.main.guestsChildren">Діти</span>
-                            <span class="guest_selector_sub">2–12 років</span>
+                            <span class="guest_selector_sub" data-i18n="pages.main.guestsChildrenSub">0–17 років</span>
                         </div>
                         <div class="guest_stepper">
                             <button type="button" class="guest_stepper_btn" id="guestChildrenDec" aria-label="Зменшити дітей">−</button>
@@ -156,6 +155,10 @@
                             <button type="button" class="guest_stepper_btn" id="guestChildrenInc" aria-label="Збільшити дітей">+</button>
                         </div>
                         <input type="hidden" id="guestChildren" value="0">
+                    </div>
+                    <div class="guest_children_ages" id="guestChildrenAgesContainer" style="display: none; width: 100%; margin-top: 0.85rem; padding-top: 0.85rem; border-top: 1px solid rgba(var(--surface-muted-rgb), 0.12);">
+                        <span class="guest_children_ages_title" style="display: block; font-size: 0.85rem; font-weight: 700; color: var(--text-main); margin-bottom: 0.6rem;" data-i18n="pages.main.specifyChildrenAges">Вкажіть вік дітей</span>
+                        <div class="guest_children_ages_grid" id="guestChildrenAgesGrid" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(8rem, 1fr)); gap: 0.75rem;"></div>
                     </div>
                     <div class="guest_selector_row">
                         <div class="guest_selector_info">

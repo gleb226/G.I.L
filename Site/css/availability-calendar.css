@@ -225,14 +225,15 @@
     display: grid;
     place-items: center;
     justify-self: center;
-    width: min(1.55rem, 100%);
+    width: 2.2rem;
+    height: 2.2rem;
     aspect-ratio: 1 / 1;
     border: 1px solid transparent;
     border-radius: 50%;
     background: transparent;
     color: var(--text-main);
     font: inherit;
-    font-size: 0.74rem;
+    font-size: 0.85rem;
     cursor: pointer;
     padding: 0;
     touch-action: manipulation;
@@ -264,20 +265,22 @@
 }
 
 .availability_day.is-booked{
-    background: rgba(58, 36, 24, 0.12);
-    border-color: rgba(58, 36, 24, 0.14);
-    color: var(--surface-muted);
+    background: rgba(217, 83, 79, 0.08);
+    border-color: rgba(217, 83, 79, 0.15);
+    color: rgba(var(--ink-rgb), 0.35);
+    text-decoration: line-through;
+    cursor: not-allowed;
 }
 
 .availability_day.is-booked::after{
     content: "";
     position: absolute;
-    right: 0.45rem;
-    bottom: 0.45rem;
-    width: 0.32rem;
-    height: 0.32rem;
+    right: 0.35rem;
+    bottom: 0.35rem;
+    width: 0.35rem;
+    height: 0.35rem;
     border-radius: 999px;
-    background: var(--surface-muted);
+    background: #d9534f;
 }
 
 .availability_day.is-selected-start::after,
@@ -293,7 +296,9 @@
     display: flex;
     flex-wrap: wrap;
     gap: 0.9rem 1.2rem;
-    padding-top: 0.2rem;
+    padding-top: 0.5rem;
+    margin-top: 0.5rem;
+    border-top: 1px solid rgba(var(--surface-muted-rgb), 0.1);
 }
 
 .availability_legend_item{
@@ -302,15 +307,15 @@
     gap: 0.45rem;
     color: var(--text-muted);
     font-size: 0.86rem;
-    font-weight: 700;
+    font-weight: 750;
 }
 
 .availability_legend_dot{
     width: 0.8rem;
     height: 0.8rem;
     border-radius: 50%;
-    background: rgba(var(--surface-muted-rgb), 0.12);
-    border: 1px solid rgba(var(--surface-muted-rgb), 0.14);
+    background: #ffffff;
+    border: 1.5px solid rgba(var(--surface-muted-rgb), 0.3);
 }
 
 .availability_legend_dot.is-selected{
@@ -319,8 +324,8 @@
 }
 
 .availability_legend_dot.is-booked{
-    background: rgba(58, 36, 24, 0.22);
-    border-color: rgba(58, 36, 24, 0.22);
+    background: rgba(217, 83, 79, 0.15);
+    border-color: rgba(217, 83, 79, 0.4);
 }
 
 .availability_detail_panel{
