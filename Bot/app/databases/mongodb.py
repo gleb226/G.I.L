@@ -229,10 +229,13 @@ async def find_next_free_dates(ap_id, start_date_str, duration_days):
         i += 1
     return list(reversed(before)), after
 
-async def create_booking(user_id, ap_id, s_d, e_d, ph, w, tp):
+async def create_booking(user_id, ap_id, s_d, e_d, ph, w, tp, name=None):
     ap = await get_apartment(ap_id)
     oid = ObjectId(ap["_id"]) if ap else ap_id
-    res = await bookings_col.insert_one({"user_id": user_id, "ap_id": oid, "start_date": s_d, "end_date": e_d, "phone": ph, "wishes": w, "total_price": tp, "prepayment": tp * 0.5, "remaining": tp * 0.5, "paid_prepayment": 0, "paid_remaining": 0, "status": "pending_50", "created_at": datetime.datetime.utcnow()})
+    doc = {"user_id": user_id, "ap_id": oid, "start_date": s_d, "end_date": e_d, "phone": ph, "wishes": w, "total_price": tp, "prepayment": tp * 0.5, "remaining": tp * 0.5, "paid_prepayment": 0, "paid_remaining": 0, "status": "pending_50", "created_at": datetime.datetime.utcnow()}
+    if name:
+        doc["name"] = name
+    res = await bookings_col.insert_one(doc)
     await add_log("booking", "create_booking", details=f"Booking created for apartment {ap_id}", user_id=user_id, extra={"start_date": s_d, "end_date": e_d, "total_price": tp})
     return res.inserted_id
 

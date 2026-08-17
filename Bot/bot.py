@@ -192,11 +192,15 @@ async def create_booking_api(request):
 
         # We don't have a real telegram user_id here, so we'll use a placeholder or 0
         # Actually, let's use 0 to indicate website booking
-        booking_id = await create_booking(0, ap_id, start_date, end_date, phone, wishes, total_price)
+        booking_id = await create_booking(0, ap_id, start_date, end_date, phone, wishes, total_price, name=name)
         
         # Notify admins about NEW booking (pending payment)
         bot = request.app['bot']
-        ap_name = apartment["title"].get(lang, apartment["title"].get("uk", "Apartment"))
+        raw_title = apartment.get("title", "Apartment")
+        if isinstance(raw_title, dict):
+            ap_name = raw_title.get(lang, raw_title.get("uk", "Apartment"))
+        else:
+            ap_name = str(raw_title)
         await notify_admins(
             bot,
             (

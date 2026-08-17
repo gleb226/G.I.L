@@ -13,7 +13,7 @@ const TRANSLATIONS = {
             notSpecified: "Not specified",
             actions: {
                 open: "Open",
-                rent: "View",
+                rent: "Book",
                 view: "View",
                 apply: "Apply",
                 reset: "Reset",
@@ -223,7 +223,7 @@ const TRANSLATIONS = {
             notSpecified: "Не вказано",
             actions: {
                 open: "Відкрити",
-                rent: "Переглянути",
+                rent: "Забронювати",
                 view: "Переглянути",
                 apply: "Застосувати",
                 reset: "Скинути",
