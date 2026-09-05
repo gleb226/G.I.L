@@ -393,14 +393,10 @@ const initApartmentPage = () => {
             visibleGallery.forEach((galleryImage, index) => {
                 const wrapper = document.createElement("div");
                 wrapper.className = "thumb_wrapper";
-                wrapper.style.display = "flex";
-                wrapper.style.alignItems = "center";
-                wrapper.style.gap = "0.5rem";
 
                 const num = document.createElement("span");
                 num.textContent = index + 1;
-                num.style.fontWeight = "bold";
-                num.style.minWidth = "1.2rem";
+                num.className = "gallery_thumb_number";
 
                 const img = document.createElement("img");
                 const src = window.getAssetUrl(galleryImage);

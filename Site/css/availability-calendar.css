@@ -288,6 +288,15 @@
     display: none;
 }
 
+.availability_day.is-past,
+.availability_day.is-too-long{
+    color: rgba(var(--ink-rgb), 0.25);
+    text-decoration: line-through;
+    cursor: not-allowed;
+    background: transparent;
+    border-color: transparent;
+}
+
 .availability_day:disabled{
     cursor: default;
 }

@@ -9,7 +9,6 @@ def main_menu_kb(role="user", lang="uk"):
     builder = ReplyKeyboardBuilder()
     if role in ["admin", "boss", "manager", "developer"]:
         builder.add(KeyboardButton(text=get_text("btn_admin", lang)))
-    builder.adjust(2)
     return builder.as_markup(resize_keyboard=True)
 
 

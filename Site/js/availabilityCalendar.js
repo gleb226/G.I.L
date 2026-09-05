@@ -358,6 +358,15 @@
             const isSelectedRange = isIsoInExclusiveRange(isoDate, state.checkIn, state.checkOut);
             const isBooked = bookedRanges.some((range) => isIsoInExclusiveRange(isoDate, range.checkIn, range.checkOut));
             const isOutsideSelectionSurface = !allowSelection && !isBooked && !isCurrentMonth;
+            // Block past dates (before today) and dates > 30 days ahead
+            const isPast = allowSelection && compareIsoDates(isoDate, formatIsoDate(today)) < 0;
+            const maxBookDate = formatIsoDate(addDays(today, 30));
+            const isTooFar = allowSelection && compareIsoDates(isoDate, maxBookDate) > 0;
+            // Block checkout dates more than 30 days from selected checkin
+            const isTooLong = allowSelection && state.checkIn && !state.checkOut &&
+                compareIsoDates(isoDate, state.checkIn) > 0 &&
+                diffInDays(state.checkIn, isoDate) > 30;
+            const isDisabled = isPast || isTooFar || isBooked || isTooLong;
             const classNames = [
                 "availability_day",
                 isCurrentMonth ? "" : "is-muted",
@@ -366,7 +375,9 @@
                 isSelectedStart ? "is-selected-start" : "",
                 isSelectedEnd ? "is-selected-end" : "",
                 isBooked ? "is-booked" : "",
-                isOutsideSelectionSurface ? "is-empty" : ""
+                isOutsideSelectionSurface ? "is-empty" : "",
+                isPast || isTooFar ? "is-past" : "",
+                isTooLong ? "is-too-long" : ""
             ].filter(Boolean).join(" ");
 
             return `
@@ -375,7 +386,7 @@
                     class="${classNames}"
                     data-calendar-day="${isoDate}"
                     aria-label="${formatFullDateLabel(isoDate, lang)}"
-                    ${!allowSelection && !isBooked ? "disabled" : ""}
+                    ${(!allowSelection && !isBooked) || isDisabled ? "disabled" : ""}
                 >
                     <span>${dayDate.getDate()}</span>
                 </button>

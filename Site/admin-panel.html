@@ -45,8 +45,10 @@
 <span class="sidebar__logo">G.I.L</span>
 </div>
 <nav class="sidebar__nav">
-<a class="nav-item nav-item--active" data-section="new_orders"><i class="fas fa-bell"></i> Бронювання</a>
-<a class="nav-item" data-section="locations"><i class="fas fa-map-marker-alt"></i> Об'єкти</a>
+<a href="#" class="nav-item nav-item--active" data-section="new_orders"><i class="fas fa-bolt"></i> Нові бронювання</a>
+<a href="#" class="nav-item" data-section="orders"><i class="fas fa-list-alt"></i> Всі бронювання</a>
+<a href="#" class="nav-item" data-section="locations"><i class="fas fa-home"></i> Апартаменти</a>
+<a href="#" class="nav-item" data-section="socials"><i class="fas fa-share-alt"></i> Соцмережі</a>
 <a class="nav-item admin-inline-a-5" href="/"><i class="fas fa-external-link-alt"></i> На сайт</a>
 </nav>
 </aside>
@@ -225,21 +227,18 @@
                 document.getElementById('admin-info').textContent = `${currentAdmin.name} (${roleName(currentAdmin.role)})`;
                 const role = currentAdmin.role;
                 const isOwner = ['owner', 'boss', 'super'].includes(role);
-                const isAdmin = role === 'admin';
+                const isManager = role === 'manager' || role === 'admin';
                 const isDeveloper = role === 'developer';
 
                 document.querySelectorAll('.nav-item[data-section]').forEach(item => {
                     const sec = item.getAttribute('data-section');
-                    if (isDeveloper) {
-                        item.style.display = ''; // Ensure all are visible for developer
+                    if (isDeveloper || isOwner) {
+                        item.style.display = ''; // Developer and Owner see everything
                         return;
                     }
 
-                    if (isAdmin) {
+                    if (isManager) {
                         if (sec !== 'new_orders' && sec !== 'orders') item.style.display = 'none';
-                    } else if (isOwner) {
-                        // Owner sees all but stats (as before)
-                        if (sec === 'stats') item.style.display = 'none';
                     }
                 });
                 refreshData();
@@ -248,7 +247,7 @@
             function logout() { localStorage.clear(); window.location.href = '/admin-panel'; }
             function resetLogin() { clearInterval(verifyInterval); document.getElementById('login-form').style.display = 'block'; document.getElementById('verify-state').style.display = 'none'; }
             function showLoader(show) { document.getElementById('loader').style.display = show ? 'flex' : 'none'; }
-            function roleName(role) { return ({ developer: 'Розробник', owner: 'Власник', admin: 'Адмін' }[role] || role); }
+            function roleName(role) { return ({ developer: 'Розробник', owner: 'Власник', boss: 'Власник', manager: 'Менеджер', admin: 'Адмін' }[role] || role); }
 
             async function apiFetch(endpoint, method = 'GET', body = null) {
                 const options = { method, headers: { 'Content-Type': 'application/json', 'Authorization': `Bearer ${sessionToken}` } };
@@ -305,55 +304,31 @@
                 list.innerHTML = '';
                 const role = currentAdmin.role;
                 const isOwner = ['owner', 'boss', 'super'].includes(role);
-                const isAdmin = role === 'admin';
+                const isManager = role === 'admin' || role === 'manager';
                 const isDeveloper = role === 'developer';
-                const canManage = isOwner || isAdmin;
+                const canManage = isOwner || isManager;
 
                 orders.forEach(o => {
                     const div = document.createElement('div'); div.className = 'order-item';
                     const date = o.created_at ? new Date(o.created_at).toLocaleString('uk-UA') : '—';
                     const num = o.order_number && o.order_number !== '—' ? o.order_number : '—';
 
-                    // Construct delivery info
-                    let deliveryInfo = '';
-                    if (o.order_type === 'beans_delivery') {
-                        const branch = o.delivery_branch_id ? `Відділення №${o.delivery_branch_id}` : '';
-                        const dt = o.delivery_type === 'branch' ? 'Відділення' : (o.delivery_type === 'courier' ? "Кур'єр" : (branch ? 'Відділення' : "Кур'єр"));
-                        let adr = `<i class="fas fa-truck js-inline-style-101" ></i> Куди: ${dt} ${o.delivery_city || ''}, ${o.delivery_state || ''}, ${branch ? branch + ': ' : ''}${o.delivery_address || ''}`;
-                        deliveryInfo = adr.replace(', ,', ',').replace(' ,', ',');
-                    } else if (o.order_type === 'beans_booking' && o.location_name) {
-                        deliveryInfo = `<i class="fas fa-map-marker-alt js-inline-style-102" ></i> Куди: Самовивіз: ${o.location_name}`;
-                    } else if (o.order_type === 'takeaway' && o.location_name) {
-                        deliveryInfo = `<i class="fas fa-walking js-inline-style-103" ></i> Куди: З собою: ${o.location_name}`;
-                    } else if (o.order_type === 'in_house' && o.location_name) {
-                        deliveryInfo = `<i class="fas fa-coffee js-inline-style-104" ></i> Куди: В залі: ${o.location_name}`;
-                    } else {
-                        deliveryInfo = o.delivery_info ? `<i class="fas fa-info-circle js-inline-style-105" ></i> ${o.delivery_info}` : '—';
-                    }
-
-                    let paymentStr = (o.status === 'paid' || o.is_paid) ? 'ОПЛАЧЕНО' : 'НАКЛАДНИЙ ПЛАТІЖ';
-
-                    // Construct cart items
-                    let cartItems = '';
-                    if (Array.isArray(o.cart) && o.cart.length > 0) {
-                        cartItems = o.cart.map(item => `— ${item.name} (${item.price * (item.quantity || 1)} грн)`).join('<br>');
-                    } else if (typeof o.cart === 'string') {
-                        cartItems = o.cart; // Fallback for old string format
-                    }
+                    let paymentStr = o.is_paid ? 'ОПЛАЧЕНО (ПЕРЕДПЛАТА 50%)' : 'НЕ ОПЛАЧЕНО';
 
                     div.innerHTML = `
                         <div class="order-info">
-                            <div class="order-title"><i class="fas fa-box js-inline-style-106" ></i> ЗАМОВЛЕННЯ #${num} (${o.status === 'new' ? 'НОВЕ' : 'АКТИВНЕ'})</div>
+                            <div class="order-title"><i class="fas fa-home js-inline-style-106" ></i> БРОНЮВАННЯ #${num}</div>
                             <div class="order-meta">
-                                <div><i class="fas fa-user js-inline-style-107" ></i> ${o.fullname || o.username || '—'}</div>
-                                <div><i class="fas fa-phone js-inline-style-108" ></i> ${o.phone || '—'}</div>
-                                ${deliveryInfo && deliveryInfo !== '—' ? `<div>${deliveryInfo}</div>` : ''}
-                                <div><i class="fas fa-money-bill-wave js-inline-style-109" ></i> Сума: ${o.total_amount || o.total || 0} ₴</div>
+                                <div><i class="fas fa-user js-inline-style-107" ></i> Гість: ${o.fullname || '—'}</div>
+                                <div><i class="fas fa-phone js-inline-style-108" ></i> Телефон: ${o.phone || '—'}</div>
+                                <div><i class="fas fa-map-marker-alt js-inline-style-102" ></i> Апартаменти: ${o.location_name || '—'}</div>
+                                <div><i class="fas fa-calendar-alt js-inline-style-105" ></i> Дати: ${o.delivery_info || '—'}</div>
+                                <div><i class="fas fa-money-bill-wave js-inline-style-109" ></i> Сума: ${o.total_amount || 0} ₴</div>
                                 <div><i class="fas fa-credit-card js-inline-style-110" ></i> Оплата: ${paymentStr}</div>
                             </div>
                             <div class="order-items">
-                                <b><i class="fas fa-shopping-cart js-inline-style-111" ></i> Товари:</b><br>${cartItems || 'Немає товарів'}
-                                ${o.wishes ? `<br><br><b><i class="fas fa-sticky-note js-inline-style-112" ></i> ПОБАЖАННЯ:</b> ${o.wishes}` : ''}
+                                <b><i class="fas fa-info-circle js-inline-style-111" ></i> Статус:</b> ${o.status}<br>
+                                ${o.wishes ? `<br><b><i class="fas fa-comment js-inline-style-112" ></i> Побажання:</b> ${o.wishes}` : ''}
                             </div>
                         </div>
                         <div class="order-actions">
@@ -378,54 +353,30 @@
                 list.innerHTML = '';
                 const role = currentAdmin.role;
                 const isOwner = ['owner', 'boss', 'super'].includes(role);
-                const isAdmin = role === 'admin';
+                const isManager = role === 'admin' || role === 'manager';
                 const isDeveloper = role === 'developer';
-                const canManage = isOwner || isAdmin;
+                const canManage = isOwner || isManager;
 
                 orders.forEach(o => {
                     const div = document.createElement('div'); div.className = 'order-item';
                     const num = o.order_number && o.order_number !== '—' ? o.order_number : '—';
 
-                    // Construct delivery info
-                    let deliveryInfo = '';
-                    if (o.order_type === 'beans_delivery') {
-                        const branch = o.delivery_branch_id ? `Відділення №${o.delivery_branch_id}` : '';
-                        const dt = o.delivery_type === 'branch' ? 'Відділення' : (o.delivery_type === 'courier' ? "Кур'єр" : (branch ? 'Відділення' : "Кур'єр"));
-                        let adr = `<i class="fas fa-truck js-inline-style-114" ></i> Куди: ${dt} ${o.delivery_city || ''}, ${o.delivery_state || ''}, ${branch ? branch + ': ' : ''}${o.delivery_address || ''}`;
-                        deliveryInfo = adr.replace(', ,', ',').replace(' ,', ',');
-                    } else if (o.order_type === 'beans_booking' && o.location_name) {
-                        deliveryInfo = `<i class="fas fa-map-marker-alt js-inline-style-115" ></i> Куди: Самовивіз: ${o.location_name}`;
-                    } else if (o.order_type === 'takeaway' && o.location_name) {
-                        deliveryInfo = `<i class="fas fa-walking js-inline-style-116" ></i> Куди: З собою: ${o.location_name}`;
-                    } else if (o.order_type === 'in_house' && o.location_name) {
-                        deliveryInfo = `<i class="fas fa-coffee js-inline-style-117" ></i> Куди: В залі: ${o.location_name}`;
-                    } else {
-                        deliveryInfo = o.delivery_info ? `<i class="fas fa-info-circle js-inline-style-118" ></i> ${o.delivery_info}` : '—';
-                    }
-
-                    let paymentStr = (o.status === 'paid' || o.is_paid) ? 'ОПЛАЧЕНО' : 'НАКЛАДНИЙ ПЛАТІЖ';
-
-                    // Construct cart items
-                    let cartItems = '';
-                    if (Array.isArray(o.cart) && o.cart.length > 0) {
-                        cartItems = o.cart.map(item => `— ${item.name} (${item.price * (item.quantity || 1)} грн)`).join('<br>');
-                    } else if (typeof o.cart === 'string') {
-                        cartItems = o.cart; // Fallback for old string format
-                    }
+                    let paymentStr = o.is_paid ? 'ОПЛАЧЕНО (ПЕРЕДПЛАТА 50%)' : 'НЕ ОПЛАЧЕНО';
 
                     div.innerHTML = `
                         <div class="order-info">
-                            <div class="order-title"><i class="fas fa-box js-inline-style-119" ></i> ЗАМОВЛЕННЯ #${num} (АКТИВНЕ)</div>
+                            <div class="order-title"><i class="fas fa-home js-inline-style-119" ></i> БРОНЮВАННЯ #${num} (АКТИВНЕ)</div>
                             <div class="order-meta">
-                                <div><i class="fas fa-user js-inline-style-120" ></i> ${o.fullname || o.username || '—'}</div>
-                                <div><i class="fas fa-phone js-inline-style-121" ></i> ${o.phone || '—'}</div>
-                                ${deliveryInfo && deliveryInfo !== '—' ? `<div>${deliveryInfo}</div>` : ''}
-                                <div><i class="fas fa-money-bill-wave js-inline-style-122" ></i> Сума: ${o.total_amount || o.total || 0} ₴</div>
+                                <div><i class="fas fa-user js-inline-style-120" ></i> Гість: ${o.fullname || '—'}</div>
+                                <div><i class="fas fa-phone js-inline-style-121" ></i> Телефон: ${o.phone || '—'}</div>
+                                <div><i class="fas fa-map-marker-alt js-inline-style-115" ></i> Апартаменти: ${o.location_name || '—'}</div>
+                                <div><i class="fas fa-calendar-alt js-inline-style-118" ></i> Дати: ${o.delivery_info || '—'}</div>
+                                <div><i class="fas fa-money-bill-wave js-inline-style-122" ></i> Сума: ${o.total_amount || 0} ₴</div>
                                 <div><i class="fas fa-credit-card js-inline-style-123" ></i> Оплата: ${paymentStr}</div>
                             </div>
                             <div class="order-items">
-                                <b><i class="fas fa-shopping-cart js-inline-style-124" ></i> Товари:</b><br>${cartItems || 'Немає товарів'}
-                                ${o.wishes ? `<br><br><b><i class="fas fa-sticky-note js-inline-style-125" ></i> ПОБАЖАННЯ:</b> ${o.wishes}` : ''}
+                                <b><i class="fas fa-info-circle js-inline-style-124" ></i> Статус:</b> ${o.status}<br>
+                                ${o.wishes ? `<br><b><i class="fas fa-comment js-inline-style-125" ></i> Побажання:</b> ${o.wishes}` : ''}
                             </div>
                         </div>
                         <div class="order-actions">

@@ -7,12 +7,11 @@
                 --color-text: #26170F;
                 --color-text-muted: rgba(38, 23, 15, 0.72);
                 --sidebar-width: 280px;
-                --shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
-                --radius: 20px;
-                --font-main: 'Manrope', sans-serif;
-                --font-accent: 'Marcellus', serif;
-                --font-logo: 'Oswald', sans-serif;
-                --color-success: #00b894;
+                --shadow: 0 10px 30px rgba(38, 23, 15, 0.12);
+                --radius: 1.4rem;
+                --font-main: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+                --font-logo: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+                --color-success: #6C7450;
                 --color-danger: #d63031;
                 --color-warning: #fdcb6e;
             }

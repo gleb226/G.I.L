@@ -5,8 +5,7 @@ from dotenv import load_dotenv
 load_dotenv()
 
 BOT_TOKEN = os.getenv("BOT_TOKEN")
-# Monobank test token is hard‑coded; payment flow uses this token directly.
-MONOBANK_TOKEN = "u9mxshTrEIUIwo-IEe1uOk-3GE03S3iBlcoB_CuEc_3Q"
+MONOBANK_TOKEN = os.getenv("MONOBANK_TOKEN", "")
 
 MONGODB_URI = os.getenv("MONGODB_URI")
 GOOGLE_MAPS_API_KEY = os.getenv("GOOGLE_MAPS_API_KEY")

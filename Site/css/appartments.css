@@ -8,13 +8,13 @@
     margin: 0 auto 3rem;
     padding: 0 1.5rem;
     display: grid;
-    grid-template-columns: minmax(0, 1fr) 20em;
+    grid-template-columns: minmax(0, 1fr) clamp(16rem, 28vw, 22rem);
     grid-template-areas:
         "gallery sidebar"
         "map map"
         "availability availability"
         "description description";
-    gap: 1.875em;
+    gap: clamp(1rem, 2vw, 1.875em);
 }
 
 .apartment_sidebar{
@@ -27,9 +27,26 @@
 .gallery{
     grid-area: gallery;
     display: grid;
-    grid-template-columns: 7.5em minmax(0, 1fr);
+    grid-template-columns: clamp(5.5rem, 12vw, 9em) minmax(0, 1fr);
     grid-template-areas: "thumbs main";
     gap: 1.25em;
+}
+
+/* Thumbnail number wrapper */
+.thumb_wrapper{
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+}
+
+.gallery_thumb_number{
+    font-size: 0.72rem;
+    font-weight: 700;
+    color: var(--text-muted);
+    min-width: 1.1rem;
+    text-align: right;
+    flex-shrink: 0;
+    line-height: 1;
 }
 
 .thumbs{
@@ -41,8 +58,9 @@
 
 .thumbs img,
 .thumb_more{
-    width: 7.5em;
-    height: 5.625em;
+    width: 100%;
+    aspect-ratio: 4/3;
+    height: auto;
     object-fit: cover;
     border: 1px solid rgba(var(--surface-muted-rgb), 0.22);
     background: var(--surface);
@@ -63,8 +81,9 @@
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    width: 7.875rem;
-    height: 6rem;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 4/3;
     font-size: 1.2rem;
     font-weight: 700;
     margin-left: -0.02em;

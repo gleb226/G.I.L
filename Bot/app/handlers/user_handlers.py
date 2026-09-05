@@ -608,11 +608,11 @@ async def checkin_in(message: Message, state: FSMContext, bot: Bot):
         return await message.answer(get_text('msg_invalid_date', l))
     if checkin_at < now + datetime.timedelta(hours=24):
         return await message.answer(get_text('msg_date_too_early', l))
-    if checkin_at > now + datetime.timedelta(days=120):
+    if checkin_at > now + datetime.timedelta(days=30):
         text = (
-            "❌ Бронювання доступне лише на 4 місяці вперед. Оберіть ближчу дату заїзду."
+            "❌ Бронювання доступне лише на 30 днів вперед. Оберіть ближчу дату заїзду."
             if l == "uk" else
-            "❌ Booking is available only up to 4 months ahead. Please choose an earlier check-in date."
+            "❌ Booking is available only up to 30 days ahead. Please choose an earlier check-in date."
         )
         return await message.answer(text)
 
@@ -636,11 +636,11 @@ async def checkout_in(message: Message, state: FSMContext, bot: Bot):
     l = u.get('language', 'uk') if u else 'uk'
     if dt <= data['checkin']:
         return await message.answer(get_text('msg_checkout_after_checkin', l))
-    if (dt - data['checkin']).days > 31:
+    if (dt - data['checkin']).days > 30:
         text = (
-            "❌ Максимальна тривалість бронювання 1 місяць. Оберіть ближчу дату виїзду."
+            "❌ Максимальна тривалість бронювання 30 днів. Оберіть ближчу дату виїзду."
             if l == "uk" else
-            "❌ Maximum booking length is 1 month. Please choose an earlier check-out date."
+            "❌ Maximum booking length is 30 days. Please choose an earlier check-out date."
         )
         return await message.answer(text)
 

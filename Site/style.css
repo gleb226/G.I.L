@@ -180,13 +180,16 @@ a:focus-visible{
 
 #logo{
     width: 15em;
+    max-width: 25vw;
     height: auto;
 }
 
 .header_nav{
     display: flex;
-    gap: 3.6rem;
+    gap: clamp(1rem, 2.5vw, 3.6rem);
     align-items: center;
+    flex-wrap: nowrap;
+    padding: 0 1rem;
 }
 
 .navigation_current,
