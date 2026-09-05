@@ -50,7 +50,8 @@ FEATURE_LABELS = {
 def admin_panel_kb(role, lang="uk"):
     builder = ReplyKeyboardBuilder()
     builder.add(KeyboardButton(text=get_text("btn_active_bookings", lang)))
-    builder.add(KeyboardButton(text=get_text("btn_objects", lang)))
+    if role in ["boss", "admin", "developer"]:
+        builder.add(KeyboardButton(text=get_text("btn_objects", lang)))
     if role == "boss":
         builder.add(KeyboardButton(text=get_text("btn_team", lang)))
     builder.add(KeyboardButton(text=get_text("btn_back_main", lang)))

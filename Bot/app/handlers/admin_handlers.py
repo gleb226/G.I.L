@@ -32,7 +32,7 @@ router = Router()
 # Custom filter for admin/boss only to prevent collision with user handlers
 async def is_admin_filter(event: Message | CallbackQuery) -> bool:
     u = await get_user(event.from_user.id)
-    return u and u.get('role') in ['admin', 'boss']
+    return u and u.get('role') in ['admin', 'boss', 'manager', 'developer']
 
 # Helper to safely clear state and show error
 async def handle_error(event: Message | CallbackQuery, state: FSMContext, e: Exception, action: str):
@@ -504,11 +504,21 @@ async def delete_ap_h(callback: CallbackQuery, state: FSMContext):
 
 @router.callback_query(F.data.startswith("ok_"), is_admin_filter)
 async def approve_booking_h(callback: CallbackQuery):
-    await update_booking_status(callback.data[3:], "confirmed"); await callback.message.answer("✅ Бронювання підтверджено"); await callback.answer()
+    u = await get_user(callback.from_user.id)
+    if u.get("role") in ["developer"]:
+        return await callback.answer("Read-only access", show_alert=True)
+    await update_booking_status(callback.data[3:], "confirmed")
+    await callback.message.answer("✅ Бронювання підтверджено")
+    await callback.answer()
 
 @router.callback_query(F.data.startswith("rj_"), is_admin_filter)
 async def reject_booking_h(callback: CallbackQuery, bot: Bot):
-    await update_booking_status(callback.data[3:], "rejected"); await callback.message.answer("❌ Бронювання відхилено"); await callback.answer()
+    u = await get_user(callback.from_user.id)
+    if u.get("role") in ["developer"]:
+        return await callback.answer("Read-only access", show_alert=True)
+    await update_booking_status(callback.data[3:], "rejected")
+    await callback.message.answer("❌ Бронювання відхилено")
+    await callback.answer()
 
 @router.callback_query(F.data.startswith("ms_"), is_admin_filter)
 async def chat_h(callback: CallbackQuery, state: FSMContext):

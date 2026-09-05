@@ -1,11 +1,11 @@
 
             :root {
-                --color-cream: #f7f3e9;
-                --color-dark-brown: #3c2f2f;
-                --color-coffee: #8b5e3c;
-                --color-coffee-soft: rgba(139, 94, 60, 0.1);
-                --color-text: #2d3436;
-                --color-text-muted: #636e72;
+                --color-cream: #EEE3D6;
+                --color-dark-brown: #3A2418;
+                --color-coffee: #8C5A3C;
+                --color-coffee-soft: rgba(140, 90, 60, 0.2);
+                --color-text: #26170F;
+                --color-text-muted: rgba(38, 23, 15, 0.72);
                 --sidebar-width: 280px;
                 --shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
                 --radius: 20px;

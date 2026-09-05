@@ -308,7 +308,13 @@
                 return;
             }
 
-            setSelection(state.checkIn, isoDate);
+            let finalIsoDate = isoDate;
+            if (diffInDays(state.checkIn, finalIsoDate) > 30) {
+                finalIsoDate = formatIsoDate(addDays(parseIsoDate(state.checkIn), 30));
+                alert(getText("calendar.max30Days", "Maximum booking duration is 30 days.", { lng: lang }));
+            }
+
+            setSelection(state.checkIn, finalIsoDate);
         };
 
         const renderStatusText = () => {

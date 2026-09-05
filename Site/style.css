@@ -349,20 +349,20 @@ a:focus-visible{
 
 .footer__content {
     display: grid;
-    grid-template-columns: minmax(220px, 1.2fr) minmax(200px, 1fr) minmax(160px, 0.8fr) minmax(160px, 0.8fr);
+    grid-template-columns: minmax(13.75rem, 1.2fr) minmax(12.5rem, 1fr) minmax(10rem, 0.8fr) minmax(10rem, 0.8fr);
     gap: 2rem;
-    max-width: 1100px;
+    max-width: 68.75rem;
     margin: 0 auto;
     padding: 0 2rem;
 }
 
 .footer__section {
-    min-width: 180px;
+    min-width: 11.25rem;
 }
 
 @media (max-width: 56rem) {
     .footer__content {
-        grid-template-columns: repeat(2, minmax(200px, 1fr));
+        grid-template-columns: repeat(2, minmax(12.5rem, 1fr));
     }
 }
 
@@ -432,7 +432,7 @@ a:focus-visible{
     border-top: 1px solid rgba(var(--text-on-dark-rgb), 0.12);
     padding-top: 2rem;
     margin-top: 3rem;
-    max-width: 1200px;
+    max-width: 75rem;
     margin-left: auto;
     margin-right: auto;
     padding-left: 2rem;

@@ -110,6 +110,7 @@ async def search_user(query_str):
     return await users_col.find_one({"username": q})
 
 async def upsert_user(user_id, username=None, phone=None, role="user", name=None, language=None, currency=None):
+    from app.common.token import MANAGER_IDS, DEV_IDS
     update_data = {"user_id": user_id}
     if username: update_data["username"] = username.replace("@", "")
     if phone: 
@@ -118,8 +119,16 @@ async def upsert_user(user_id, username=None, phone=None, role="user", name=None
     if name: update_data["name"] = name
     if language: update_data["language"] = language
     if currency: update_data["currency"] = currency
-    if user_id in BOSS_IDS: update_data["role"] = "boss"
-    elif role != "user": update_data["role"] = role
+    
+    if user_id in BOSS_IDS:
+        update_data["role"] = "boss"
+    elif user_id in DEV_IDS:
+        update_data["role"] = "developer"
+    elif user_id in MANAGER_IDS:
+        update_data["role"] = "manager"
+    elif role != "user":
+        update_data["role"] = role
+        
     u = await get_user(user_id)
     if not u:
         if "role" not in update_data: update_data["role"] = role
@@ -131,10 +140,10 @@ async def update_user_pref(user_id, **kwargs):
     await users_col.update_one({"user_id": user_id}, {"$set": kwargs})
 
 async def get_admins():
-    return await users_col.find({"role": "admin"}).to_list(None)
+    return await users_col.find({"role": {"$in": ["admin", "boss", "manager", "developer"]}}).to_list(None)
 
 async def get_all_admins_and_bosses():
-    return await users_col.find({"role": {"$in": ["admin", "boss"]}}).to_list(None)
+    return await users_col.find({"role": {"$in": ["admin", "boss", "manager", "developer"]}}).to_list(None)
 
 async def get_apartments(only_available=False):
     if not _apartments_cache: await refresh_apartments_cache()
@@ -253,7 +262,7 @@ async def update_booking_status(b_id, status):
     await add_log("booking", "update_booking_status", details=f"Booking {b_id} status updated", extra={"status": status})
 
 async def get_active_bookings():
-    return await bookings_col.find({"status": {"$in": ["paid_50", "confirmed"]}}).sort("created_at", 1).to_list(None)
+    return await bookings_col.find({"status": {"$in": ["pending_50", "paid_50", "confirmed"]}}).sort("created_at", 1).to_list(None)
 
 async def get_apartment_bookings(ap_id):
     try: oid = ObjectId(ap_id)

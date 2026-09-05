@@ -391,6 +391,17 @@ const initApartmentPage = () => {
             const visibleGallery = gallery.length > 5 ? gallery.slice(0, 4) : gallery;
 
             visibleGallery.forEach((galleryImage, index) => {
+                const wrapper = document.createElement("div");
+                wrapper.className = "thumb_wrapper";
+                wrapper.style.display = "flex";
+                wrapper.style.alignItems = "center";
+                wrapper.style.gap = "0.5rem";
+
+                const num = document.createElement("span");
+                num.textContent = index + 1;
+                num.style.fontWeight = "bold";
+                num.style.minWidth = "1.2rem";
+
                 const img = document.createElement("img");
                 const src = window.getAssetUrl(galleryImage);
                 img.src = src;
@@ -403,7 +414,10 @@ const initApartmentPage = () => {
                 img.addEventListener("click", () => {
                     updateMainStage(index);
                 });
-                thumbsContainer.appendChild(img);
+
+                wrapper.appendChild(num);
+                wrapper.appendChild(img);
+                thumbsContainer.appendChild(wrapper);
             });
 
             if (gallery.length > 5) {

@@ -28,8 +28,8 @@ async def login_api(request: web.Request):
         return web.json_response({"detail": "Невірний пароль"}, status=401)
         
     user = await search_user(identifier)
-    if not user or user.get("role") not in ["admin", "boss"]:
-        return web.json_response({"detail": "Користувач не знайдений або немає прав адміністратора"}, status=403)
+    if not user or user.get("role") not in ["admin", "boss", "manager", "developer"]:
+        return web.json_response({"detail": "Користувач не знайдений або немає прав доступу"}, status=403)
         
     session_id = str(uuid.uuid4())
     admin_sessions[session_id] = {
@@ -119,6 +119,9 @@ async def active_bookings_api(request: web.Request):
 async def confirm_booking_api(request: web.Request):
     user_id = get_admin_user(request)
     if not user_id: return web.json_response({"detail": "Unauthorized"}, status=401)
+    user = await get_user(user_id)
+    if user.get("role") in ["developer"]:
+        return web.json_response({"detail": "Read-only access"}, status=403)
     booking_id = request.match_info["id"]
     await update_booking_status(booking_id, "confirmed")
     return web.json_response({"status": "ok"})
@@ -126,6 +129,9 @@ async def confirm_booking_api(request: web.Request):
 async def reject_booking_api(request: web.Request):
     user_id = get_admin_user(request)
     if not user_id: return web.json_response({"detail": "Unauthorized"}, status=401)
+    user = await get_user(user_id)
+    if user.get("role") in ["developer"]:
+        return web.json_response({"detail": "Read-only access"}, status=403)
     booking_id = request.match_info["id"]
     await update_booking_status(booking_id, "rejected")
     return web.json_response({"status": "ok"})
@@ -133,6 +139,7 @@ async def reject_booking_api(request: web.Request):
 async def admin_apartments_api(request: web.Request):
     user_id = get_admin_user(request)
     if not user_id: return web.json_response({"detail": "Unauthorized"}, status=401)
+    # Managers can view apartments or just return empty list? They work with orders, so seeing apartments is fine.
     aps = await get_apartments()
     result = []
     for ap in aps:
@@ -155,6 +162,9 @@ async def admin_apartments_api(request: web.Request):
 async def delete_apartment_api(request: web.Request):
     user_id = get_admin_user(request)
     if not user_id: return web.json_response({"detail": "Unauthorized"}, status=401)
+    user = await get_user(user_id)
+    if user.get("role") in ["developer", "manager"]:
+        return web.json_response({"detail": "Permission denied"}, status=403)
     ap_id = request.match_info["id"]
     await delete_apartment(ap_id)
     return web.json_response({"status": "ok"})

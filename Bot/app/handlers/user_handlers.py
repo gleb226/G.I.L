@@ -413,34 +413,28 @@ async def start_cmd(message: Message, state: FSMContext):
         await add_log("user", "first_start", "New user started bot", user_id=uid, extra={"payload": payload})
     
     l = u.get('language', 'uk')
-    is_staff = u.get('role') in ['admin', 'boss']
+    is_staff = u.get('role') in ['admin', 'boss', 'manager', 'developer']
     
     if not is_staff:
-        # Regular users are redirected to the website
-        website_url = "https://gil-apartments.com.ua"
+        from aiogram.types import ReplyKeyboardMarkup, KeyboardButton
+        kb = ReplyKeyboardMarkup(keyboard=[[KeyboardButton(text="Відправити контакт", request_contact=True)]], resize_keyboard=True)
         welcome_text = (
-            f"⛔ <b>Доступ заборонено</b>\n\n"
-            f"Цей бот призначений виключно для персоналу та адміністраторів G.I.L Apartments.\n"
-            f"Для бронювання апартаментів, будь ласка, скористайтеся нашим офіційним сайтом.\n\n"
-            f"🔗 <a href='{website_url}'>Перейти на сайт</a>"
-            if l == "uk" else
-            f"⛔ <b>Access Denied</b>\n\n"
-            f"This bot is intended strictly for G.I.L Apartments staff and administrators.\n"
-            f"To book an apartment, please use our official website.\n\n"
-            f"🔗 <a href='{website_url}'>Visit our website</a>"
+            "⛔ <b>Доступ заборонено</b>\n\n"
+            "Цей бот призначений виключно для адміністрації G.I.L Apartments.\n"
+            "Якщо ви є адміністратором, натисніть кнопку нижче, щоб відправити свій контакт. Ваша заявка буде збережена в базі для надання доступу."
         )
-        from aiogram.types import ReplyKeyboardRemove
-        await message.answer(welcome_text, parse_mode="HTML", reply_markup=ReplyKeyboardRemove())
-        return
-
-    if not u.get('currency'):
-        if payload:
-            await state.update_data(pending_start_payload=payload)
-        await message.answer(get_text('msg_choose_currency', l), reply_markup=currency_kb())
-        await state.set_state(SetupStates.choosing_currency)
+        await message.answer(welcome_text, parse_mode="HTML", reply_markup=kb)
         return
     
     await message.answer(get_text('msg_welcome', l), reply_markup=main_menu_kb(u.get('role', 'user'), l), parse_mode="HTML")
+
+@router.message(F.contact, StateFilter("*"))
+async def request_admin_contact(message: Message, state: FSMContext):
+    uid = message.from_user.id
+    phone = normalize_phone_input(message.contact.phone_number)
+    await update_user_pref(uid, phone=phone)
+    from aiogram.types import ReplyKeyboardRemove
+    await message.answer("✅ Ваш контакт збережено. Адміністратор надасть вам доступ згодом.", reply_markup=ReplyKeyboardRemove())
 
 @router.message(F.text.in_(BTNS_BOOKING), StateFilter("*"))
 async def book_h(message: Message, state: FSMContext):

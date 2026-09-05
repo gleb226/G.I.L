@@ -39,7 +39,7 @@ window.openBookingModal = (apartmentId) => {
                         
                         <div class="booking_summary_box">
                             <p><strong>${window.t("pages.booking.formDates", { lng: pageLang }) || "Обрані дати:"}</strong> <span id="modalSelectedDatesDisplay">-</span></p>
-                            <p class="prepayment_note">${window.t("pages.booking.prepaymentNotice", { lng: pageLang }) || "Для підтвердження бронювання необхідно сплатити передплату 50% через LiqPay."}</p>
+                            <p class="prepayment_note">${window.t("pages.booking.prepaymentNotice", { lng: pageLang }) || "Для підтвердження бронювання необхідно сплатити передплату 50% онлайн."}</p>
                         </div>
 
                         <div id="modalFormMessage" class="form_message"></div>
@@ -47,11 +47,6 @@ window.openBookingModal = (apartmentId) => {
                         <button type="submit" class="booking_submit_btn" id="modalSubmitBtn">
                             <span>${window.t("pages.booking.formSubmit", { lng: pageLang }) || "Забронювати та сплатити"}</span>
                         </button>
-                    </form>
-                    
-                    <form id="modalLiqpayForm" method="POST" action="https://www.liqpay.ua/api/3/checkout" accept-charset="utf-8" style="display:none;">
-                        <input type="hidden" name="data" value="" />
-                        <input type="hidden" name="signature" value="" />
                     </form>
                 </div>
                 <div class="booking-modal-right">
@@ -153,10 +148,11 @@ window.openBookingModal = (apartmentId) => {
             const result = await response.json();
 
             if (response.ok) {
-                const liqpayForm = document.getElementById("modalLiqpayForm");
-                liqpayForm.querySelector('input[name="data"]').value = result.liqpay_data;
-                liqpayForm.querySelector('input[name="signature"]').value = result.liqpay_signature;
-                liqpayForm.submit();
+                if (result.invoice_url) {
+                    window.location.href = result.invoice_url;
+                } else {
+                    throw new Error("No invoice URL returned");
+                }
             } else {
                 throw new Error(result.error || "Unknown error");
             }
