@@ -8,7 +8,7 @@ from app.databases.mongodb import upsert_user, get_user, get_apartments, get_apa
 from app.keyboards.user_keyboards import main_menu_kb, apartments_inline_kb, phone_kb, ap_info_inline_kb, info_only_apartment_kb, language_kb, currency_kb, contacts_inline_kb, suggest_dates_kb, profile_phone_kb
 from app.keyboards.admin_keyboards import booking_action_inline_kb
 from app.utils.states import BookingStates, UserChatStates, SetupStates
-from app.common.token import PAYMENT_TOKEN, BOSS_IDS, PORTMONE_LIMIT
+from app.common.token import MONOBANK_TOKEN, BOSS_IDS, PORTMONE_LIMIT
 from app.utils.currency import get_usd_rate, format_price
 from app.common.texts import get_text, get_all_translations
 import datetime, html, os, re, asyncio
@@ -737,7 +737,7 @@ async def suggest_date_h(callback: CallbackQuery, state: FSMContext):
 async def pay_booking_h(callback: CallbackQuery):
     user = await get_user(callback.from_user.id)
     lang = user.get("language", "uk") if user else "uk"
-    if not PAYMENT_TOKEN:
+    if not MONOBANK_TOKEN:
         await callback.answer("Payment token is not configured", show_alert=True)
         return
 
@@ -798,7 +798,7 @@ async def pay_booking_h(callback: CallbackQuery):
         title="G.I.L Apartments",
         description=get_text(description_key, lang),
         payload=f"booking:{booking_id}:{amount}:{1 if is_final else 0}",
-        provider_token=PAYMENT_TOKEN,
+        provider_token=MONOBANK_TOKEN,
         currency="UAH",
         prices=[LabeledPrice(label="G.I.L Apartments", amount=amount * 100)],
         need_name=True,
