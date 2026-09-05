@@ -345,26 +345,17 @@ const formatBeds = (beds, lang = getCurrentLang()) =>
     translateKey("common.beds", { lng: lang, count: beds });
 
 const APARTMENT_FEATURE_DEFINITIONS = [
+    { key: "wifi", iconClass: "fas fa-wifi" },
     { key: "air_conditioner", iconClass: "fas fa-snowflake" },
-    { key: "near_supermarket", iconClass: "fas fa-store" },
-    { key: "balcony", iconClass: "fas fa-door-open" },
-    { key: "gas_hob", iconClass: "fas fa-fire" },
-    { key: "electro_hob", iconClass: "fas fa-bolt" },
     { key: "parking", iconClass: "fas fa-parking" },
-    { key: "intercom", iconClass: "fas fa-bell" },
+    { key: "tv", iconClass: "fas fa-tv" },
+    { key: "smart_tv", iconClass: "fas fa-tv" },
     { key: "washing_machine", iconClass: "fas fa-tshirt" },
     { key: "refrigerator", iconClass: "fas fa-snowflake" },
-    { key: "internet", iconClass: "fas fa-wifi" },
-    { key: "wifi", iconClass: "fas fa-wifi" },
-    { key: "coded_entry", iconClass: "fas fa-bell" },
-    { key: "fridge", iconClass: "fas fa-snowflake" },
-    { key: "good_transport", iconClass: "fas fa-bus" },
-    { key: "satellite_tv", iconClass: "fas fa-tv" },
-    { key: "tv", iconClass: "fas fa-tv" },
-    { key: "cable_tv", iconClass: "fas fa-tv" },
-    { key: "t2_tv", iconClass: "fas fa-tv" },
-    { key: "secure_parking", iconClass: "fas fa-parking" },
-    { key: "hob", iconClass: "fas fa-fire" }
+    { key: "microwave", iconClass: "fas fa-utensils" },
+    { key: "balcony", iconClass: "fas fa-door-open" },
+    { key: "near_supermarket", iconClass: "fas fa-store" },
+    { key: "good_transport", iconClass: "fas fa-bus" }
 ];
 
 const getBedsDetail = (apartment) => {

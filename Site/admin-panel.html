@@ -551,7 +551,35 @@
                                 <div class="js-inline-style-149">
                                     <p><i class="fas fa-map-marker-alt js-inline-style-150" ></i> <b>Адреса:</b> ${l.address}</p>
                                     <p><i class="fas fa-clock js-inline-style-151" ></i> <b>Графік:</b> ${l.schedule || '—'}</p>
-                                    <p><i class="fas fa-star js-inline-style-152" ></i> <b>Зручності:</b> ${Array.isArray(l.amenities) ? l.amenities.join(', ') : (l.amenities || '—')}</p>
+                                    <p><i class="fas fa-star js-inline-style-152" ></i> <b>Зручності:</b> ${(() => {
+                                        const featureMap = {
+                                            tv: 'Телевізор',
+                                            wifi: 'Wi-Fi',
+                                            internet: 'Інтернет',
+                                            air_conditioner: 'Кондиціонер',
+                                            microwave: 'Мікрохвильова піч',
+                                            refrigerator: 'Холодильник',
+                                            fridge: 'Холодильник',
+                                            washing_machine: 'Пральна машина',
+                                            balcony: 'Балкон',
+                                            parking: 'Парковка',
+                                            secure_parking: 'Парковка під охороною',
+                                            near_supermarket: 'Поруч магазин',
+                                            good_transport: "Зручна розв'язка",
+                                            smart_tv: 'Smart TV',
+                                            satellite_tv: 'Супутникове ТБ',
+                                            cable_tv: 'Кабельне ТБ',
+                                            t2_tv: 'ТБ T2',
+                                            gas_hob: 'Газова плита',
+                                            electro_hob: 'Електрична плита',
+                                            hob: 'Варильна поверхня',
+                                            intercom: 'Домофон',
+                                            coded_entry: "Під'їзд на коді"
+                                        };
+                                        const items = Array.isArray(l.amenities) ? l.amenities : (l.amenities ? String(l.amenities).split(',').map(s => s.trim()) : []);
+                                        if (!items.length) return '—';
+                                        return items.map(item => featureMap[item] || item).join(', ');
+                                    })()}</p>
                                     <p><i class="fas fa-align-left js-inline-style-153" ></i> <b>Опис:</b> ${l.description || l.atmosphere || '—'}</p>
                                     ${l.video ? `<p><i class="fas fa-video js-inline-style-153" ></i> <b>Відео ролик:</b> <a href="${l.video}" target="_blank">Переглянути відео</a></p>` : ''}
                                     ${l.google_maps_url ? `<a href="${l.google_maps_url}" target="_blank" class="btn btn--outline btn--sm js-inline-style-154" >ВІДКРИТИ НА КАРТАХ <i class="fas fa-external-link-alt"></i></a>` : ''}

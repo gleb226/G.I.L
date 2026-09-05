@@ -265,10 +265,9 @@
 }
 
 .availability_day.is-booked{
-    background: rgba(217, 83, 79, 0.08);
-    border-color: rgba(217, 83, 79, 0.15);
-    color: rgba(var(--ink-rgb), 0.35);
-    text-decoration: line-through;
+    background: rgba(0, 0, 0, 0.04);
+    border-color: rgba(0, 0, 0, 0.08);
+    color: #a0a0a0;
     cursor: not-allowed;
 }
 
@@ -280,7 +279,7 @@
     width: 0.35rem;
     height: 0.35rem;
     border-radius: 999px;
-    background: #d9534f;
+    background: #a0a0a0;
 }
 
 .availability_day.is-selected-start::after,
@@ -289,9 +288,9 @@
 }
 
 .availability_day.is-past,
-.availability_day.is-too-long{
-    color: rgba(var(--ink-rgb), 0.25);
-    text-decoration: line-through;
+.availability_day.is-too-long,
+.availability_day.is-muted{
+    color: #b0b0b0;
     cursor: not-allowed;
     background: transparent;
     border-color: transparent;
